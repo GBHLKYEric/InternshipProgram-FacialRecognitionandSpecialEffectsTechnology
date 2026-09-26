@@ -1,0 +1,29 @@
+{
+  "video": "demo.mp4",
+  "source": "NASA astronaut public-domain sample; affine animated input, not a live camera",
+  "frames": 360,
+  "playback_fps": 20,
+  "duration_seconds": 18.0,
+  "frames_with_face": 360,
+  "effects": [
+    "none",
+    "glasses",
+    "crown",
+    "beauty",
+    "lipstick",
+    "all"
+  ],
+  "samples": [
+    "effect-none.jpg",
+    "effect-glasses.jpg",
+    "effect-crown.jpg",
+    "effect-beauty.jpg",
+    "effect-lipstick.jpg",
+    "effect-all.jpg"
+  ],
+  "pipeline_ms_median": 17.935,
+  "pipeline_ms_p95": 62.1025,
+  "pipeline_mean_fps": 38.77948048422645,
+  "timing_scope": "YuNet detection + effects only; excludes decode/encode/browser display",
+  "recorded_at": "2026-09-26T20:31:37"
+}

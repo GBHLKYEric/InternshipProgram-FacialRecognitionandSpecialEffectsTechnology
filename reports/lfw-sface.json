@@ -1,0 +1,4831 @@
+{
+  "backend": "OpenCV YuNet + SFace pretrained baseline",
+  "pairs": 6000,
+  "images": 7701,
+  "successful_images": 6526,
+  "failed_images": 1175,
+  "image_failure_rate": 0.15257758732632126,
+  "failures": [
+    {
+      "image": "Abdel_Aziz_Al-Hakim\\Abdel_Aziz_Al-Hakim_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Abdel_Nasser_Assidi\\Abdel_Nasser_Assidi_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Abdel_Nasser_Assidi\\Abdel_Nasser_Assidi_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Abdullah_al-Attiyah\\Abdullah_al-Attiyah_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Abdullah_Gul\\Abdullah_Gul_0006.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Abdullah_Gul\\Abdullah_Gul_0008.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 4 张"
+    },
+    {
+      "image": "Abdullah_Gul\\Abdullah_Gul_0009.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Abraham_Foxman\\Abraham_Foxman_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Adam_Mair\\Adam_Mair_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Adam_Sandler\\Adam_Sandler_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Adrien_Brody\\Adrien_Brody_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Adrien_Brody\\Adrien_Brody_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Adrien_Brody\\Adrien_Brody_0007.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ahmed_Qureia\\Ahmed_Qureia_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ahmet_Demir\\Ahmet_Demir_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 4 张"
+    },
+    {
+      "image": "Aishwarya_Rai\\Aishwarya_Rai_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Al_Pacino\\Al_Pacino_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Al_Pacino\\Al_Pacino_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Alan_Greer\\Alan_Greer_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Alberta_Lee\\Alberta_Lee_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Aldo_Paredes\\Aldo_Paredes_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Alejandro_Avila\\Alejandro_Avila_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Alejandro_Toledo\\Alejandro_Toledo_0021.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Alejandro_Toledo\\Alejandro_Toledo_0027.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Alex_Barros\\Alex_Barros_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Alex_Penelas\\Alex_Penelas_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Alexandra_Stevenson\\Alexandra_Stevenson_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Alfred_Sant\\Alfred_Sant_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Alfredo_Pena\\Alfredo_Pena_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ali_Abbas\\Ali_Abbas_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ali_Mohammed_Maher\\Ali_Mohammed_Maher_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Ali_Naimi\\Ali_Naimi_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ali_Naimi\\Ali_Naimi_0008.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Ally_Sheedy\\Ally_Sheedy_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Alvaro_Noboa\\Alvaro_Noboa_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Alvaro_Noboa\\Alvaro_Noboa_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Alvaro_Silva_Calderon\\Alvaro_Silva_Calderon_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Alvaro_Silva_Calderon\\Alvaro_Silva_Calderon_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Alvaro_Uribe\\Alvaro_Uribe_0007.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Alvaro_Uribe\\Alvaro_Uribe_0008.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Alvaro_Uribe\\Alvaro_Uribe_0012.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Alvaro_Uribe\\Alvaro_Uribe_0025.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Amanda_Beard\\Amanda_Beard_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Amanda_Bynes\\Amanda_Bynes_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Amanda_Marsh\\Amanda_Marsh_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Amer_al-Saadi\\Amer_al-Saadi_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Amram_Mitzna\\Amram_Mitzna_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Amy_Brenneman\\Amy_Brenneman_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Amy_Redford\\Amy_Redford_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ana_Guevara\\Ana_Guevara_0007.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ana_Palacio\\Ana_Palacio_0007.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Anders_Fogh_Rasmussen\\Anders_Fogh_Rasmussen_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Andre_Agassi\\Andre_Agassi_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Andrea_De_Cruz\\Andrea_De_Cruz_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Andrew_Bunner\\Andrew_Bunner_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Andrew_Niccol\\Andrew_Niccol_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Andrew_Shutley\\Andrew_Shutley_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Andrew_Weissmann\\Andrew_Weissmann_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Andy_Bryant\\Andy_Bryant_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Andy_Dick\\Andy_Dick_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Andy_Griffith\\Andy_Griffith_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Angela_Bassett\\Angela_Bassett_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Angelina_Jolie\\Angelina_Jolie_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Angie_Martinez\\Angie_Martinez_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Anibal_Ibarra\\Anibal_Ibarra_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ann_Veneman\\Ann_Veneman_0008.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Anna_Jones\\Anna_Jones_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Anne_ONeil\\Anne_ONeil_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Annie_Chaplin\\Annie_Chaplin_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Antanas_Valionis\\Antanas_Valionis_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Anton_Balasingham\\Anton_Balasingham_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Antonio_Banderas\\Antonio_Banderas_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Antonio_Banderas\\Antonio_Banderas_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Antonio_Palocci\\Antonio_Palocci_0008.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Antony_Leung\\Antony_Leung_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Anzori_Kikalishvili\\Anzori_Kikalishvili_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Arlen_Specter\\Arlen_Specter_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Arminio_Fraga\\Arminio_Fraga_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Arnold_Schwarzenegger\\Arnold_Schwarzenegger_0012.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Arnold_Schwarzenegger\\Arnold_Schwarzenegger_0033.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Arnoldo_Aleman\\Arnoldo_Aleman_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Aron_Ralston\\Aron_Ralston_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Arturo_Gatti\\Arturo_Gatti_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Asif_Ali_Zardari\\Asif_Ali_Zardari_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Atal_Bihari_Vajpayee\\Atal_Bihari_Vajpayee_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Atom_Egoyan\\Atom_Egoyan_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Azmi_Bishara\\Azmi_Bishara_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Baburam_Bhattari\\Baburam_Bhattari_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Barbara_Boxer\\Barbara_Boxer_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Barbara_Walters\\Barbara_Walters_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Barry_Collier\\Barry_Collier_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Bashar_Assad\\Bashar_Assad_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Bashar_Assad\\Bashar_Assad_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Bashar_Assad\\Bashar_Assad_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Beatrice_Dalle\\Beatrice_Dalle_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 7 张"
+    },
+    {
+      "image": "Ben_Affleck\\Ben_Affleck_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ben_Affleck\\Ben_Affleck_0006.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ben_Affleck\\Ben_Affleck_0007.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ben_Chandler\\Ben_Chandler_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ben_Curtis\\Ben_Curtis_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Benazir_Bhutto\\Benazir_Bhutto_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Benjamin_Netanyahu\\Benjamin_Netanyahu_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Bernadette_Peters\\Bernadette_Peters_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Bernard_Landry\\Bernard_Landry_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Bernardo_Segura\\Bernardo_Segura_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Bertrand_Bonello\\Bertrand_Bonello_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Betsy_Smith\\Betsy_Smith_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Bijan_Darvish\\Bijan_Darvish_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Bijan_Namdar_Zangeneh\\Bijan_Namdar_Zangeneh_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Bill_Clinton\\Bill_Clinton_0009.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Bill_Simon\\Bill_Simon_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Bill_Simon\\Bill_Simon_0015.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Billy_Crawford\\Billy_Crawford_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Billy_Crystal\\Billy_Crystal_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Binyamin_Ben-Eliezer\\Binyamin_Ben-Eliezer_0007.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Blythe_Danner\\Blythe_Danner_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Bob_Colvin\\Bob_Colvin_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Bob_Dole\\Bob_Dole_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Bob_Huggins\\Bob_Huggins_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Bob_Huggins\\Bob_Huggins_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Bob_Riley\\Bob_Riley_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Bob_Sulkin\\Bob_Sulkin_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Boris_Becker\\Boris_Becker_0006.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Boris_Berezovsky\\Boris_Berezovsky_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Boris_Yeltsin\\Boris_Yeltsin_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Brenda_Magana\\Brenda_Magana_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Brendan_Hansen\\Brendan_Hansen_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Bridget_Fonda\\Bridget_Fonda_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Bridget_Fonda\\Bridget_Fonda_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Brigitte_Boisselier\\Brigitte_Boisselier_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Brook_Robinson\\Brook_Robinson_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Bruce_Paltrow\\Bruce_Paltrow_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Caio_Blat\\Caio_Blat_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Calista_Flockhart\\Calista_Flockhart_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Cameron_Diaz\\Cameron_Diaz_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Cameron_Diaz\\Cameron_Diaz_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Camilla_Parker_Bowles\\Camilla_Parker_Bowles_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Carina_Lau_Ka-ling\\Carina_Lau_Ka-ling_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Carla_Del_Ponte\\Carla_Del_Ponte_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Carla_Del_Ponte\\Carla_Del_Ponte_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Carla_Sullivan\\Carla_Sullivan_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Carlos_Ghosn\\Carlos_Ghosn_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Carlos_Menem\\Carlos_Menem_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Carlos_Menem\\Carlos_Menem_0016.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Carlos_Ortega\\Carlos_Ortega_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Carlos_Salinas\\Carlos_Salinas_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Carlos_Vives\\Carlos_Vives_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Carolina_Barco\\Carolina_Barco_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Carrie-Anne_Moss\\Carrie-Anne_Moss_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Carroll_Weimer\\Carroll_Weimer_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Cassandra_Heise\\Cassandra_Heise_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Catriona_Le_May_Doan\\Catriona_Le_May_Doan_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Cecilia_Bolocco\\Cecilia_Bolocco_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Cecilia_Cheung\\Cecilia_Cheung_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Cesar_Gaviria\\Cesar_Gaviria_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Cesar_Gaviria\\Cesar_Gaviria_0006.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Chakib_Khelil\\Chakib_Khelil_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 4 张"
+    },
+    {
+      "image": "Chanda_Rubin\\Chanda_Rubin_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Chang_Dae-whan\\Chang_Dae-whan_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Charles_Grassley\\Charles_Grassley_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Charles_Mathews\\Charles_Mathews_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Charles_Moose\\Charles_Moose_0010.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Charles_Schumer\\Charles_Schumer_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Charlie_Coles\\Charlie_Coles_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Charlie_Deane\\Charlie_Deane_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Charlie_Zaa\\Charlie_Zaa_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Charlotte_Rampling\\Charlotte_Rampling_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Chawki_Armali\\Chawki_Armali_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Chea_Sophara\\Chea_Sophara_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Chen_Liang_Yu\\Chen_Liang_Yu_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Chen_Shui-bian\\Chen_Shui-bian_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Cherie_Blair\\Cherie_Blair_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Cheryl_Hines\\Cheryl_Hines_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Chita_Rivera\\Chita_Rivera_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Chloe_Sevigny\\Chloe_Sevigny_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Cho_Myung-kyun\\Cho_Myung-kyun_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Choi_Sung-hong\\Choi_Sung-hong_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Choi_Sung-hong\\Choi_Sung-hong_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Chok_Tong_Goh\\Chok_Tong_Goh_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Chris_Byrd\\Chris_Byrd_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Chris_Moore\\Chris_Moore_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Chris_Swecker\\Chris_Swecker_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Christian_Wulff\\Christian_Wulff_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Christina_Sawaya\\Christina_Sawaya_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Christine_Baumgartner\\Christine_Baumgartner_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Christine_Todd_Whitman\\Christine_Todd_Whitman_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Chuck_Eidson\\Chuck_Eidson_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Chung_Mong-hun\\Chung_Mong-hun_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Cindy_Zagorski\\Cindy_Zagorski_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Clare_Short\\Clare_Short_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Claudia_Cardinale\\Claudia_Cardinale_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Clint_Eastwood\\Clint_Eastwood_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Colin_Farrell\\Colin_Farrell_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Colin_Farrell\\Colin_Farrell_0006.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Colin_Powell\\Colin_Powell_0049.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Colin_Powell\\Colin_Powell_0095.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Condoleezza_Rice\\Condoleezza_Rice_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Condoleezza_Rice\\Condoleezza_Rice_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Coretta_Scott_King\\Coretta_Scott_King_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Cori_Enghusen\\Cori_Enghusen_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Costas_Simitis\\Costas_Simitis_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Costas_Simitis\\Costas_Simitis_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Cristina_Kirchner\\Cristina_Kirchner_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Cristina_Saralegui\\Cristina_Saralegui_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Cruz_Bustamante\\Cruz_Bustamante_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Cruz_Bustamante\\Cruz_Bustamante_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Curtis_Rodriguez\\Curtis_Rodriguez_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Dai_Bachtiar\\Dai_Bachtiar_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Dalai_Lama\\Dalai_Lama_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Dalai_Lama\\Dalai_Lama_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Dan_LaCoutre\\Dan_LaCoutre_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Dan_Morales\\Dan_Morales_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Dan_Morales\\Dan_Morales_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Dan_Wheldon\\Dan_Wheldon_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Daryl_Hannah\\Daryl_Hannah_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Daryl_Parks\\Daryl_Parks_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Dave_Campo\\Dave_Campo_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "David_Anderson\\David_Anderson_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "David_Beckham\\David_Beckham_0024.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "David_Bell\\David_Bell_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "David_Chase\\David_Chase_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "David_Ho\\David_Ho_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "David_Howard\\David_Howard_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "David_Hyde_Pierce\\David_Hyde_Pierce_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "David_Hyde_Pierce\\David_Hyde_Pierce_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "David_Hyde_Pierce\\David_Hyde_Pierce_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "David_Nalbandian\\David_Nalbandian_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "David_Oh\\David_Oh_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "David_Stern\\David_Stern_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "David_Stern\\David_Stern_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "David_Stern\\David_Stern_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "David_Suazo\\David_Suazo_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "David_Westerfield\\David_Westerfield_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Debbie_Reynolds\\Debbie_Reynolds_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Debra_Messing\\Debra_Messing_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Deece_Eckstein\\Deece_Eckstein_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Delphine_Chuillot\\Delphine_Chuillot_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Demetrius_Ferraciu\\Demetrius_Ferraciu_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Demi_Moore\\Demi_Moore_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Denis_Fassou-Nguesso\\Denis_Fassou-Nguesso_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Denise_Johnson\\Denise_Johnson_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Denise_Johnson\\Denise_Johnson_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Dennis_Franchione\\Dennis_Franchione_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Dennis_Powell\\Dennis_Powell_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Derek_Jeter\\Derek_Jeter_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Derek_Jeter\\Derek_Jeter_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Derek_Jeter\\Derek_Jeter_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Diana_Krall\\Diana_Krall_0006.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Diane_Green\\Diane_Green_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Diane_Lane\\Diane_Lane_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Dianne_Feinstein\\Dianne_Feinstein_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Dianne_Reeves\\Dianne_Reeves_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Dick_Cheney\\Dick_Cheney_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Dick_Devine\\Dick_Devine_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Diego_Armando_Maradona\\Diego_Armando_Maradona_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 4 张"
+    },
+    {
+      "image": "Din_Samsudin\\Din_Samsudin_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Dinah_Turner\\Dinah_Turner_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Dino_de_Laurentis\\Dino_de_Laurentis_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Dolly_Parton\\Dolly_Parton_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Dolma_Tsering\\Dolma_Tsering_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Dominique_de_Villepin\\Dominique_de_Villepin_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Dominique_de_Villepin\\Dominique_de_Villepin_0007.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Donald_Keyser\\Donald_Keyser_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Donald_Rumsfeld\\Donald_Rumsfeld_0083.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Donatella_Versace\\Donatella_Versace_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Donna_Shalala\\Donna_Shalala_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Doris_Roberts\\Doris_Roberts_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Doris_Schroeder\\Doris_Schroeder_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Doug_Duncan\\Doug_Duncan_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Douglas_Faneuil\\Douglas_Faneuil_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Dunn_Lampton\\Dunn_Lampton_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Dyab_Abou_Jahjah\\Dyab_Abou_Jahjah_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Earl_Counter\\Earl_Counter_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ed_Rendell\\Ed_Rendell_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Ed_Rosenthal\\Ed_Rosenthal_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Ed_Smart\\Ed_Smart_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Edgar_Savisaar\\Edgar_Savisaar_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Edie_Falco\\Edie_Falco_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Edmund_Hillary\\Edmund_Hillary_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Eduardo_Duhalde\\Eduardo_Duhalde_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Eduardo_Duhalde\\Eduardo_Duhalde_0007.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Edward_Arsenault\\Edward_Arsenault_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Edward_Egan\\Edward_Egan_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Edward_Greenspan\\Edward_Greenspan_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Edward_James_Olmos\\Edward_James_Olmos_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Edward_Lu\\Edward_Lu_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Edward_Norton\\Edward_Norton_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Edwin_Edwards\\Edwin_Edwards_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Einars_Repse\\Einars_Repse_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ekaterina_Dmitriev\\Ekaterina_Dmitriev_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ekke_Hard_Forberg\\Ekke_Hard_Forberg_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Elaine_Stritch\\Elaine_Stritch_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Elena_de_Chavez\\Elena_de_Chavez_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Eli_Stutsman\\Eli_Stutsman_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Eliane_Karp\\Eliane_Karp_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Elizabeth_Shue\\Elizabeth_Shue_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ellen_DeGeneres\\Ellen_DeGeneres_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Elvis_Costello\\Elvis_Costello_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Emily_Robison\\Emily_Robison_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Emily_Stevens\\Emily_Stevens_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Emma_Nicholson\\Emma_Nicholson_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Emmanuelle_Beart\\Emmanuelle_Beart_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Eric_Hinske\\Eric_Hinske_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Eric_Hinske\\Eric_Hinske_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Erika_Harold\\Erika_Harold_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Erika_Harold\\Erika_Harold_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Erin_Hershey_Presley\\Erin_Hershey_Presley_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Erin_Runnion\\Erin_Runnion_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ernie_Fletcher\\Ernie_Fletcher_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ernie_Fletcher\\Ernie_Fletcher_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Erwin_Mapasseng\\Erwin_Mapasseng_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ethan_Hawke\\Ethan_Hawke_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Eugene_Melnyk\\Eugene_Melnyk_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Eurico_Guterres\\Eurico_Guterres_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 4 张"
+    },
+    {
+      "image": "Evo_Morales\\Evo_Morales_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Farida_Ragoonanan\\Farida_Ragoonanan_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Faye_Dunaway\\Faye_Dunaway_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Fayssal_Mekdad\\Fayssal_Mekdad_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Fernando_Henrique_Cardoso\\Fernando_Henrique_Cardoso_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Fernando_Henrique_Cardoso\\Fernando_Henrique_Cardoso_0006.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Fernando_Sanz\\Fernando_Sanz_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Fernando_Vargas\\Fernando_Vargas_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Fernando_Vargas\\Fernando_Vargas_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Fidel_Castro\\Fidel_Castro_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Fidel_Castro\\Fidel_Castro_0011.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Fidel_Castro\\Fidel_Castro_0013.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Flor_Montulo\\Flor_Montulo_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Frances_Fisher\\Frances_Fisher_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Franco_Dragone\\Franco_Dragone_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Franco_Frattini\\Franco_Frattini_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Frank_Abagnale_Jr\\Frank_Abagnale_Jr_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Frank_Cassell\\Frank_Cassell_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Frank_Dunham_Jr\\Frank_Dunham_Jr_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Frank_Murkowski\\Frank_Murkowski_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Frank_Van_Ecke\\Frank_Van_Ecke_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Frank_Zappa\\Frank_Zappa_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Franko_Simatovic\\Franko_Simatovic_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Franz_Muentefering\\Franz_Muentefering_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Fruit_Chan\\Fruit_Chan_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Gabriel_Jorge_Ferreia\\Gabriel_Jorge_Ferreia_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Gabriel_Valdes\\Gabriel_Valdes_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Gao_Qiang\\Gao_Qiang_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Garry_Kasparov\\Garry_Kasparov_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Garry_McCoy\\Garry_McCoy_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Gary_Barnett\\Gary_Barnett_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Gary_Bergeron\\Gary_Bergeron_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Gary_Doer\\Gary_Doer_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Gavyn_Arthur\\Gavyn_Arthur_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "George_Harrison\\George_Harrison_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "George_Papandreou\\George_Papandreou_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "George_Papandreou\\George_Papandreou_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "George_Papandreou\\George_Papandreou_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "George_Robertson\\George_Robertson_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "George_Ryan\\George_Ryan_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "George_Voinovich\\George_Voinovich_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "George_Voinovich\\George_Voinovich_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Gerald_Ford\\Gerald_Ford_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Geraldine_Chaplin\\Geraldine_Chaplin_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Gerard_Depardieu\\Gerard_Depardieu_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Gerard_Depardieu\\Gerard_Depardieu_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Gerhard_Schroeder\\Gerhard_Schroeder_0100.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Gerry_Adams\\Gerry_Adams_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ghassan_Elashi\\Ghassan_Elashi_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Gil_de_Ferran\\Gil_de_Ferran_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Gilberto_Rodriguez_Orejuela\\Gilberto_Rodriguez_Orejuela_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Gillian_Anderson\\Gillian_Anderson_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Gisele_Bundchen\\Gisele_Bundchen_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Giulio_Andreotti\\Giulio_Andreotti_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Glafcos_Clerides\\Glafcos_Clerides_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Glen_DaSilva\\Glen_DaSilva_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Gloria_Macapagal_Arroyo\\Gloria_Macapagal_Arroyo_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Goldie_Hawn\\Goldie_Hawn_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 4 张"
+    },
+    {
+      "image": "Goldie_Hawn\\Goldie_Hawn_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Gonzalo_Sanchez_de_Lozada\\Gonzalo_Sanchez_de_Lozada_0007.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Gonzalo_Sanchez_de_Lozada\\Gonzalo_Sanchez_de_Lozada_0010.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Gonzalo_Sanchez_de_Lozada\\Gonzalo_Sanchez_de_Lozada_0011.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Gordana_Grubin\\Gordana_Grubin_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Gordon_Brown\\Gordon_Brown_0006.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Graciano_Rocchigiani\\Graciano_Rocchigiani_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Gray_Davis\\Gray_Davis_0007.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Gray_Davis\\Gray_Davis_0022.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Greg_Ostertag\\Greg_Ostertag_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Greg_Rusedski\\Greg_Rusedski_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Gregor_Gysi\\Gregor_Gysi_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Gro_Harlem_Brundtland\\Gro_Harlem_Brundtland_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Guillaume_Depardieu\\Guillaume_Depardieu_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Guillaume_Soro\\Guillaume_Soro_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Guillermo_Ortiz\\Guillermo_Ortiz_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Gunter_Pleuger\\Gunter_Pleuger_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Gus_Van_Sant\\Gus_Van_Sant_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Guus_Hiddink\\Guus_Hiddink_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Gwendal_Peizerat\\Gwendal_Peizerat_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Gwendal_Peizerat\\Gwendal_Peizerat_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Gwyneth_Paltrow\\Gwyneth_Paltrow_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Gwyneth_Paltrow\\Gwyneth_Paltrow_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Habib_Hisham\\Habib_Hisham_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Habib_Rizieq\\Habib_Rizieq_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 4 张"
+    },
+    {
+      "image": "Habib_Rizieq\\Habib_Rizieq_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Habib_Rizieq\\Habib_Rizieq_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Halle_Berry\\Halle_Berry_0009.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Hamad_Bin_Isa_al-Khalifa\\Hamad_Bin_Isa_al-Khalifa_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Hamid_Karzai\\Hamid_Karzai_0019.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Hamzah_Haz\\Hamzah_Haz_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Hana_Urushima\\Hana_Urushima_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Hans_Blix\\Hans_Blix_0012.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Hans_Blix\\Hans_Blix_0018.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Hans_Blix\\Hans_Blix_0026.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Hans_Blix\\Hans_Blix_0027.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Harriet_Lessy\\Harriet_Lessy_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Hartmut_Mehdorn\\Hartmut_Mehdorn_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Hassan_Wirajuda\\Hassan_Wirajuda_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Heath_Ledger\\Heath_Ledger_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Heath_Ledger\\Heath_Ledger_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Heather_Mills\\Heather_Mills_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Hector_Babenco\\Hector_Babenco_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Hector_Babenco\\Hector_Babenco_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Hedayat_Amin_Arsala\\Hedayat_Amin_Arsala_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Heizo_Takenaka\\Heizo_Takenaka_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Henry_Suazo\\Henry_Suazo_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Herb_Sendek\\Herb_Sendek_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Hermann_Maier\\Hermann_Maier_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Herta_Daeubler-Gmelin\\Herta_Daeubler-Gmelin_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Hilary_Duff\\Hilary_Duff_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Hillary_Clinton\\Hillary_Clinton_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Hillary_Clinton\\Hillary_Clinton_0013.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Hitomi_Soga\\Hitomi_Soga_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Hoda_Asfor\\Hoda_Asfor_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Holly_Hunter\\Holly_Hunter_0007.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Hosni_Mubarak\\Hosni_Mubarak_0006.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Howard_Dean\\Howard_Dean_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Hu_Jintao\\Hu_Jintao_0011.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Hugh_Carey\\Hugh_Carey_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Hugh_Grant\\Hugh_Grant_0008.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Hugh_Grant\\Hugh_Grant_0009.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Hugh_Miller\\Hugh_Miller_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Hugo_Chavez\\Hugo_Chavez_0033.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Hugo_Chavez\\Hugo_Chavez_0036.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Hugo_Chavez\\Hugo_Chavez_0045.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Hugo_Chavez\\Hugo_Chavez_0051.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Hugo_Chavez\\Hugo_Chavez_0060.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Hugo_Conte\\Hugo_Conte_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Hun_Sen\\Hun_Sen_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Hun_Sen\\Hun_Sen_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Iain_Duncan_Smith\\Iain_Duncan_Smith_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ian_McKellen\\Ian_McKellen_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ian_Smith\\Ian_Smith_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Iban_Mayo\\Iban_Mayo_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ibrahim_Jaafari\\Ibrahim_Jaafari_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Imam_Samudra\\Imam_Samudra_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Imran_Khan\\Imran_Khan_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Intisar_Ajouri\\Intisar_Ajouri_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Isabella_Rossellini\\Isabella_Rossellini_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ishaq_Shahryar\\Ishaq_Shahryar_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ismail_Cem\\Ismail_Cem_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ivo_Dubs\\Ivo_Dubs_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jack_Grubman\\Jack_Grubman_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jack_Nicholson\\Jack_Nicholson_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Jackie_Chan\\Jackie_Chan_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jackie_Chan\\Jackie_Chan_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Jackie_Dennis\\Jackie_Dennis_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Jacques_Rogge\\Jacques_Rogge_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jade_Jagger\\Jade_Jagger_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "James_Barksdale\\James_Barksdale_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "James_Butts\\James_Butts_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "James_Cameron\\James_Cameron_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "James_Cameron\\James_Cameron_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "James_Cunningham\\James_Cunningham_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "James_Franco\\James_Franco_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "James_Ivory\\James_Ivory_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "James_Ivory\\James_Ivory_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "James_Mathis\\James_Mathis_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "James_May\\James_May_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "James_Smith\\James_Smith_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jamie_Lee_Curtis\\Jamie_Lee_Curtis_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jamie_Martin\\Jamie_Martin_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jamling_Norgay\\Jamling_Norgay_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jan_De_Bont\\Jan_De_Bont_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jan_Paul_Miller\\Jan_Paul_Miller_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jane_Leeves\\Jane_Leeves_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jane_Menelaus\\Jane_Menelaus_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jane_Russell\\Jane_Russell_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Janet_Leigh\\Janet_Leigh_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jason_Kidd\\Jason_Kidd_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jason_Statham\\Jason_Statham_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Javier_Weber\\Javier_Weber_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jean-Claude_Braquet\\Jean-Claude_Braquet_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jean-Claude_Trichet\\Jean-Claude_Trichet_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Jean-Claude_Van_Damme\\Jean-Claude_Van_Damme_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Jean-David_Levitte\\Jean-David_Levitte_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jean-David_Levitte\\Jean-David_Levitte_0009.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jean-Luc_Bideau\\Jean-Luc_Bideau_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jean-Marc_de_La_Sabliere\\Jean-Marc_de_La_Sabliere_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Jean_Charest\\Jean_Charest_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jean_Todt\\Jean_Todt_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Jeanne_Moreau\\Jeanne_Moreau_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 5 张"
+    },
+    {
+      "image": "Jeanne_Moreau\\Jeanne_Moreau_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 4 张"
+    },
+    {
+      "image": "Jeff_Bridges\\Jeff_Bridges_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jeffrey_Archer\\Jeffrey_Archer_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jeffrey_Scott_Postell\\Jeffrey_Scott_Postell_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jennette_Bradley\\Jennette_Bradley_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jennifer_Garner\\Jennifer_Garner_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jennifer_Garner\\Jennifer_Garner_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jennifer_Garner\\Jennifer_Garner_0007.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jennifer_Garner\\Jennifer_Garner_0012.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jennifer_Lopez\\Jennifer_Lopez_0010.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jeong_Se-hyun\\Jeong_Se-hyun_0006.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jeong_Se-hyun\\Jeong_Se-hyun_0009.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jeremy_Greenstock\\Jeremy_Greenstock_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Jeremy_Greenstock\\Jeremy_Greenstock_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jerry_Oliver\\Jerry_Oliver_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jerry_Regier\\Jerry_Regier_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jerry_Regier\\Jerry_Regier_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jerry_Tarkanian\\Jerry_Tarkanian_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jesse_Jackson\\Jesse_Jackson_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 4 张"
+    },
+    {
+      "image": "Jesse_Jackson\\Jesse_Jackson_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jesse_James_Leija\\Jesse_James_Leija_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jessica_Lange\\Jessica_Lange_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jesus_Cardenal\\Jesus_Cardenal_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 4 张"
+    },
+    {
+      "image": "Jiang_Zemin\\Jiang_Zemin_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jim_Harrick\\Jim_Harrick_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Jim_OBrien\\Jim_OBrien_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jim_Schwarz\\Jim_Schwarz_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jim_Wall\\Jim_Wall_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jim_Wessling\\Jim_Wessling_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jim_Wong\\Jim_Wong_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jimmy_Carter\\Jimmy_Carter_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jimmy_Jimenez\\Jimmy_Jimenez_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "JJ_Redick\\JJ_Redick_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "JJ_Redick\\JJ_Redick_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Joan_Collins\\Joan_Collins_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Joaquin_Phoenix\\Joaquin_Phoenix_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Joaquin_Sanchez\\Joaquin_Sanchez_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Job_Cohen\\Job_Cohen_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Joe_Calzaghe\\Joe_Calzaghe_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Joe_Crede\\Joe_Crede_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Joe_Darrell\\Joe_Darrell_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Joe_Dumars\\Joe_Dumars_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Joerg_Haider\\Joerg_Haider_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "John_Abizaid\\John_Abizaid_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "John_Allen_Muhammad\\John_Allen_Muhammad_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "John_Allen_Muhammad\\John_Allen_Muhammad_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "John_Allen_Muhammad\\John_Allen_Muhammad_0006.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "John_Allen_Muhammad\\John_Allen_Muhammad_0010.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "John_Ashcroft\\John_Ashcroft_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "John_Blaney\\John_Blaney_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "John_Burnett\\John_Burnett_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "John_Connolly\\John_Connolly_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "John_Dallager\\John_Dallager_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "John_Engler\\John_Engler_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "John_F_Kennedy_Jr\\John_F_Kennedy_Jr_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "John_Franco\\John_Franco_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "John_Goold\\John_Goold_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "John_Jumper\\John_Jumper_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "John_McCormack\\John_McCormack_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "John_McEnroe\\John_McEnroe_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "John_McEnroe\\John_McEnroe_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "John_Negroponte\\John_Negroponte_0017.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "John_Paul_II\\John_Paul_II_0011.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "John_Perrota\\John_Perrota_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "John_Rigas\\John_Rigas_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "John_Rowland\\John_Rowland_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "John_Sununu\\John_Sununu_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "John_Taylor\\John_Taylor_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "John_Travolta\\John_Travolta_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "John_Velazquez\\John_Velazquez_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "John_Warner\\John_Warner_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Johnnie_Lynn\\Johnnie_Lynn_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jon_Corzine\\Jon_Corzine_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jonathan_Arden\\Jonathan_Arden_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Jorge_Castaneda\\Jorge_Castaneda_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Joschka_Fischer\\Joschka_Fischer_0015.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Joschka_Fischer\\Joschka_Fischer_0017.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jose_Canseco\\Jose_Canseco_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jose_Manuel_Durao_Barroso\\Jose_Manuel_Durao_Barroso_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jose_Miguel_Aleman\\Jose_Miguel_Aleman_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jose_Sarney\\Jose_Sarney_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jose_Sarney\\Jose_Sarney_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jose_Sarney\\Jose_Sarney_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 4 张"
+    },
+    {
+      "image": "Joseph_Biden\\Joseph_Biden_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "JP_Suarez\\JP_Suarez_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Juan_Carlos_Ferrero\\Juan_Carlos_Ferrero_0017.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Juan_Carlos_Morales\\Juan_Carlos_Morales_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Juan_Carlos_Ortega\\Juan_Carlos_Ortega_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Jude_Law\\Jude_Law_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Judi_Dench\\Judi_Dench_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Judy_Vassar\\Judy_Vassar_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Julia_Tymoshenko\\Julia_Tymoshenko_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Julian_Fantino\\Julian_Fantino_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Julianna_Margulies\\Julianna_Margulies_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Julianne_Moore\\Julianne_Moore_0006.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Julianne_Moore\\Julianne_Moore_0016.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Julie_Taymor\\Julie_Taymor_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Julio_Cesar_Chavez\\Julio_Cesar_Chavez_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Julio_Iglesias_Jr\\Julio_Iglesias_Jr_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Julio_Rossi\\Julio_Rossi_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Junichi_Inamoto\\Junichi_Inamoto_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Junichiro_Koizumi\\Junichiro_Koizumi_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Junichiro_Koizumi\\Junichiro_Koizumi_0029.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Justin_Guarini\\Justin_Guarini_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Justin_Timberlake\\Justin_Timberlake_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Kamal_Kharrazi\\Kamal_Kharrazi_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Kaoru_Hasuike\\Kaoru_Hasuike_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Kareena_Kapoor\\Kareena_Kapoor_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Karen_Clarkson\\Karen_Clarkson_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Karen_Mok\\Karen_Mok_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Karin_Pilsaeter\\Karin_Pilsaeter_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Kate_Capshaw\\Kate_Capshaw_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Kate_Hudson\\Kate_Hudson_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Kate_Hudson\\Kate_Hudson_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Kate_Winslet\\Kate_Winslet_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Katherine_Harris\\Katherine_Harris_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Katie_Harman\\Katie_Harman_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Katie_Wagner\\Katie_Wagner_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Keanu_Reeves\\Keanu_Reeves_0006.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Keanu_Reeves\\Keanu_Reeves_0010.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Keira_Knightley\\Keira_Knightley_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Keith_Brown\\Keith_Brown_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Keith_Lowen\\Keith_Lowen_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Kelly_Clarkson\\Kelly_Clarkson_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Kelly_Osbourne\\Kelly_Osbourne_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Kelvin_Sampson\\Kelvin_Sampson_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Kemal_Dervis\\Kemal_Dervis_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ken_Watanabe\\Ken_Watanabe_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Kenneth_Branagh\\Kenneth_Branagh_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Kenneth_Evans\\Kenneth_Evans_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Kent_McCord\\Kent_McCord_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Kevin_Costner\\Kevin_Costner_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Kevin_Spacey\\Kevin_Spacey_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Kevin_Spacey\\Kevin_Spacey_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Kevin_Stallings\\Kevin_Stallings_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Khader_Rashid_Rahim\\Khader_Rashid_Rahim_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Khalid_Qazi\\Khalid_Qazi_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Kifah_Ajouri\\Kifah_Ajouri_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Kim_Dae-jung\\Kim_Dae-jung_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Kim_Ryong-sung\\Kim_Ryong-sung_0011.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Kimi_Raikkonen\\Kimi_Raikkonen_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "King_Abdullah_II\\King_Abdullah_II_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Kosuke_Kitajima\\Kosuke_Kitajima_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Krishna_Bhadur_Mahara\\Krishna_Bhadur_Mahara_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Kristanna_Loken\\Kristanna_Loken_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Kristen_Breitweiser\\Kristen_Breitweiser_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Kristen_Breitweiser\\Kristen_Breitweiser_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Kristin_Davis\\Kristin_Davis_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Kristin_Davis\\Kristin_Davis_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Kristin_Scott_Thomas\\Kristin_Scott_Thomas_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Kurt_Russell\\Kurt_Russell_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Kurt_Warner\\Kurt_Warner_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Kurt_Warner\\Kurt_Warner_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Kwon_Yang-sook\\Kwon_Yang-sook_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Laila_Ali\\Laila_Ali_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Lance_Bass\\Lance_Bass_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Larry_Bowa\\Larry_Bowa_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Larry_Brown\\Larry_Brown_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Larry_Brown\\Larry_Brown_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Larry_Brown\\Larry_Brown_0006.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Larry_Coker\\Larry_Coker_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Larry_Lucchino\\Larry_Lucchino_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Larry_Lucchino\\Larry_Lucchino_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Larry_Thompson\\Larry_Thompson_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Lars_Von_Trier\\Lars_Von_Trier_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Lars_Von_Trier\\Lars_Von_Trier_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Laura_Bush\\Laura_Bush_0011.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Laura_Morante\\Laura_Morante_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Lauren_Killian\\Lauren_Killian_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 4 张"
+    },
+    {
+      "image": "Laurence_Tribe\\Laurence_Tribe_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Laurent_Gbagbo\\Laurent_Gbagbo_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Lea_Fastow\\Lea_Fastow_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Lea_Fastow\\Lea_Fastow_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "LeBron_James\\LeBron_James_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Lech_Walesa\\Lech_Walesa_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Lee_Soo-hyuck\\Lee_Soo-hyuck_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Lee_Soo-hyuck\\Lee_Soo-hyuck_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Lennox_Lewis\\Lennox_Lewis_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Leonard_Schrank\\Leonard_Schrank_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Leonid_Kuchma\\Leonid_Kuchma_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Lesley_Coppin\\Lesley_Coppin_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Leslie_Caldwell\\Leslie_Caldwell_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Leslie_Moonves\\Leslie_Moonves_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Leticia_Van_de_Putte\\Leticia_Van_de_Putte_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Lew_Rywin\\Lew_Rywin_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Li_Ka-shing\\Li_Ka-shing_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Li_Peng\\Li_Peng_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Li_Zhaoxing\\Li_Zhaoxing_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 4 张"
+    },
+    {
+      "image": "Li_Zhaoxing\\Li_Zhaoxing_0007.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Lidija_Djukanovic\\Lidija_Djukanovic_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Lindsay_Lohan\\Lindsay_Lohan_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Lino_Oviedo\\Lino_Oviedo_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Lino_Oviedo\\Lino_Oviedo_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Liv_Tyler\\Liv_Tyler_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Liza_Minnelli\\Liza_Minnelli_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Liza_Minnelli\\Liza_Minnelli_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "LK_Advani\\LK_Advani_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "LK_Advani\\LK_Advani_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Lloyd_Richards\\Lloyd_Richards_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Lois_Smart\\Lois_Smart_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Lokendra_Bahadur_Chand\\Lokendra_Bahadur_Chand_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Lon_Kruger\\Lon_Kruger_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Lucio_Gutierrez\\Lucio_Gutierrez_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Lucio_Gutierrez\\Lucio_Gutierrez_0006.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Lucio_Gutierrez\\Lucio_Gutierrez_0013.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ludivine_Sagnier\\Ludivine_Sagnier_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Luis_Ernesto_Derbez_Bautista\\Luis_Ernesto_Derbez_Bautista_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Luis_Figo\\Luis_Figo_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Luis_Gonzalez_Macchi\\Luis_Gonzalez_Macchi_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Luiz_Inacio_Lula_da_Silva\\Luiz_Inacio_Lula_da_Silva_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Luiz_Inacio_Lula_da_Silva\\Luiz_Inacio_Lula_da_Silva_0011.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Luiz_Inacio_Lula_da_Silva\\Luiz_Inacio_Lula_da_Silva_0044.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Luther_Htu\\Luther_Htu_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Lynn_Abraham\\Lynn_Abraham_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Lynn_Abraham\\Lynn_Abraham_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 4 张"
+    },
+    {
+      "image": "Madonna\\Madonna_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Mahdi_Al_Bassam\\Mahdi_Al_Bassam_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Makhdoom_Amin_Fahim\\Makhdoom_Amin_Fahim_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Makhdoom_Amin_Fahim\\Makhdoom_Amin_Fahim_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Makiya_Ali_Hassan\\Makiya_Ali_Hassan_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Manfred_Stolpe\\Manfred_Stolpe_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Manijeh_Hekmat\\Manijeh_Hekmat_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Marc_Anthony\\Marc_Anthony_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Marcelo_Ebrard\\Marcelo_Ebrard_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Marcelo_Ebrard\\Marcelo_Ebrard_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Marcelo_Rios\\Marcelo_Rios_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Marco_Irizarry\\Marco_Irizarry_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Marcos_Daniel_Jimenez\\Marcos_Daniel_Jimenez_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Marcus_Garrettson\\Marcus_Garrettson_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Margaret_Caruso\\Margaret_Caruso_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Maria_Luisa_Mendonca\\Maria_Luisa_Mendonca_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Maria_Luisa_Mendonca\\Maria_Luisa_Mendonca_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Maria_Shriver\\Maria_Shriver_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Maria_Shriver\\Maria_Shriver_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Mariana_Pollack\\Mariana_Pollack_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Marina_Anissina\\Marina_Anissina_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Marina_Canetti\\Marina_Canetti_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Mario_Dumont\\Mario_Dumont_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Marion_Barry\\Marion_Barry_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Marisa_Tomei\\Marisa_Tomei_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Marissa_Jaret_Winokur\\Marissa_Jaret_Winokur_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Mark_Foley\\Mark_Foley_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Mark_Geragos\\Mark_Geragos_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 4 张"
+    },
+    {
+      "image": "Mark_Heller\\Mark_Heller_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Mark_Hurlbert\\Mark_Hurlbert_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Mark_Hurlbert\\Mark_Hurlbert_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Mark_Kelly\\Mark_Kelly_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Mark_Podlesny\\Mark_Podlesny_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Mark_Richt\\Mark_Richt_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Martha_Beatriz_Roque\\Martha_Beatriz_Roque_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Martha_Lucia_Ramirez\\Martha_Lucia_Ramirez_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Martha_Stewart\\Martha_Stewart_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Martha_Stewart\\Martha_Stewart_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Martin_Brooke\\Martin_Brooke_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Martin_Scorsese\\Martin_Scorsese_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Martina_Hingis\\Martina_Hingis_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Mary-Kate_Olsen\\Mary-Kate_Olsen_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Maryn_McKenna\\Maryn_McKenna_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Matt_Doherty\\Matt_Doherty_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Matthew_Perry\\Matthew_Perry_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Matthew_Perry\\Matthew_Perry_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Matthew_Perry\\Matthew_Perry_0006.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Max_von_Sydow\\Max_von_Sydow_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 4 张"
+    },
+    {
+      "image": "Meg_Wakeman\\Meg_Wakeman_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Megan_Mullally\\Megan_Mullally_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Megawati_Sukarnoputri\\Megawati_Sukarnoputri_0006.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Mehmet_Ali_Sahin\\Mehmet_Ali_Sahin_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Mel_Brooks\\Mel_Brooks_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Mel_Gibson\\Mel_Gibson_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Mel_Gibson\\Mel_Gibson_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Melissa_Etheridge\\Melissa_Etheridge_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Melissa_Etheridge\\Melissa_Etheridge_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Mesut_Yilmaz\\Mesut_Yilmaz_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Mian_Khursheed_Mehmood_Kasuri\\Mian_Khursheed_Mehmood_Kasuri_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Michael_Bloomberg\\Michael_Bloomberg_0007.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Michael_Bloomberg\\Michael_Bloomberg_0012.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Michael_Bloomberg\\Michael_Bloomberg_0015.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Michael_Caine\\Michael_Caine_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Michael_Chang\\Michael_Chang_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Michael_Chiklis\\Michael_Chiklis_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Michael_Chiklis\\Michael_Chiklis_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Michael_Douglas\\Michael_Douglas_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Michael_Jordan\\Michael_Jordan_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Michael_Keaton\\Michael_Keaton_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Michael_Lechner\\Michael_Lechner_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Michael_Lopez-Alegria\\Michael_Lopez-Alegria_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Michael_Shelby\\Michael_Shelby_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Michel_Temer\\Michel_Temer_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Michelangelo_Antonioni\\Michelangelo_Antonioni_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Michelle_Bachelet\\Michelle_Bachelet_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Michelle_Pfeiffer\\Michelle_Pfeiffer_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Michelle_Pfeiffer\\Michelle_Pfeiffer_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Michelle_Yeoh\\Michelle_Yeoh_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Mickey_Rooney\\Mickey_Rooney_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 4 张"
+    },
+    {
+      "image": "Micky_Ward\\Micky_Ward_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Miguel_Contreras\\Miguel_Contreras_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Mike_Carona\\Mike_Carona_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Mike_Duke\\Mike_Duke_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Mike_Leach\\Mike_Leach_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Mike_Weir\\Mike_Weir_0006.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Mikhail_Wehbe\\Mikhail_Wehbe_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Mitchell_Swartz\\Mitchell_Swartz_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Miyako_Miyazaki\\Miyako_Miyazaki_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Mo_Elleithee\\Mo_Elleithee_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Mohamed_ElBaradei\\Mohamed_ElBaradei_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Mohamed_ElBaradei\\Mohamed_ElBaradei_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Mohamed_Hammam\\Mohamed_Hammam_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Mohammad_Khatami\\Mohammad_Khatami_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Mohammad_Khatami\\Mohammad_Khatami_0008.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Mohammed_Ashraf_Hafiz\\Mohammed_Ashraf_Hafiz_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Mohammed_Dahlan\\Mohammed_Dahlan_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Monica_Bellucci\\Monica_Bellucci_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Monica_Bellucci\\Monica_Bellucci_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Moshe_Katsav\\Moshe_Katsav_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Moshe_Katsav\\Moshe_Katsav_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Muhammad_Ali\\Muhammad_Ali_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Muhammad_Ali\\Muhammad_Ali_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Muhammad_Ali\\Muhammad_Ali_0009.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Naji_Sabri\\Naji_Sabri_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Naji_Sabri\\Naji_Sabri_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 6 张"
+    },
+    {
+      "image": "Naji_Sabri\\Naji_Sabri_0006.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Naji_Sabri\\Naji_Sabri_0007.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Naji_Sabri\\Naji_Sabri_0008.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Nancy_Pelosi\\Nancy_Pelosi_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Nancy_Sinatra\\Nancy_Sinatra_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Nanni_Moretti\\Nanni_Moretti_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Natalia_Dmitrieva\\Natalia_Dmitrieva_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Natalie_Juniardi\\Natalie_Juniardi_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Natalie_Maines\\Natalie_Maines_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Natalie_Maines\\Natalie_Maines_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Natalie_Stewart\\Natalie_Stewart_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Nathan_Lane\\Nathan_Lane_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Nathan_Lane\\Nathan_Lane_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Nathirah_Hussein\\Nathirah_Hussein_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 4 张"
+    },
+    {
+      "image": "Nawabzada_Nasrullah_Khan\\Nawabzada_Nasrullah_Khan_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Nelson_Mandela\\Nelson_Mandela_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Nelson_Shanks\\Nelson_Shanks_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Neri_Marcore\\Neri_Marcore_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Nia_Vardalos\\Nia_Vardalos_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Nicanor_Duarte_Frutos\\Nicanor_Duarte_Frutos_0006.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Nicholas_Byron\\Nicholas_Byron_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Nick_Markakis\\Nick_Markakis_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Nick_Nolte\\Nick_Nolte_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Nicole_Kidman\\Nicole_Kidman_0013.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Nicoletta_Braschi\\Nicoletta_Braschi_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Nikki_McKibbin\\Nikki_McKibbin_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Nikki_Reed\\Nikki_Reed_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Noelle_Bush\\Noelle_Bush_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Noelle_Bush\\Noelle_Bush_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Nora_Bendijo\\Nora_Bendijo_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Nora_Bendijo\\Nora_Bendijo_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Norm_Coleman\\Norm_Coleman_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Norm_Coleman\\Norm_Coleman_0007.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Norodom_Sihanouk\\Norodom_Sihanouk_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Norodom_Sihanouk\\Norodom_Sihanouk_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Nova_Esther_Guthrie\\Nova_Esther_Guthrie_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Nursultan_Nazarbayev\\Nursultan_Nazarbayev_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Orlando_Bloom\\Orlando_Bloom_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Orrin_Hatch\\Orrin_Hatch_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Osama_Al_Baz\\Osama_Al_Baz_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Oscar_De_La_Hoya\\Oscar_De_La_Hoya_0007.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Oswaldo_Paya\\Oswaldo_Paya_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ozzy_Osbourne\\Ozzy_Osbourne_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ozzy_Osbourne\\Ozzy_Osbourne_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Pamela_Anderson\\Pamela_Anderson_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Park_Jung_Sung\\Park_Jung_Sung_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Park_Na-kyong\\Park_Na-kyong_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Pascal_Quignard\\Pascal_Quignard_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Pat_Cox\\Pat_Cox_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Patricia_Clarkson\\Patricia_Clarkson_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Patricia_Hearst\\Patricia_Hearst_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Patrick_Leahy\\Patrick_Leahy_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Patrick_Stewart\\Patrick_Stewart_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Patti_Balgojevich\\Patti_Balgojevich_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Paul-Henri_Mathieu\\Paul-Henri_Mathieu_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Paul_Burrell\\Paul_Burrell_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Paul_Burrell\\Paul_Burrell_0007.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 4 张"
+    },
+    {
+      "image": "Paul_Burrell\\Paul_Burrell_0008.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Paul_Celluci\\Paul_Celluci_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Paul_Gascoigne\\Paul_Gascoigne_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Paul_McCartney\\Paul_McCartney_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Paul_McCartney\\Paul_McCartney_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Paul_Murphy\\Paul_Murphy_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Paul_ONeill\\Paul_ONeill_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Paul_Pierce\\Paul_Pierce_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Paul_Sarbanes\\Paul_Sarbanes_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Paul_Shanley\\Paul_Shanley_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Paul_Shanley\\Paul_Shanley_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Paul_Wellstone\\Paul_Wellstone_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Paul_William_Hurley\\Paul_William_Hurley_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Pauley_Perrette\\Pauley_Perrette_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Paulina_Rodriguez_Davila\\Paulina_Rodriguez_Davila_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Pedro_Almodovar\\Pedro_Almodovar_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Pedro_Alvarez\\Pedro_Alvarez_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Penny_Lancaster\\Penny_Lancaster_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Perry_Farrell\\Perry_Farrell_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Pervez_Musharraf\\Pervez_Musharraf_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Pete_Sampras\\Pete_Sampras_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Pete_Sampras\\Pete_Sampras_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Pete_Sampras\\Pete_Sampras_0008.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Peter_Greenaway\\Peter_Greenaway_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Peter_Greenspun\\Peter_Greenspun_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Peter_Hillary\\Peter_Hillary_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Petro_Symonenko\\Petro_Symonenko_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Pham_Sy_Chien\\Pham_Sy_Chien_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Phan_Van_Khai\\Phan_Van_Khai_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Phil_Bredesen\\Phil_Bredesen_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Phil_Gramm\\Phil_Gramm_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Phil_Vassar\\Phil_Vassar_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Philip_Zalewski\\Philip_Zalewski_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Philippe_Noiret\\Philippe_Noiret_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Phillipe_Comtois\\Phillipe_Comtois_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Pierce_Brosnan\\Pierce_Brosnan_0009.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Pierre_Pettigrew\\Pierre_Pettigrew_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Pierre_Pettigrew\\Pierre_Pettigrew_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Pierre_Png\\Pierre_Png_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Pieter_Bouw\\Pieter_Bouw_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Prakash_Hinduja\\Prakash_Hinduja_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Prince_Naruhito\\Prince_Naruhito_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Prince_Rainier_III\\Prince_Rainier_III_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Prince_Willem-Alexander\\Prince_Willem-Alexander_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Prince_Willem-Alexander\\Prince_Willem-Alexander_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Princess_Masako\\Princess_Masako_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Princess_Masako\\Princess_Masako_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Pupi_Avati\\Pupi_Avati_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Pupi_Avati\\Pupi_Avati_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Pupi_Avati\\Pupi_Avati_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Pyar_Jung_Thapa\\Pyar_Jung_Thapa_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Qazi_Hussain_Ahmed\\Qazi_Hussain_Ahmed_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Queen_Latifah\\Queen_Latifah_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Queen_Rania\\Queen_Rania_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Quin_Snyder\\Quin_Snyder_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Rachel_Roy\\Rachel_Roy_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Rainer_Schuettler\\Rainer_Schuettler_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Raja_Zafar-ul-Haq\\Raja_Zafar-ul-Haq_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ralf_Schumacher\\Ralf_Schumacher_0008.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Ralph_Klein\\Ralph_Klein_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ramon_Cardenas\\Ramon_Cardenas_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Randy_Brown\\Randy_Brown_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Randy_Jackson\\Randy_Jackson_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Rani_Mukherjee\\Rani_Mukherjee_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Raoul_Ruiz\\Raoul_Ruiz_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Raoul_Ruiz\\Raoul_Ruiz_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ratna_Sari_Dewi_Sukarno\\Ratna_Sari_Dewi_Sukarno_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Raul_Cubas\\Raul_Cubas_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ray_Allen\\Ray_Allen_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ray_Bradbury\\Ray_Bradbury_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Raza_Rabbani\\Raza_Rabbani_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Rebecca_Romijn-Stamos\\Rebecca_Romijn-Stamos_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Rebecca_Romijn-Stamos\\Rebecca_Romijn-Stamos_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Recep_Tayyip_Erdogan\\Recep_Tayyip_Erdogan_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Recep_Tayyip_Erdogan\\Recep_Tayyip_Erdogan_0012.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Renee_Zellweger\\Renee_Zellweger_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Renee_Zellweger\\Renee_Zellweger_0016.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ricardo_Maduro\\Ricardo_Maduro_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Richard_Armitage\\Richard_Armitage_0009.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Richard_Gephardt\\Richard_Gephardt_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Richard_Myers\\Richard_Myers_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Richard_Shelby\\Richard_Shelby_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Richard_Virenque\\Richard_Virenque_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Rick_Dinse\\Rick_Dinse_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Rick_Dinse\\Rick_Dinse_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Rick_Pitino\\Rick_Pitino_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Rick_Santorum\\Rick_Santorum_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Rita_Moreno\\Rita_Moreno_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Rob_Schneider\\Rob_Schneider_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Robbie_Coltrane\\Robbie_Coltrane_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Robbie_Naish\\Robbie_Naish_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Robbie_Williams\\Robbie_Williams_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Robert_Blackwill\\Robert_Blackwill_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Robert_Blake\\Robert_Blake_0006.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Robert_Bullock\\Robert_Bullock_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Robert_Ehrlich\\Robert_Ehrlich_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Robert_Evans\\Robert_Evans_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 5 张"
+    },
+    {
+      "image": "Robert_Evans\\Robert_Evans_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Robert_Fico\\Robert_Fico_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Robert_Fico\\Robert_Fico_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Robert_Gordon_Card\\Robert_Gordon_Card_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Robert_Kocharian\\Robert_Kocharian_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Robert_Redford\\Robert_Redford_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Robert_Stack\\Robert_Stack_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Robert_Torricelli\\Robert_Torricelli_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Robert_Towne\\Robert_Towne_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Robert_Wagner\\Robert_Wagner_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Roberto_Canessa\\Roberto_Canessa_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Roberto_Tovar\\Roberto_Tovar_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Robin_Cook\\Robin_Cook_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Robin_McLaurin_Williams\\Robin_McLaurin_Williams_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Robin_Wagner\\Robin_Wagner_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Rod_Blagojevich\\Rod_Blagojevich_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Rodolfo_Abalos\\Rodolfo_Abalos_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Roger_Lyons\\Roger_Lyons_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Roger_Toussaint\\Roger_Toussaint_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Roh_Moo-hyun\\Roh_Moo-hyun_0032.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Rohman_al-Ghozi\\Rohman_al-Ghozi_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Roman_Polanski\\Roman_Polanski_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Roman_Polanski\\Roman_Polanski_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Roman_Tam\\Roman_Tam_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Romano_Prodi\\Romano_Prodi_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Romano_Prodi\\Romano_Prodi_0007.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ron_Howard\\Ron_Howard_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Rosalyn_Carter\\Rosalyn_Carter_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Roy_Moore\\Roy_Moore_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 4 张"
+    },
+    {
+      "image": "Rudolph_Giuliani\\Rudolph_Giuliani_0015.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 4 张"
+    },
+    {
+      "image": "Rupert_Grint\\Rupert_Grint_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Russell_Simmons\\Russell_Simmons_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ruth_Harlow\\Ruth_Harlow_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Ruth_Pearce\\Ruth_Pearce_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Ryan_Goodman\\Ryan_Goodman_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Sadam_Hassan\\Sadam_Hassan_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 4 张"
+    },
+    {
+      "image": "Sadie_Frost\\Sadie_Frost_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Saied_Hadi_al_Mudarissi\\Saied_Hadi_al_Mudarissi_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 4 张"
+    },
+    {
+      "image": "Sally_Clark\\Sally_Clark_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Salman_Khan\\Salman_Khan_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Sam_Bith\\Sam_Bith_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Sam_Bith\\Sam_Bith_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Sam_Torrance\\Sam_Torrance_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Samira_Makhmalbaf\\Samira_Makhmalbaf_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "San_Lan\\San_Lan_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Sandra_Bullock\\Sandra_Bullock_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Sandra_Bullock\\Sandra_Bullock_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Sandra_Milo\\Sandra_Milo_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Sarah_Hughes\\Sarah_Hughes_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Sarah_Jessica_Parker\\Sarah_Jessica_Parker_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Sargis_Sargsian\\Sargis_Sargsian_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Scott_Peterson\\Scott_Peterson_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Scott_Sullivan\\Scott_Sullivan_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Scott_Sullivan\\Scott_Sullivan_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Sean_Astin\\Sean_Astin_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Sean_Penn\\Sean_Penn_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Sebastian_Saja\\Sebastian_Saja_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Sepp_Blatter\\Sepp_Blatter_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Serena_Williams\\Serena_Williams_0047.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Sergei_Alexandrovitch_Ordzhonikidze\\Sergei_Alexandrovitch_Ordzhonikidze_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Sergey_Lavrov\\Sergey_Lavrov_0006.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Sergio_Vieira_De_Mello\\Sergio_Vieira_De_Mello_0011.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Seymour_Cassell\\Seymour_Cassell_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Sharon_Davis\\Sharon_Davis_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Sharon_Davis\\Sharon_Davis_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Sharon_Stone\\Sharon_Stone_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Shaukat_Aziz\\Shaukat_Aziz_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Shaul_Mofaz\\Shaul_Mofaz_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Shawn_Bradley\\Shawn_Bradley_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Sheila_Copps\\Sheila_Copps_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Sheila_Wellstone\\Sheila_Wellstone_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Sheila_Wellstone\\Sheila_Wellstone_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Sherry_Fisher\\Sherry_Fisher_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Shoshana_Johnson\\Shoshana_Johnson_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Sid_Caesar\\Sid_Caesar_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Silvan_Shalom\\Silvan_Shalom_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Silvan_Shalom\\Silvan_Shalom_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Silvio_Berlusconi\\Silvio_Berlusconi_0013.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Silvio_Berlusconi\\Silvio_Berlusconi_0017.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Silvio_Berlusconi\\Silvio_Berlusconi_0030.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Simon_Cowell\\Simon_Cowell_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 6 张"
+    },
+    {
+      "image": "Simon_Cowell\\Simon_Cowell_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Slobodan_Milosevic\\Slobodan_Milosevic_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Stellan_Skarsgard\\Stellan_Skarsgard_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Stepan_Demirchian\\Stepan_Demirchian_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Stephane_Rousseau\\Stephane_Rousseau_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Steve_Lavin\\Steve_Lavin_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Steve_McManaman\\Steve_McManaman_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Steve_Nash\\Steve_Nash_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Steve_Waugh\\Steve_Waugh_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Steven_Spielberg\\Steven_Spielberg_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Suh_Young-hoon\\Suh_Young-hoon_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Susan_Sarandon\\Susan_Sarandon_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Suzanne_Torrance\\Suzanne_Torrance_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Sylvester_Stallone\\Sylvester_Stallone_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 4 张"
+    },
+    {
+      "image": "Sylvester_Stallone\\Sylvester_Stallone_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Sylvia_Plachy\\Sylvia_Plachy_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "T_Boone_Pickens\\T_Boone_Pickens_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tab_Turner\\Tab_Turner_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Taha_Yassin_Ramadan\\Taha_Yassin_Ramadan_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 4 张"
+    },
+    {
+      "image": "Taha_Yassin_Ramadan\\Taha_Yassin_Ramadan_0013.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tammy_Lynn_Michaels\\Tammy_Lynn_Michaels_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tammy_Lynn_Michaels\\Tammy_Lynn_Michaels_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tang_Jiaxuan\\Tang_Jiaxuan_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tanya_Holyk\\Tanya_Holyk_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tara_VanDerveer\\Tara_VanDerveer_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tariq_Aziz\\Tariq_Aziz_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tassos_Papadopoulos\\Tassos_Papadopoulos_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tatiana_Kennedy_Schlossberg\\Tatiana_Kennedy_Schlossberg_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tatsuya_Fuji\\Tatsuya_Fuji_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Taylyn_Solomon\\Taylyn_Solomon_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Teri_Garr\\Teri_Garr_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Terry_Stotts\\Terry_Stotts_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Terry_Stotts\\Terry_Stotts_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Terunobu_Maeda\\Terunobu_Maeda_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Thaksin_Shinawatra\\Thaksin_Shinawatra_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Theresa_May\\Theresa_May_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Theresa_May\\Theresa_May_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Thierry_Falise\\Thierry_Falise_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Thomas_Birmingham\\Thomas_Birmingham_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 4 张"
+    },
+    {
+      "image": "Tim_Allen\\Tim_Allen_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tim_Chapman\\Tim_Chapman_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tim_Pawlenty\\Tim_Pawlenty_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tocker_Pudwill\\Tocker_Pudwill_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Todd_Haynes\\Todd_Haynes_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tom_Brennan\\Tom_Brennan_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tom_Craddick\\Tom_Craddick_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tom_Craddick\\Tom_Craddick_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tom_Craddick\\Tom_Craddick_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tom_Cruise\\Tom_Cruise_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tom_Daschle\\Tom_Daschle_0022.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tom_Glavine\\Tom_Glavine_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tom_Hanks\\Tom_Hanks_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tom_Hanks\\Tom_Hanks_0007.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tom_Lantos\\Tom_Lantos_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Tom_Ridge\\Tom_Ridge_0018.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tommy_Franks\\Tommy_Franks_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tommy_Franks\\Tommy_Franks_0009.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Tomoko_Hagiwara\\Tomoko_Hagiwara_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Toni_Braxton\\Toni_Braxton_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Toni_Jennings\\Toni_Jennings_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tono_Suratman\\Tono_Suratman_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tony_Blair\\Tony_Blair_0133.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tony_Parker\\Tony_Parker_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tony_Stewart\\Tony_Stewart_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tracee_Treadwell\\Tracee_Treadwell_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Trent_Lott\\Trent_Lott_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Trent_Lott\\Trent_Lott_0006.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Trent_Lott\\Trent_Lott_0008.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Trent_Lott\\Trent_Lott_0010.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Trent_Lott\\Trent_Lott_0011.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Troy_Garity\\Troy_Garity_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tung_Chee-hwa\\Tung_Chee-hwa_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Tyra_Banks\\Tyra_Banks_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Uma_Thurman\\Uma_Thurman_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Vaclav_Havel\\Vaclav_Havel_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Vaclav_Havel\\Vaclav_Havel_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Vaclav_Havel\\Vaclav_Havel_0009.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Vaclav_Klaus\\Vaclav_Klaus_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Vanessa_Redgrave\\Vanessa_Redgrave_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Vecdi_Gonul\\Vecdi_Gonul_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Vicente_Fernandez\\Vicente_Fernandez_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Vicente_Fox\\Vicente_Fox_0011.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 4 张"
+    },
+    {
+      "image": "Vicente_Fox\\Vicente_Fox_0017.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Vin_Diesel\\Vin_Diesel_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Vincent_Gallo\\Vincent_Gallo_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 4 张"
+    },
+    {
+      "image": "Virgina_Ruano_Pascal\\Virgina_Ruano_Pascal_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Vladimir_Putin\\Vladimir_Putin_0031.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Vladimir_Spidla\\Vladimir_Spidla_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Vladimiro_Montesinos\\Vladimiro_Montesinos_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Vojislav_Kostunica\\Vojislav_Kostunica_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Vojislav_Kostunica\\Vojislav_Kostunica_0007.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Vojislav_Seselj\\Vojislav_Seselj_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Walter_Mondale\\Walter_Mondale_0007.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Warren_Beatty\\Warren_Beatty_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Warren_Buffett\\Warren_Buffett_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Wen_Jiabao\\Wen_Jiabao_0008.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Wen_Jiabao\\Wen_Jiabao_0012.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "William_Bulger\\William_Bulger_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "William_Ford_Jr\\William_Ford_Jr_0006.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "William_Jackson\\William_Jackson_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "William_Joppy\\William_Joppy_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Winona_Ryder\\Winona_Ryder_0018.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Winona_Ryder\\Winona_Ryder_0022.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Woody_Allen\\Woody_Allen_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Xanana_Gusmao\\Xanana_Gusmao_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Xanana_Gusmao\\Xanana_Gusmao_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Xanana_Gusmao\\Xanana_Gusmao_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Yao_Ming\\Yao_Ming_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Yasser_Arafat\\Yasser_Arafat_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Yasser_Arafat\\Yasser_Arafat_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Yasser_Arafat\\Yasser_Arafat_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Yasser_Arafat\\Yasser_Arafat_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Yasser_Arafat\\Yasser_Arafat_0008.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Yoko_Ono\\Yoko_Ono_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Yoko_Ono\\Yoko_Ono_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Yoriko_Kawaguchi\\Yoriko_Kawaguchi_0005.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Yuri_Luzhkov\\Yuri_Luzhkov_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Zach_Safrin\\Zach_Safrin_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Zahir_Shah\\Zahir_Shah_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Zalmay_Khalilzad\\Zalmay_Khalilzad_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Zarai_Toledo\\Zarai_Toledo_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 3 张"
+    },
+    {
+      "image": "Zhu_Rongji\\Zhu_Rongji_0003.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Zoran_Djindjic\\Zoran_Djindjic_0002.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Zoran_Djindjic\\Zoran_Djindjic_0004.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 2 张"
+    },
+    {
+      "image": "Zurab_Tsereteli\\Zurab_Tsereteli_0001.jpg",
+      "reason": "验证图像须恰好有 1 张清晰人脸；当前检测到 4 张"
+    }
+  ],
+  "elapsed_seconds": 192.45163260000118,
+  "opencv": "5.0.0",
+  "pairs_sha256": "ea42330c62c92989f9d7c03237ed5d591365e89b3e649747777b70e692dc1592",
+  "models_sha256": {
+    "face_detection_yunet_2023mar.onnx": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4",
+    "face_recognition_sface_2021dec.onnx": "0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79"
+  },
+  "preprocessing": "BGR original LFW image -> YuNet threshold 0.8, require exactly one detection -> SFace alignCrop 112x112 -> normalized embedding",
+  "training_overlap": "Pretrained model training identities were not independently audited; external-data baseline.",
+  "failed_pairs": 1633,
+  "folds": [
+    {
+      "fold": 0,
+      "accuracy": 0.73,
+      "threshold": 0.3305771350860596,
+      "tar": 0.7266666666666667,
+      "far": 0.0,
+      "far_threshold": 0.3591564297676087,
+      "test_pairs": 600,
+      "failed_pairs": 159
+    },
+    {
+      "fold": 1,
+      "accuracy": 0.7166666666666667,
+      "threshold": 0.3305771350860596,
+      "tar": 0.7166666666666667,
+      "far": 0.0,
+      "far_threshold": 0.3591564297676087,
+      "test_pairs": 600,
+      "failed_pairs": 170
+    },
+    {
+      "fold": 2,
+      "accuracy": 0.7233333333333334,
+      "threshold": 0.3305771350860596,
+      "tar": 0.6766666666666666,
+      "far": 0.0,
+      "far_threshold": 0.3591564297676087,
+      "test_pairs": 600,
+      "failed_pairs": 163
+    },
+    {
+      "fold": 3,
+      "accuracy": 0.75,
+      "threshold": 0.3305771350860596,
+      "tar": 0.72,
+      "far": 0.0,
+      "far_threshold": 0.3591564297676087,
+      "test_pairs": 600,
+      "failed_pairs": 143
+    },
+    {
+      "fold": 4,
+      "accuracy": 0.7433333333333333,
+      "threshold": 0.3305771350860596,
+      "tar": 0.7366666666666667,
+      "far": 0.0,
+      "far_threshold": 0.3591564297676087,
+      "test_pairs": 600,
+      "failed_pairs": 149
+    },
+    {
+      "fold": 5,
+      "accuracy": 0.7383333333333333,
+      "threshold": 0.3079441189765931,
+      "tar": 0.7,
+      "far": 0.006666666666666667,
+      "far_threshold": 0.3305771350860596,
+      "test_pairs": 600,
+      "failed_pairs": 154
+    },
+    {
+      "fold": 6,
+      "accuracy": 0.6966666666666667,
+      "threshold": 0.3302374482154847,
+      "tar": 0.6866666666666666,
+      "far": 0.0033333333333333335,
+      "far_threshold": 0.3381757736206055,
+      "test_pairs": 600,
+      "failed_pairs": 176
+    },
+    {
+      "fold": 7,
+      "accuracy": 0.74,
+      "threshold": 0.3305771350860596,
+      "tar": 0.72,
+      "far": 0.0,
+      "far_threshold": 0.3591564297676087,
+      "test_pairs": 600,
+      "failed_pairs": 154
+    },
+    {
+      "fold": 8,
+      "accuracy": 0.6866666666666666,
+      "threshold": 0.3079441189765931,
+      "tar": 0.6766666666666666,
+      "far": 0.0,
+      "far_threshold": 0.3591564297676087,
+      "test_pairs": 600,
+      "failed_pairs": 187
+    },
+    {
+      "fold": 9,
+      "accuracy": 0.7,
+      "threshold": 0.3079441189765931,
+      "tar": 0.7266666666666667,
+      "far": 0.0,
+      "far_threshold": 0.3591564297676087,
+      "test_pairs": 600,
+      "failed_pairs": 178
+    }
+  ],
+  "accuracy_mean": 0.7224999999999999,
+  "accuracy_std": 0.020726392192886182,
+  "far_target": 0.001,
+  "tar_mean": 0.7086666666666667,
+  "far_mean": 0.001,
+  "failure_policy": "all failed pairs count incorrect for accuracy; unavailable features never accepted",
+  "threshold_protocol": "train folds only; unchanged official pair order",
+  "note": "FAR estimates at very low rates have limited resolution in a 6000-pair benchmark.",
+  "status": "completed full 6000-pair protocol; failures included in denominator"
+}

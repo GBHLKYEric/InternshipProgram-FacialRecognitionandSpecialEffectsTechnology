@@ -1,0 +1,866 @@
+{
+  "scope": "Real LFW identity-disjoint small training pilot; not MS-Celeb-1M training",
+  "training_identities": [
+    "Abdullatif_Sener",
+    "Adel_Al-Jubeir",
+    "Alberto_Fujimori",
+    "Alejandro_Atchugarry",
+    "Arantxa_Sanchez-Vicario",
+    "Barbra_Streisand",
+    "Barrett_Jackman",
+    "Ben_Glisan",
+    "Carlos_Bianchi",
+    "Christian_Fittipaldi",
+    "Dennis_Kozlowski",
+    "Dominik_Garcia-Lorido",
+    "Dorthy_Moxley",
+    "Eddy_Merckx",
+    "Emile_Lahoud",
+    "Freddy_Garcia",
+    "George_Clooney",
+    "George_P_Bush",
+    "Gerry_Parsky",
+    "Guido_Westerwelle",
+    "Jamie_Villafane",
+    "Jon_Voight",
+    "Jose_Viegas_Filho",
+    "Juanes",
+    "Justin_Leonard",
+    "LeAnn_Rimes",
+    "Leonard_Hamilton",
+    "Lesley_McCulloch",
+    "Manuel_Poggiali",
+    "Marc_Grossman",
+    "Maria_Soledad_Alvear_Valenzuela",
+    "Mark_Gottfried",
+    "Mark_Warner",
+    "Martha_Burk",
+    "Mary_Carey",
+    "Mike_Holmgren",
+    "Mitoji_Yabunaka",
+    "Nebojsa_Pavkovic",
+    "Owen_Wilson",
+    "Paul_Hogan",
+    "Paul_Tagliabue",
+    "Rebekah_Chantay_Revels",
+    "Robert_DeFraites",
+    "Rodrigo_Borja",
+    "Russell_Crowe",
+    "S_Jayakumar",
+    "Stefano_Accorsi",
+    "Ted_Maher",
+    "Tom_Jones",
+    "Tubby_Smith",
+    "Tyron_Garner",
+    "Vicki_Zhao_Wei"
+  ],
+  "training_images": 133,
+  "evaluation_identities": 4281,
+  "evaluation_images": 7701,
+  "identity_overlap": [],
+  "pairs_sha256": "ea42330c62c92989f9d7c03237ed5d591365e89b3e649747777b70e692dc1592",
+  "alignment": "YuNet .8; largest face, center-distance tie; SFace 5-point similarity alignCrop; 112x112 JPEG quality100 for both sets",
+  "training_sources": [
+    {
+      "path": "Abdullatif_Sener\\Abdullatif_Sener_0001.jpg",
+      "original_sha256": "d5363484e822b6db2805b0b709502abe8eb89a13e88d7daa37b5059c69c1f2f8",
+      "aligned_sha256": "688e16d94993abfeb51e212734e963be76dac3215cdec9a14217f8406ac06e38",
+      "detected_faces": 1
+    },
+    {
+      "path": "Abdullatif_Sener\\Abdullatif_Sener_0002.jpg",
+      "original_sha256": "437c93a376b79e0db80effb9d2a9118e588c3109a3a572632142c5e135756457",
+      "aligned_sha256": "9b2ec5b78832b4e85667fa1731bd6f08260ede3d62eb38afe429811e07281c5a",
+      "detected_faces": 3
+    },
+    {
+      "path": "Adel_Al-Jubeir\\Adel_Al-Jubeir_0001.jpg",
+      "original_sha256": "ca167c6749f60cf5a9893113a8942eb58306c25721f91e049754ed020552c42a",
+      "aligned_sha256": "7b250eb4793fcb5365e447da6d4324f786118a6062d85845a31d49f5bdcdb3d2",
+      "detected_faces": 1
+    },
+    {
+      "path": "Adel_Al-Jubeir\\Adel_Al-Jubeir_0002.jpg",
+      "original_sha256": "3fbd6f36f23d04555e9113b9f49ee61f48e1b74198c5471e803bc834bad95245",
+      "aligned_sha256": "a94128e37472aa5b8bc9ce251e6c2d57b1d990999e5dc9b7180a2ecd8576c242",
+      "detected_faces": 1
+    },
+    {
+      "path": "Adel_Al-Jubeir\\Adel_Al-Jubeir_0003.jpg",
+      "original_sha256": "538b1dfd7cd2a47ea0eca5135d179274a0722af2b064a218d8b3b8ed41c6fe12",
+      "aligned_sha256": "7ae603df1f04ca2cad70b8033a826c8a2ad1151f1b3d56deaf57843b64e8f818",
+      "detected_faces": 1
+    },
+    {
+      "path": "Alberto_Fujimori\\Alberto_Fujimori_0001.jpg",
+      "original_sha256": "2eb86c5746225643fc1623e90652a8507397296ac3efa8d347eddf10613bc63d",
+      "aligned_sha256": "f256ae56347bf3e67981ca0ffd31cf6173a3e1e898ec7709bc57265ca8cda8a2",
+      "detected_faces": 1
+    },
+    {
+      "path": "Alberto_Fujimori\\Alberto_Fujimori_0002.jpg",
+      "original_sha256": "1385ad4ddf7c7ebdb15cd4815b91e1aed6f480647b5a70184dc58a4641f676b9",
+      "aligned_sha256": "94e1c23aa0cb9ee6db133fefe9cd33cced5bdcaf35c1cd3968fb681bf9f167ce",
+      "detected_faces": 2
+    },
+    {
+      "path": "Alejandro_Atchugarry\\Alejandro_Atchugarry_0001.jpg",
+      "original_sha256": "20e8666087689be51df3279e16e726cd511f3c3b5a8c17605a5abee85b4837e6",
+      "aligned_sha256": "b5086fe950e58c12d009e5c584e7489b6d5faace728246d0259468e1ac37fa81",
+      "detected_faces": 1
+    },
+    {
+      "path": "Alejandro_Atchugarry\\Alejandro_Atchugarry_0002.jpg",
+      "original_sha256": "629c448f40fda79bf673e056522439935e58605af321f5923081ee9dc3f30fb9",
+      "aligned_sha256": "e50bafc97adb1e93b2bb013f1334362238f2300a247fe5928ea5ff358c633ec7",
+      "detected_faces": 1
+    },
+    {
+      "path": "Arantxa_Sanchez-Vicario\\Arantxa_Sanchez-Vicario_0001.jpg",
+      "original_sha256": "74f2db90baf0eb5008ff9ecaf77e27eb65673f63aebebc52c98e6ba5d241dc2e",
+      "aligned_sha256": "b9f1f06405d62bbed0f4cc100a952c5750012e95ed5999770dc2457780df9b96",
+      "detected_faces": 1
+    },
+    {
+      "path": "Arantxa_Sanchez-Vicario\\Arantxa_Sanchez-Vicario_0002.jpg",
+      "original_sha256": "aef9f3e5a5ce4f42f6ef8392f88f901bf9f6c3db7ff14c019d3cba940c422c87",
+      "aligned_sha256": "76417fee2fd6016e3299e53b3bf038c30ca28a0874b27c694f83873ce7114753",
+      "detected_faces": 1
+    },
+    {
+      "path": "Barbra_Streisand\\Barbra_Streisand_0001.jpg",
+      "original_sha256": "f677bb6b8dc47b9f12fd6bd364552b076bb50d5a08bd5b61a11c838e18ba7a0f",
+      "aligned_sha256": "9eaa5b5043cf5500ce7576321c880451fb62294b60618c50af660a11f94fe5ab",
+      "detected_faces": 1
+    },
+    {
+      "path": "Barbra_Streisand\\Barbra_Streisand_0002.jpg",
+      "original_sha256": "9b5d529c613a73fa6429ff291d532868d166653845b6ba3c463a0bb275b88128",
+      "aligned_sha256": "d8e26dcb8761475262741800004fbd9d3b1a2883c387e73048ec044dad811147",
+      "detected_faces": 1
+    },
+    {
+      "path": "Barbra_Streisand\\Barbra_Streisand_0003.jpg",
+      "original_sha256": "8de9412e2b472718ef50a0d479092b67b0ee2aa4641faff0b3a70a310980994f",
+      "aligned_sha256": "2a6ecebb794fc8ebe97438e0a1384a267527e6fbb5ae4b185ff0b2e4aa97f41a",
+      "detected_faces": 1
+    },
+    {
+      "path": "Barrett_Jackman\\Barrett_Jackman_0001.jpg",
+      "original_sha256": "9428ccfba573692f7f09fb0cafdd18b679227a17e173e111f8ad33ec64349060",
+      "aligned_sha256": "a82a3971f6ed6aa61d58ddbc38d8bd2b6ec4e741bbc47e218824a5ce68dc4595",
+      "detected_faces": 1
+    },
+    {
+      "path": "Barrett_Jackman\\Barrett_Jackman_0002.jpg",
+      "original_sha256": "e245c5a5ed561043b9afdaeae802ffaa930342b2fbb6307704f0e1cd0df9197f",
+      "aligned_sha256": "06025606e8d171da1595346540997d2523531b305f64b46d35805a3825a3c855",
+      "detected_faces": 1
+    },
+    {
+      "path": "Ben_Glisan\\Ben_Glisan_0001.jpg",
+      "original_sha256": "82dbfcbf238e70df2c098cd7e1dd35fa1f5712ebc2aefee8c463f910d5395655",
+      "aligned_sha256": "600efdf51e4bea3deecfecf8e71ed23b544eb5e07740ba6e3c6b30c4310fa0f4",
+      "detected_faces": 2
+    },
+    {
+      "path": "Ben_Glisan\\Ben_Glisan_0002.jpg",
+      "original_sha256": "d69ab058807333d07396cb17942081ee939a13eb258149955ac1abba16d335cc",
+      "aligned_sha256": "4cda6e31fce3a574d8aff011f948f5ed24e82257a0b296d84fbfad72ea796d40",
+      "detected_faces": 2
+    },
+    {
+      "path": "Carlos_Bianchi\\Carlos_Bianchi_0001.jpg",
+      "original_sha256": "d0d1023183073e64858322db2d797c29eb8158dfee8b5b4a17a346ff0ecc5b59",
+      "aligned_sha256": "1c2a415ac19cc7664202cb5fe74fd4a0393c867a0f2dd8ecdcfe32aa593959aa",
+      "detected_faces": 1
+    },
+    {
+      "path": "Carlos_Bianchi\\Carlos_Bianchi_0002.jpg",
+      "original_sha256": "c68d9eb799d79b15cb2a0f777b562d447b152bf8926165a4d84cb85330aa69e5",
+      "aligned_sha256": "45c7e63b665688da420a6f4cda58b2f334486ab5f244418491e658d64192cb69",
+      "detected_faces": 2
+    },
+    {
+      "path": "Christian_Fittipaldi\\Christian_Fittipaldi_0001.jpg",
+      "original_sha256": "880fe09c9e4b2d7297428fe6cdaa0900daa82c9f13a316af595b136be2b4aa0a",
+      "aligned_sha256": "6f8bb1d7aeb5558b2f7e0c66e6208491156621455ea70a555489709a87fbb33a",
+      "detected_faces": 1
+    },
+    {
+      "path": "Christian_Fittipaldi\\Christian_Fittipaldi_0002.jpg",
+      "original_sha256": "7bdf7ab0a69fe8ac86c318db0e7a30e389608585de3a37955f1076bbeea8f7c1",
+      "aligned_sha256": "f865a278f3872b6523efb180ef0fa6420645fa21313f64fdb80c7b45ba221b6c",
+      "detected_faces": 1
+    },
+    {
+      "path": "Dennis_Kozlowski\\Dennis_Kozlowski_0001.jpg",
+      "original_sha256": "de640febc728777a33a75cf833a5d57a52d65c15fdd28de688b6fa6b7cbc2551",
+      "aligned_sha256": "d57c955b53db552d5f1214e7d28fa642ab32328cde8479216af421d3c9c8fa85",
+      "detected_faces": 1
+    },
+    {
+      "path": "Dennis_Kozlowski\\Dennis_Kozlowski_0002.jpg",
+      "original_sha256": "e281eec141b8f5e40a73c7363541c35e33ffebe52105dd1c524c6ebeb7861bc6",
+      "aligned_sha256": "3552ef6bb93b47b8918a47fc72d6f4860c79a1b126b0db1ac5bb27412c9331e9",
+      "detected_faces": 1
+    },
+    {
+      "path": "Dominik_Garcia-Lorido\\Dominik_Garcia-Lorido_0001.jpg",
+      "original_sha256": "a6ae47c260a653735cc11c64553b8038d18b715368682bb4810dd468dc5b1d9f",
+      "aligned_sha256": "eb411fafe01f1aaca13fe00eadd42ac83ef9fe74d779e22f4668209b1130a76e",
+      "detected_faces": 1
+    },
+    {
+      "path": "Dominik_Garcia-Lorido\\Dominik_Garcia-Lorido_0002.jpg",
+      "original_sha256": "b48d9bbcd532fdfdf84d689fb7b17b7f8bc6681db6455b4a128de0a4ee19b880",
+      "aligned_sha256": "136caef2d6ce00f2841749b2a4c677e923aff909f6e3b9b89f3e5436f57b8c95",
+      "detected_faces": 1
+    },
+    {
+      "path": "Dorthy_Moxley\\Dorthy_Moxley_0001.jpg",
+      "original_sha256": "9bbfe0ba1da67322c99c851cbe657a761a9382fde7953232923302d205c92607",
+      "aligned_sha256": "66736ed5e4cdcb02743bc00bee77e4faefb5adfbafc32663d01fd80bb03c2651",
+      "detected_faces": 2
+    },
+    {
+      "path": "Dorthy_Moxley\\Dorthy_Moxley_0002.jpg",
+      "original_sha256": "e35ec95d93ce2d8c9909cb99d380d63a920b2bfcefc9106ab10d52edb9c2ef42",
+      "aligned_sha256": "0a7b48e47b6be9f2bb63c2ddcc608ea724f301f879aad21fa913a9a46d68f907",
+      "detected_faces": 2
+    },
+    {
+      "path": "Eddy_Merckx\\Eddy_Merckx_0001.jpg",
+      "original_sha256": "89c79852208daf2dbc20e5accce780e73f9f5e4d53dcb58e49a448a8f4846cbd",
+      "aligned_sha256": "633d6267aa711fac84a79dedfb62596753a9d9949b10d01999235c33e316f9f6",
+      "detected_faces": 1
+    },
+    {
+      "path": "Eddy_Merckx\\Eddy_Merckx_0002.jpg",
+      "original_sha256": "50d226dcb5f651f70cef2d8664f40527132ccc9976d25fb6294fb3d2b8cff9c4",
+      "aligned_sha256": "4d665b4c1b6e2f046d59c59c9b5931d703a92a1cf08f140a5b0ae7a7b1cd0ff7",
+      "detected_faces": 1
+    },
+    {
+      "path": "Emile_Lahoud\\Emile_Lahoud_0001.jpg",
+      "original_sha256": "23ebd538fe058286ee5afc12772253a0fbc9b418ba048485d8128b11926d8ff9",
+      "aligned_sha256": "e3e08415895989eb3162b6487ed5be269fc72ed8c8dff921f5d6062c0c05041f",
+      "detected_faces": 1
+    },
+    {
+      "path": "Emile_Lahoud\\Emile_Lahoud_0002.jpg",
+      "original_sha256": "7a667bba78e129b6b3f2a766ee4f7e505907493174a5d359e08374d0424cae7d",
+      "aligned_sha256": "3aa1bfe839fbcecf11e962ea95220421ddc31278ce11b4326d31010ea55e5f41",
+      "detected_faces": 1
+    },
+    {
+      "path": "Freddy_Garcia\\Freddy_Garcia_0001.jpg",
+      "original_sha256": "ad46a6e5a53159c2c9410e72ea127ac48d09b61f3a90496c76306f4b793e89dc",
+      "aligned_sha256": "6135d21316a8f8b787c656fb24ca4aa1d398b79d3dca8b65505a10360cae6860",
+      "detected_faces": 1
+    },
+    {
+      "path": "Freddy_Garcia\\Freddy_Garcia_0002.jpg",
+      "original_sha256": "6cd708fb0dca659159d4649ab07e64bafa80c8502a1d2ccfc4675b7e7e67067d",
+      "aligned_sha256": "261152ba43efc45b5bef9e71610cddaa8c42705078c3df8a5633be6afad8d068",
+      "detected_faces": 1
+    },
+    {
+      "path": "George_Clooney\\George_Clooney_0001.jpg",
+      "original_sha256": "3350161011238657990c1185eddcb332ffa23da716066f96564d0ebe357e58de",
+      "aligned_sha256": "bcc005842dc9aa02530f6def760f8208e286120ba50a2406efb88058483cf154",
+      "detected_faces": 2
+    },
+    {
+      "path": "George_Clooney\\George_Clooney_0002.jpg",
+      "original_sha256": "79ed80b17b20527a08f378f780d79f20090c8f44c9b81f0c24867294b1de8a95",
+      "aligned_sha256": "9c0173de01864abd45b0375d8925ea369dd4f55edc4fda34a4fc9810eaa6e3f5",
+      "detected_faces": 1
+    },
+    {
+      "path": "George_Clooney\\George_Clooney_0003.jpg",
+      "original_sha256": "d7081de76b19b149f0d85f5d821d52c805fbcc948ebbc48c26888bd1ed41bb48",
+      "aligned_sha256": "c00dfb44aabb153ad8f452df19bfbf2e6a325fc8511701b2e6ad04f1f41139e9",
+      "detected_faces": 1
+    },
+    {
+      "path": "George_Clooney\\George_Clooney_0004.jpg",
+      "original_sha256": "06a737fc0ee2a87b8befe6a96f1a1438ed7ca3bc21827fd7450b8236c3614e2c",
+      "aligned_sha256": "2bc09683c0ad08840c393bd49f66e772c8bd39f0253ffbe7cc6fadaec2c4d1e6",
+      "detected_faces": 1
+    },
+    {
+      "path": "George_Clooney\\George_Clooney_0005.jpg",
+      "original_sha256": "6397524195f8f3ec3775d7f0cd7d8a562597a4ff6e00937166b00589e64c3c92",
+      "aligned_sha256": "6762ce03abf1f4c46451e6bad6502d3eaff7def9c95152854c9870d02e8be05f",
+      "detected_faces": 1
+    },
+    {
+      "path": "George_Clooney\\George_Clooney_0006.jpg",
+      "original_sha256": "5655c61e7f47d066da07fd52c3cb9df046ee58fdfb98e3cc0d9d9d3fa2f92986",
+      "aligned_sha256": "caa9e8aee7c741d99d06abc66c2aee753cb436cbef428876e59b1c1c3283edb3",
+      "detected_faces": 1
+    },
+    {
+      "path": "George_Clooney\\George_Clooney_0007.jpg",
+      "original_sha256": "00d473c4f431d94f07d1e6659535031b815bb9cc10c181428e138a92cf3cceee",
+      "aligned_sha256": "93266e202a14b2d2543ee23d6dd21f48142301f6c1399c5874e06e9126c1b34a",
+      "detected_faces": 1
+    },
+    {
+      "path": "George_Clooney\\George_Clooney_0008.jpg",
+      "original_sha256": "3ffbe15316f435037d563ad486a58003dbe4fa51d2ccba1107b3c14e317db386",
+      "aligned_sha256": "7b806b48d1836afd38e62ce2d435c38174bea727591662ce873ab9e8b11dd061",
+      "detected_faces": 1
+    },
+    {
+      "path": "George_Clooney\\George_Clooney_0009.jpg",
+      "original_sha256": "74eaf80345350b855c98ee679c0a5ee71b3d7322b236dba3911ccb7d1a4cf7c1",
+      "aligned_sha256": "8e9e136de5fc234861a81e87754a12757f07a2a47cd3b0793fe6c15d34d972a0",
+      "detected_faces": 1
+    },
+    {
+      "path": "George_P_Bush\\George_P_Bush_0001.jpg",
+      "original_sha256": "14d684198d2ebc61c7769b4b32b282e00d18347863344d178d31fc57c22e4cd4",
+      "aligned_sha256": "4daaf331af6f32bab9b46dcffdee89c12ecead4315c3b980fec8deef00a54eff",
+      "detected_faces": 1
+    },
+    {
+      "path": "George_P_Bush\\George_P_Bush_0002.jpg",
+      "original_sha256": "15bb2af2a433c30f9ffc8556be9ba0536b2aa3cfc71c40194be9e9e70706955d",
+      "aligned_sha256": "0cb9396fb8c1709999f089cf0360ee4059e233570a52a73c762f4e7cb185ec8d",
+      "detected_faces": 1
+    },
+    {
+      "path": "Gerry_Parsky\\Gerry_Parsky_0001.jpg",
+      "original_sha256": "c497c6f1d8e61d412be692ef35e3f6f56858d7e4e49db374e73337e20fe11be3",
+      "aligned_sha256": "0e8663f243a3b6ab66b38e0c42bb18dee88d6fabf04ffc083e57bba8bbae2b29",
+      "detected_faces": 1
+    },
+    {
+      "path": "Gerry_Parsky\\Gerry_Parsky_0002.jpg",
+      "original_sha256": "6a56f9d60d2bff23c5243998d69e626280b0fcdaa79be7f0b29aed49de97c37f",
+      "aligned_sha256": "55e1e56f4c3669258f097e02c6de4b746fe5eeadb2c030f104ce5b1b09cc529d",
+      "detected_faces": 1
+    },
+    {
+      "path": "Guido_Westerwelle\\Guido_Westerwelle_0001.jpg",
+      "original_sha256": "d1017b124a5bc8e0e56760509602d9b89f0f4d126a6db3242bfdae05cbfa7a0a",
+      "aligned_sha256": "16075403aef6985ec208a89e662fa5dfc28584421f498b6b59ee57457ba98598",
+      "detected_faces": 1
+    },
+    {
+      "path": "Guido_Westerwelle\\Guido_Westerwelle_0002.jpg",
+      "original_sha256": "7a7117e45dd021a2a2e0f42eca6c9eefe6ceac28d8574038a26b04eca1f01eb8",
+      "aligned_sha256": "823b7133db7440e79164e90997a0c260b4107e68cd585cbb23d8740684e9c57e",
+      "detected_faces": 2
+    },
+    {
+      "path": "Jamie_Villafane\\Jamie_Villafane_0001.jpg",
+      "original_sha256": "610d1b01bdd1d4283e12333971ab3326d906ab467ffd50545ebaedca8c40a920",
+      "aligned_sha256": "e8040e86be5f5946a4a23846d0f6e17a00dd3875060d516254a0c77e525db513",
+      "detected_faces": 1
+    },
+    {
+      "path": "Jamie_Villafane\\Jamie_Villafane_0002.jpg",
+      "original_sha256": "c9c0d17fd19fcfc35174bcd196bd0643620e6f0aea0ac0b39806433e3e673caa",
+      "aligned_sha256": "605619037d4d05366f3ccb15a19599c9bf43e9d64b753ddb577d25a26f1057c9",
+      "detected_faces": 1
+    },
+    {
+      "path": "Jon_Voight\\Jon_Voight_0001.jpg",
+      "original_sha256": "069bf9be3a7a83696b0fb063304ca45f8028dfc35b3132852e964092e8b3caf4",
+      "aligned_sha256": "995027fca571bb4f1ef0d82fae70ab7f491c839b4d75287d4444385e7be05551",
+      "detected_faces": 2
+    },
+    {
+      "path": "Jon_Voight\\Jon_Voight_0002.jpg",
+      "original_sha256": "4b75eec40e38e3feb29b26eb9996b006790c69269ae29314f7966bb767b1f659",
+      "aligned_sha256": "6c6870b7dd44bc0dd67370c680ea16afdba8de239f7839c1b82518a8a585eafb",
+      "detected_faces": 1
+    },
+    {
+      "path": "Jon_Voight\\Jon_Voight_0003.jpg",
+      "original_sha256": "9d7364823fdb173227a20bb0642d7daffe7eeec2ca6d6b9c9fb94e9eed75bbb2",
+      "aligned_sha256": "f3b4a41db58e14e3b01e6bcd393123d8cc2f474b97b1edbde6cc28a1a24c97c7",
+      "detected_faces": 1
+    },
+    {
+      "path": "Jose_Viegas_Filho\\Jose_Viegas_Filho_0001.jpg",
+      "original_sha256": "55857c737e19bc4914fc1639c22f4e2eaadefb3b618dea60b519d5070e9b8450",
+      "aligned_sha256": "43e00e384fb6946afb5977c3915493498c1076b11a712aeacccee7407d4e8c11",
+      "detected_faces": 2
+    },
+    {
+      "path": "Jose_Viegas_Filho\\Jose_Viegas_Filho_0002.jpg",
+      "original_sha256": "7d9207a395f9ae380356beaa9671b49e2c1d0e9094fd12a90760654bef346799",
+      "aligned_sha256": "f121763f369b6bd4bc02a4c2711896a08776f9b9fa56a96906a46b3f22bec4f9",
+      "detected_faces": 2
+    },
+    {
+      "path": "Juanes\\Juanes_0001.jpg",
+      "original_sha256": "1fe36d559fe4f0e6e6ae772d555305e501828635a77aa3b1a9d3ce4f07cc4aa8",
+      "aligned_sha256": "d1b6e13e57a95b28a21a9d4635db2fca9976a2fe3e706dd0349b6835125e2885",
+      "detected_faces": 1
+    },
+    {
+      "path": "Juanes\\Juanes_0002.jpg",
+      "original_sha256": "90c17223307ed68770edb696f0e620c5d08bc1f2f728ce3fd4fde177ab92eb5b",
+      "aligned_sha256": "ae2c37ac538916c1275d2cf7c87bb85c7fc3fcf9bc4801671468dd86ad8ceccd",
+      "detected_faces": 1
+    },
+    {
+      "path": "Juanes\\Juanes_0003.jpg",
+      "original_sha256": "bf35d58c3f1d8be4cfb9490355546669c0a308d351a40075541293da9eff89bd",
+      "aligned_sha256": "fc7e26782122be94c4a60584aa437e2a5b8407fd21c96a6f0532269987cfa304",
+      "detected_faces": 2
+    },
+    {
+      "path": "Justin_Leonard\\Justin_Leonard_0001.jpg",
+      "original_sha256": "0e5a5f14572e7c88601af020239de75b3a09c645209087e183e809cd20505c94",
+      "aligned_sha256": "4f0a4e14444b4b00c1bb2fbc6fff5a6bdde4e5e24d0380f018ae4329a0430599",
+      "detected_faces": 1
+    },
+    {
+      "path": "Justin_Leonard\\Justin_Leonard_0002.jpg",
+      "original_sha256": "9c2d8a4d235864f45b9a95dacdaed63cda66b1f9e393c04e223e14367cedd256",
+      "aligned_sha256": "d622906b62aa85fb3597c161bd378ddf8b0af5734328e85d4e16f637ef4dbbb1",
+      "detected_faces": 1
+    },
+    {
+      "path": "Justin_Leonard\\Justin_Leonard_0003.jpg",
+      "original_sha256": "2ea245ba33a0d9602ae549dfdd3b44fbc7bfd8b4fac0ec2bbbb2dd5361c8542e",
+      "aligned_sha256": "a7cae02191dd7382ffe4832fe2842c1edb2b74832e93f4684985b53b7813001e",
+      "detected_faces": 1
+    },
+    {
+      "path": "Justin_Leonard\\Justin_Leonard_0004.jpg",
+      "original_sha256": "26996aeac09afd0c59ccd8fbca5a4a9072a79fc6386ae664436f0f804c5f2f08",
+      "aligned_sha256": "425b2c5bab51a0278211c7c44a2f3cdbe21beb9d8b8cd4419d7381b09f93c8ce",
+      "detected_faces": 1
+    },
+    {
+      "path": "LeAnn_Rimes\\LeAnn_Rimes_0001.jpg",
+      "original_sha256": "cc821dc92c21158ff67ce31400466c89bc2c77e6eafa5539b6dfb1af089d745f",
+      "aligned_sha256": "40f07ed2146fcb7dbd5de6212c15645149c3aa26d7d8e694c92431263a4027f9",
+      "detected_faces": 1
+    },
+    {
+      "path": "LeAnn_Rimes\\LeAnn_Rimes_0002.jpg",
+      "original_sha256": "3ea018537a37c00f43b6f583b5d9f82933d86701792331a2cae44593d851b11a",
+      "aligned_sha256": "3184525811d7dd2857f6e5f591a877b678e330814c24a8dce111123fdb588782",
+      "detected_faces": 1
+    },
+    {
+      "path": "Leonard_Hamilton\\Leonard_Hamilton_0001.jpg",
+      "original_sha256": "f6df880c3c2adb3c82281af52ea9881e77efae500ae5eca938ed09cbf6ddc71b",
+      "aligned_sha256": "143f76b13d879e999d04ba1352be601abdeb04b7a88df6abb331c8b83b482aed",
+      "detected_faces": 1
+    },
+    {
+      "path": "Leonard_Hamilton\\Leonard_Hamilton_0002.jpg",
+      "original_sha256": "497a03bc35e912b284fb62619cf376dc59a63803eab24edc9fc3d428258c0635",
+      "aligned_sha256": "729b3d3e946b0d88770afe511ee51f6a64f4f541e7d0d7284add58c7eb4a6f9f",
+      "detected_faces": 1
+    },
+    {
+      "path": "Lesley_McCulloch\\Lesley_McCulloch_0001.jpg",
+      "original_sha256": "f47725fed559c2956c1eb16d012426b45fabb4317146e29b161b143b4c6188bb",
+      "aligned_sha256": "4972bf234889d72a02af4dad954cb0d4adc41faaf8f0cdfc83c2ad7edfbf729a",
+      "detected_faces": 1
+    },
+    {
+      "path": "Lesley_McCulloch\\Lesley_McCulloch_0002.jpg",
+      "original_sha256": "81aebacdfd9fc2097dd005bc041db6b2c4396d3b91e097367b2cb04fcb9a5c33",
+      "aligned_sha256": "510bfa8e8300880130ab525597d3301ba79532bc8c91150290c6aca8e3a68eb4",
+      "detected_faces": 1
+    },
+    {
+      "path": "Lesley_McCulloch\\Lesley_McCulloch_0003.jpg",
+      "original_sha256": "d439b5dc4f1765f50674777500df58b21b47d7868bc5c125aad18b8845a0727a",
+      "aligned_sha256": "a871d6ebf453c5ad2cb0158433282a03873326a4747605ee01679e79e845c1e4",
+      "detected_faces": 1
+    },
+    {
+      "path": "Manuel_Poggiali\\Manuel_Poggiali_0001.jpg",
+      "original_sha256": "a7030aa987b0eee0f0fc050ac4579e25ea422fe5323a2044bdfbe45cc62ebae8",
+      "aligned_sha256": "4dfc8080a06886e8c12fd2a093062e38baf9245ae2423a6c41efa1d89241d2ce",
+      "detected_faces": 1
+    },
+    {
+      "path": "Manuel_Poggiali\\Manuel_Poggiali_0002.jpg",
+      "original_sha256": "8685e85b83f02f480f1596ccc61a2e5f3c820a3676ffeb77872f8384d05f32a2",
+      "aligned_sha256": "b19eab8e1f3152577554c263e40681efa84f1a56bef4f0679139b9a1a029565a",
+      "detected_faces": 1
+    },
+    {
+      "path": "Marc_Grossman\\Marc_Grossman_0001.jpg",
+      "original_sha256": "df91ab00eca2bf41956410564f11a0662e0e0bb55d8bd693479852a41c6363cd",
+      "aligned_sha256": "01eeb29e6828a8ef2d029767a8b0db1bd79ac6e39491be4dcbba0d83683ee4a1",
+      "detected_faces": 2
+    },
+    {
+      "path": "Marc_Grossman\\Marc_Grossman_0002.jpg",
+      "original_sha256": "702b20c79bfc71b67cefe702c6983c43042db6fac67150a0e907a58c2b9e7c04",
+      "aligned_sha256": "bbe2a95dfbdc1224176780c686c8626339165f0e67482bf2a7d6fb52709dce3c",
+      "detected_faces": 1
+    },
+    {
+      "path": "Marc_Grossman\\Marc_Grossman_0003.jpg",
+      "original_sha256": "cff5394056073a8426838fb92463eb2d8ded4423f7e8bb204a8a252d279a29fd",
+      "aligned_sha256": "b6982de2619d0b7bcc04f4e7c580e6f0105bebd75115df4c75ee715d8d06a447",
+      "detected_faces": 2
+    },
+    {
+      "path": "Marc_Grossman\\Marc_Grossman_0004.jpg",
+      "original_sha256": "f1e03756e9652c350d8571b154eadee86eef76ccd5a18714215ff7acf8773c91",
+      "aligned_sha256": "61887d142eb5b100ef0648d2c523b2418759c1cd9908565b4560035ccee3fa1f",
+      "detected_faces": 1
+    },
+    {
+      "path": "Maria_Soledad_Alvear_Valenzuela\\Maria_Soledad_Alvear_Valenzuela_0001.jpg",
+      "original_sha256": "269b4117a897b132e176dbf1bf274cf7de6dac338c9e54421ce58a58a1e81c74",
+      "aligned_sha256": "d0c5878b316af3b76c236122b8cc8735644b2d6f3168ed2bc492f0fd21869de4",
+      "detected_faces": 1
+    },
+    {
+      "path": "Maria_Soledad_Alvear_Valenzuela\\Maria_Soledad_Alvear_Valenzuela_0002.jpg",
+      "original_sha256": "c86089315e5df3e2930d43ba511947c51d15335e9460de873eb20cb8a464a7ae",
+      "aligned_sha256": "1fc73df151f583f21bc53e2698e080c7debc7f4d93b3eecba515b470a3fc3830",
+      "detected_faces": 2
+    },
+    {
+      "path": "Maria_Soledad_Alvear_Valenzuela\\Maria_Soledad_Alvear_Valenzuela_0003.jpg",
+      "original_sha256": "3c209d4591a2f9ff6d1514bef3f496220a68b4ac579cdff1cf577a65a05c3cc0",
+      "aligned_sha256": "3bfb0019dfcabb3cd3c178ccb184722a2ecb155a7a2dcfafa55fff2c7dab56b5",
+      "detected_faces": 1
+    },
+    {
+      "path": "Maria_Soledad_Alvear_Valenzuela\\Maria_Soledad_Alvear_Valenzuela_0004.jpg",
+      "original_sha256": "f9c14c6f5ee3fab3043d922034708d074869ee766169ff238518b242159a0a6b",
+      "aligned_sha256": "5e420fb735586d576d583919f23a2d796efe48df54c437aceb5ae515ef8e3574",
+      "detected_faces": 1
+    },
+    {
+      "path": "Maria_Soledad_Alvear_Valenzuela\\Maria_Soledad_Alvear_Valenzuela_0005.jpg",
+      "original_sha256": "919f0221765fc09100bdf75fe1bd44d88e70a7b6cf8271a7168a234fdaa77770",
+      "aligned_sha256": "596b96e85c6ddde9c938b16f62166e21c4bff9d0a246547054c80375c1760e38",
+      "detected_faces": 1
+    },
+    {
+      "path": "Mark_Gottfried\\Mark_Gottfried_0001.jpg",
+      "original_sha256": "526f07f986fccd39cf9b8d88ca6c4d8f0564f97e823c9a591091c059e0dbadb0",
+      "aligned_sha256": "08e4dfdc2398abc6c394ed0430d04f805b0df192a09baf4069efe470bf55a0a9",
+      "detected_faces": 1
+    },
+    {
+      "path": "Mark_Gottfried\\Mark_Gottfried_0002.jpg",
+      "original_sha256": "ce469f9853c33c8bb7704e8fb52ca08e1b909f98b41a2b1bb7d126d648c53791",
+      "aligned_sha256": "e5aac8865be6eb62d3a24d0a14eb3c3186fbab3a31d4deb88ee2df6b134c5d90",
+      "detected_faces": 1
+    },
+    {
+      "path": "Mark_Gottfried\\Mark_Gottfried_0003.jpg",
+      "original_sha256": "71a7004f25ddb02e0dc0fb54331e265bc7b0924edfce1b72531f11d8e07e8915",
+      "aligned_sha256": "68f1b88730207d26f198430e51052f1f177b2ebd50b02cf748884b44ccbe821b",
+      "detected_faces": 1
+    },
+    {
+      "path": "Mark_Warner\\Mark_Warner_0001.jpg",
+      "original_sha256": "df9aa49e55b9d898faf11a4217560a5f0cd9b76c693e6543402e6e63f8bcae3a",
+      "aligned_sha256": "e8dca90fc41480dbee9c50ed5f6a19dc0027d0f1e4078ccbfdd9297fd957b95f",
+      "detected_faces": 1
+    },
+    {
+      "path": "Mark_Warner\\Mark_Warner_0002.jpg",
+      "original_sha256": "a9f842accee82a52dc55cb658264a8780c53660ab7b19ba3cdbef3defd697588",
+      "aligned_sha256": "2f631220c117de490909fd60e966cf72e8d2a8ed051f5189e04ca087cf5399f4",
+      "detected_faces": 2
+    },
+    {
+      "path": "Martha_Burk\\Martha_Burk_0001.jpg",
+      "original_sha256": "b1b4eed4f82ebf3456f916b9d63bcf8daaf27d6fa5197df56f5d8f26f549a3c0",
+      "aligned_sha256": "a814624f318ff75276488f20d84cc25048a0416214a2d9659108a9920777d543",
+      "detected_faces": 1
+    },
+    {
+      "path": "Martha_Burk\\Martha_Burk_0002.jpg",
+      "original_sha256": "76e6ba389a8ca7621267f24dff32d3640c1657def9316545bdb944e15585fb3c",
+      "aligned_sha256": "bceaeb55dc7ea7ac125573a8ff67158575da65299a8535caacc3130d4810385f",
+      "detected_faces": 1
+    },
+    {
+      "path": "Martha_Burk\\Martha_Burk_0003.jpg",
+      "original_sha256": "cd5d282c975bb7dce48805f0467dbcb4a89afd90565472f73bf83617b18b55f6",
+      "aligned_sha256": "aa0dc3fbb3b0fe0982084810d09fee8c07201a7aaab64852b44ba6af851f92be",
+      "detected_faces": 1
+    },
+    {
+      "path": "Martha_Burk\\Martha_Burk_0004.jpg",
+      "original_sha256": "1a43435f166a2b02da28a252f6f5de5996a451706d935559a421cb168c9e0bf4",
+      "aligned_sha256": "2a0169549ffa0136fca741de055422305cdd83ebfc7b53ac5007ccf3389a7318",
+      "detected_faces": 3
+    },
+    {
+      "path": "Mary_Carey\\Mary_Carey_0001.jpg",
+      "original_sha256": "1edcf79ced044d05c0f75085197746a86a58a5758b5320a98e8c890ebe530dfa",
+      "aligned_sha256": "67ac31a7b5db698ca4ce49d6520ca012384bfc95511fa3da820969848ff70b8c",
+      "detected_faces": 1
+    },
+    {
+      "path": "Mary_Carey\\Mary_Carey_0002.jpg",
+      "original_sha256": "285b89f2089d83579ce209e4f732d89bcd47f22ec737ceb3646517ac5199d435",
+      "aligned_sha256": "489fd7cdd587acad24ef03947d103311cd3a625d29f3fcf71a59bf29a18a183a",
+      "detected_faces": 1
+    },
+    {
+      "path": "Mary_Carey\\Mary_Carey_0003.jpg",
+      "original_sha256": "5bbd32a66d57f6cdcf1a6e3542753074a1cc7bc2617f8764d37bbe31dbbdad09",
+      "aligned_sha256": "692b0009bece09fa5715048d76458af967c2521eddea21d55251811b63527d26",
+      "detected_faces": 1
+    },
+    {
+      "path": "Mary_Carey\\Mary_Carey_0004.jpg",
+      "original_sha256": "0a86f4a4cb1f03e47cb3203c6663585e74507f0b044b6cf2bc6730f5f23d1fa8",
+      "aligned_sha256": "484f48ea2aa0805ffeae89baf3515ff7ec2ec081babf56029ca8abee92e4b95d",
+      "detected_faces": 1
+    },
+    {
+      "path": "Mike_Holmgren\\Mike_Holmgren_0001.jpg",
+      "original_sha256": "02d0cd6b328b34bb522cb540978085872a621a8eeba4d811601172c533172e64",
+      "aligned_sha256": "5e6072995d3065216bdd9b194f100e8df2b4640ed44f35b915475ee06dc95dd2",
+      "detected_faces": 1
+    },
+    {
+      "path": "Mike_Holmgren\\Mike_Holmgren_0002.jpg",
+      "original_sha256": "53c723820b90dc1922369f5fed36507eaa38daf6f454da93cf31eee329df8d52",
+      "aligned_sha256": "814f726fc35242aa22855ada052ef3c219d6d72593a107a712b444b5e051d858",
+      "detected_faces": 2
+    },
+    {
+      "path": "Mitoji_Yabunaka\\Mitoji_Yabunaka_0001.jpg",
+      "original_sha256": "85beab83b582abe16c4c688905a2ffe4818157a989ff9d5b61d82e8638a769cd",
+      "aligned_sha256": "99597a756b549d783d1148f97b31a30cf1c3fb99cd547bb75d2187c1764ad587",
+      "detected_faces": 1
+    },
+    {
+      "path": "Mitoji_Yabunaka\\Mitoji_Yabunaka_0002.jpg",
+      "original_sha256": "c4508fdbd76b882d3bda6583a1255310a535ddb8d84f9059f66424395c4bf1fa",
+      "aligned_sha256": "bd2cc60a2327f0178e965002aac2aafb951f39d715470fd14e6a80d5c575250d",
+      "detected_faces": 1
+    },
+    {
+      "path": "Nebojsa_Pavkovic\\Nebojsa_Pavkovic_0001.jpg",
+      "original_sha256": "fb72843616e8fc5a2566511974d472eb9048d88db53d8f95d08422958a30b02e",
+      "aligned_sha256": "3d7ab0c89a13e2ce9cb15fa5ddebd23cb83579eeb12652920415020d60c7dfa1",
+      "detected_faces": 1
+    },
+    {
+      "path": "Nebojsa_Pavkovic\\Nebojsa_Pavkovic_0002.jpg",
+      "original_sha256": "b4f4ff42c861d8027a10f6274d2165a23534ae112edfbcd97b3c86851cbd441c",
+      "aligned_sha256": "20d7f41230b3e59d0f283d2dd82f8e731572656dde704ff976830ce343e7ba79",
+      "detected_faces": 1
+    },
+    {
+      "path": "Owen_Wilson\\Owen_Wilson_0001.jpg",
+      "original_sha256": "9d142bed90cb44c6a92b54df82d126f2d5c852459b7f6cca5802d23def9fbd51",
+      "aligned_sha256": "562fc9e16c8dd7dd72bf384a2dfa58101fa51fac4f8cec32665aa4447d093cca",
+      "detected_faces": 2
+    },
+    {
+      "path": "Owen_Wilson\\Owen_Wilson_0002.jpg",
+      "original_sha256": "241c1cde7e42c19df3df453f47d1f87c63fd98dc9d7bbb51bb233a2434dd1aeb",
+      "aligned_sha256": "360b6c5be91acbc498476159cf81de41d9d8c9177101c3b584e8cf94d75b4414",
+      "detected_faces": 1
+    },
+    {
+      "path": "Paul_Hogan\\Paul_Hogan_0001.jpg",
+      "original_sha256": "152e2705cebc735b20927a057ad57a72a5587aaae90abd102b70526370b0f138",
+      "aligned_sha256": "162950e19f348719271a1ea064439a133a871a400787fd5172c4048936ba6d7b",
+      "detected_faces": 1
+    },
+    {
+      "path": "Paul_Hogan\\Paul_Hogan_0002.jpg",
+      "original_sha256": "592cd0625f6691a9cee54650188a544f3fbba0eaf8bd9d456b363a45d923a2bd",
+      "aligned_sha256": "44b778e07a93dbc50c55e4ca239c93d39d43ceb502dba4375b52ed7c0abfe580",
+      "detected_faces": 2
+    },
+    {
+      "path": "Paul_Tagliabue\\Paul_Tagliabue_0001.jpg",
+      "original_sha256": "f77abdca8665dd4aa139cfb0f8d5741f54c6510ed5bb3a0955a95cf0e40f8f23",
+      "aligned_sha256": "a7cd2febc6057a53a2d39fdaae0c53496a30545e456de653a5b5ad2436c9a738",
+      "detected_faces": 1
+    },
+    {
+      "path": "Paul_Tagliabue\\Paul_Tagliabue_0002.jpg",
+      "original_sha256": "8fb9854fc753d2f9d2b87cccfbd7b9c328738e971af97c0e7133b163562e920f",
+      "aligned_sha256": "69473561ddde54a0a4d9baf52c4adcd5b2fcaf23865dfa58870051338529df93",
+      "detected_faces": 1
+    },
+    {
+      "path": "Paul_Tagliabue\\Paul_Tagliabue_0003.jpg",
+      "original_sha256": "6a056e35b670bf885b0002463432c6bd97835ed8c892167502275f6511ce3a3d",
+      "aligned_sha256": "672d4ef1cb76a0b0c9977a3fb9e8112d414803191bd2db4f60b3cd1d5e81d3a9",
+      "detected_faces": 1
+    },
+    {
+      "path": "Paul_Tagliabue\\Paul_Tagliabue_0004.jpg",
+      "original_sha256": "5d92d0793a6e1905f73985aaa8108e72fd2e5faf6bf605ea6e50ecbbcd9c98df",
+      "aligned_sha256": "a7f76f09f637e4dc5857a60caf4b03035005b16d6ebba067b68da051ad2364b3",
+      "detected_faces": 1
+    },
+    {
+      "path": "Rebekah_Chantay_Revels\\Rebekah_Chantay_Revels_0001.jpg",
+      "original_sha256": "e64d836836b833eaf5a90fd5f4dfa14764d39d7a26837ec4e1d00f30b7fcfa8b",
+      "aligned_sha256": "039b1994c4c4c5b1d965b003398b7a0bc5381de55e66e4964a4472bef9232291",
+      "detected_faces": 2
+    },
+    {
+      "path": "Rebekah_Chantay_Revels\\Rebekah_Chantay_Revels_0002.jpg",
+      "original_sha256": "430c1d43fe66b8cd1d58d4ee8796c5dd38cc7ae322f6a893724266f70c209188",
+      "aligned_sha256": "aa2be773a7aa7bb450818fa258e9d1f825b5da02d466d7e36ded07e320b86646",
+      "detected_faces": 2
+    },
+    {
+      "path": "Rebekah_Chantay_Revels\\Rebekah_Chantay_Revels_0003.jpg",
+      "original_sha256": "02e91939c453dd07b18cf5c0529a84d697d160831d66cadff6765416cfd0adbc",
+      "aligned_sha256": "c1ccd34fef2173c3723507478dfc81238179632cfb9ae838198a2129f999ff95",
+      "detected_faces": 1
+    },
+    {
+      "path": "Rebekah_Chantay_Revels\\Rebekah_Chantay_Revels_0004.jpg",
+      "original_sha256": "735832c7f209aa0ebbe319517704a1d44f4f436e4c9eb4b5e0da4b1061ff3183",
+      "aligned_sha256": "63c994169795b29b2f04d76146d6357e94e819b6359551af69d5803f0ce6d76d",
+      "detected_faces": 1
+    },
+    {
+      "path": "Robert_DeFraites\\Robert_DeFraites_0001.jpg",
+      "original_sha256": "2ed04593f507bdf9c8748d86aaca5a1a6aa3bdfbbf112d5a18d601dfcf93b58f",
+      "aligned_sha256": "0e3083ab7728d02a79edbc52f9edb892e38823a0ed8615ff7fda898d448b859a",
+      "detected_faces": 1
+    },
+    {
+      "path": "Robert_DeFraites\\Robert_DeFraites_0002.jpg",
+      "original_sha256": "39b2a003910af645d5e9e13d8027a9c5d8f5aa4dc821fc044c70c7205196979b",
+      "aligned_sha256": "f3ab87d89e6224b8d548df420273f5e97da6aef8bd2a92010dfe3e6945929841",
+      "detected_faces": 1
+    },
+    {
+      "path": "Rodrigo_Borja\\Rodrigo_Borja_0001.jpg",
+      "original_sha256": "8372df08ffdbd4729e26d46ce63a659ce9cd2959ed6a195aa45bc02b8b4aa6c5",
+      "aligned_sha256": "517f8f6927b538ccc1dbca2023ef832e8b39381c64527dfb709658cbd6901aa9",
+      "detected_faces": 1
+    },
+    {
+      "path": "Rodrigo_Borja\\Rodrigo_Borja_0002.jpg",
+      "original_sha256": "39783a194d7c594d3e06ae28cafda521a5f8455fa13bcbb7991aa21cd0b9c2fa",
+      "aligned_sha256": "75ff15cb48e11a4cbaa31e3fd836c76a8fb00c256ac5c6fbc7173fd1435f9a2e",
+      "detected_faces": 2
+    },
+    {
+      "path": "Russell_Crowe\\Russell_Crowe_0001.jpg",
+      "original_sha256": "56f3f8a983b362dcc39402497f3efd43f728dc5d7cef04d677a6f35f64645ef2",
+      "aligned_sha256": "ab3aadc2181babd08175dbfa6d1a851f82acaafc0769ce9abf6e1ecb50b6e47b",
+      "detected_faces": 2
+    },
+    {
+      "path": "Russell_Crowe\\Russell_Crowe_0002.jpg",
+      "original_sha256": "54172770c475c36ced8d35f8604daa7dde94e8469458600430bee8b98fd4640d",
+      "aligned_sha256": "2adc9a9a166eb7ea6ee3ee853e967892693518ccb27e330fac1056718b948330",
+      "detected_faces": 1
+    },
+    {
+      "path": "S_Jayakumar\\S_Jayakumar_0001.jpg",
+      "original_sha256": "695a313ae0496a7129b8cddfa47e4316c01fbc25b73186bd684cc84241fdf573",
+      "aligned_sha256": "2c3a526d273ec1acdbd72b80fdb854ef8c5394a541eb1ac3ff3dacc29e469b57",
+      "detected_faces": 1
+    },
+    {
+      "path": "S_Jayakumar\\S_Jayakumar_0002.jpg",
+      "original_sha256": "38032951301568557893591dd185df391d1f2a728a8da194c3957fc6b4f8cf8c",
+      "aligned_sha256": "2cff1ec6ccb6228de516c48838c6530780e90eed8490c5f77de0472add5ee518",
+      "detected_faces": 1
+    },
+    {
+      "path": "Stefano_Accorsi\\Stefano_Accorsi_0001.jpg",
+      "original_sha256": "5ffb036b4173da51e41301caa67dab05692d16b83544805bb74dd2d687a7e994",
+      "aligned_sha256": "00eb29a110f16488cc99beb6f342f49b72944787c96782fe7beffbeaeb2a8fe6",
+      "detected_faces": 1
+    },
+    {
+      "path": "Stefano_Accorsi\\Stefano_Accorsi_0002.jpg",
+      "original_sha256": "89921ac75bb8569c367f1a0f1276490e618ef1806e303d1798f7a6ecf9bb177e",
+      "aligned_sha256": "c558b91fba72d140b403639a2887eed4588bf1ed32cdb77fd82bdbf183804a16",
+      "detected_faces": 1
+    },
+    {
+      "path": "Ted_Maher\\Ted_Maher_0001.jpg",
+      "original_sha256": "3e799812650c0aff4128fa764c906329135e7ac3af309163f8903c016e8f0657",
+      "aligned_sha256": "3ef6834633585f8a623d517f5a1fc0cdc9687fef6dda58a035d2bbecd4f3ab86",
+      "detected_faces": 1
+    },
+    {
+      "path": "Ted_Maher\\Ted_Maher_0002.jpg",
+      "original_sha256": "8aac69099684e99e0b9f5e94cd2de97bbcc91f877f8fc83d736097ee57fc39b3",
+      "aligned_sha256": "1727821b983830266aec5c70f9263334cef48c7bb672bb01fe0f12825b44e7bb",
+      "detected_faces": 1
+    },
+    {
+      "path": "Tom_Jones\\Tom_Jones_0001.jpg",
+      "original_sha256": "ba7caa44d777fe50a4bb2c086777830d9125ecb870889c751bae5fa444baaebc",
+      "aligned_sha256": "c423dc9ad8b2faad72334cd35390508b10411232a95b273acf3e7d75ba9150c6",
+      "detected_faces": 1
+    },
+    {
+      "path": "Tom_Jones\\Tom_Jones_0002.jpg",
+      "original_sha256": "3d83220af4e538884df1782bdba1d255490b0f3759fc4a295150ce823c5e8e96",
+      "aligned_sha256": "84faa0d656bc54f5c4846800fb61f2eb5e3ad4b1d81dfe8fbe657ecb0a24ea79",
+      "detected_faces": 1
+    },
+    {
+      "path": "Tubby_Smith\\Tubby_Smith_0001.jpg",
+      "original_sha256": "f86009f6df881ea7833dae284f5e24057d298ece77788180f62b171a304fd159",
+      "aligned_sha256": "07b939b76df442ad01b706239de49de5a941aede9b5b7f3057a00a6aacc452d0",
+      "detected_faces": 1
+    },
+    {
+      "path": "Tubby_Smith\\Tubby_Smith_0002.jpg",
+      "original_sha256": "181a6fcf79d89c448282a84c92ffd3d90c116cb638830cff6b34e35a5856297a",
+      "aligned_sha256": "8c8cb26e5602bc81bac6015719831a996e9e784d8d10a51190267285eb74da67",
+      "detected_faces": 1
+    },
+    {
+      "path": "Tubby_Smith\\Tubby_Smith_0003.jpg",
+      "original_sha256": "e6c46cda437237d81aeee9f7b6416401458267de253b98e0733677d5ae868f1f",
+      "aligned_sha256": "9c9804ac9ff1d6387d3f335a671dc2174c811e329192f0ba3bce1fa8462bffc6",
+      "detected_faces": 1
+    },
+    {
+      "path": "Tyron_Garner\\Tyron_Garner_0001.jpg",
+      "original_sha256": "ed37478ac1e4cf979e566bd0ecc464fd5dc53be78896e4531f905d757bfc52b7",
+      "aligned_sha256": "6de89d500c05fed5aee52601691f7d86ea576df814e436773bc4b30b23e17d8b",
+      "detected_faces": 1
+    },
+    {
+      "path": "Tyron_Garner\\Tyron_Garner_0002.jpg",
+      "original_sha256": "3c3c9dba4ad87733140e3d54432bea84a487dd56bfb15a336f831c13d2437391",
+      "aligned_sha256": "4b7d5ed3ff14ba5c2b488f2c139b65d58881cb3cfd3759fd44f0b8aee8c5a4fd",
+      "detected_faces": 1
+    },
+    {
+      "path": "Vicki_Zhao_Wei\\Vicki_Zhao_Wei_0001.jpg",
+      "original_sha256": "7632d79ed25d3008dd5489fc7621c48033c831d1d1ee7a9293b80b096c0703e7",
+      "aligned_sha256": "9c9c1cc87ccdc99de795d6b0f3490ca2f0b9bbd6b4d93419f55f82168ab9c1e1",
+      "detected_faces": 1
+    },
+    {
+      "path": "Vicki_Zhao_Wei\\Vicki_Zhao_Wei_0002.jpg",
+      "original_sha256": "3711369ee015701c901adad7c69b0028bdd91df128ca7ff3eab1113d3ac7ab13",
+      "aligned_sha256": "4015c250b99dc32609b062658f2a642c3ad2dc12e93f1cb9b22753f5173c957c",
+      "detected_faces": 1
+    }
+  ],
+  "failures": [],
+  "train_ordered_source_digest": "2723e8166a6017fee002debc2c8dd715c893140deb5122ab4fb2172396700055",
+  "evaluation_ordered_source_digest": "bad084d23ea97e2c6b4962751c8ac604140ef661335d521d6125ab2a33742b16"
+}

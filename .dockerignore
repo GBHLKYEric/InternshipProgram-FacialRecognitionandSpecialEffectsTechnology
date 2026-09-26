@@ -1,0 +1,9 @@
+.venv
+.git
+data
+runs
+reports
+*.zip
+*.pdf
+*.pptx
+__pycache__

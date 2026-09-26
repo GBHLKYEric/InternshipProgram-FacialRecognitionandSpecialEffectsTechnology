@@ -1,0 +1,30 @@
+{
+  "provenance": "SYNTHETIC CODE SMOKE ONLY: random weights and inputs; no recognition result",
+  "torch": "2.14.0+cpu",
+  "onnx": {
+    "bytes": 94914751,
+    "embedding_max_abs_error": 1.7136335372924805e-07,
+    "median_ms": 24.895599999581464,
+    "p95_ms": 26.39058000058867,
+    "repeats": 5
+  },
+  "onnxruntime": "1.30.0",
+  "cpu_threads": 2,
+  "batch_size": 2,
+  "fp32": {
+    "state_bytes": 95398463,
+    "median_ms": 48.8401999900816,
+    "p95_ms": 50.218420004239306,
+    "repeats": 5
+  },
+  "dynamic_linear_int8": {
+    "state_bytes": 94612859,
+    "median_ms": 52.653200007625856,
+    "p95_ms": 54.12067999714054,
+    "repeats": 5,
+    "embedding_max_abs_error": 0.0022568926215171814,
+    "mean_cosine_to_fp32": 0.9999645948410034
+  },
+  "accuracy": null,
+  "accuracy_note": "Numerical embedding similarity is not face verification accuracy."
+}

@@ -1,0 +1,53 @@
+{
+  "observed_at_utc": "2026-09-26T12:36:42.729188+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "C:\\Users\\0\\Documents\\Codex\\2026-09-26\\plugin-computer-use-openai-bundled-github\\outputs\\face-vision-lab\\.venv\\Scripts\\python.exe",
+  "platform": "Windows-11-10.0.26100-SP0",
+  "logical_cpus": 14,
+  "packages": {
+    "numpy": "2.5.3",
+    "cv2": "5.0.0",
+    "torch": "2.14.0+cpu",
+    "torchvision": "0.29.0+cpu",
+    "onnx": "1.23.0",
+    "onnxruntime": "1.30.0",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "PIL": "12.3.0",
+    "jupyterlab": "4.6.4",
+    "nbclient": "0.11.0",
+    "nbformat": "5.11.1",
+    "markdown": "3.11",
+    "mmdet": "unavailable: No module named 'mmdet'",
+    "mmcv": "unavailable: No module named 'mmcv'",
+    "mediapipe": "unavailable: No module named 'mediapipe'"
+  },
+  "commands": {
+    "git": "C:\\Users\\0\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\git\\cmd\\git.EXE",
+    "docker": null,
+    "wsl": "C:\\WINDOWS\\system32\\wsl.EXE",
+    "conda": null
+  },
+  "torch_cuda_available": false,
+  "onnx_providers": [
+    "AzureExecutionProvider",
+    "CPUExecutionProvider"
+  ],
+  "cpu": "Intel(R) Core(TM) Ultra 5 225H",
+  "installed_ram_gib": 32.0,
+  "required_windows_environment_present": {
+    "SystemRoot": true,
+    "WINDIR": true,
+    "COMSPEC": true
+  },
+  "wsl_docker": "Docker version 29.1.3, build 29.1.3-0ubuntu3~24.04.2",
+  "assets": {
+    "models/face_detection_yunet_2023mar.onnx": true,
+    "models/face_recognition_sface_2021dec.onnx": true,
+    "assets/astronaut.png": true,
+    "models/3ddfa/bfm_noneck_v3.pkl": true,
+    "models/3ddfa/param_mean_std_62d_120x120.pkl": true,
+    "models/3ddfa/tri.pkl": true,
+    "models/3ddfa/mb1_120x120.pth": true
+  }
+}

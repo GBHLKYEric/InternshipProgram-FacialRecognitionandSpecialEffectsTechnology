@@ -1,0 +1,650 @@
+/bin/sh: 1: gcc: not found
+09/26 12:44:20 - mmengine - INFO - 
+------------------------------------------------------------
+System environment:
+    sys.platform: linux
+    Python: 3.10.21 (main, Sep 19 2026, 01:08:03) [GCC 12.2.0]
+    CUDA available: False
+    MUSA available: False
+    numpy_random_seed: 42
+    GCC: n/a
+    PyTorch: 2.1.0+cpu
+    PyTorch compiling details: PyTorch built with:
+  - GCC 9.3
+  - C++ Version: 201703
+  - Intel(R) oneAPI Math Kernel Library Version 2022.2-Product Build 20220804 for Intel(R) 64 architecture applications
+  - Intel(R) MKL-DNN v3.1.1 (Git Hash 64f6bcbcbab628e96f33a62c3e975f8535a7bde4)
+  - OpenMP 201511 (a.k.a. OpenMP 4.5)
+  - LAPACK is enabled (usually provided by MKL)
+  - NNPACK is enabled
+  - CPU capability usage: AVX2
+  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CXX_COMPILER=/opt/rh/devtoolset-9/root/usr/bin/c++, CXX_FLAGS= -D_GLIBCXX_USE_CXX11_ABI=0 -fabi-version=11 -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOCUPTI -DLIBKINETO_NOROCTRACER -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-unused-parameter -Wno-unused-function -Wno-unused-result -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wno-psabi -Wno-error=pedantic -Wno-error=old-style-cast -Wno-invalid-partial-specialization -Wno-unused-private-field -Wno-aligned-allocation-unavailable -Wno-missing-braces -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Werror=cast-function-type -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, TORCH_DISABLE_GPU_ASSERTS=ON, TORCH_VERSION=2.1.0, USE_CUDA=0, USE_CUDNN=OFF, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=OFF, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, 
+
+    TorchVision: 0.16.0+cpu
+    OpenCV: 4.11.0
+    MMEngine: 0.10.7
+
+Runtime environment:
+    cudnn_benchmark: False
+    mp_cfg: {'mp_start_method': 'fork', 'opencv_num_threads': 0}
+    dist_cfg: {'backend': 'gloo'}
+    seed: 42
+    deterministic: False
+    Distributed launcher: none
+    Distributed training: False
+    GPU number: 1
+------------------------------------------------------------
+
+09/26 12:44:20 - mmengine - INFO - Config:
+auto_scale_lr = dict(base_batch_size=2, enable=False)
+backend_args = None
+data_root = 'data/coco/'
+dataset_type = 'CocoDataset'
+default_hooks = dict(
+    checkpoint=dict(
+        _scope_='mmdet', interval=1, max_keep_ckpts=2, type='CheckpointHook'),
+    logger=dict(_scope_='mmdet', interval=1, type='LoggerHook'),
+    param_scheduler=dict(_scope_='mmdet', type='ParamSchedulerHook'),
+    sampler_seed=dict(_scope_='mmdet', type='DistSamplerSeedHook'),
+    timer=dict(_scope_='mmdet', type='IterTimerHook'),
+    visualization=dict(_scope_='mmdet', type='DetVisualizationHook'))
+default_scope = 'mmdet'
+env_cfg = dict(
+    cudnn_benchmark=False,
+    dist_cfg=dict(backend='gloo'),
+    mp_cfg=dict(mp_start_method='fork', opencv_num_threads=0))
+img_scales = [
+    (
+        1333,
+        800,
+    ),
+    (
+        666,
+        400,
+    ),
+    (
+        2000,
+        1200,
+    ),
+]
+load_from = None
+log_level = 'INFO'
+log_processor = dict(
+    _scope_='mmdet', by_epoch=True, type='LogProcessor', window_size=50)
+metainfo = dict(
+    classes=('face', ), palette=[
+        (
+            255,
+            100,
+            100,
+        ),
+    ])
+model = dict(
+    _scope_='mmdet',
+    backbone=dict(
+        depth=50,
+        frozen_stages=1,
+        init_cfg=None,
+        norm_cfg=dict(requires_grad=True, type='BN'),
+        norm_eval=True,
+        num_stages=4,
+        out_indices=(
+            0,
+            1,
+            2,
+            3,
+        ),
+        style='pytorch',
+        type='ResNet'),
+    bbox_head=dict(
+        anchor_generator=dict(
+            octave_base_scale=4,
+            ratios=[
+                0.5,
+                1.0,
+                2.0,
+            ],
+            scales_per_octave=3,
+            strides=[
+                8,
+                16,
+                32,
+                64,
+                128,
+            ],
+            type='AnchorGenerator'),
+        bbox_coder=dict(
+            target_means=[
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+            ],
+            target_stds=[
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+            ],
+            type='DeltaXYWHBBoxCoder'),
+        feat_channels=256,
+        in_channels=256,
+        loss_bbox=dict(loss_weight=1.0, type='L1Loss'),
+        loss_cls=dict(
+            alpha=0.25,
+            gamma=2.0,
+            loss_weight=1.0,
+            type='FocalLoss',
+            use_sigmoid=True),
+        num_classes=1,
+        stacked_convs=4,
+        type='RetinaHead'),
+    data_preprocessor=dict(
+        bgr_to_rgb=True,
+        mean=[
+            123.675,
+            116.28,
+            103.53,
+        ],
+        pad_size_divisor=32,
+        std=[
+            58.395,
+            57.12,
+            57.375,
+        ],
+        type='DetDataPreprocessor'),
+    neck=dict(
+        add_extra_convs='on_input',
+        in_channels=[
+            256,
+            512,
+            1024,
+            2048,
+        ],
+        num_outs=5,
+        out_channels=256,
+        start_level=1,
+        type='FPN'),
+    test_cfg=dict(
+        max_per_img=100,
+        min_bbox_size=0,
+        nms=dict(iou_threshold=0.5, type='nms'),
+        nms_pre=1000,
+        score_thr=0.0),
+    train_cfg=dict(
+        allowed_border=-1,
+        assigner=dict(
+            ignore_iof_thr=-1,
+            min_pos_iou=0,
+            neg_iou_thr=0.4,
+            pos_iou_thr=0.5,
+            type='MaxIoUAssigner'),
+        debug=False,
+        pos_weight=-1,
+        sampler=dict(type='PseudoSampler')),
+    type='RetinaNet')
+optim_wrapper = dict(
+    _scope_='mmdet',
+    optimizer=dict(lr=0.00125, momentum=0.9, type='SGD', weight_decay=0.0001),
+    type='OptimWrapper')
+param_scheduler = []
+randomness = dict(deterministic=False, seed=42)
+resume = False
+test_cfg = dict(_scope_='mmdet', type='TestLoop')
+test_dataloader = dict(
+    batch_size=1,
+    dataset=dict(
+        _scope_='mmdet',
+        ann_file='wider/val.json',
+        backend_args=None,
+        data_prefix=dict(img='WIDER_val/images/'),
+        data_root='data/',
+        metainfo=dict(classes=('face', ), palette=[
+            (
+                255,
+                100,
+                100,
+            ),
+        ]),
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(keep_ratio=True, scale=(
+                320,
+                320,
+            ), type='Resize'),
+            dict(type='LoadAnnotations', with_bbox=True),
+            dict(
+                meta_keys=(
+                    'img_id',
+                    'img_path',
+                    'ori_shape',
+                    'img_shape',
+                    'scale_factor',
+                ),
+                type='PackDetInputs'),
+        ],
+        test_mode=True,
+        type='CocoDataset'),
+    drop_last=False,
+    num_workers=0,
+    persistent_workers=False,
+    sampler=dict(_scope_='mmdet', shuffle=False, type='DefaultSampler'))
+test_evaluator = dict(
+    _scope_='mmdet',
+    ann_file='data/wider/val.json',
+    backend_args=None,
+    classwise=True,
+    format_only=False,
+    metric='bbox',
+    type='CocoMetric')
+test_pipeline = [
+    dict(_scope_='mmdet', backend_args=None, type='LoadImageFromFile'),
+    dict(_scope_='mmdet', keep_ratio=True, scale=(
+        1333,
+        800,
+    ), type='Resize'),
+    dict(_scope_='mmdet', type='LoadAnnotations', with_bbox=True),
+    dict(
+        _scope_='mmdet',
+        meta_keys=(
+            'img_id',
+            'img_path',
+            'ori_shape',
+            'img_shape',
+            'scale_factor',
+        ),
+        type='PackDetInputs'),
+]
+train_cfg = dict(
+    _scope_='mmdet', max_epochs=1, type='EpochBasedTrainLoop', val_interval=2)
+train_dataloader = dict(
+    batch_sampler=dict(_scope_='mmdet', type='AspectRatioBatchSampler'),
+    batch_size=2,
+    dataset=dict(
+        _scope_='mmdet',
+        ann_file='wider/train.json',
+        backend_args=None,
+        data_prefix=dict(img='WIDER_train/images/'),
+        data_root='data/',
+        filter_cfg=dict(filter_empty_gt=True, min_size=32),
+        metainfo=dict(classes=('face', ), palette=[
+            (
+                255,
+                100,
+                100,
+            ),
+        ]),
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(type='LoadAnnotations', with_bbox=True),
+            dict(keep_ratio=True, scale=(
+                320,
+                320,
+            ), type='Resize'),
+            dict(prob=0.5, type='RandomFlip'),
+            dict(type='PackDetInputs'),
+        ],
+        type='CocoDataset'),
+    num_workers=0,
+    persistent_workers=False,
+    sampler=dict(_scope_='mmdet', shuffle=True, type='DefaultSampler'))
+train_pipeline = [
+    dict(_scope_='mmdet', backend_args=None, type='LoadImageFromFile'),
+    dict(_scope_='mmdet', type='LoadAnnotations', with_bbox=True),
+    dict(_scope_='mmdet', keep_ratio=True, scale=(
+        1333,
+        800,
+    ), type='Resize'),
+    dict(_scope_='mmdet', prob=0.5, type='RandomFlip'),
+    dict(_scope_='mmdet', type='PackDetInputs'),
+]
+tta_model = dict(
+    _scope_='mmdet',
+    tta_cfg=dict(max_per_img=100, nms=dict(iou_threshold=0.5, type='nms')),
+    type='DetTTAModel')
+tta_pipeline = [
+    dict(_scope_='mmdet', backend_args=None, type='LoadImageFromFile'),
+    dict(
+        _scope_='mmdet',
+        transforms=[
+            [
+                dict(keep_ratio=True, scale=(
+                    1333,
+                    800,
+                ), type='Resize'),
+                dict(keep_ratio=True, scale=(
+                    666,
+                    400,
+                ), type='Resize'),
+                dict(keep_ratio=True, scale=(
+                    2000,
+                    1200,
+                ), type='Resize'),
+            ],
+            [
+                dict(prob=1.0, type='RandomFlip'),
+                dict(prob=0.0, type='RandomFlip'),
+            ],
+            [
+                dict(type='LoadAnnotations', with_bbox=True),
+            ],
+            [
+                dict(
+                    meta_keys=(
+                        'img_id',
+                        'img_path',
+                        'ori_shape',
+                        'img_shape',
+                        'scale_factor',
+                        'flip',
+                        'flip_direction',
+                    ),
+                    type='PackDetInputs'),
+            ],
+        ],
+        type='TestTimeAug'),
+]
+val_cfg = dict(_scope_='mmdet', type='ValLoop')
+val_dataloader = dict(
+    batch_size=1,
+    dataset=dict(
+        _scope_='mmdet',
+        ann_file='wider/val.json',
+        backend_args=None,
+        data_prefix=dict(img='WIDER_val/images/'),
+        data_root='data/',
+        metainfo=dict(classes=('face', ), palette=[
+            (
+                255,
+                100,
+                100,
+            ),
+        ]),
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(keep_ratio=True, scale=(
+                320,
+                320,
+            ), type='Resize'),
+            dict(type='LoadAnnotations', with_bbox=True),
+            dict(
+                meta_keys=(
+                    'img_id',
+                    'img_path',
+                    'ori_shape',
+                    'img_shape',
+                    'scale_factor',
+                ),
+                type='PackDetInputs'),
+        ],
+        test_mode=True,
+        type='CocoDataset'),
+    drop_last=False,
+    num_workers=0,
+    persistent_workers=False,
+    sampler=dict(_scope_='mmdet', shuffle=False, type='DefaultSampler'))
+val_evaluator = dict(
+    _scope_='mmdet',
+    ann_file='data/wider/val.json',
+    backend_args=None,
+    classwise=True,
+    format_only=False,
+    metric='bbox',
+    type='CocoMetric')
+vis_backends = [
+    dict(_scope_='mmdet', type='LocalVisBackend'),
+]
+visualizer = dict(
+    _scope_='mmdet',
+    name='visualizer',
+    type='DetLocalVisualizer',
+    vis_backends=[
+        dict(type='LocalVisBackend'),
+    ])
+work_dir = 'runs/wider_pilot'
+
+09/26 12:44:20 - mmengine - INFO - Distributed training is not used, all SyncBatchNorm (SyncBN) layers in the model will be automatically reverted to BatchNormXd layers if they are used.
+09/26 12:44:20 - mmengine - INFO - Hooks will be executed in the following order:
+before_run:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+before_train:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_train_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) DistSamplerSeedHook                
+ -------------------- 
+before_train_iter:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_train_iter:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+after_train_epoch:
+(NORMAL      ) IterTimerHook                      
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_val:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+before_val_epoch:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+before_val_iter:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_val_iter:
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) DetVisualizationHook               
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_val_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+after_val:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+after_train:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_test:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+before_test_epoch:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+before_test_iter:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_test_iter:
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) DetVisualizationHook               
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_test_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_test:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+after_run:
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+loading annotations into memory...
+Done (t=0.00s)
+creating index...
+index created!
+loading annotations into memory...
+Done (t=0.00s)
+creating index...
+index created!
+loading annotations into memory...
+Done (t=0.00s)
+creating index...
+index created!
+09/26 12:44:21 - mmengine - WARNING - "FileClient" will be deprecated in future. Please use io functions in https://mmengine.readthedocs.io/en/latest/api/fileio.html#file-io
+09/26 12:44:21 - mmengine - WARNING - "HardDiskBackend" is the alias of "LocalBackend" and the former will be deprecated in future.
+09/26 12:44:21 - mmengine - INFO - Checkpoints will be saved to /project/runs/wider_pilot.
+09/26 12:44:23 - mmengine - INFO - Epoch(train) [1][ 1/16]  lr: 1.2500e-03  eta: 0:00:25  time: 1.6799  data_time: 0.0299  loss: 3.8914  loss_cls: 1.1288  loss_bbox: 2.7626
+09/26 12:44:24 - mmengine - INFO - Epoch(train) [1][ 2/16]  lr: 1.2500e-03  eta: 0:00:21  time: 1.5404  data_time: 0.0317  loss: 3.1402  loss_cls: 1.1289  loss_bbox: 2.0113
+09/26 12:44:25 - mmengine - INFO - Epoch(train) [1][ 3/16]  lr: 1.2500e-03  eta: 0:00:18  time: 1.4472  data_time: 0.0324  loss: 2.8218  loss_cls: 1.1288  loss_bbox: 1.6930
+09/26 12:44:27 - mmengine - INFO - Epoch(train) [1][ 4/16]  lr: 1.2500e-03  eta: 0:00:17  time: 1.4327  data_time: 0.0334  loss: 3.0555  loss_cls: 1.1287  loss_bbox: 1.9268
+09/26 12:44:35 - mmengine - INFO - Epoch(train) [1][ 5/16]  lr: 1.2500e-03  eta: 0:00:31  time: 2.8834  data_time: 0.0330  loss: 3.2123  loss_cls: 1.1286  loss_bbox: 2.0836
+09/26 12:44:29 - mmengine - INFO - Epoch(train) [1][ 6/16]  lr: 1.2500e-03  eta: 0:00:13  time: 1.3713  data_time: 0.0327  loss: 2.9733  loss_cls: 1.1286  loss_bbox: 1.8447
+09/26 12:44:31 - mmengine - INFO - Epoch(train) [1][ 7/16]  lr: 1.2500e-03  eta: 0:00:12  time: 1.3793  data_time: 0.0321  loss: 3.0281  loss_cls: 1.1286  loss_bbox: 1.8995
+09/26 12:44:32 - mmengine - INFO - Epoch(train) [1][ 8/16]  lr: 1.2500e-03  eta: 0:00:11  time: 1.4052  data_time: 0.0320  loss: 2.9574  loss_cls: 1.1285  loss_bbox: 1.8289
+09/26 12:44:34 - mmengine - INFO - Epoch(train) [1][ 9/16]  lr: 1.2500e-03  eta: 0:00:10  time: 1.4369  data_time: 0.0320  loss: 2.8627  loss_cls: 1.1285  loss_bbox: 1.7342
+09/26 12:44:35 - mmengine - INFO - Epoch(train) [1][10/16]  lr: 1.2500e-03  eta: 0:00:08  time: 1.4358  data_time: 0.0329  loss: 2.9439  loss_cls: 1.1284  loss_bbox: 1.8154
+09/26 12:44:37 - mmengine - INFO - Epoch(train) [1][11/16]  lr: 1.2500e-03  eta: 0:00:07  time: 1.4280  data_time: 0.0328  loss: 2.9804  loss_cls: 1.1284  loss_bbox: 1.8520
+09/26 12:44:45 - mmengine - INFO - Epoch(train) [1][12/16]  lr: 1.2500e-03  eta: 0:00:08  time: 2.0364  data_time: 0.0326  loss: 3.1231  loss_cls: 1.1283  loss_bbox: 1.9948
+09/26 12:44:40 - mmengine - INFO - Epoch(train) [1][13/16]  lr: 1.2500e-03  eta: 0:00:04  time: 1.4292  data_time: 0.0331  loss: 3.1547  loss_cls: 1.1282  loss_bbox: 2.0265
+09/26 12:44:41 - mmengine - INFO - Epoch(train) [1][14/16]  lr: 1.2500e-03  eta: 0:00:02  time: 1.4050  data_time: 0.0327  loss: 3.0545  loss_cls: 1.1282  loss_bbox: 1.9263
+09/26 12:44:42 - mmengine - INFO - Epoch(train) [1][15/16]  lr: 1.2500e-03  eta: 0:00:01  time: 1.4105  data_time: 0.0329  loss: 2.9682  loss_cls: 1.1282  loss_bbox: 1.8400
+09/26 12:44:51 - mmengine - INFO - Exp name: wider_retinanet_20260926_124419
+09/26 12:44:51 - mmengine - INFO - Epoch(train) [1][16/16]  lr: 1.2500e-03  eta: 0:00:00  time: 1.8804  data_time: 0.0329  loss: 3.0470  loss_cls: 1.1281  loss_bbox: 1.9189
+09/26 12:44:51 - mmengine - INFO - Saving checkpoint at 1 epochs
+09/26 12:44:53 - mmengine - INFO - Epoch(val) [1][ 1/16]    eta: 0:00:03  time: 0.2085  data_time: 0.0091  
+09/26 12:44:54 - mmengine - INFO - Epoch(val) [1][ 2/16]    eta: 0:00:03  time: 0.2161  data_time: 0.0095  
+09/26 12:44:54 - mmengine - INFO - Epoch(val) [1][ 3/16]    eta: 0:00:02  time: 0.2251  data_time: 0.0105  
+09/26 12:44:54 - mmengine - INFO - Epoch(val) [1][ 4/16]    eta: 0:00:03  time: 0.2513  data_time: 0.0107  
+09/26 12:44:54 - mmengine - INFO - Epoch(val) [1][ 5/16]    eta: 0:00:02  time: 0.2489  data_time: 0.0117  
+09/26 12:44:55 - mmengine - INFO - Epoch(val) [1][ 6/16]    eta: 0:00:02  time: 0.2533  data_time: 0.0123  
+09/26 12:44:55 - mmengine - INFO - Epoch(val) [1][ 7/16]    eta: 0:00:02  time: 0.2597  data_time: 0.0132  
+09/26 12:44:55 - mmengine - INFO - Epoch(val) [1][ 8/16]    eta: 0:00:02  time: 0.2623  data_time: 0.0130  
+09/26 12:44:56 - mmengine - INFO - Epoch(val) [1][ 9/16]    eta: 0:00:01  time: 0.2674  data_time: 0.0134  
+09/26 12:44:56 - mmengine - INFO - Epoch(val) [1][10/16]    eta: 0:00:01  time: 0.2711  data_time: 0.0134  
+09/26 12:44:56 - mmengine - INFO - Epoch(val) [1][11/16]    eta: 0:00:01  time: 0.2786  data_time: 0.0136  
+09/26 12:44:57 - mmengine - INFO - Epoch(val) [1][12/16]    eta: 0:00:01  time: 0.2834  data_time: 0.0137  
+09/26 12:44:57 - mmengine - INFO - Epoch(val) [1][13/16]    eta: 0:00:00  time: 0.2822  data_time: 0.0137  
+09/26 12:44:57 - mmengine - INFO - Epoch(val) [1][14/16]    eta: 0:00:00  time: 0.2799  data_time: 0.0139  
+09/26 12:44:57 - mmengine - INFO - Epoch(val) [1][15/16]    eta: 0:00:00  time: 0.2789  data_time: 0.0139  
+09/26 12:44:58 - mmengine - INFO - Epoch(val) [1][16/16]    eta: 0:00:00  time: 0.2769  data_time: 0.0141  
+09/26 12:44:58 - mmengine - INFO - Evaluating bbox...
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=0.16s).
+Accumulating evaluation results...
+DONE (t=0.03s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=1000 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=1000 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.006
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.007
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=300 ] = 0.007
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=1000 ] = 0.007
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.069
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.015
+09/26 12:44:58 - mmengine - INFO - 
++----------+-----+--------+--------+-------+-------+-------+
+| category | mAP | mAP_50 | mAP_75 | mAP_s | mAP_m | mAP_l |
++----------+-----+--------+--------+-------+-------+-------+
+| face     | 0.0 | 0.0    | 0.0    | 0.0   | 0.006 | 0.0   |
++----------+-----+--------+--------+-------+-------+-------+
+09/26 12:44:58 - mmengine - INFO - bbox_mAP_copypaste: 0.000 0.000 0.000 0.000 0.006 0.000
+09/26 12:44:58 - mmengine - INFO - Epoch(val) [1][16/16]    coco/face_precision: 0.0000  coco/bbox_mAP: 0.0000  coco/bbox_mAP_50: 0.0000  coco/bbox_mAP_75: 0.0000  coco/bbox_mAP_s: 0.0000  coco/bbox_mAP_m: 0.0060  coco/bbox_mAP_l: 0.0000  data_time: 0.0141  time: 0.2769
+09/26 12:44:58 - mmengine - INFO - Epoch(val) [1][ 1/16]    eta: 0:00:02  time: 0.2720  data_time: 0.0138  
+09/26 12:44:59 - mmengine - INFO - Epoch(val) [1][ 2/16]    eta: 0:00:02  time: 0.2694  data_time: 0.0137  
+09/26 12:44:59 - mmengine - INFO - Epoch(val) [1][ 3/16]    eta: 0:00:02  time: 0.2675  data_time: 0.0138  
+09/26 12:44:59 - mmengine - INFO - Epoch(val) [1][ 4/16]    eta: 0:00:02  time: 0.2695  data_time: 0.0138  
+09/26 12:44:59 - mmengine - INFO - Epoch(val) [1][ 5/16]    eta: 0:00:02  time: 0.2679  data_time: 0.0138  
+09/26 12:45:00 - mmengine - INFO - Epoch(val) [1][ 6/16]    eta: 0:00:02  time: 0.2665  data_time: 0.0138  
+09/26 12:45:00 - mmengine - INFO - Epoch(val) [1][ 7/16]    eta: 0:00:02  time: 0.2659  data_time: 0.0140  
+09/26 12:45:00 - mmengine - INFO - Epoch(val) [1][ 8/16]    eta: 0:00:01  time: 0.2651  data_time: 0.0140  
+09/26 12:45:00 - mmengine - INFO - Epoch(val) [1][ 9/16]    eta: 0:00:01  time: 0.2641  data_time: 0.0141  
+09/26 12:45:01 - mmengine - INFO - Epoch(val) [1][10/16]    eta: 0:00:01  time: 0.2633  data_time: 0.0140  
+09/26 12:45:01 - mmengine - INFO - Epoch(val) [1][11/16]    eta: 0:00:01  time: 0.2636  data_time: 0.0141  
+09/26 12:45:01 - mmengine - INFO - Epoch(val) [1][12/16]    eta: 0:00:00  time: 0.2649  data_time: 0.0141  
+09/26 12:45:01 - mmengine - INFO - Epoch(val) [1][13/16]    eta: 0:00:00  time: 0.2639  data_time: 0.0141  
+09/26 12:45:02 - mmengine - INFO - Epoch(val) [1][14/16]    eta: 0:00:00  time: 0.2636  data_time: 0.0141  
+09/26 12:45:02 - mmengine - INFO - Epoch(val) [1][15/16]    eta: 0:00:00  time: 0.2643  data_time: 0.0141  
+09/26 12:45:02 - mmengine - INFO - Epoch(val) [1][16/16]    eta: 0:00:00  time: 0.2639  data_time: 0.0142  
+09/26 12:45:02 - mmengine - INFO - Evaluating bbox...
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=0.15s).
+Accumulating evaluation results...
+DONE (t=0.03s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=1000 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=1000 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.006
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.007
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=300 ] = 0.007
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=1000 ] = 0.007
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.069
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.015
+09/26 12:45:02 - mmengine - INFO - 
++----------+-----+--------+--------+-------+-------+-------+
+| category | mAP | mAP_50 | mAP_75 | mAP_s | mAP_m | mAP_l |
++----------+-----+--------+--------+-------+-------+-------+
+| face     | 0.0 | 0.0    | 0.0    | 0.0   | 0.006 | 0.0   |
++----------+-----+--------+--------+-------+-------+-------+
+09/26 12:45:02 - mmengine - INFO - bbox_mAP_copypaste: 0.000 0.000 0.000 0.000 0.006 0.000
+09/26 12:45:02 - mmengine - INFO - Epoch(val) [1][16/16]    coco/face_precision: 0.0000  coco/bbox_mAP: 0.0000  coco/bbox_mAP_50: 0.0000  coco/bbox_mAP_75: 0.0000  coco/bbox_mAP_s: 0.0000  coco/bbox_mAP_m: 0.0060  coco/bbox_mAP_l: 0.0000  data_time: 0.0145  time: 0.2506
+{
+  "purpose": "CPU training/inference/evaluation pipeline pilot on real WIDER subset",
+  "dataset_images": {
+    "train": 32,
+    "val": 16
+  },
+  "epochs": 1,
+  "seed": 42,
+  "input_resize": [
+    320,
+    320
+  ],
+  "initialization": "random, no pretrained backbone",
+  "model": "RetinaNet ResNet50 FPN, one face class",
+  "evaluation_score_threshold": 0.0,
+  "wall_seconds": 36.111738736999996,
+  "metrics": {
+    "coco/face_precision": 0.0,
+    "coco/bbox_mAP": 0.0,
+    "coco/bbox_mAP_50": 0.0,
+    "coco/bbox_mAP_75": 0.0,
+    "coco/bbox_mAP_s": 0.0,
+    "coco/bbox_mAP_m": 0.006,
+    "coco/bbox_mAP_l": 0.0
+  },
+  "metric_protocol": "COCO AP 0.50:0.95 on selected validation images; NOT official WIDER AP",
+  "versions": {
+    "torch": "2.1.0+cpu",
+    "mmcv": "2.1.0",
+    "mmengine": "0.10.7",
+    "mmdet": "3.3.0"
+  },
+  "inference_visualization": "Top 10 candidate boxes, including low scores, from un-converged pilot model",
+  "limitations": "32/16 images and one epoch do not establish generalization or convergence."
+}

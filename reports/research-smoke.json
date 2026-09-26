@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "scope": "SYNTHETIC CODE SMOKE ONLY; random tensors and untrained models",
+  "torch": "2.14.0+cpu",
+  "checks": [
+    "ResNet50/ArcFace forward-backward and optimizer update",
+    "P-K sampler",
+    "batch-hard triplet gradients",
+    "68 landmark regressor gradients",
+    "conditional generator shape",
+    "discriminator/classifier and WGAN gradient-penalty backward"
+  ],
+  "benchmark_accuracy": null,
+  "trained_face_model": false,
+  "end_to_end_loaders_checkpoints_inference": true,
+  "fixture_note": "All temporary synthetic fixtures/checkpoints are deleted after the smoke check."
+}

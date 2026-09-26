@@ -1,0 +1,7 @@
+{
+  "safe_pickle": true,
+  "finite_3d_geometry": true,
+  "input_dependent": true,
+  "vertices": 38365,
+  "triangles": 76073
+}

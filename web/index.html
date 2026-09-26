@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Face Vision Lab · 智能视觉实验室</title>
+<style>
+:root{font-family:"Segoe UI","Microsoft YaHei",sans-serif;color:#19242b;background:#f5f5f0;line-height:1.6}*{box-sizing:border-box}body{margin:0}header{border-bottom:1px solid #d9dfd9;padding:20px 5vw;display:flex;justify-content:space-between;gap:20px;align-items:center}header strong{letter-spacing:2px}header a,a{color:#23634e}main{max-width:1320px;margin:auto;padding:35px 5vw}h1{font-size:clamp(28px,4vw,46px);margin:6px 0 12px;letter-spacing:-1px;font-weight:650}p{margin:8px 0}.eyebrow{font-size:12px;color:#3f6a57;letter-spacing:3px}.intro{max-width:750px;color:#52635a;margin-bottom:28px}.workspace{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:26px}.stage{position:relative;border-radius:16px;background:#142b28;min-height:420px;display:flex;align-items:center;justify-content:center;overflow:hidden}#result{display:block;max-width:100%;max-height:610px;object-fit:contain}.stage-label{position:absolute;left:18px;top:14px;background:#ffffffdf;border-radius:20px;padding:3px 12px;font-size:12px}.controls{background:#fff;border:1px solid #dce2dc;border-radius:16px;padding:22px}h2{font-size:18px;margin:0 0 16px}button,select,input{font:inherit}button,.file{display:inline-block;border:1px solid #b3c4b8;border-radius:8px;background:#fff;color:#243e32;padding:9px 14px;cursor:pointer}button:hover,.file:hover{background:#e8eee7}button.active,button.primary{background:#214d3b;color:white;border-color:#214d3b}button:disabled{opacity:.5;cursor:wait}button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #b09a42;outline-offset:3px}.buttons{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}.effects{display:grid;grid-template-columns:1fr 1fr;gap:8px}.effects button{padding:10px 5px}label{display:block;margin-top:20px;font-size:14px}input[type=range]{width:100%;accent-color:#295c46}input[type=file]{max-width:100%;font-size:13px}.muted{font-size:13px;color:#5e7167}.stats{display:flex;flex-wrap:wrap;gap:26px;padding:17px 4px}.stat{color:#5e7167;font-size:12px}.stat b{display:block;color:#243e32;font-size:24px;font-weight:500}.divider{height:1px;background:#dce2dc;margin:24px 0}details{border-top:1px solid #ced9cf;padding:22px 0;margin-top:14px}summary{font-size:19px;cursor:pointer}.compare{display:flex;flex-wrap:wrap;align-items:end;gap:20px}.compare label{max-width:280px}.notice{padding:12px 0;min-height:48px;color:#405b4c}#error{color:#a52c37;min-height:26px}.learning{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:32px 0}.learning h3{font-size:16px}.learning p{font-size:14px;color:#52635a}footer{color:#637168;font-size:12px;padding:28px 0;border-top:1px solid #d9dfd9}video,#capture{display:none}@media(max-width:800px){.workspace{grid-template-columns:1fr}.stage{min-height:300px}.effects{grid-template-columns:repeat(3,1fr)}.learning{grid-template-columns:1fr}header{align-items:start;font-size:13px}main{padding-top:24px}}
+</style>
+<header><strong>FACE VISION LAB</strong><span>本机处理 · 开源学习项目　<a href="/3d" target="_blank">3D 重建 ↗</a>　<a href="/tutorial" target="_blank">学习教程 ↗</a></span></header>
+<main>
+<div class="eyebrow">COMPUTER VISION / LEARN BY MAKING</div>
+<h1>从一张脸，理解智能视觉。</h1>
+<p class="intro">观察检测框与五个关键点，试试随人脸位置变化的特效，再比较两张照片的特征相似度。图像仅在本机内存处理，不上传到外部服务器。</p>
+<div class="workspace">
+<div>
+<div class="stage"><span class="stage-label" id="source-label">公开示例 · NASA 宇航员照片</span><img id="result" alt="人脸检测和特效处理结果" src="/sample.jpg"></div>
+<div class="stats"><div class="stat">检测到的人脸<b id="faces">—</b></div><div class="stat">检测 + 特效耗时<b id="latency">—</b></div><div class="stat">处理能力估计<b id="fps">—</b></div></div>
+<p class="muted">耗时为 CPU 检测与特效处理，未计传输和显示；完整往返耗时：<span id="roundtrip">—</span>。画面逐帧检测驱动贴纸。</p>
+</div>
+<aside class="controls"><h2>视觉实验台</h2>
+<div class="effects" id="effects"><button class="active" data-effect="none" aria-pressed="true">原始检测</button><button data-effect="glasses" aria-pressed="false">AR 眼镜</button><button data-effect="crown" aria-pressed="false">皇冠贴纸</button><button data-effect="beauty" aria-pressed="false">柔肤提亮</button><button data-effect="lipstick" aria-pressed="false">几何口红</button><button data-effect="all" aria-pressed="false">组合特效</button></div>
+<label for="strength">特效强度 <output id="amount">50%</output></label><input id="strength" type="range" min="0" max="100" value="50">
+<label><input id="landmarks" type="checkbox" checked> 显示检测框与关键点</label>
+<div class="divider"></div>
+<label for="upload">选择本机图像</label><input id="upload" type="file" accept="image/png,image/jpeg,image/webp">
+<div class="buttons"><button id="camera" class="primary">开启摄像头</button><button id="stop" hidden>停止</button><button id="sample">恢复示例</button><button id="save">保存结果</button></div>
+<p class="muted">摄像头由你授权后开启；停止即释放。口红使用五点几何近似，不是唇部分割。此项目与字节跳动无隶属关系。</p></aside>
+</div>
+<p id="error" role="alert"></p>
+<details><summary>双图人脸验证 · 相似不等于确定身份</summary><p class="muted">分别选择恰好包含一张脸的两张图像。SFace 比较归一化特征，阈值需要在你的独立验证集校准。</p>
+<div class="compare"><label>图像 A<input id="first" type="file" accept="image/*"></label><label>图像 B<input id="second" type="file" accept="image/*"></label><label>余弦阈值<input id="threshold" type="number" value="0.363" min="-1" max="1" step="0.01"></label><button id="verify">比较两张图像</button></div><p id="comparison" class="notice" aria-live="polite">等待选择图像。</p></details>
+<div class="learning"><section><h3>01 / 找到人脸</h3><p>YuNet 输出人脸框、双眼、鼻尖和两个嘴角。点的位置决定贴纸的平移、缩放与旋转。</p></section><section><h3>02 / 提取特征</h3><p>对齐后的脸进入 SFace 网络，变为特征向量。余弦相似度衡量方向接近程度。</p></section><section><h3>03 / 验证证据</h3><p>界面演示、管线测试和数据集准确率是不同证据。完整训练流程与待完成实验详见教程。</p></section></div>
+<footer>开源教育实验 · CPU 本地推理 · 不保存人脸库 · 模型与数据许可见项目文档</footer>
+</main><video id="video" playsinline muted></video><canvas id="capture"></canvas>
+<script>
+const $=id=>document.getElementById(id);let source=null,effect='none',stream=null,busy=false,pending=false,cameraGeneration=0;
+const read=file=>new Promise((resolve,reject)=>{if(!file)return reject(Error('请先选择图像'));if(file.size>8000000)return reject(Error('图像不得超过 8 MB'));let r=new FileReader;r.onload=()=>resolve(r.result);r.onerror=()=>reject(Error('读取失败'));r.readAsDataURL(file)});
+async function request(path,data){let r=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});let j=await r.json();if(!r.ok)throw Error(j.error||'处理失败');return j}
+async function process(){if(!source)return;if(busy){pending=true;return}busy=true;let t=performance.now();try{let j=await request('/process',{image:source,effect,strength:+$('strength').value/100,landmarks:$('landmarks').checked});$('result').src=j.image;$('faces').textContent=j.faces;$('latency').textContent=j.pipeline_ms+' ms';$('fps').textContent=j.pipeline_fps+' FPS';$('roundtrip').textContent=Math.round(performance.now()-t)+' ms';$('error').textContent=''}catch(e){$('error').textContent=e.message}finally{busy=false;if(pending&&!stream){pending=false;process()}}}
+async function sample(){stop();try{source=await read(await(await fetch('/sample.jpg')).blob());$('source-label').textContent='公开示例 · NASA 宇航员照片';await process()}catch(e){$('error').textContent=e.message}}
+function stop(){cameraGeneration++;if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}$('video').srcObject=null;$('camera').hidden=false;$('camera').disabled=false;$('stop').hidden=true;pending=false}
+async function live(){if(!stream)return;let v=$('video'),c=$('capture');if(v.videoWidth){c.width=640;c.height=Math.round(640*v.videoHeight/v.videoWidth);c.getContext('2d').drawImage(v,0,0,c.width,c.height);source=c.toDataURL('image/jpeg',.8);await process()}if(stream)requestAnimationFrame(live)}
+$('effects').addEventListener('click',e=>{if(!e.target.dataset.effect)return;effect=e.target.dataset.effect;document.querySelectorAll('[data-effect]').forEach(b=>{b.classList.toggle('active',b===e.target);b.setAttribute('aria-pressed',b===e.target)});process()});
+$('strength').oninput=()=>{$('amount').value=$('strength').value+'%';process()};$('landmarks').onchange=process;
+$('upload').onchange=async()=>{stop();try{source=await read($('upload').files[0]);$('source-label').textContent='本机图像 · 仅内存处理';await process()}catch(e){$('error').textContent=e.message}};
+$('camera').onclick=async()=>{const generation=++cameraGeneration;$('camera').disabled=true;try{const acquired=await navigator.mediaDevices.getUserMedia({video:{width:640,height:480},audio:false});if(generation!==cameraGeneration){acquired.getTracks().forEach(t=>t.stop());return}stream=acquired;$('video').srcObject=stream;await $('video').play();if(generation!==cameraGeneration)return;$('camera').hidden=true;$('stop').hidden=false;$('source-label').textContent='本机摄像头 · 实时画面';live()}catch(e){if(generation===cameraGeneration){stop();$('error').textContent='摄像头未开启：'+e.message}}};
+$('stop').onclick=stop;$('sample').onclick=sample;$('save').onclick=()=>{let a=document.createElement('a');a.href=$('result').src;a.download='face-vision-result.jpg';a.click()};
+$('verify').onclick=async()=>{try{$('verify').disabled=true;let j=await request('/verify',{first:await read($('first').files[0]),second:await read($('second').files[0]),threshold:+$('threshold').value});$('comparison').textContent=`余弦相似度 ${j.cosine.toFixed(4)}，阈值 ${j.threshold}：${j.match?'达到阈值':'未达到阈值'}。${j.note}`}catch(e){$('comparison').textContent=e.message}finally{$('verify').disabled=false}};
+window.addEventListener('pagehide',stop);sample();
+</script></html>

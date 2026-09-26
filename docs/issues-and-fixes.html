@@ -1,0 +1,212 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>issues-and-fixes</title><style>body{font:17px/1.85 "Segoe UI","Microsoft YaHei",sans-serif;color:#1b2925;background:#f7f8f4;max-width:1040px;margin:auto;padding:44px 28px}h1{font-size:36px;line-height:1.4;color:#1c4939}h2{font-size:25px;margin-top:2.5em;border-bottom:1px solid #cdd7cf;padding-bottom:12px}h3{font-size:20px;margin-top:1.8em}a{color:#1f6550}p{margin:1em 0}code{font:14px/1.65 Consolas,"Microsoft YaHei",monospace;background:#eaf0ea;padding:2px 4px}pre{background:#142c25;color:#e4efdf;padding:22px;overflow:auto;border-radius:8px;line-height:1.7}pre code{background:transparent;color:inherit;white-space:pre}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:12px;border:1px solid #d4ded6;vertical-align:top;overflow-wrap:anywhere}th{background:#e7eee8;text-align:left}.toc{font-size:14px;columns:2;column-gap:36px}.toc ul{padding-left:18px}blockquote{margin-left:0;padding-left:18px;border-left:3px solid #789c85;color:#40594b}img{max-width:100%}.meta{font-size:13px;color:#63756a}@media(max-width:600px){.toc{columns:1}body{padding:20px 16px}h1{font-size:28px}table{display:block;overflow:auto}}@media print{body{background:white;max-width:none;font-size:10pt;padding:0}.toc{columns:2}h2{break-before:page}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f3f5f2;color:#111;font-size:8pt}pre code{white-space:pre-wrap}a{color:inherit}table{font-size:8pt}tr{break-inside:avoid}}</style><body><div class="toc">
+<ul>
+<li><a href="#_1">执行问题、根因、处理与复核</a><ul>
+<li><a href="#_2">已有项目的审计与本次工程关系</a></li>
+<li><a href="#_3">尚待解除的外部条件</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h1 id="_1">执行问题、根因、处理与复核</h1>
+<p>记录日期：2026-09-26。下表区分“已修复并运行”“识别到但未完成”“设计限制”；不把未出现的问题写成本次发生的故障。报告中CPU结果、预训练模型结果、随机张量测试和真实数据训练分别标识。</p>
+<table>
+<thead>
+<tr>
+<th>实际遇到的问题</th>
+<th>定位与根因</th>
+<th>采取的处理</th>
+<th>复核与剩余限制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>受限Windows子进程中SSL/DNS、venv操作失败</td>
+<td>进程环境缺少 <code>SystemRoot</code>、<code>WINDIR</code>、<code>COMSPEC</code></td>
+<td>为相关子进程补齐必要变量；<code>start.ps1</code>保留同样防护，不改系统全局设置</td>
+<td>隔离环境成功启动、依赖和模型下载可继续；版本见 <code>reports/environment.json</code></td>
+</tr>
+<tr>
+<td>Python解释器/依赖组合容易混用</td>
+<td>Codex内置Python、项目venv、WSL Docker属于不同环境</td>
+<td>项目使用明确的 <code>.venv/Scripts/python.exe</code>；研究依赖单独列出；记录freeze</td>
+<td>环境报告与实际smoke报告对应；不能把容器Python版本写成桌面版本</td>
+</tr>
+<tr>
+<td>MMDetection和主环境最新版依赖不兼容</td>
+<td>3.3.0有严格版本范围，MMCV还包含编译算子</td>
+<td>单独Docker锁定Python3.10.21、torch2.1.0CPU、torchvision0.16CPU、NumPy1.26.4、mmcv2.1、mmengine0.10.7、mmdet3.3、OpenCV4.11</td>
+<td>NMS真实运行、WIDER小样本训练/验证/推理全链成功；不改主venv、不删除版本assert</td>
+</tr>
+<tr>
+<td>Chrome浏览器自动化入口不可用</td>
+<td>插件返回 <code>Browser is not available: chrome</code>；原生控制无法确定目标URL后安全停止</td>
+<td>保留错误，继续本地HTTP/API与文件验证，不称Chrome交互已通过</td>
+<td>接口/截图或其他浏览器证据应注明来源，摄像头真人流程需要可用控制连接</td>
+</tr>
+<tr>
+<td>旧GitHub创建仓库接口限流</td>
+<td><code>create_repo</code>入口失败</td>
+<td>检索已连接GitHub，使用用户已存在公开仓库 <code>GBHLKYEric/face_ai_project</code></td>
+<td>已开始写入LICENSE；完整发布以远程文件读取和提交SHA为准</td>
+</tr>
+<tr>
+<td>Docker首次拉取镜像出现CloudFront EOF</td>
+<td>网络传输中断</td>
+<td>通过正常重试重新拉取，不修改校验或使用未知镜像</td>
+<td>已真实build与容器Hello World；WSL Docker 29.1.3、容器Python 3.12.14</td>
+</tr>
+<tr>
+<td>LFW原网站不可达</td>
+<td>网页请求失败，并不表示数据不存在</td>
+<td>查scikit-learn官方维护下载器，使用其Figshare镜像和SHA256</td>
+<td>下载后运行完整6000对评估；没有用任意转载数据替代</td>
+</tr>
+<tr>
+<td>LFW首次预训练基线低，很多图检测出多个人脸</td>
+<td>应用验证要求恰好一张脸；原LFW部分图片含多脸/检测多框，导致处理失败</td>
+<td>保留首轮72.25%与全部失败；另加固定最大面积、并列中心最近的几何选脸策略，再跑完整6000对</td>
+<td><code>reports/lfw-sface-largest.json</code>第二次98.9333%±0.38873个百分点，7701图全部成功；它是经过首轮错误分析后的第二次实验，不是自训ArcFace或完全未触碰测试集的独立最终认证</td>
+</tr>
+<tr>
+<td>余弦同图得分略超过1</td>
+<td>浮点计算舍入导致 <code>1.0000000488</code></td>
+<td>显示/接口分数裁剪到数学范围[-1,1]；核对归一化</td>
+<td>同图结果只是数值一致性检查，不称准确率100%</td>
+</tr>
+<tr>
+<td>动态INT8未加速</td>
+<td>ResNet大部分是Conv2d，当前动态量化仅覆盖Linear；转换开销与硬件有关</td>
+<td>原样记录FP32/INT8/ORT计时，不写预设加速倍数</td>
+<td>随机权重smoke中48.840ms→52.653ms，实际变慢；准确率字段为null</td>
+</tr>
+<tr>
+<td>ONNX导出API随PyTorch变动</td>
+<td>现代导出器与旧教程默认行为不同</td>
+<td>当前代码显式 <code>dynamo=False</code>、opset17，并用checker与ORT对比</td>
+<td>随机权重smoke最大绝对差1.71e-7；不是训练模型精度验证</td>
+</tr>
+<tr>
+<td>3DDFA checkpoint含辅助头和不同参数名称</td>
+<td>发布checkpoint带 <code>module.</code> 前缀、<code>fc_param</code>与未使用 <code>fc_lm</code></td>
+<td>根据官方结构映射到本地网络，忽略明确未使用辅助头，其他参数strict加载</td>
+<td>实际生成38365顶点、76073面；matplotlib静态渲染与WebGL源码已生成；无真实三维GT，未测几何精度</td>
+</tr>
+<tr>
+<td>三维资产包含pickle</td>
+<td>pickle通常可执行对象反序列化</td>
+<td>固定来源SHA256，限制只允许所需NumPy类型的unpickler</td>
+<td>仍仅加载已校验官方资产；不接受用户任意pickle</td>
+</tr>
+<tr>
+<td>数据与权重许可不同于源码许可</td>
+<td>CelebA/300-W限制研究用途，InsightFace权重非商业研究</td>
+<td>公开加载器、配置、来源和许可证；数据及受限权重留本地</td>
+<td>未取得的数据训练保持blocked，源码开源不改变第三方许可</td>
+</tr>
+<tr>
+<td>BytePS/ByteNN与PDF描述有偏差</td>
+<td>BytePS真实存在但已归档、依赖CUDA/NCCL；没有获得ByteNN SDK</td>
+<td>教程解释原理与限制，不虚构内部工具；ORT只作为公开推理路线</td>
+<td>CPU单机没有完成真实BytePS分布式训练；ByteNN仍待SDK</td>
+</tr>
+<tr>
+<td>OpenCV模型下载只有131/133字节，无法作为ONNX加载</td>
+<td>GitHub raw返回Git LFS指针</td>
+<td>改官方media下载路径，按指针内SHA256核验232589字节YuNet与38696353字节SFace</td>
+<td>真实检测、特征和全LFW评估通过；没有重装Python掩盖文件问题</td>
+</tr>
+<tr>
+<td>JupyterLab安装报No such file or directory</td>
+<td>前端静态资源路径超过Windows传统260字符长度</td>
+<td>用同一venv解释器的扩展路径 <code>\\?\C:\...\python.exe</code> 完成安装</td>
+<td>JupyterLab4.6.4、nbclient/nbformat可import，pip check通过；未改全局长路径注册表</td>
+</tr>
+<tr>
+<td>旧容器pip安装torch依赖失败，回退源码后缺flit_core</td>
+<td>pip23.0.1对typing_extensions元数据名称规范化兼容问题</td>
+<td>先升pip25.3，保留setuptools&lt;81兼容旧OpenMMLab的pkg_resources依赖</td>
+<td>固定环境装完并成功训练；记录完整freeze</td>
+</tr>
+<tr>
+<td>WIDER全量包下载未完</td>
+<td>文件不完整，不应当有效ZIP</td>
+<td>保留为 <code>.incomplete</code>；从官方页面明确链接镜像读取ZIP Range子集并校验来源/CRC</td>
+<td>本机32张训练/16张验证是真图；不是完整数据集</td>
+</tr>
+<tr>
+<td>WIDER随机初始化一轮后评估为空</td>
+<td>候选分数约0.01，默认0.05阈值全过滤</td>
+<td>评价score_thr设0保留排序候选，同seed重新训练完整评价</td>
+<td>真实AP=0、AP50=0、medium-size AP=.006；不以保留低分框冒充收敛</td>
+</tr>
+<tr>
+<td>MMDet单图推理缺model.cfg</td>
+<td>Runner创建模型未自动挂推理API所需配置</td>
+<td>明确设置 <code>runner.model.cfg=cfg</code></td>
+<td>训练→验证→inference_detector→报告成功；低分top10图标为未收敛</td>
+</tr>
+<tr>
+<td>slim容器提示gcc not found</td>
+<td>框架环境采集检查编译器，而当前用预编译wheel</td>
+<td>核查CPU NMS与真实训练成功，不为无用检测安装编译器</td>
+<td>日志中的GPU number1为单进程显示；实际CUDA=False、CPU运行</td>
+</tr>
+<tr>
+<td>300-W训练图下载要求登记</td>
+<td>官方入口要求姓名/邮箱/机构；600张challenge test不等于训练数据</td>
+<td>未编造信息，不把测试集切成训练后声称标准协议</td>
+<td>300-W真实训练仍blocked；代码入口已提供</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2">已有项目的审计与本次工程关系</h2>
+<p>用户现有公开仓库 <a href="https://github.com/GBHLKYEric/ByteDance_stage_1">GBHLKYEric/ByteDance_stage_1</a> 已只读检查，未修改。它包含教学演示、配置和CelebA标注CSV。本次源码发布到 <code>face_ai_project</code>，并不覆盖原仓库。旧脚本可以帮助理解张量/API，但下述结果不能作为原PDF科研要求已完成的证据。</p>
+<table>
+<thead>
+<tr>
+<th>旧文件</th>
+<th>源码中可核验的事实</th>
+<th>本次如何避免混淆</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>train_arcface_gpu.py</code></td>
+<td>输入为 <code>torch.randn(10000,100)</code>，标签随机，主体为两层Linear；不是人脸图片或ResNet50</td>
+<td>新增真正ResNet50+ArcFace、ImageFolder、P-K采样、训练曲线与checkpoint；仍未把随机smoke记作真实训练</td>
+</tr>
+<tr>
+<td><code>plot_training_cruve.py</code></td>
+<td>准确率数组手写，末值98.6，被标为LFW验证曲线</td>
+<td>只允许从本次history/评估JSON作图；不继承98.6%结论</td>
+</tr>
+<tr>
+<td><code>lfw_eval_demo.py</code></td>
+<td>只读 <code>test.jpg</code> 与 <code>test2.jpg</code>，固定阈值0.4；没有官方pairs与十折</td>
+<td>本次完整6000对、训练折选阈值、全量失败记录</td>
+</tr>
+<tr>
+<td><code>stargan_demo.py</code></td>
+<td>只有简化生成器、随机图和MSE，没有判别器或CelebA属性训练</td>
+<td>新代码有生成器、判别器、属性损失、重建损失、梯度惩罚和真实数据入口；没有数据就不报编辑质量</td>
+</tr>
+<tr>
+<td><code>generate_charts.py</code></td>
+<td>CelebA百分比与LFW人数分布为写死数组</td>
+<td>新分析应读取真实文件；历史数组最多作演示，不能称本机统计</td>
+</tr>
+<tr>
+<td><code>face_3d_mesh.py</code></td>
+<td>调用MediaPipe并在二维图绘制连接线，没有PRNet/3DDFA模型与OBJ导出</td>
+<td>本次3DDFA真实参数回归、输入相关3DMM、OBJ与多角度图；渲染后端单独记录</td>
+</tr>
+<tr>
+<td><code>export_onnx.py</code></td>
+<td>导出完成消息称可嵌入APP，未见完整目标平台推理验证</td>
+<td>本次checker+ORT数值对比；移动端性能仍不宣称已验证</td>
+</tr>
+</tbody>
+</table>
+<p>审计是在说明证据范围，不否认演示代码的学习价值。科研报告可保留“早期原型”，但必须明确随机数据、手填数值和真实基准的差别。</p>
+<h2 id="_3">尚待解除的外部条件</h2>
+<p>完整CelebA图像与属性训练、WIDER全量正式训练（小样本已完成）、300-W或COFW训练测试数据、可核验MS-Celeb-1M授权数据、可用的浏览器/摄像头连接、真实移动设备，以及云服务凭据。MMCV兼容环境已在独立Docker中解除。源码与教程已给出推进路径；缺少外部条件时，不填补虚构数据、不购买未知服务、不伪造项目通过。</p></body></html>

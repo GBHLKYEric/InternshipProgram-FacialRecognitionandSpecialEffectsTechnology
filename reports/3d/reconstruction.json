@@ -1,0 +1,13 @@
+{
+  "method": "3DDFA_V2 pretrained MobileNet + learned shape/expression 3DMM",
+  "vertices": 38365,
+  "triangles": 76073,
+  "parameter_regression_ms_first_run": 4.343799999332987,
+  "backend": "ONNX Runtime CPU; 2 threads",
+  "parameter_count": 62,
+  "shape_coefficient_norm": 503609.90625,
+  "expression_coefficient_norm": 3.5411930084228516,
+  "metric_accuracy": "Not measured: no paired 3D ground truth",
+  "rendering": "matplotlib static views + WebGL (OpenGL ES 2.0) interactive viewer",
+  "limitations": "Statistical monocular estimate, arbitrary scale, no accurate unseen back-of-head geometry."
+}

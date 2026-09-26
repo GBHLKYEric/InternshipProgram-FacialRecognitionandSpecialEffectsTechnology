@@ -1,0 +1,20 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3DDFA 人脸三维重建 · WebGL</title>
+<style>body{margin:0;background:#101726;color:#edf5f7;font:17px system-ui}main{max-width:1100px;margin:32px auto;padding:0 24px}h1{font-size:30px}p{color:#bbc6d6;line-height:1.7}canvas{width:100%;height:65vh;min-height:360px;background:#131e31;border-radius:16px}label{display:flex;align-items:center;gap:20px;margin:18px 0}input{flex:1}a{color:#6edddd}</style>
+<main><h1>一张照片估计出的三维人脸</h1><p>3DDFA_V2 预测 62 个姿态、形状和表情参数，再由 3DMM 生成 38,365 个顶点。拖动滑块观察不同角度。此模型没有真实尺度，也不是三维扫描结果。</p>
+<canvas id="mesh" aria-label="可旋转的三维人脸模型"></canvas><label for="yaw">左右旋转<input id="yaw" type="range" min="-90" max="90" value="0"><output id="angle">0°</output></label><p id="status"></p>
+<p><a href="face.obj">下载 OBJ 模型</a> · <a href="multiview.png">查看三个角度的静态图</a></p></main>
+<script>
+const data=__MESH_DATA__;
+const canvas=document.getElementById('mesh'), status=document.getElementById('status'), gl=canvas.getContext('webgl');
+if(!gl){status.textContent='浏览器未启用 WebGL，请查看静态图。';}else{
+ const vertex=`attribute vec3 p;attribute vec3 n;uniform float angle;uniform float aspect;varying float light;void main(){float c=cos(angle),s=sin(angle);mat3 r=mat3(c,0.,s,0.,1.,0.,-s,0.,c);vec3 q=r*p;vec3 normal=normalize(r*n);light=.30+.70*abs(dot(normal,normalize(vec3(.4,.5,1.))));gl_Position=vec4(q.x*1.7/aspect,q.y*1.7,q.z*.5,1.);}`;
+ const fragment=`precision mediump float;varying float light;void main(){gl_FragColor=vec4(vec3(.23,.79,.83)*light,1.);}`;
+ function shader(type,text){const v=gl.createShader(type);gl.shaderSource(v,text);gl.compileShader(v);if(!gl.getShaderParameter(v,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(v));return v;}
+ const prog=gl.createProgram();gl.attachShader(prog,shader(gl.VERTEX_SHADER,vertex));gl.attachShader(prog,shader(gl.FRAGMENT_SHADER,fragment));gl.linkProgram(prog);if(!gl.getProgramParameter(prog,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(prog));gl.useProgram(prog);
+ function attribute(name,values){gl.bindBuffer(gl.ARRAY_BUFFER,gl.createBuffer());gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(values),gl.STATIC_DRAW);const loc=gl.getAttribLocation(prog,name);gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,3,gl.FLOAT,false,0,0);}
+ attribute('p',data.vertices);attribute('n',data.normals);gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,gl.createBuffer());gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(data.triangles),gl.STATIC_DRAW);gl.enable(gl.DEPTH_TEST);gl.clearColor(.075,.118,.192,1);
+ function draw(){const ratio=devicePixelRatio||1;canvas.width=Math.round(canvas.clientWidth*ratio);canvas.height=Math.round(canvas.clientHeight*ratio);gl.viewport(0,0,canvas.width,canvas.height);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);gl.uniform1f(gl.getUniformLocation(prog,'angle'),Number(yaw.value)*Math.PI/180);gl.uniform1f(gl.getUniformLocation(prog,'aspect'),canvas.width/canvas.height);gl.drawElements(gl.TRIANGLES,data.triangles.length,gl.UNSIGNED_SHORT,0);document.getElementById('angle').textContent=yaw.value+'°';}
+ const yaw=document.getElementById('yaw');yaw.addEventListener('input',draw);window.addEventListener('resize',draw);draw();status.textContent='WebGL（基于 OpenGL ES 2.0）已渲染 · '+data.vertices.length/3+' 个顶点 · '+data.triangles.length/3+' 个三角面';
+}
+</script></html>

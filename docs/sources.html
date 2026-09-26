@@ -1,0 +1,135 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>sources</title><style>body{font:17px/1.85 "Segoe UI","Microsoft YaHei",sans-serif;color:#1b2925;background:#f7f8f4;max-width:1040px;margin:auto;padding:44px 28px}h1{font-size:36px;line-height:1.4;color:#1c4939}h2{font-size:25px;margin-top:2.5em;border-bottom:1px solid #cdd7cf;padding-bottom:12px}h3{font-size:20px;margin-top:1.8em}a{color:#1f6550}p{margin:1em 0}code{font:14px/1.65 Consolas,"Microsoft YaHei",monospace;background:#eaf0ea;padding:2px 4px}pre{background:#142c25;color:#e4efdf;padding:22px;overflow:auto;border-radius:8px;line-height:1.7}pre code{background:transparent;color:inherit;white-space:pre}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:12px;border:1px solid #d4ded6;vertical-align:top;overflow-wrap:anywhere}th{background:#e7eee8;text-align:left}.toc{font-size:14px;columns:2;column-gap:36px}.toc ul{padding-left:18px}blockquote{margin-left:0;padding-left:18px;border-left:3px solid #789c85;color:#40594b}img{max-width:100%}.meta{font-size:13px;color:#63756a}@media(max-width:600px){.toc{columns:1}body{padding:20px 16px}h1{font-size:28px}table{display:block;overflow:auto}}@media print{body{background:white;max-width:none;font-size:10pt;padding:0}.toc{columns:2}h2{break-before:page}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f3f5f2;color:#111;font-size:8pt}pre code{white-space:pre-wrap}a{color:inherit}table{font-size:8pt}tr{break-inside:avoid}}</style><body><div class="toc">
+<ul>
+<li><a href="#_1">官方资料、论文与许可核验</a><ul>
+<li><a href="#_2">原需求中需要校正的事实</a></li>
+<li><a href="#_3">环境与工程</a></li>
+<li><a href="#_4">数据集</a></li>
+<li><a href="#_5">必读论文与扩展阅读</a></li>
+<li><a href="#_6">引用与发布规则</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h1 id="_1">官方资料、论文与许可核验</h1>
+<p>核验日期：2026-09-26。资料中的基准数字是作者的实验结果，不是本项目测量值。所有可变的软件版本以本机环境报告为准；网页使用滚动的 <code>main</code>/<code>stable</code> 时，复现实验应另记录提交号或安装版本。</p>
+<h2 id="_2">原需求中需要校正的事实</h2>
+<ul>
+<li><strong>OpenMMLab 不应写成“字节跳动开源项目”。</strong>其官方介绍及教程列出的机构包括香港中文大学、商汤等；本项目应写“使用 OpenMMLab 开源视觉框架”。没有证据支持原 PDF 对字节内部使用范围的陈述。<a href="https://openmmlab.com/community/cvpr2021-tutorial">OpenMMLab 官方教程</a></li>
+<li><strong>BytePS 是实际存在的开源分布式训练框架。</strong>官方仓库于 2025-12-08 归档，其说明要求 CUDA/NCCL，明确不支持纯 CPU 训练。一个单进程梯度平均示例只能叫原理模拟。<a href="https://github.com/bytedance/byteps">BytePS 官方仓库</a></li>
+<li><strong>ByteNN（模拟）不可写成已经安装了字节内部引擎。</strong>本次未获得可核验的官方公开 SDK、授权或运行接口；ONNX Runtime 可以演示跨平台推理原理，但不等于 ByteNN。<a href="https://github.com/bytedance">字节跳动官方开源组织</a></li>
+<li><strong>MMClassification 的后续项目为 MMPreTrain。</strong>学习旧文档时应留意工程名称与版本，而不要把新旧配置混装。<a href="https://github.com/open-mmlab/mmpretrain">MMPreTrain 官方仓库</a></li>
+</ul>
+<h2 id="_3">环境与工程</h2>
+<table>
+<thead>
+<tr>
+<th>资料</th>
+<th>本项目用来核验的内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/open-mmlab/mmdetection/blob/v3.3.0/mmdet/__init__.py">MMDetection 3.3.0 版本断言</a></td>
+<td><code>2.0.0rc4 &lt;= mmcv &lt; 2.2.0</code>，<code>0.7.1 &lt;= mmengine &lt; 1.0.0</code>。并不是任意最新版本都兼容。</td>
+</tr>
+<tr>
+<td><a href="https://github.com/open-mmlab/mmdetection/blob/main/docs/en/get_started.md">MMDetection 安装</a></td>
+<td>Python、PyTorch、MMCV、MMEngine 的安装顺序及推理流程。</td>
+</tr>
+<tr>
+<td><a href="https://github.com/open-mmlab/mmcv/blob/main/docs/en/get_started/installation.md">MMCV 安装</a></td>
+<td>wheel 必须匹配操作系统、Python、PyTorch、CUDA；下载 <code>.tar.gz</code> 表示可能进入源码编译。<code>mmcv-lite</code> 不提供全部编译算子。</td>
+</tr>
+<tr>
+<td><a href="https://docs.pytorch.org/docs/stable/quantization.html">PyTorch 量化</a></td>
+<td>动态/静态/QAT 的区别；旧 eager API 与新量化工具的迁移，需与安装版本对应。</td>
+</tr>
+<tr>
+<td><a href="https://docs.pytorch.org/docs/stable/onnx.html">PyTorch ONNX 导出</a></td>
+<td>导出器、算子集与动态形状；转换后必须运行数值一致性检查。</td>
+</tr>
+<tr>
+<td><a href="https://github.com/opencv/opencv_zoo/tree/main/models/face_detection_yunet">OpenCV YuNet 模型说明</a></td>
+<td>轻量人脸检测与五点定位；模型目录的单独许可证。</td>
+</tr>
+<tr>
+<td><a href="https://github.com/opencv/opencv_zoo/tree/main/models/face_recognition_sface">OpenCV SFace 模型说明</a></td>
+<td>特征提取、对齐与相似度；模型说明中的 Apache-2.0 声明。</td>
+</tr>
+<tr>
+<td><a href="https://github.com/opencv/opencv_zoo/issues/313">SFace 权重溯源待澄清 issue</a></td>
+<td>2026-09-26 核验时仍有关于准确权重训练数据来源的未答问题；本项目不额外保证一切商业用途。</td>
+</tr>
+<tr>
+<td><a href="https://github.com/deepinsight/insightface">InsightFace 官方许可</a></td>
+<td>代码 MIT 与公开预训练模型的非商业研究许可分别处理；不把“开源代码”解释为“权重无限制”。</td>
+</tr>
+<tr>
+<td><a href="https://github.com/facebookresearch/pytorch3d/blob/main/INSTALL.md">PyTorch3D 安装</a></td>
+<td>PyTorch/CUDA/C++ 扩展匹配，不能假设任意 Windows wheel 都存在。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_4">数据集</h2>
+<table>
+<thead>
+<tr>
+<th>数据集</th>
+<th>官方/维护方来源</th>
+<th>获取与使用边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CelebA</td>
+<td><a href="https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html">香港中文大学项目页</a>；<a href="https://github.com/pytorch/vision/blob/main/torchvision/datasets/celeba.py">torchvision 下载器</a></td>
+<td>项目页列出 202,599 张、10,177 个身份、40 属性、5 关键点。非商业研究，禁止再分发图像与数据；身份标注说明有研究申请条件。只在本地存储合法获取的数据，开源仓库发布加载器。</td>
+</tr>
+<tr>
+<td>LFW</td>
+<td><a href="http://vis-www.cs.umass.edu/lfw/">原站</a>；<a href="https://github.com/scikit-learn/scikit-learn/blob/main/sklearn/datasets/_lfw.py">scikit-learn 官方下载器与 SHA256</a></td>
+<td>原站本次网页工具不可达；维护方下载器提供 Figshare 原图与 pairs 镜像。13,233 图、5,749 身份；评估必须说明原图/对齐版、检测失败与十折协议。</td>
+</tr>
+<tr>
+<td>MS-Celeb-1M</td>
+<td><a href="https://www.microsoft.com/en-us/research/project/ms-celeb-1m-challenge-recognizing-one-million-celebrities-real-world/">微软研究历史项目页</a>；<a href="https://arxiv.org/abs/1607.08221">原始论文</a></td>
+<td>历史页保留 2016 年竞赛说明，不是本次有效下载/授权凭证。本项目没有获得可核验的授权训练包，不从未知镜像补齐。若用合法自建身份数据，必须在报告写成替代数据实验。</td>
+</tr>
+<tr>
+<td>WIDER FACE</td>
+<td><a href="https://arxiv.org/abs/1511.06523">作者论文</a>；<a href="http://shuoyang1213.me/WIDERFACE/">作者项目页</a>；<a href="https://github.com/pytorch/vision/blob/main/torchvision/datasets/widerface.py">torchvision 官方下载器</a></td>
+<td>原站本次网页工具不可达；维护方下载器保留 Google Drive 入口。需训练图、标注与独立验证图；不能把几张演示图的 AP 写成 WIDER 全集 mAP。</td>
+</tr>
+<tr>
+<td>300-W</td>
+<td><a href="https://ibug.doc.ic.ac.uk/resources/300-W/">Imperial College iBUG 官方页</a></td>
+<td>研究用途、禁止商业训练；68 点，原标注从 1 开始计数；评估 NME 使用外眼角距离。官方页中的 600 张 challenge test 与常见训练集不是同一个拆分，必须记清。</td>
+</tr>
+<tr>
+<td>COFW</td>
+<td><a href="https://www.vision.caltech.edu/~xpburgos/ICCV13/">作者论文页面</a></td>
+<td>可替代 300-W 的研究方向；标注数量和遮挡处理必须依具体协议，不能混用 300-W 的 68 点指标。</td>
+</tr>
+</tbody>
+</table>
+<p>LFW 镜像校验值来自 scikit-learn 维护代码：</p>
+<pre><code class="language-text">lfw.tgz: https://ndownloader.figshare.com/files/5976018
+SHA256: 055f7d9c632d7370e6fb4afc7468d40f970c34a80d4c6f50ffec63f5a8d536c0
+pairs.txt: https://ndownloader.figshare.com/files/5976006
+SHA256: ea42330c62c92989f9d7c03237ed5d591365e89b3e649747777b70e692dc1592
+</code></pre>
+<h2 id="_5">必读论文与扩展阅读</h2>
+<ol>
+<li><a href="https://arxiv.org/abs/1905.00641">RetinaFace: Single-stage Dense Face Localisation in the Wild</a>：检测、五点与多任务监督；读“输出是什么、多个任务如何共同训练”。</li>
+<li><a href="https://arxiv.org/abs/1801.07698">ArcFace: Additive Angular Margin Loss for Deep Face Recognition</a>：把类别分离转换到归一化特征的角度空间；注意论文发表年份与预印本年份不同。</li>
+<li><a href="https://arxiv.org/abs/2106.12423">StyleGAN3 / Alias-Free GANs</a>；<a href="https://github.com/NVlabs/stylegan3">NVIDIA 官方实现</a>：减少纹理黏在图像坐标上的现象；使用旧 StyleGAN2 权重并不会自动得到 StyleGAN3 效果。</li>
+<li><a href="https://arxiv.org/abs/2012.04012">DECA</a>：从野外图像估计可动画化的详细三维人脸。</li>
+<li><a href="https://github.com/yunjey/stargan">StarGAN 官方实现</a>：多个属性域共享生成器与判别器。</li>
+<li><a href="https://github.com/yfeng95/PRNet">PRNet 官方实现</a>：位置图回归的三维重建。<a href="https://github.com/cleardusk/3DDFA_V2">3DDFA_V2 官方实现</a>：三维稠密对齐。模型、基底数据与代码许可需要分别看。</li>
+<li><a href="https://arxiv.org/abs/2006.11239">DDPM</a>：逐步加噪与学习去噪。<a href="https://arxiv.org/abs/2003.08934">NeRF</a>：从视图学习空间密度和颜色。<a href="https://arxiv.org/abs/2308.04079">3D Gaussian Splatting</a>：用可优化三维高斯表示和渲染场景。</li>
+<li><a href="https://arxiv.org/abs/1706.08500">FID 的原始论文 TTUR</a>：比较特征分布；图像少、特征器不同或预处理不同的分数不可直接比较。</li>
+<li><a href="https://arxiv.org/abs/1908.07919">HRNet</a>：保留高分辨率与跨尺度融合。<a href="https://arxiv.org/abs/1803.04108">SAN</a>：用风格聚合减少输入风格变化对关键点检测的影响。<a href="https://arxiv.org/abs/1711.10678">AttGAN</a>：属性约束与保留非目标内容的生成研究。</li>
+<li><a href="https://www.khronos.org/webgl/">Khronos WebGL 官方说明</a>：WebGL基于OpenGL ES，使用浏览器图形接口；生成查看器HTML不等于已在目标GPU/浏览器渲染验收。</li>
+</ol>
+<h2 id="_6">引用与发布规则</h2>
+<p>本项目原创源码以仓库 LICENSE 为准。第三方依赖、下载权重、样本数据、模型基底和生成结果不自动继承该许可。保留第三方原始许可证与来源；GitHub 只上传允许发布的代码、文档、配置和演示素材，不上传数据集、人脸库、访问令牌、未核清许可权重或用户摄像头照片。下载链接可变，下载失败应写真实错误，不填写预设成功结果。</p></body></html>

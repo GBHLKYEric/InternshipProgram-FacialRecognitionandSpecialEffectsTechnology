@@ -1,0 +1,62 @@
+{
+  "opencv_zoo_revision": "47534e27c9851bb1128ccc0102f1145e27f23f98",
+  "3ddfa_revision": "1b6c67601abffc1e9f248b291708aef0e43b55ae",
+  "assets": [
+    {
+      "path": "models/face_detection_yunet_2023mar.onnx",
+      "url": "https://media.githubusercontent.com/media/opencv/opencv_zoo/47534e27c9851bb1128ccc0102f1145e27f23f98/models/face_detection_yunet/face_detection_yunet_2023mar.onnx",
+      "group": "baseline",
+      "sha256": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4",
+      "bytes": 232589,
+      "license": "MIT"
+    },
+    {
+      "path": "models/face_recognition_sface_2021dec.onnx",
+      "url": "https://media.githubusercontent.com/media/opencv/opencv_zoo/47534e27c9851bb1128ccc0102f1145e27f23f98/models/face_recognition_sface/face_recognition_sface_2021dec.onnx",
+      "group": "baseline",
+      "sha256": "0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79",
+      "bytes": 38696353,
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "assets/astronaut.png",
+      "url": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.24.0/skimage/data/astronaut.png",
+      "group": "baseline",
+      "sha256": "88431cd9653ccd539741b555fb0a46b61558b301d4110412b5bc28b5e3ea6cb5",
+      "bytes": 791555,
+      "license": "NASA public-domain image; Eileen Collins. See skimage.data.astronaut docs."
+    },
+    {
+      "path": "models/3ddfa/bfm_noneck_v3.pkl",
+      "url": "https://raw.githubusercontent.com/cleardusk/3DDFA_V2/1b6c67601abffc1e9f248b291708aef0e43b55ae/configs/bfm_noneck_v3.pkl",
+      "group": "3d",
+      "sha256": "89ac96480eddc331120f2c8401737c55a5fcc97b10f8a64574e63976c3d246ca",
+      "bytes": 24393598,
+      "license": "3DDFA_V2 source MIT; BFM-derived assets carry underlying model terms. Local research only; not redistributed."
+    },
+    {
+      "path": "models/3ddfa/param_mean_std_62d_120x120.pkl",
+      "url": "https://raw.githubusercontent.com/cleardusk/3DDFA_V2/1b6c67601abffc1e9f248b291708aef0e43b55ae/configs/param_mean_std_62d_120x120.pkl",
+      "group": "3d",
+      "sha256": "090d7150f77cb66c29ddae21e4508fbde59123dcd1dea7facc24a7ed06d1c795",
+      "bytes": 713,
+      "license": "3DDFA_V2 source MIT; BFM-derived assets carry underlying model terms. Local research only; not redistributed."
+    },
+    {
+      "path": "models/3ddfa/tri.pkl",
+      "url": "https://raw.githubusercontent.com/cleardusk/3DDFA_V2/1b6c67601abffc1e9f248b291708aef0e43b55ae/configs/tri.pkl",
+      "group": "3d",
+      "sha256": "0562a594d8369f7d1c86306522ff76fd3a2c81cf90ba9443893c1191ad0abbb8",
+      "bytes": 913040,
+      "license": "3DDFA_V2 source MIT; BFM-derived assets carry underlying model terms. Local research only; not redistributed."
+    },
+    {
+      "path": "models/3ddfa/mb1_120x120.pth",
+      "url": "https://raw.githubusercontent.com/cleardusk/3DDFA_V2/1b6c67601abffc1e9f248b291708aef0e43b55ae/weights/mb1_120x120.pth",
+      "group": "3d",
+      "sha256": "a45a946c6e9b16f8d3cf2e69376da9560a7cf9afae671bebceb7e437a405ea79",
+      "bytes": 13755269,
+      "license": "3DDFA_V2 source MIT; BFM-derived assets carry underlying model terms. Local research only; not redistributed."
+    }
+  ]
+}

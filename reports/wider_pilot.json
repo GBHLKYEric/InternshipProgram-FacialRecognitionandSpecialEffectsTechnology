@@ -1,0 +1,35 @@
+{
+  "purpose": "CPU training/inference/evaluation pipeline pilot on real WIDER subset",
+  "dataset_images": {
+    "train": 32,
+    "val": 16
+  },
+  "epochs": 1,
+  "seed": 42,
+  "input_resize": [
+    320,
+    320
+  ],
+  "initialization": "random, no pretrained backbone",
+  "model": "RetinaNet ResNet50 FPN, one face class",
+  "evaluation_score_threshold": 0.0,
+  "wall_seconds": 36.111738736999996,
+  "metrics": {
+    "coco/face_precision": 0.0,
+    "coco/bbox_mAP": 0.0,
+    "coco/bbox_mAP_50": 0.0,
+    "coco/bbox_mAP_75": 0.0,
+    "coco/bbox_mAP_s": 0.0,
+    "coco/bbox_mAP_m": 0.006,
+    "coco/bbox_mAP_l": 0.0
+  },
+  "metric_protocol": "COCO AP 0.50:0.95 on selected validation images; NOT official WIDER AP",
+  "versions": {
+    "torch": "2.1.0+cpu",
+    "mmcv": "2.1.0",
+    "mmengine": "0.10.7",
+    "mmdet": "3.3.0"
+  },
+  "inference_visualization": "Top 10 candidate boxes, including low scores, from un-converged pilot model",
+  "limitations": "32/16 images and one epoch do not establish generalization or convergence."
+}

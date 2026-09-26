@@ -1,0 +1,48 @@
+[
+  {
+    "path": "/",
+    "status": 200,
+    "bytes": 10444,
+    "content_type": "text/html; charset=utf-8"
+  },
+  {
+    "path": "/health",
+    "status": 200,
+    "bytes": 68,
+    "content_type": "application/json; charset=utf-8"
+  },
+  {
+    "path": "/tutorial",
+    "status": 200,
+    "bytes": 46395,
+    "content_type": "text/html; charset=utf-8"
+  },
+  {
+    "path": "/3d",
+    "status": 200,
+    "bytes": 5928349,
+    "content_type": "text/html; charset=utf-8"
+  },
+  {
+    "path": "/sample.jpg",
+    "status": 200,
+    "bytes": 99308,
+    "content_type": "image/jpeg"
+  },
+  {
+    "path": "/process",
+    "status": 200,
+    "faces": 1,
+    "pipeline_ms": 57.31
+  },
+  {
+    "path": "/verify",
+    "status": 200,
+    "same_image_cosine": 0.9999999331133438
+  },
+  {
+    "invalid_inputs": "400",
+    "cross_origin": "403",
+    "unknown_path": "404"
+  }
+]
