@@ -1,0 +1,768 @@
+{
+  "frontend": "native Tkinter; cv2.VideoCapture; no HTTP or browser",
+  "status": "completed",
+  "requested_seconds": 20,
+  "seconds": 20.060089099992183,
+  "frames_rendered": 149,
+  "render_submission_fps": 7.427683858097025,
+  "device": {
+    "backend": "DSHOW",
+    "index": 0,
+    "width": 640,
+    "height": 480
+  },
+  "frames_with_face": 149,
+  "camera_frames_saved": false,
+  "effect": "all",
+  "scope": "read + detection/effect + latest-frame queue + Tk PhotoImage assignment; excludes sensor exposure age and physical display scanout",
+  "frame_policy": "latest completed frame only; old completed frames may be dropped to bound latency",
+  "latency_median_ms": 136.49350000196137,
+  "latency_p95_ms": 159.35549999994691,
+  "samples": [
+    {
+      "latency_ms": 301.6023999953177,
+      "pipeline_ms": 169.67,
+      "faces": 1
+    },
+    {
+      "latency_ms": 151.15249999507796,
+      "pipeline_ms": 136.6,
+      "faces": 1
+    },
+    {
+      "latency_ms": 154.4376999954693,
+      "pipeline_ms": 145.6,
+      "faces": 1
+    },
+    {
+      "latency_ms": 148.52820000669453,
+      "pipeline_ms": 137.02,
+      "faces": 1
+    },
+    {
+      "latency_ms": 169.0072999917902,
+      "pipeline_ms": 139.07,
+      "faces": 1
+    },
+    {
+      "latency_ms": 147.5475000042934,
+      "pipeline_ms": 130.85,
+      "faces": 1
+    },
+    {
+      "latency_ms": 142.46339999954216,
+      "pipeline_ms": 126.65,
+      "faces": 1
+    },
+    {
+      "latency_ms": 149.3934000027366,
+      "pipeline_ms": 137.17,
+      "faces": 1
+    },
+    {
+      "latency_ms": 161.2771999934921,
+      "pipeline_ms": 140.93,
+      "faces": 1
+    },
+    {
+      "latency_ms": 149.8789999895962,
+      "pipeline_ms": 126.16,
+      "faces": 1
+    },
+    {
+      "latency_ms": 147.32570000342093,
+      "pipeline_ms": 120.22,
+      "faces": 1
+    },
+    {
+      "latency_ms": 132.42670000181533,
+      "pipeline_ms": 120.57,
+      "faces": 1
+    },
+    {
+      "latency_ms": 133.9670000015758,
+      "pipeline_ms": 115.22,
+      "faces": 1
+    },
+    {
+      "latency_ms": 135.57440000295173,
+      "pipeline_ms": 117.37,
+      "faces": 1
+    },
+    {
+      "latency_ms": 134.2378999979701,
+      "pipeline_ms": 122.93,
+      "faces": 1
+    },
+    {
+      "latency_ms": 115.60000000463333,
+      "pipeline_ms": 105.33,
+      "faces": 1
+    },
+    {
+      "latency_ms": 116.62600000272505,
+      "pipeline_ms": 100.01,
+      "faces": 1
+    },
+    {
+      "latency_ms": 112.03029999160208,
+      "pipeline_ms": 92.51,
+      "faces": 1
+    },
+    {
+      "latency_ms": 101.87580001365859,
+      "pipeline_ms": 84.21,
+      "faces": 1
+    },
+    {
+      "latency_ms": 99.57360000407789,
+      "pipeline_ms": 81.24,
+      "faces": 1
+    },
+    {
+      "latency_ms": 93.05029999813996,
+      "pipeline_ms": 80.53,
+      "faces": 1
+    },
+    {
+      "latency_ms": 97.06960000039544,
+      "pipeline_ms": 87.29,
+      "faces": 1
+    },
+    {
+      "latency_ms": 101.0872000042582,
+      "pipeline_ms": 83.8,
+      "faces": 1
+    },
+    {
+      "latency_ms": 101.5322000021115,
+      "pipeline_ms": 85.05,
+      "faces": 1
+    },
+    {
+      "latency_ms": 90.7532999990508,
+      "pipeline_ms": 85.45,
+      "faces": 1
+    },
+    {
+      "latency_ms": 88.50189999793656,
+      "pipeline_ms": 83.95,
+      "faces": 1
+    },
+    {
+      "latency_ms": 95.41600001102779,
+      "pipeline_ms": 86.17,
+      "faces": 1
+    },
+    {
+      "latency_ms": 100.88440000254195,
+      "pipeline_ms": 90.38,
+      "faces": 1
+    },
+    {
+      "latency_ms": 115.37920001137536,
+      "pipeline_ms": 97.35,
+      "faces": 1
+    },
+    {
+      "latency_ms": 108.52399999566842,
+      "pipeline_ms": 98.25,
+      "faces": 1
+    },
+    {
+      "latency_ms": 125.29160000849515,
+      "pipeline_ms": 111.5,
+      "faces": 1
+    },
+    {
+      "latency_ms": 127.54679999488872,
+      "pipeline_ms": 110.3,
+      "faces": 1
+    },
+    {
+      "latency_ms": 134.0691999939736,
+      "pipeline_ms": 112.89,
+      "faces": 1
+    },
+    {
+      "latency_ms": 133.8194999989355,
+      "pipeline_ms": 121.78,
+      "faces": 1
+    },
+    {
+      "latency_ms": 121.05260000680573,
+      "pipeline_ms": 113.5,
+      "faces": 1
+    },
+    {
+      "latency_ms": 139.95350000914186,
+      "pipeline_ms": 118.32,
+      "faces": 1
+    },
+    {
+      "latency_ms": 130.0346000061836,
+      "pipeline_ms": 117.82,
+      "faces": 1
+    },
+    {
+      "latency_ms": 134.58460000401828,
+      "pipeline_ms": 126.61,
+      "faces": 1
+    },
+    {
+      "latency_ms": 138.1013000063831,
+      "pipeline_ms": 125.01,
+      "faces": 1
+    },
+    {
+      "latency_ms": 122.65750000369735,
+      "pipeline_ms": 114.16,
+      "faces": 1
+    },
+    {
+      "latency_ms": 131.81919998896774,
+      "pipeline_ms": 122.4,
+      "faces": 1
+    },
+    {
+      "latency_ms": 142.13129998825025,
+      "pipeline_ms": 121.73,
+      "faces": 1
+    },
+    {
+      "latency_ms": 143.4023000037996,
+      "pipeline_ms": 124.64,
+      "faces": 1
+    },
+    {
+      "latency_ms": 124.31349999678787,
+      "pipeline_ms": 117.47,
+      "faces": 1
+    },
+    {
+      "latency_ms": 142.14449998689815,
+      "pipeline_ms": 124.79,
+      "faces": 1
+    },
+    {
+      "latency_ms": 146.54630000586621,
+      "pipeline_ms": 128.59,
+      "faces": 1
+    },
+    {
+      "latency_ms": 135.67560000228696,
+      "pipeline_ms": 128.57,
+      "faces": 1
+    },
+    {
+      "latency_ms": 138.67869999376126,
+      "pipeline_ms": 121.31,
+      "faces": 1
+    },
+    {
+      "latency_ms": 176.5910999965854,
+      "pipeline_ms": 143.69,
+      "faces": 1
+    },
+    {
+      "latency_ms": 138.92179999675136,
+      "pipeline_ms": 129.76,
+      "faces": 1
+    },
+    {
+      "latency_ms": 151.96239999204408,
+      "pipeline_ms": 130.5,
+      "faces": 1
+    },
+    {
+      "latency_ms": 147.32990000629798,
+      "pipeline_ms": 129.06,
+      "faces": 1
+    },
+    {
+      "latency_ms": 135.60330000473186,
+      "pipeline_ms": 125.64,
+      "faces": 1
+    },
+    {
+      "latency_ms": 130.51919999998063,
+      "pipeline_ms": 122.7,
+      "faces": 1
+    },
+    {
+      "latency_ms": 144.54930000647437,
+      "pipeline_ms": 137.53,
+      "faces": 1
+    },
+    {
+      "latency_ms": 136.16920000640675,
+      "pipeline_ms": 113.46,
+      "faces": 1
+    },
+    {
+      "latency_ms": 144.81959999829996,
+      "pipeline_ms": 131.9,
+      "faces": 1
+    },
+    {
+      "latency_ms": 129.42800000018906,
+      "pipeline_ms": 119.64,
+      "faces": 1
+    },
+    {
+      "latency_ms": 159.02350000396837,
+      "pipeline_ms": 130.24,
+      "faces": 1
+    },
+    {
+      "latency_ms": 145.7726999942679,
+      "pipeline_ms": 134.58,
+      "faces": 1
+    },
+    {
+      "latency_ms": 143.8444000086747,
+      "pipeline_ms": 128.75,
+      "faces": 1
+    },
+    {
+      "latency_ms": 146.29669999703765,
+      "pipeline_ms": 128.21,
+      "faces": 1
+    },
+    {
+      "latency_ms": 149.81930000067223,
+      "pipeline_ms": 134.05,
+      "faces": 1
+    },
+    {
+      "latency_ms": 138.72069999342784,
+      "pipeline_ms": 123.71,
+      "faces": 1
+    },
+    {
+      "latency_ms": 140.02120000077412,
+      "pipeline_ms": 126.45,
+      "faces": 1
+    },
+    {
+      "latency_ms": 147.23339999909513,
+      "pipeline_ms": 132.04,
+      "faces": 1
+    },
+    {
+      "latency_ms": 146.06080000521615,
+      "pipeline_ms": 127.14,
+      "faces": 1
+    },
+    {
+      "latency_ms": 134.326700004749,
+      "pipeline_ms": 120.98,
+      "faces": 1
+    },
+    {
+      "latency_ms": 140.9103000041796,
+      "pipeline_ms": 120.84,
+      "faces": 1
+    },
+    {
+      "latency_ms": 143.69869999063667,
+      "pipeline_ms": 124.39,
+      "faces": 1
+    },
+    {
+      "latency_ms": 137.05190000473522,
+      "pipeline_ms": 121.98,
+      "faces": 1
+    },
+    {
+      "latency_ms": 123.78629999875557,
+      "pipeline_ms": 115.23,
+      "faces": 1
+    },
+    {
+      "latency_ms": 130.46169999870472,
+      "pipeline_ms": 112.54,
+      "faces": 1
+    },
+    {
+      "latency_ms": 133.81099999241997,
+      "pipeline_ms": 114.71,
+      "faces": 1
+    },
+    {
+      "latency_ms": 131.20139999955427,
+      "pipeline_ms": 119.04,
+      "faces": 1
+    },
+    {
+      "latency_ms": 135.0527000031434,
+      "pipeline_ms": 124.4,
+      "faces": 1
+    },
+    {
+      "latency_ms": 136.13269999041222,
+      "pipeline_ms": 119.7,
+      "faces": 1
+    },
+    {
+      "latency_ms": 143.896900000982,
+      "pipeline_ms": 129.81,
+      "faces": 1
+    },
+    {
+      "latency_ms": 139.25409999501426,
+      "pipeline_ms": 131.1,
+      "faces": 1
+    },
+    {
+      "latency_ms": 140.07900000433438,
+      "pipeline_ms": 119.46,
+      "faces": 1
+    },
+    {
+      "latency_ms": 128.8055000040913,
+      "pipeline_ms": 119.21,
+      "faces": 1
+    },
+    {
+      "latency_ms": 134.22140000329819,
+      "pipeline_ms": 126.82,
+      "faces": 1
+    },
+    {
+      "latency_ms": 146.05899999151006,
+      "pipeline_ms": 137.63,
+      "faces": 1
+    },
+    {
+      "latency_ms": 133.39309999719262,
+      "pipeline_ms": 119.82,
+      "faces": 1
+    },
+    {
+      "latency_ms": 139.52070000232197,
+      "pipeline_ms": 130.59,
+      "faces": 1
+    },
+    {
+      "latency_ms": 151.83780000370461,
+      "pipeline_ms": 126.63,
+      "faces": 1
+    },
+    {
+      "latency_ms": 151.4576999907149,
+      "pipeline_ms": 137.82,
+      "faces": 1
+    },
+    {
+      "latency_ms": 148.08549999725074,
+      "pipeline_ms": 128.22,
+      "faces": 1
+    },
+    {
+      "latency_ms": 139.6221000031801,
+      "pipeline_ms": 126.37,
+      "faces": 1
+    },
+    {
+      "latency_ms": 151.77050000056624,
+      "pipeline_ms": 133.54,
+      "faces": 1
+    },
+    {
+      "latency_ms": 145.05110000027344,
+      "pipeline_ms": 135.35,
+      "faces": 1
+    },
+    {
+      "latency_ms": 150.30470000056084,
+      "pipeline_ms": 132.75,
+      "faces": 1
+    },
+    {
+      "latency_ms": 143.42849999957252,
+      "pipeline_ms": 134.18,
+      "faces": 1
+    },
+    {
+      "latency_ms": 156.4284000050975,
+      "pipeline_ms": 134.44,
+      "faces": 1
+    },
+    {
+      "latency_ms": 151.18830000574235,
+      "pipeline_ms": 135.1,
+      "faces": 1
+    },
+    {
+      "latency_ms": 145.6427000084659,
+      "pipeline_ms": 124.37,
+      "faces": 1
+    },
+    {
+      "latency_ms": 136.49350000196137,
+      "pipeline_ms": 125.89,
+      "faces": 1
+    },
+    {
+      "latency_ms": 149.72950000083074,
+      "pipeline_ms": 130.11,
+      "faces": 1
+    },
+    {
+      "latency_ms": 158.96250000514556,
+      "pipeline_ms": 138.75,
+      "faces": 1
+    },
+    {
+      "latency_ms": 141.75139999133535,
+      "pipeline_ms": 127.87,
+      "faces": 1
+    },
+    {
+      "latency_ms": 127.86569999298081,
+      "pipeline_ms": 120.92,
+      "faces": 1
+    },
+    {
+      "latency_ms": 139.1464000043925,
+      "pipeline_ms": 117.66,
+      "faces": 1
+    },
+    {
+      "latency_ms": 151.27960000245366,
+      "pipeline_ms": 135.8,
+      "faces": 1
+    },
+    {
+      "latency_ms": 139.10310000937898,
+      "pipeline_ms": 130.91,
+      "faces": 1
+    },
+    {
+      "latency_ms": 138.2932999986224,
+      "pipeline_ms": 127.0,
+      "faces": 1
+    },
+    {
+      "latency_ms": 130.38370000140276,
+      "pipeline_ms": 114.54,
+      "faces": 1
+    },
+    {
+      "latency_ms": 133.29460000386462,
+      "pipeline_ms": 119.64,
+      "faces": 1
+    },
+    {
+      "latency_ms": 166.58220000681467,
+      "pipeline_ms": 139.13,
+      "faces": 1
+    },
+    {
+      "latency_ms": 138.31409999693278,
+      "pipeline_ms": 119.8,
+      "faces": 1
+    },
+    {
+      "latency_ms": 131.40990000101738,
+      "pipeline_ms": 120.61,
+      "faces": 1
+    },
+    {
+      "latency_ms": 134.63549999869429,
+      "pipeline_ms": 122.64,
+      "faces": 1
+    },
+    {
+      "latency_ms": 136.08159999421332,
+      "pipeline_ms": 118.52,
+      "faces": 1
+    },
+    {
+      "latency_ms": 136.23720000032336,
+      "pipeline_ms": 122.36,
+      "faces": 1
+    },
+    {
+      "latency_ms": 132.55029999709222,
+      "pipeline_ms": 121.71,
+      "faces": 1
+    },
+    {
+      "latency_ms": 146.53650000400376,
+      "pipeline_ms": 123.16,
+      "faces": 1
+    },
+    {
+      "latency_ms": 159.35549999994691,
+      "pipeline_ms": 134.77,
+      "faces": 1
+    },
+    {
+      "latency_ms": 132.55920000665355,
+      "pipeline_ms": 121.43,
+      "faces": 1
+    },
+    {
+      "latency_ms": 143.44179999898188,
+      "pipeline_ms": 124.69,
+      "faces": 1
+    },
+    {
+      "latency_ms": 145.8209000120405,
+      "pipeline_ms": 134.82,
+      "faces": 1
+    },
+    {
+      "latency_ms": 133.74649999605026,
+      "pipeline_ms": 119.38,
+      "faces": 1
+    },
+    {
+      "latency_ms": 159.62959999160375,
+      "pipeline_ms": 123.71,
+      "faces": 1
+    },
+    {
+      "latency_ms": 147.12130000407342,
+      "pipeline_ms": 126.03,
+      "faces": 1
+    },
+    {
+      "latency_ms": 133.37870000395924,
+      "pipeline_ms": 116.92,
+      "faces": 1
+    },
+    {
+      "latency_ms": 139.01160001114476,
+      "pipeline_ms": 117.99,
+      "faces": 1
+    },
+    {
+      "latency_ms": 171.922599998652,
+      "pipeline_ms": 139.93,
+      "faces": 1
+    },
+    {
+      "latency_ms": 133.78269999520853,
+      "pipeline_ms": 123.96,
+      "faces": 1
+    },
+    {
+      "latency_ms": 140.1659999974072,
+      "pipeline_ms": 118.25,
+      "faces": 1
+    },
+    {
+      "latency_ms": 129.4255999964662,
+      "pipeline_ms": 112.55,
+      "faces": 1
+    },
+    {
+      "latency_ms": 133.44170000345912,
+      "pipeline_ms": 117.4,
+      "faces": 1
+    },
+    {
+      "latency_ms": 152.5683000072604,
+      "pipeline_ms": 128.29,
+      "faces": 1
+    },
+    {
+      "latency_ms": 133.63029999891296,
+      "pipeline_ms": 118.8,
+      "faces": 1
+    },
+    {
+      "latency_ms": 118.07060000137426,
+      "pipeline_ms": 107.5,
+      "faces": 1
+    },
+    {
+      "latency_ms": 129.97159999213181,
+      "pipeline_ms": 113.97,
+      "faces": 1
+    },
+    {
+      "latency_ms": 115.37729999690782,
+      "pipeline_ms": 103.92,
+      "faces": 1
+    },
+    {
+      "latency_ms": 124.35670000559185,
+      "pipeline_ms": 106.34,
+      "faces": 1
+    },
+    {
+      "latency_ms": 134.81790000514593,
+      "pipeline_ms": 115.93,
+      "faces": 1
+    },
+    {
+      "latency_ms": 149.0174000064144,
+      "pipeline_ms": 129.56,
+      "faces": 1
+    },
+    {
+      "latency_ms": 144.24460000009276,
+      "pipeline_ms": 118.07,
+      "faces": 1
+    },
+    {
+      "latency_ms": 133.2762000092771,
+      "pipeline_ms": 116.33,
+      "faces": 1
+    },
+    {
+      "latency_ms": 128.91420000232756,
+      "pipeline_ms": 116.43,
+      "faces": 1
+    },
+    {
+      "latency_ms": 134.36570001067594,
+      "pipeline_ms": 120.68,
+      "faces": 1
+    },
+    {
+      "latency_ms": 134.1554999962682,
+      "pipeline_ms": 119.05,
+      "faces": 1
+    },
+    {
+      "latency_ms": 132.95769999967888,
+      "pipeline_ms": 113.54,
+      "faces": 1
+    },
+    {
+      "latency_ms": 133.42719999491237,
+      "pipeline_ms": 115.0,
+      "faces": 1
+    },
+    {
+      "latency_ms": 132.04969999787863,
+      "pipeline_ms": 114.75,
+      "faces": 1
+    },
+    {
+      "latency_ms": 144.82159999897704,
+      "pipeline_ms": 111.18,
+      "faces": 1
+    },
+    {
+      "latency_ms": 134.91929999145214,
+      "pipeline_ms": 113.46,
+      "faces": 1
+    },
+    {
+      "latency_ms": 133.72500000696164,
+      "pipeline_ms": 118.23,
+      "faces": 1
+    },
+    {
+      "latency_ms": 114.71969999547582,
+      "pipeline_ms": 108.75,
+      "faces": 1
+    }
+  ]
+}

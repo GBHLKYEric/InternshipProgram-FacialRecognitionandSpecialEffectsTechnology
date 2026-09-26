@@ -1,0 +1,1773 @@
+{
+  "status": "completed",
+  "started_at": "2026-09-26T13:22:30.176Z",
+  "seconds": 20.0695,
+  "frames": 250,
+  "observed_fps": 12.456712922593985,
+  "capture_to_decode_median_ms": 83.09999999403954,
+  "capture_to_decode_p95_ms": 93.19999998807907,
+  "frames_with_face": 217,
+  "frames_visible": 250,
+  "effects": [
+    "all"
+  ],
+  "camera": {
+    "width": 640,
+    "height": 480,
+    "frameRate": 30
+  },
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36",
+  "scope": "Real camera capture -> JPEG encode -> HTTP -> detection/effect -> response image decode. Throughput includes frame scheduling. Excludes sensor age and physical display latency.",
+  "samples": [
+    {
+      "faces": 1,
+      "pipeline_ms": 72.51,
+      "effect": "all",
+      "capture_to_decode_ms": 87.19999998807907,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 73.87,
+      "effect": "all",
+      "capture_to_decode_ms": 93.8999999910593,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 75.06,
+      "effect": "all",
+      "capture_to_decode_ms": 90.59999999403954,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 75,
+      "effect": "all",
+      "capture_to_decode_ms": 90.5,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 77.11,
+      "effect": "all",
+      "capture_to_decode_ms": 92.3999999910593,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 73.71,
+      "effect": "all",
+      "capture_to_decode_ms": 89.59999999403954,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 73.21,
+      "effect": "all",
+      "capture_to_decode_ms": 94.59999999403954,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 68.39,
+      "effect": "all",
+      "capture_to_decode_ms": 86.79999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 67.91,
+      "effect": "all",
+      "capture_to_decode_ms": 84.5,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 68.26,
+      "effect": "all",
+      "capture_to_decode_ms": 87.8999999910593,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 67.06,
+      "effect": "all",
+      "capture_to_decode_ms": 84.40000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 69.52,
+      "effect": "all",
+      "capture_to_decode_ms": 84.40000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.03,
+      "effect": "all",
+      "capture_to_decode_ms": 82.90000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 67.8,
+      "effect": "all",
+      "capture_to_decode_ms": 86.29999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 65.24,
+      "effect": "all",
+      "capture_to_decode_ms": 82.20000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 68.04,
+      "effect": "all",
+      "capture_to_decode_ms": 85.5,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.68,
+      "effect": "all",
+      "capture_to_decode_ms": 83.29999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 69.07,
+      "effect": "all",
+      "capture_to_decode_ms": 84.5,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 69,
+      "effect": "all",
+      "capture_to_decode_ms": 85.59999999403954,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.82,
+      "effect": "all",
+      "capture_to_decode_ms": 87.09999999403954,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.68,
+      "effect": "all",
+      "capture_to_decode_ms": 83.09999999403954,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 70.2,
+      "effect": "all",
+      "capture_to_decode_ms": 83.90000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 70.12,
+      "effect": "all",
+      "capture_to_decode_ms": 85.79999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.99,
+      "effect": "all",
+      "capture_to_decode_ms": 84.40000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 65.46,
+      "effect": "all",
+      "capture_to_decode_ms": 81.1000000089407,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 67.09,
+      "effect": "all",
+      "capture_to_decode_ms": 83.79999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 69.18,
+      "effect": "all",
+      "capture_to_decode_ms": 84.20000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.58,
+      "effect": "all",
+      "capture_to_decode_ms": 81.29999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 67.12,
+      "effect": "all",
+      "capture_to_decode_ms": 81.5,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 67.06,
+      "effect": "all",
+      "capture_to_decode_ms": 87.1000000089407,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 68.24,
+      "effect": "all",
+      "capture_to_decode_ms": 86.70000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 67.06,
+      "effect": "all",
+      "capture_to_decode_ms": 83.8999999910593,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 69.22,
+      "effect": "all",
+      "capture_to_decode_ms": 86.40000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 67.35,
+      "effect": "all",
+      "capture_to_decode_ms": 82.40000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 67.42,
+      "effect": "all",
+      "capture_to_decode_ms": 82.59999999403954,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 68.37,
+      "effect": "all",
+      "capture_to_decode_ms": 82.8999999910593,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.8,
+      "effect": "all",
+      "capture_to_decode_ms": 81.70000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 63.88,
+      "effect": "all",
+      "capture_to_decode_ms": 84,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 63.74,
+      "effect": "all",
+      "capture_to_decode_ms": 77.90000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 67.35,
+      "effect": "all",
+      "capture_to_decode_ms": 83.59999999403954,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 63.61,
+      "effect": "all",
+      "capture_to_decode_ms": 77.09999999403954,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.14,
+      "effect": "all",
+      "capture_to_decode_ms": 81.90000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 67.38,
+      "effect": "all",
+      "capture_to_decode_ms": 81.8999999910593,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 70.2,
+      "effect": "all",
+      "capture_to_decode_ms": 87.5,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 69.16,
+      "effect": "all",
+      "capture_to_decode_ms": 88,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 72.16,
+      "effect": "all",
+      "capture_to_decode_ms": 88.90000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 74.44,
+      "effect": "all",
+      "capture_to_decode_ms": 90.1000000089407,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 74.59,
+      "effect": "all",
+      "capture_to_decode_ms": 91.19999998807907,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 74.35,
+      "effect": "all",
+      "capture_to_decode_ms": 92.59999999403954,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 74.46,
+      "effect": "all",
+      "capture_to_decode_ms": 94,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 69.02,
+      "effect": "all",
+      "capture_to_decode_ms": 90.90000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 81.45,
+      "effect": "all",
+      "capture_to_decode_ms": 99.09999999403954,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 74.34,
+      "effect": "all",
+      "capture_to_decode_ms": 92.70000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 73.74,
+      "effect": "all",
+      "capture_to_decode_ms": 93.80000001192093,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 71.22,
+      "effect": "all",
+      "capture_to_decode_ms": 89.6000000089407,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 74.56,
+      "effect": "all",
+      "capture_to_decode_ms": 94.8999999910593,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 70.17,
+      "effect": "all",
+      "capture_to_decode_ms": 86.5,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 69.68,
+      "effect": "all",
+      "capture_to_decode_ms": 85.20000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 69.01,
+      "effect": "all",
+      "capture_to_decode_ms": 85.3999999910593,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.56,
+      "effect": "all",
+      "capture_to_decode_ms": 84.70000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 67.39,
+      "effect": "all",
+      "capture_to_decode_ms": 104,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 68.67,
+      "effect": "all",
+      "capture_to_decode_ms": 89,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 68.43,
+      "effect": "all",
+      "capture_to_decode_ms": 85.40000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 70.76,
+      "effect": "all",
+      "capture_to_decode_ms": 88.90000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 67.88,
+      "effect": "all",
+      "capture_to_decode_ms": 84.40000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 70.62,
+      "effect": "all",
+      "capture_to_decode_ms": 88.09999999403954,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.66,
+      "effect": "all",
+      "capture_to_decode_ms": 86.5,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 69.73,
+      "effect": "all",
+      "capture_to_decode_ms": 87.30000001192093,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 67.03,
+      "effect": "all",
+      "capture_to_decode_ms": 83.5,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 69.67,
+      "effect": "all",
+      "capture_to_decode_ms": 85.40000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 72.17,
+      "effect": "all",
+      "capture_to_decode_ms": 89.1000000089407,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 72.53,
+      "effect": "all",
+      "capture_to_decode_ms": 94.20000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 71.3,
+      "effect": "all",
+      "capture_to_decode_ms": 89.29999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 69.53,
+      "effect": "all",
+      "capture_to_decode_ms": 84.90000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 71.8,
+      "effect": "all",
+      "capture_to_decode_ms": 89,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 69.68,
+      "effect": "all",
+      "capture_to_decode_ms": 84.40000000596046,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 8.81,
+      "effect": "all",
+      "capture_to_decode_ms": 24.900000005960464,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 10.02,
+      "effect": "all",
+      "capture_to_decode_ms": 23.100000008940697,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 69.21,
+      "effect": "all",
+      "capture_to_decode_ms": 86.20000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.91,
+      "effect": "all",
+      "capture_to_decode_ms": 80.5,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 63.91,
+      "effect": "all",
+      "capture_to_decode_ms": 80,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 70.7,
+      "effect": "all",
+      "capture_to_decode_ms": 88,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 71.09,
+      "effect": "all",
+      "capture_to_decode_ms": 88.20000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 71.76,
+      "effect": "all",
+      "capture_to_decode_ms": 88.5,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 73.96,
+      "effect": "all",
+      "capture_to_decode_ms": 90.09999999403954,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 73.01,
+      "effect": "all",
+      "capture_to_decode_ms": 89.30000001192093,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 74.24,
+      "effect": "all",
+      "capture_to_decode_ms": 90.70000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 73.02,
+      "effect": "all",
+      "capture_to_decode_ms": 91.79999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 72.33,
+      "effect": "all",
+      "capture_to_decode_ms": 88.29999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 76.18,
+      "effect": "all",
+      "capture_to_decode_ms": 93.79999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 71.43,
+      "effect": "all",
+      "capture_to_decode_ms": 88.90000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 76.27,
+      "effect": "all",
+      "capture_to_decode_ms": 96.5,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 75.82,
+      "effect": "all",
+      "capture_to_decode_ms": 92.90000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 72.31,
+      "effect": "all",
+      "capture_to_decode_ms": 95,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 71.14,
+      "effect": "all",
+      "capture_to_decode_ms": 90.20000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 73.05,
+      "effect": "all",
+      "capture_to_decode_ms": 93.19999998807907,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 72.8,
+      "effect": "all",
+      "capture_to_decode_ms": 87.79999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 72.84,
+      "effect": "all",
+      "capture_to_decode_ms": 89.59999999403954,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 73.35,
+      "effect": "all",
+      "capture_to_decode_ms": 94.90000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 71.9,
+      "effect": "all",
+      "capture_to_decode_ms": 91.6000000089407,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 72.33,
+      "effect": "all",
+      "capture_to_decode_ms": 88.79999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 70.69,
+      "effect": "all",
+      "capture_to_decode_ms": 85.79999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 68.51,
+      "effect": "all",
+      "capture_to_decode_ms": 87.59999999403954,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.87,
+      "effect": "all",
+      "capture_to_decode_ms": 85.5,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 67.25,
+      "effect": "all",
+      "capture_to_decode_ms": 84.90000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.78,
+      "effect": "all",
+      "capture_to_decode_ms": 84.5,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.2,
+      "effect": "all",
+      "capture_to_decode_ms": 84.80000001192093,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.31,
+      "effect": "all",
+      "capture_to_decode_ms": 83.3999999910593,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 65.5,
+      "effect": "all",
+      "capture_to_decode_ms": 80.70000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 65.81,
+      "effect": "all",
+      "capture_to_decode_ms": 84.19999998807907,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.44,
+      "effect": "all",
+      "capture_to_decode_ms": 81,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 65.7,
+      "effect": "all",
+      "capture_to_decode_ms": 81.29999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 65.02,
+      "effect": "all",
+      "capture_to_decode_ms": 79.69999998807907,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 8.17,
+      "effect": "all",
+      "capture_to_decode_ms": 26.599999994039536,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 7.92,
+      "effect": "all",
+      "capture_to_decode_ms": 24,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 8.26,
+      "effect": "all",
+      "capture_to_decode_ms": 24.80000001192093,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 7.96,
+      "effect": "all",
+      "capture_to_decode_ms": 22.5,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 9.14,
+      "effect": "all",
+      "capture_to_decode_ms": 25.200000002980232,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 67.47,
+      "effect": "all",
+      "capture_to_decode_ms": 80.8999999910593,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 8.87,
+      "effect": "all",
+      "capture_to_decode_ms": 23.700000002980232,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 9.16,
+      "effect": "all",
+      "capture_to_decode_ms": 22.799999997019768,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 8.43,
+      "effect": "all",
+      "capture_to_decode_ms": 25.299999997019768,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 8.73,
+      "effect": "all",
+      "capture_to_decode_ms": 26,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 8.64,
+      "effect": "all",
+      "capture_to_decode_ms": 24.099999994039536,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 8.62,
+      "effect": "all",
+      "capture_to_decode_ms": 22.799999997019768,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 8.46,
+      "effect": "all",
+      "capture_to_decode_ms": 22.599999994039536,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 8.3,
+      "effect": "all",
+      "capture_to_decode_ms": 21.900000005960464,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 9.57,
+      "effect": "all",
+      "capture_to_decode_ms": 22,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 9.36,
+      "effect": "all",
+      "capture_to_decode_ms": 23.5,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 9.97,
+      "effect": "all",
+      "capture_to_decode_ms": 26.799999997019768,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 10.19,
+      "effect": "all",
+      "capture_to_decode_ms": 28,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 8.63,
+      "effect": "all",
+      "capture_to_decode_ms": 27.100000008940697,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 9.59,
+      "effect": "all",
+      "capture_to_decode_ms": 27.700000002980232,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 8.12,
+      "effect": "all",
+      "capture_to_decode_ms": 23.599999994039536,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 8.27,
+      "effect": "all",
+      "capture_to_decode_ms": 22.5,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 8.47,
+      "effect": "all",
+      "capture_to_decode_ms": 22.200000002980232,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 9.86,
+      "effect": "all",
+      "capture_to_decode_ms": 25.200000002980232,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 9.62,
+      "effect": "all",
+      "capture_to_decode_ms": 23.299999997019768,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 9.02,
+      "effect": "all",
+      "capture_to_decode_ms": 22.400000005960464,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 8.04,
+      "effect": "all",
+      "capture_to_decode_ms": 21.5,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 8.39,
+      "effect": "all",
+      "capture_to_decode_ms": 23.099999994039536,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 8,
+      "effect": "all",
+      "capture_to_decode_ms": 25.5,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 7.99,
+      "effect": "all",
+      "capture_to_decode_ms": 23.099999994039536,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 8.26,
+      "effect": "all",
+      "capture_to_decode_ms": 23.69999998807907,
+      "visible": true
+    },
+    {
+      "faces": 0,
+      "pipeline_ms": 8.75,
+      "effect": "all",
+      "capture_to_decode_ms": 24.599999994039536,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.11,
+      "effect": "all",
+      "capture_to_decode_ms": 82.29999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 67.61,
+      "effect": "all",
+      "capture_to_decode_ms": 84.70000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 65.03,
+      "effect": "all",
+      "capture_to_decode_ms": 82,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 65.22,
+      "effect": "all",
+      "capture_to_decode_ms": 81.70000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.56,
+      "effect": "all",
+      "capture_to_decode_ms": 79.79999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 67.15,
+      "effect": "all",
+      "capture_to_decode_ms": 84.79999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.85,
+      "effect": "all",
+      "capture_to_decode_ms": 83.29999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.33,
+      "effect": "all",
+      "capture_to_decode_ms": 82.19999998807907,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.63,
+      "effect": "all",
+      "capture_to_decode_ms": 83.3999999910593,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 67.24,
+      "effect": "all",
+      "capture_to_decode_ms": 85.6000000089407,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.06,
+      "effect": "all",
+      "capture_to_decode_ms": 83.09999999403954,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 68.11,
+      "effect": "all",
+      "capture_to_decode_ms": 85.40000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 67.35,
+      "effect": "all",
+      "capture_to_decode_ms": 86.3999999910593,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 62.86,
+      "effect": "all",
+      "capture_to_decode_ms": 79,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.92,
+      "effect": "all",
+      "capture_to_decode_ms": 81.79999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 67.83,
+      "effect": "all",
+      "capture_to_decode_ms": 87.70000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.84,
+      "effect": "all",
+      "capture_to_decode_ms": 82,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.92,
+      "effect": "all",
+      "capture_to_decode_ms": 79.3999999910593,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 65.19,
+      "effect": "all",
+      "capture_to_decode_ms": 82.59999999403954,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.88,
+      "effect": "all",
+      "capture_to_decode_ms": 79.80000001192093,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 63.73,
+      "effect": "all",
+      "capture_to_decode_ms": 79.20000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.25,
+      "effect": "all",
+      "capture_to_decode_ms": 81.69999998807907,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.37,
+      "effect": "all",
+      "capture_to_decode_ms": 80.70000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 65.63,
+      "effect": "all",
+      "capture_to_decode_ms": 80.59999999403954,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 63.07,
+      "effect": "all",
+      "capture_to_decode_ms": 80.29999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.95,
+      "effect": "all",
+      "capture_to_decode_ms": 80.8999999910593,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.93,
+      "effect": "all",
+      "capture_to_decode_ms": 81.79999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 65.2,
+      "effect": "all",
+      "capture_to_decode_ms": 81.90000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.89,
+      "effect": "all",
+      "capture_to_decode_ms": 81.5,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 65.95,
+      "effect": "all",
+      "capture_to_decode_ms": 82.40000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 65.16,
+      "effect": "all",
+      "capture_to_decode_ms": 79.79999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 65.93,
+      "effect": "all",
+      "capture_to_decode_ms": 81.70000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.94,
+      "effect": "all",
+      "capture_to_decode_ms": 81.09999999403954,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.77,
+      "effect": "all",
+      "capture_to_decode_ms": 83.90000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.07,
+      "effect": "all",
+      "capture_to_decode_ms": 82.20000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.8,
+      "effect": "all",
+      "capture_to_decode_ms": 80.29999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 65.66,
+      "effect": "all",
+      "capture_to_decode_ms": 82.29999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 65.65,
+      "effect": "all",
+      "capture_to_decode_ms": 82.70000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.65,
+      "effect": "all",
+      "capture_to_decode_ms": 79.20000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.9,
+      "effect": "all",
+      "capture_to_decode_ms": 79.79999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.31,
+      "effect": "all",
+      "capture_to_decode_ms": 81.6000000089407,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.15,
+      "effect": "all",
+      "capture_to_decode_ms": 81.09999999403954,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.3,
+      "effect": "all",
+      "capture_to_decode_ms": 81.70000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 65.38,
+      "effect": "all",
+      "capture_to_decode_ms": 79.6000000089407,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 67.2,
+      "effect": "all",
+      "capture_to_decode_ms": 85.09999999403954,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 68.54,
+      "effect": "all",
+      "capture_to_decode_ms": 85.09999999403954,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.88,
+      "effect": "all",
+      "capture_to_decode_ms": 83.40000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.22,
+      "effect": "all",
+      "capture_to_decode_ms": 79.6000000089407,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.26,
+      "effect": "all",
+      "capture_to_decode_ms": 84.69999998807907,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 65.78,
+      "effect": "all",
+      "capture_to_decode_ms": 82.5,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.61,
+      "effect": "all",
+      "capture_to_decode_ms": 83.29999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.28,
+      "effect": "all",
+      "capture_to_decode_ms": 82.8999999910593,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.68,
+      "effect": "all",
+      "capture_to_decode_ms": 81.09999999403954,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 68.64,
+      "effect": "all",
+      "capture_to_decode_ms": 85.5,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 65.76,
+      "effect": "all",
+      "capture_to_decode_ms": 82,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.36,
+      "effect": "all",
+      "capture_to_decode_ms": 83.90000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.33,
+      "effect": "all",
+      "capture_to_decode_ms": 83.8999999910593,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.77,
+      "effect": "all",
+      "capture_to_decode_ms": 81.40000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 63.97,
+      "effect": "all",
+      "capture_to_decode_ms": 77.70000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 63.91,
+      "effect": "all",
+      "capture_to_decode_ms": 92.1000000089407,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 65.57,
+      "effect": "all",
+      "capture_to_decode_ms": 84.09999999403954,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 63.28,
+      "effect": "all",
+      "capture_to_decode_ms": 77.5,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 63.57,
+      "effect": "all",
+      "capture_to_decode_ms": 82.79999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.05,
+      "effect": "all",
+      "capture_to_decode_ms": 82,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.36,
+      "effect": "all",
+      "capture_to_decode_ms": 78.70000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 63.47,
+      "effect": "all",
+      "capture_to_decode_ms": 79.90000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 62.59,
+      "effect": "all",
+      "capture_to_decode_ms": 82.40000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.69,
+      "effect": "all",
+      "capture_to_decode_ms": 80.5,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.27,
+      "effect": "all",
+      "capture_to_decode_ms": 81,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 62.86,
+      "effect": "all",
+      "capture_to_decode_ms": 81,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 65.72,
+      "effect": "all",
+      "capture_to_decode_ms": 82.20000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 67.72,
+      "effect": "all",
+      "capture_to_decode_ms": 81,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 63.28,
+      "effect": "all",
+      "capture_to_decode_ms": 82.3999999910593,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.41,
+      "effect": "all",
+      "capture_to_decode_ms": 84.09999999403954,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 65.37,
+      "effect": "all",
+      "capture_to_decode_ms": 84.59999999403954,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.63,
+      "effect": "all",
+      "capture_to_decode_ms": 78.79999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 65.1,
+      "effect": "all",
+      "capture_to_decode_ms": 81.3999999910593,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 63.98,
+      "effect": "all",
+      "capture_to_decode_ms": 79.59999999403954,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 63.05,
+      "effect": "all",
+      "capture_to_decode_ms": 80.20000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.45,
+      "effect": "all",
+      "capture_to_decode_ms": 79.20000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 62.61,
+      "effect": "all",
+      "capture_to_decode_ms": 78.30000001192093,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.86,
+      "effect": "all",
+      "capture_to_decode_ms": 79.70000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 62.91,
+      "effect": "all",
+      "capture_to_decode_ms": 79,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 62.57,
+      "effect": "all",
+      "capture_to_decode_ms": 80.40000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 62.44,
+      "effect": "all",
+      "capture_to_decode_ms": 81.79999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.55,
+      "effect": "all",
+      "capture_to_decode_ms": 79.90000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 65.2,
+      "effect": "all",
+      "capture_to_decode_ms": 80.40000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 66.09,
+      "effect": "all",
+      "capture_to_decode_ms": 83.5,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 68.38,
+      "effect": "all",
+      "capture_to_decode_ms": 84,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 67.63,
+      "effect": "all",
+      "capture_to_decode_ms": 83,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 70.94,
+      "effect": "all",
+      "capture_to_decode_ms": 86.59999999403954,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 68.09,
+      "effect": "all",
+      "capture_to_decode_ms": 86.6000000089407,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 70.59,
+      "effect": "all",
+      "capture_to_decode_ms": 88.29999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 67.41,
+      "effect": "all",
+      "capture_to_decode_ms": 80.70000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 68.64,
+      "effect": "all",
+      "capture_to_decode_ms": 86.19999998807907,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 73.34,
+      "effect": "all",
+      "capture_to_decode_ms": 87.29999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 69.21,
+      "effect": "all",
+      "capture_to_decode_ms": 87.3999999910593,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 68.16,
+      "effect": "all",
+      "capture_to_decode_ms": 87.79999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 68.09,
+      "effect": "all",
+      "capture_to_decode_ms": 86.70000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 69.42,
+      "effect": "all",
+      "capture_to_decode_ms": 87.20000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 67.9,
+      "effect": "all",
+      "capture_to_decode_ms": 84.79999999701977,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.77,
+      "effect": "all",
+      "capture_to_decode_ms": 81.20000000298023,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.36,
+      "effect": "all",
+      "capture_to_decode_ms": 79.40000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 67.28,
+      "effect": "all",
+      "capture_to_decode_ms": 81.90000000596046,
+      "visible": true
+    },
+    {
+      "faces": 1,
+      "pipeline_ms": 64.75,
+      "effect": "all",
+      "capture_to_decode_ms": 84.5,
+      "visible": true
+    }
+  ]
+}

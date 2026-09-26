@@ -36,7 +36,7 @@
 </ul>
 </div>
 <h1 id="_1">从零学人脸视觉：给高三学生的项目教程</h1>
-<p>本教程配套源码仓库：<a href="https://github.com/GBHLKYEric/face_ai_project">GBHLKYEric/face_ai_project</a>。你不需要先会编程，但需要愿意逐行运行小实验、记录结果，并用高中函数、向量和概率知识解释结果。学完的标准不是背下模型名称，而是能画出数据经过程序的路径、找出报错发生在哪里、独立完成一次可重复的实验。</p>
+<p>本教程配套源码仓库：<a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology">GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology</a>。你不需要先会编程，但需要愿意逐行运行小实验、记录结果，并用高中函数、向量和概率知识解释结果。学完的标准不是背下模型名称，而是能画出数据经过程序的路径、找出报错发生在哪里、独立完成一次可重复的实验。</p>
 <p><strong>先分清本项目的两层工作。</strong>本地应用用已经训练好的 YuNet/SFace 完成检测、五点定位、两张照片的相似度比较和图像特效；<code>research/</code> 是训练和评估研究代码。会运行应用不等于自己训练出了 ArcFace，也不等于已达到 LFW 98.5%。最终做成了什么、还差什么，应查 <a href="requirements-matrix.html">验收矩阵</a> 和 <a href="project-report.html">项目报告</a>。本文讲完整知识路线；“拓展实验”不表示本机已经完成该实验。</p>
 <h2 id="_2">学习路线与每次学习的方法</h2>
 <p>建议按下面的顺序推进，课时是学习安排而非性能承诺。每节先读概念，手算例子，再运行代码，最后关掉答案独立完成练习。遇到专业词先回到“输入是什么、输出是什么、用什么数据检验”三个问题。</p>
@@ -90,7 +90,7 @@
 <p>答案：完成了检测，尚未完成身份识别。若另外输入一张登记照，可以提取特征进行比对，但仍需阈值与误差评估。</p>
 <h2 id="2-python">第 2 课：Python、终端与隔离环境</h2>
 <p>终端不是“黑客窗口”，它只是用文字向电脑下达命令。Windows 的 PowerShell 中，<code>Get-Location</code> 查看当前位置，<code>Get-ChildItem</code> 查看文件，<code>Set-Location</code> 切换目录。路径中有空格时加引号。项目命令必须在仓库根目录执行，即能看到 <code>app.py</code> 的目录。</p>
-<p>如果你在另一台电脑上学习，先安装Git和仓库支持的Python，然后在准备保存项目的目录执行 <code>git clone https://github.com/GBHLKYEric/face_ai_project.git</code>，再执行 <code>Set-Location face_ai_project</code>。本机已经有交付目录时直接进入该目录即可，无需再次下载同一份源码。</p>
+<p>如果你在另一台电脑上学习，先安装Git和仓库支持的Python，然后在准备保存项目的目录执行 <code>git clone https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology.git face-vision-lab</code>，再执行 <code>Set-Location face-vision-lab</code>。本机已经有交付目录时，直接进入该目录即可，无需再次下载同一份源码。</p>
 <pre><code class="language-powershell">Get-Location
 Get-ChildItem
 python --version
@@ -102,9 +102,9 @@ python -c &quot;import sys; print(sys.executable)&quot;
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 .\.venv\Scripts\python.exe scripts/fetch_models.py
-.\.venv\Scripts\python.exe app.py --port 8765
+.\.venv\Scripts\python.exe desktop.py
 </code></pre>
-<p>浏览器打开 <code>http://127.0.0.1:8765</code>。<code>127.0.0.1</code> 是本机地址；<code>8765</code> 是这项服务的端口。终端窗口保持运行，按 Ctrl+C 结束服务。摄像头需要浏览器权限；没有摄像头时仍可用示例图片。具体已核验操作见仓库 README；有依赖问题时先查看 <code>python -m pip list</code> 和实际环境报告。</p>
+<p>打开的是本机原生桌面窗口。点击“开启摄像头”直接读取设备，点击停止或关闭窗口会释放设备；没有摄像头时仍可用示例图片。最终前端的完整操作、线程设计和实测说明见<a href="desktop-guide.html">桌面程序教程</a>。辅助网页版本另运行 <code>python app.py --port 8765</code> 后访问 <code>http://127.0.0.1:8765</code>；这条路径不用于代替桌面验收。遇到依赖问题，先查看 <code>python -m pip list</code> 和实际环境报告。</p>
 <p>下面是一段可独立保存为 <code>lesson01.py</code> 的 Python（避免与仓库已有的 <code>hello.py</code> 目录混淆）：</p>
 <pre><code class="language-python">name = &quot;视觉实验&quot;
 scores = [0.82, 0.31, 0.91]
@@ -303,7 +303,9 @@ python -m research.recognition --data data/lfw-pilot-train --output runs/arcface
 <p>NeRF 以空间位置和观察方向为输入学习密度与颜色，再沿光线积分；通常需要多视角或其他先验。3D Gaussian Splatting 用空间中的可优化高斯元素表示场景，经投影和混合形成图像。它们是神经渲染的重要路线，但“用了单图三维模型”不自动意味着已实现 NeRF 或 3DGS。<a href="https://arxiv.org/abs/2003.08934">NeRF</a>、<a href="https://arxiv.org/abs/2308.04079">3DGS</a></p>
 <p>练习：程序加载一个固定头模，只根据眼睛坐标让它旋转，算单图三维重建吗？答案：属于姿态估计/模板展示，不能算个体形状重建。把图像纹理贴到固定模型上仍不能改变这个事实。</p>
 <h2 id="15">第 15 课：把算法做成可用应用</h2>
-<p>本项目采用 Python 标准库 HTTP 服务加浏览器原生 HTML/JavaScript。页面负责图片选择、摄像头帧获取、效果选项和显示；Python 解码输入、调用 OpenCV、生成结果和指标。浏览器发送 JPEG 的 base64 文本，服务器返回处理后的图像。简单结构便于你沿一次请求看懂整个流程。</p>
+<p>最终前端是 <code>desktop.py</code> 的 Tkinter 原生桌面程序。窗口中的按钮把命令送入队列；后台线程独占摄像头和模型，经 <code>cv2.VideoCapture</code> 读取图像并调用 <code>app.Vision</code>；主线程取出最新结果，用 Pillow 的 <code>ImageTk.PhotoImage</code> 更新窗口。摄像头帧不需要经过 HTTP、JPEG 或浏览器。<code>start.ps1</code> 默认启动此程序，具体按钮和代码阅读顺序见<a href="desktop-guide.html">桌面教程</a>。</p>
+<p>为什么要分线程？假如主线程正在做一项耗时 150 ms 的计算，它就难以及时处理拖动窗口或停止按钮。后台线程负责计算，主线程负责界面，可以保持操作响应。结果队列只保留一个最新完成帧，避免积压很多过时画面。它不能使模型凭空算得更快，但能限制等待队列长度。StarGAN与三维重建按钮暂停摄像头，处理当前图像；三维网格由独立进程中的原生 OpenGL 窗口绘制全部 76,073 个三角面。</p>
+<p><code>app.py</code> 还保留一个辅助网页版本，用来学习 HTTP 请求。网页负责将图像编码发送，服务端调用同一个 <code>Vision</code>；它与最终原生前端是两条调用入口。下述地址和接口仅适用于主动启动的辅助网页服务。</p>
 <p>本地服务只监听回环地址，并校验 Host/Origin、请求体类型与大小、图片格式、强度和阈值范围。输入校验能把用户误操作转化为可理解错误。把服务改为 <code>0.0.0.0</code> 会改变访问范围，不应为了“手机试一下”就跳过身份验证与传输设计。</p>
 <p>服务器 <code>app.py</code> 的主要路径：<code>GET /health</code> 检查存活，<code>GET /</code> 返回页面，<code>POST /process</code> 做检测/特效，<code>POST /verify</code> 比较两张照片。当前单进程一次处理一个 CPU 请求，避免共享模型状态并发问题；多人同时用时吞吐受限。先测出瓶颈再增加队列、批处理或服务框架，符合本项目 ponytail full 的最少必要实现原则。</p>
 <p>FPS 的定义为 <code>处理帧数/经过秒数</code>，单帧20ms理论串行上限约50 FPS，但这未包含所有环节。视频文件标称30 FPS不表示模型达到30 FPS；离线慢慢处理后按30 FPS编码也能得到流畅播放文件。要同时报告实际耗时、输入/输出帧数和端到端速度。</p>
@@ -312,7 +314,7 @@ python -m research.recognition --data data/lfw-pilot-train --output runs/arcface
 <p>Git 保存源码历史，GitHub 托管远程仓库。<code>git status</code> 看改动，<code>git diff</code> 看具体差异，<code>git add</code> 选择进入下一次提交的文件，<code>git commit</code> 保存本地快照，<code>git push</code> 发送远程。公开仓库应有 README、LICENSE、环境说明和可重复命令。仓库公开不代表数据集和预训练权重许可也被转换为同一许可证。</p>
 <pre><code class="language-powershell">git status
 git diff
-git add app.py web/index.html docs
+git add desktop.py app.py vision3d/native_viewer.py docs
 git commit -m &quot;Document face vision pipeline and evaluation&quot;
 git push
 </code></pre>
@@ -322,15 +324,15 @@ git push
 docker build --target hello -t face-vision-hello .
 docker run --rm face-vision-hello
 </code></pre>
-<p>这里应查看 client 和 server 都是否存在，保存 build 与 run 的真实日志；本机Docker在WSL中，上述命令需要在该WSL环境执行。<code>hello</code>是Dockerfile中的阶段，运行的是<code>hello_world.py</code>；远端已有名为<code>hello.py</code>的目录被保留，避免覆盖旧内容。摄像头并不天然能被 Linux 容器直接读取；本项目通过浏览器帧传输的思路可减少设备映射问题，但仍需端口绑定和实际验证。</p>
+<p>这里应查看 client 和 server 都是否存在，保存 build 与 run 的真实日志；本机Docker在WSL中，上述命令需要在该WSL环境执行。<code>hello</code>是Dockerfile中的阶段，运行的是<code>hello_world.py</code>；远端已有名为<code>hello.py</code>的目录被保留，避免覆盖旧内容。摄像头并不天然能被 Linux 容器直接读取。最终桌面程序在 Windows 环境直接运行；Docker用于隔离研究依赖和辅助服务，不承担本机原生窗口的显示与摄像头验收。</p>
 <p>核心应用的容器也已实际构建运行：<code>docker build --target lab -t face-vision-lab .</code>，随后 <code>docker run --rm -p 127.0.0.1:8765:8765 face-vision-lab</code>。访问宿主8765端口即可转发到容器8765端口。由于应用校验Host端口，若使用8766，映射与程序应一起改为8766；只改外部端口可能得到403。这个镜像包含检测/验证/特效与文档，训练和三维生成依赖仍按对应研究环境安装；成功运行核心镜像不证明所有研究模块都已部署。</p>
 <p>Notebook 把文字、代码、结果放在同一文件，适合画训练曲线、展示图像。单元格执行顺序可能混乱，交付前用“Restart and Run All”从头执行；只看画面中有数字不能证明当前代码能重现它。核查 notebook 所用 kernel 的 <code>sys.executable</code> 与命令行环境一致。</p>
 <p>练习：本地 commit 成功，GitHub 上却没有文件，缺了哪一步？答案：可能没有 push 或推到了不同分支/远程，先查 <code>git remote -v</code> 和 <code>git status</code>，最后直接读取远程验证。</p>
 <h2 id="17">第 17 课：版本兼容与故障定位</h2>
 <p>看兼容性要同时看 Python、操作系统、PyTorch、CUDA、torchvision、MMCV 和 MMDetection。MMCV 的编译算子与 PyTorch/CUDA 组合有关，装上“最新版”可能违反 MMDetection 的版本断言。3.3.0 的依赖范围见 <a href="https://github.com/open-mmlab/mmdetection/blob/v3.3.0/mmdet/__init__.py">官方源码</a>。<code>mmcv-lite</code> 能 import 不代表 <code>mmcv.ops</code> 能训练检测器。</p>
 <p>按最小证据链排查：解释器能启动→标准库 SSL 能用→网络能访问目标→库可 import→模型文件不是下载错误页/Git LFS 指针→模型可加载→单张图推理→整批评估。每次只解决当前最先失败的层，不要同时升级十个包。</p>
-<p>本次运行发现进程环境缺少 <code>SystemRoot</code>、<code>WINDIR</code>、<code>COMSPEC</code> 会影响 Windows 标准功能、SSL/DNS 与 venv。修复在相关子进程中补齐必要环境，避免随意改全局设置。Chrome 自动化入口不可用属于控制连接问题；API 测试成功不能替代“已在 Chrome 操作成功”。完整实测错误与修复依据见 <a href="issues-and-fixes.html">问题记录</a>。</p>
-<p>BytePS 需要 CUDA/NCCL，且官方仓库已归档；单机 CPU 不能用它完成真实分布式训练。ByteNN 未提供公开 SDK 时只能说明 ONNX 类推理模拟。火山引擎云体验需要用户账户、已开通服务与授权凭据；没有调用成功响应就不能写“已体验”。</p>
+<p>本次运行发现进程环境缺少 <code>SystemRoot</code>、<code>WINDIR</code>、<code>COMSPEC</code> 会影响 Windows 标准功能、SSL/DNS 与 venv。修复在相关子进程中补齐必要环境，避免随意改全局设置。Chrome 最初不可连接，连接恢复后已在真实 Chrome 和本机摄像头完成20秒实测；服务接口测试、浏览器操作和真人摄像头测试分别保存证据。完整实测错误与修复依据见 <a href="issues-and-fixes.html">问题记录</a>。</p>
+<p>原PDF明确写的是BytePS和ByteNN“模拟”。真实BytePS安装依赖CUDA/NCCL，官方仓库已归档；本项目使用两个真实Python工作进程模拟同步参数服务器，并用ONNX Runtime模拟推理引擎的图优化。两项均有运行和数值验证，但不宣称调用了BytePS或ByteNN SDK。火山引擎官方人像融合内置示例已经实际打开、操作并展示结果；它可能使用预先计算的图片，因此只记为官方示例体验，未记为认证API调用或生产部署。<a href="continued-experiments.html">模拟与真实设备实验详解</a></p>
 <p>练习：<code>import cv2</code> 成功但读取模型时报解析失败，应先重装 Python 吗？答案：先检查模型文件大小、哈希、内容和来源，确认不是 HTML 页面或 Git LFS 文本指针；再查版本支持。</p>
 <h2 id="18">第 18 课：怎样写一份经得起追问的报告</h2>
 <p>报告顺序：问题与目标→数据与许可→模型及处理流程→环境和实验设置→结果→错误分析→限制→下一步。每个数字都能回到命令和原始结果文件。失败也是结果：例如 INT8 没加速、完整数据下载被阻断、浏览器无法连接，都应如实记录。</p>

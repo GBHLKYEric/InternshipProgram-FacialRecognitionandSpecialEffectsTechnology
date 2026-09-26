@@ -1,0 +1,12 @@
+{
+  "pid": 32948,
+  "monitor_pid": 52116,
+  "started_utc": "2026-09-26T16:23:02.963590+00:00",
+  "flags": "ES_CONTINUOUS | ES_SYSTEM_REQUIRED",
+  "display_required": false,
+  "power_plan_changed": false,
+  "manual_sleep_has_priority": true,
+  "documentation": "https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-setthreadexecutionstate",
+  "status": "active",
+  "request_return_value": 2147483648
+}

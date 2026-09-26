@@ -1,0 +1,24 @@
+{
+  "status": "incomplete_no_training_data",
+  "official_record": "https://data.caltech.edu/records/bc0bf-nc666",
+  "doi": "10.22002/D1.20099",
+  "record_state": "Dataset Open; metadata page reachable",
+  "grayscale_expected_bytes": 178022021,
+  "grayscale_expected_md5": "e092eeab9d0790674f86047880410e5a",
+  "grayscale_observed_partial_bytes": 293760,
+  "color_expected_md5": "8b21d126c4e1fb307cb463578eef0511",
+  "color_observed_partial_bytes": 1086044,
+  "attempts": [
+    "Original Caltech /xpburgos/ICCV13 page returned 404; the Perona Lab datasets page identifies the current CaltechDATA record.",
+    "Ordinary public color download returned only part of the ZIP; a normal Range continuation returned HTTP 500.",
+    "Parent agent clicked the ordinary color Download link in Chrome; redirect to caltech2.osn.mghpcc.org showed ERR_BLOCKED_BY_CLIENT. No browser security setting was changed.",
+    "Ordinary public grayscale download returned HTTP 200 and advertised 178022021 bytes, but the body ended after 293760 bytes. Published MD5 validation failed; the partial was preserved and never extracted or trained on.",
+    "One normal Range request to resume the grayscale file failed with SSL UNEXPECTED_EOF_WHILE_READING."
+  ],
+  "interpretation": "The metadata page is reachable but the tested file transfers did not complete. These observations do not establish that the original dataset is corrupt, and no h5py parsing was attempted on the incomplete files.",
+  "300w_alternative": "The original 300-W download page requires name, email, and affiliation registration. No identity or affiliation was invented and no registration gate was bypassed.",
+  "next_reproducible_attempt": "python -m research.fetch_official_data cofw --file COFW.zip --extract --report reports/cofw-grayscale-resume.json",
+  "training_result": null,
+  "nme_result": null,
+  "limitations": "COFW 29-point regression and real-data NME remain unverified. Existing research.landmarks implements a 68-point 300-W baseline; it must not be applied to 29-point labels without a documented conversion and correct normalization."
+}

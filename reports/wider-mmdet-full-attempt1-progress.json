@@ -1,0 +1,10 @@
+{
+  "status": "training",
+  "iteration": 150,
+  "total_iterations": 6440,
+  "elapsed_seconds_current_run": 177.33787396,
+  "seconds_per_iteration_current_run": 1.1822524930666667,
+  "estimated_remaining_seconds": 7436.368181389333,
+  "threads": 2,
+  "work_dir": "/project/runs/wider-mmdet-full"
+}

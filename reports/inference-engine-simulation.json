@@ -1,0 +1,45 @@
+{
+  "experiment": "ByteNN concept simulation using ONNX Runtime graph optimization",
+  "actual_bytenn_sdk_used": false,
+  "onnxruntime": "1.30.0",
+  "model_sha256": "97d133da1ae1f8f8c71c29691bd91435198f5dffd1dc338b40ec4f1a59f682d0",
+  "model": "runs/arcface-pilot/optimized/embedding.onnx",
+  "input": "RGB aligned faces, 112x112, [-1,1]",
+  "images": 8,
+  "provider": "CPUExecutionProvider",
+  "intra_op_threads": 2,
+  "warmup": 3,
+  "results": [
+    {
+      "batch_size": 1,
+      "unoptimized": {
+        "median_ms": 34.3692999886116,
+        "p95_ms": 41.57484000024851,
+        "repeats": 15
+      },
+      "optimized": {
+        "median_ms": 25.271199992857873,
+        "p95_ms": 28.276189998723567,
+        "repeats": 15
+      },
+      "speed_ratio_unoptimized_over_optimized": 1.3600185190384717,
+      "embedding_max_abs_error": 5.010515451431274e-07
+    },
+    {
+      "batch_size": 8,
+      "unoptimized": {
+        "median_ms": 253.45830000878777,
+        "p95_ms": 299.7179000056349,
+        "repeats": 15
+      },
+      "optimized": {
+        "median_ms": 175.59680000704248,
+        "p95_ms": 249.59508000611095,
+        "repeats": 15
+      },
+      "speed_ratio_unoptimized_over_optimized": 1.4434106999593534,
+      "embedding_max_abs_error": 5.364418029785156e-07
+    }
+  ],
+  "limitations": "Desktop CPU only. Numerical consistency is not face accuracy or mobile validation. Other project jobs may contend for CPU; compare within this run only."
+}

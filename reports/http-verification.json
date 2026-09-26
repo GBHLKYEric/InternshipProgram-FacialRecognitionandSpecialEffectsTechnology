@@ -1,44 +1,47 @@
 [
   {
+    "base_url": "http://127.0.0.1:8767"
+  },
+  {
     "path": "/",
     "status": 200,
-    "bytes": 10753,
+    "bytes": 16102,
     "content_type": "text/html; charset=utf-8"
   },
   {
     "path": "/health",
     "status": 200,
-    "bytes": 68,
+    "bytes": 95,
     "content_type": "application/json; charset=utf-8"
   },
   {
     "path": "/tutorial",
     "status": 200,
-    "bytes": 60775,
+    "bytes": 61421,
     "content_type": "text/html; charset=utf-8"
   },
   {
     "path": "/tutorial.html",
     "status": 200,
-    "bytes": 60775,
+    "bytes": 61421,
     "content_type": "text/html; charset=utf-8"
   },
   {
     "path": "/code-map.html",
     "status": 200,
-    "bytes": 18761,
+    "bytes": 20232,
     "content_type": "text/html; charset=utf-8"
   },
   {
     "path": "/code-compendium.html",
     "status": 200,
-    "bytes": 222854,
+    "bytes": 414323,
     "content_type": "text/html; charset=utf-8"
   },
   {
     "path": "/project-report.html",
     "status": 200,
-    "bytes": 15052,
+    "bytes": 15146,
     "content_type": "text/html; charset=utf-8"
   },
   {
@@ -57,12 +60,24 @@
     "path": "/process",
     "status": 200,
     "faces": 1,
-    "pipeline_ms": 56.94
+    "pipeline_ms": 126.1
   },
   {
     "path": "/verify",
     "status": 200,
     "same_image_cosine": 0.9999999331133438
+  },
+  {
+    "path": "/attributes",
+    "status": 200,
+    "targets": [
+      0,
+      1,
+      0,
+      0,
+      1
+    ],
+    "model_ms": 221.408
   },
   {
     "invalid_inputs": "400",

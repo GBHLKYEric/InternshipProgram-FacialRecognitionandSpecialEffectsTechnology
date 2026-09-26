@@ -1,20 +1,88 @@
 # Face Vision Lab 项目报告
 
-日期：2026-09-26。项目仓库：[GBHLKYEric/face_ai_project](https://github.com/GBHLKYEric/face_ai_project)。本报告针对用户提供的人脸识别与特效项目要求，区分已经运行的功能、训练代码检查和未完成的科研验收。
+日期：2026-09-26—27。项目仓库：[GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology](https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology)。本报告针对用户提供的人脸识别与特效项目要求，区分已经运行的功能、训练代码检查和未完成的科研验收。
 
 ## 成果与结论
 
-已建立可本地运行的图像检测、关键点、相似度验证与特效应用，生成18秒演示视频，完成真实预训练3DDFA三维推理、完整6000对LFW预训练基线、WIDER/MMDetection小样本训练、ArcFace真实图像小样本训练、研究网络梯度检查、ONNX导出/推理检查、Notebook执行和Docker Hello World。预训练SFace的第二次LFW实验在固定最大面积选脸策略下达到98.9333%。**尚不能宣称PDF全部科研要求完成，也不能把该结果归为自训ArcFace达98.5%。**待完成的主要工作是指定完整数据上的模型训练、达标指标和部分设备验收；详见 [逐条矩阵](requirements-matrix.md)。
+最终交付是可直接调用本机摄像头的 **Tkinter 原生桌面程序**，统一提供六种显示效果、两图验证、StarGAN 属性编辑与原生 OpenGL 三维窗口。公开示例已经完成实际控件与模型集成验收，真人摄像头完成两轮 20 秒测量及停止、重开、退出释放检查。所有源代码另存桌面文件夹并逐文件校验，公开仓库、完整代码汇编、主教程、继续实验教程与桌面教程同步交付。
+
+已补成的实验包括 Anaconda 实际安装、独立 Intel XPU 训练环境、完整 CelebA 下载与属性统计、真实 StarGAN 有限微调及匹配协议 FID/IS、StarGAN ONNX 部署、完整 WIDER 预训练验证及独立交叉检查、BytePS/ByteNN 概念模拟和火山引擎官方样例体验。完整 WIDER 一轮迁移训练尚在运行，完成后单独纳入实测报告。
+
+**尚不能宣称 PDF 全部科研要求完成。**300-W/COFW 的真实关键点训练与 NME、指定 MS-Celeb-1M 训练、自训 ArcFace 超过 98.5% 和真实移动端性能仍未通过。预训练 SFace 的 98.9333%属于指定基线；StarGAN 属于从作者预训练模型继续的有限微调，不能归为从零全量论文复现。详见[逐条矩阵](requirements-matrix.md)。
 
 ## 系统结构
 
-应用以Python标准库HTTP服务连接原生浏览器页面。上传图像经校验、解码后由YuNet检测矩形和五点；SFace完成对齐与特征提取；余弦相似度配阈值形成两图验证结果。动态贴纸按关键点几何定位，磨皮/亮度/口红在局部区域合成。预训练权重从官方来源按哈希下载，模型许可与原创代码许可分别处理。
+桌面主线程创建 Tk 控件，后台线程独占摄像头与 `Vision` 模型，命令队列传递操作，容量为 1 的结果队列保留最新完成帧。摄像头通过 OpenCV `VideoCapture` 直接读取，结果用 Pillow `ImageTk` 展示，不经过浏览器或 HTTP。YuNet 输出框与五点；SFace 完成对齐与特征提取；余弦相似度配阈值构成两图验证。贴纸按关键点定位，美颜与口红在局部区域合成。
+
+StarGAN 按钮暂停摄像头，把当前图像的人脸裁剪为 128×128，输入五个目标标签，以 ONNX Runtime 生成属性编辑图；界面并排显示输入与结果。三维按钮同样处理一个静态画面，经 3DDFA 重建后启动独立 `spawn` 进程，用 pyglet 与 OpenGL 绘制全部 76,073 个三角面。鼠标拖动、左右键、Home 与 Esc 分别完成旋转、步进、归零和关闭。正常操作不自动保存摄像头帧或人脸几何。
+
+`app.py` 中的回环 HTTP 服务保留为辅助教学版本，与桌面程序共用 `Vision`。第三方权重按来源与哈希管理，模型/数据/依赖许可与本项目原创代码的 MIT 许可分别列明。
 
 研究代码涵盖ResNet50+ArcFace、P-K与batch-hard、WIDER转COCO及MMDetection配置、68点回归/NME/对齐、条件GAN训练、FID/IS入口、动态Linear量化与ONNX。随机张量smoke只说明前后向和数值路径能执行，不能证明模型学到了身份或属性。
 
-三维路径为输入图像→人脸框→3DDFA_V2 MobileNet回归62参数→形状/表情基底组合→38365顶点/76073三角面→OBJ、多视角与WebGL查看器。它是输入相关统计重建，尺度任意；无配对三维真值，不给出毫米精度。
+三维路径为输入图像→人脸框→3DDFA_V2 MobileNet回归62参数→形状/表情基底组合→38365顶点/76073三角面→OBJ、多视角与原生OpenGL查看器；早期WebGL查看器作为辅助版本保留。它是输入相关统计重建，尺度任意；无配对三维真值，不给出毫米精度。
 
-## 本机实测摘要
+## 本轮补充实验的可核验证据
+
+### 原生桌面、摄像头与演示视频
+
+`reports/desktop-integration.json`记录最终界面的实际检查：六种效果、同图验证、StarGAN 生成、三维按钮打开独立原生窗口、GPU实际绘制76,073面、35°旋转后回执、子进程正常退出。该次集成检查不重新打开摄像头，避免覆盖已保存的真实两轮摄像头测量。
+
+| 观测 | 首轮原生摄像头 | 第二轮原生摄像头 |
+|---|---:|---:|
+| 分辨率与效果 | 640×480、组合特效 | 640×480、组合特效 |
+| 测量时长 | 20.0601秒 | 20.0267秒 |
+| 提交到Tk的帧数 | 149 | 316 |
+| 提交帧率 | 7.4277 FPS | 15.7790 FPS |
+| 检出人脸帧数 | 149 | 49 |
+| 整体延迟中位 / P95 | 136.4935 / 159.3555 ms | 43.5976 / 168.6882 ms |
+
+计时包含读取、检测/特效、队列等待到 Tk `PhotoImage`赋值；不包含传感器曝光年龄或屏幕物理发光时刻。第二轮267帧未检出人脸，其耗时中位40.5979ms；49帧检出人脸的耗时中位161.4576ms。画面组成与后台训练负载不同，不能把整体FPS差异解释成优化收益，也不能称检测准确率。两个原始文件为`desktop-camera-first.json`与`desktop-camera.json`，相应`*-validation.json`独立复算帧数、FPS、中位数和P95并全部通过。
+
+原生程序演示视频为1200×900、H.264/yuv420p、216帧、5FPS播放、43.2秒。内容来自真实Tk控件操作及显式请求的原生OpenGL帧缓冲，输入仅公开NASA示例，没有打开摄像头。采集落后时在5FPS时间网格重复上一帧，不把播放速度当作算法吞吐量；记录在`reports/desktop-video.json`。早期18秒仿射样图视频另保留。
+
+![真实原生桌面窗口，仅公开示例](../reports/desktop-window.png)
+
+### Anaconda、Intel XPU 与原生 OpenGL
+
+Anaconda 2026.07-1 已完成官方 SHA256、Authenticode 签名核验和用户明确同意条款后的安装。conda为26.5.3，base Python为3.14.6，项目独立环境为Python3.12.14。实际检查了PyTorch反向传播、YuNet推理、Tk/ImageTk窗口生命周期、Jupyter指定内核运行以及`pip check`。安装使用`Documents/Codex/work`下真实物理短路径，任务`work`内提供目录联接；没有设置默认Python或持久PATH，没有修改长路径注册表。
+
+独立XPU环境为PyTorch2.14.0+xpu/torchvision0.29.0+xpu，实际通过Intel Arc130T张量、NMS、WGAN-GP二阶反向传播与Adam更新。完整StarGAN生成器batch2、128×128、FP32的同步前向微测中位数为XPU23.6644ms、CPU350.6754ms；仅3次重复、固定形状，不外推训练全流程或所有模型。设备报告16GiB是共享内存视角，不是独立显存容量。
+
+原生OpenGL4.6、24位深度缓冲实际创建成功；`GL_PRIMITIVES_GENERATED`查询为76,073，顶点数38,365。0°、+35°、−35°均实际渲染；+35°相对0°有43.8118%的像素改变超过5个灰度，回0°与初始图逐像素一致。报告为`reports/3d-native/report.json`。这验证渲染与旋转，不验证重建精度、真实尺度或摄像头FPS。
+
+### CelebA、StarGAN 与匹配评估
+
+完整CelebA配套ZIP来自StarGAN作者下载脚本，202,599个图像文件名与40属性表对应；图像按实验名单提取，逐文件校验实际用到的样本。全量标签计数由`reports/celeba-expanded-data.json`与`celeba-distribution.svg`记录。标签可以同时为真，比例不能相加当作互斥类别分布，也不能外推现实人口比例。
+
+微调从作者128×128预训练G/D开始，最终checkpoint实际继承1,200次D与240次G更新。三段保留D更新为200、500、500，配置池为512、4096、4096张，实际抽样次数为400、1000、1000；总去重图像数未知，不写成训练已遍历4096张。第二段中断前有至少150次已记录但未保存的更新，未计入最终模型；恢复了两模型与Adam状态，最后一段seed43重新排列，不称逐位恢复。
+
+前200步采用早期教学损失归一化，后1000步对齐官方`BCE sum/batch`与patch输出求和的梯度惩罚。推理发现直接`eval()`使用过时InstanceNorm运行统计会产生颜色/棋盘异常，修正为与作者测试路径一致的逐图统计；无效图格留本地历史，不纳入指标。
+
+| 模型 | FID | IS均值 ± 十分块标准差 |
+|---|---:|---:|
+| 作者预训练，匹配XPU构建 | 41.272788 | 3.088072 ± 0.253799 |
+| 有限微调checkpoint | 40.980400 | 3.098037 ± 0.170242 |
+
+两组使用完全相同的768源图、768真实参考，文件名交集为0；属性目标取对应参考图的五标签。生成均在同一XPU构建，指标均在该构建的CPU上计算；torch-fidelity0.4.0、InceptionV3兼容特征、FID2048维、IS10分块、seed2020、batch16/2线程。IS分块标准差不是统计显著性的置信区间。小样本FID变化−0.292388与IS变化+0.009965不足以证明显著提升；按图片拆分不保证身份无交集，作者checkpoint历史训练数据未独立审计。最初CPU-before作为历史文件保留，不与XPU-after拼成最终主比较。
+
+最终checkpoint SHA256为`784bc74917501eb6b6642300875d70217da0861dc6cb1cb264052b0a8a270cbb`。ONNX固定输入为`images[1,3,128,128]`和`attributes[1,5]`，输出`edited`，五标签为Black_Hair、Blond_Hair、Brown_Hair、Male、Young。真实输入下PyTorch与ORT最大绝对误差1.97×10⁻⁶，checker与allclose通过；CPU2线程五次推理中位281.333ms，后台有训练。原生桌面实际按钮已展示输入与编辑结果，不称实时视频GAN。
+
+![原生桌面StarGAN属性编辑，公开NASA示例](../reports/desktop-attributes.png)
+
+### 完整 WIDER 与生态工具
+
+完整WIDER训练12,880张、验证3,226张已经安全解压与校验。COCO训练有效框156,994个、验证39,112个；官方难度评估按原始MAT的easy/medium/hard目标而非COCO框数进行。预训练YuNet在全部3226张、原始分辨率、单尺度、无翻转、分数0.3/NMS0.45条件下得到AP **0.8844221 / 0.8656839 / 0.7504021**，与固定源码哈希的OpenCV Zoo参考计算差均为0。31张零检测图保留为空。这里实际运行官方协议的Python实现，没有运行MATLAB或提交官方榜单。
+
+完整RetinaNet迁移训练的设置与最终结果在继续实验第6节及WIDER报告中另列，不能把上述YuNet成绩归给自训模型。训练中途System事件ID506/507确认合盖进入并退出新型待机，约90分33.912秒；醒来同一容器继续。内部`perf_counter`不完整覆盖这段待机，不能当作日历等待时长。一次性`SYSTEM_REQUIRED`请求只防自动闲置休眠，尊重用户合盖等操作，结束后释放。
+
+BytePS概念实验用两个真实工作进程按3/8、5/8加权聚合5次SGD更新，与单进程全批参考最大差4.47×10⁻⁸。ByteNN概念实验以同一ONNX关闭/开启ORT图优化比较，batch1中位34.3693→25.2712ms、batch8为253.4583→175.5968ms，数值检查通过。两者均准确标为模拟，没有内部SDK或移动端部署。火山引擎只体验官方人像融合内置样例，未上传个人图像、未开通计费或配置鉴权API。
+
+### 尚未完成的实质性验收
+
+300-W需要真实登记信息；COFW彩色/灰度官方传输多次中断，灰度最终仅293,760/178,022,021字节且MD5不符，普通续传失败。未使用残缺数据，未报告NME。MS-Celeb-1M的合法可核验训练包仍缺失。真实替代ArcFace训练与完整LFW结果保留在下一节，未达到98.5%。真实移动端和鉴权云API没有资源可实测，不能以桌面、官方样例或响应式网页替代。
+
+## 既有基线实验与历史结果
 
 | 项目 | 实际结果 | 必须一起阅读的边界 |
 |---|---|---|
@@ -41,9 +109,9 @@
 
 原始证据：`reports/demo-metrics.json`、`reports/lfw-sface.json`、`reports/lfw-sface-largest.json`、`reports/3d/reconstruction.json`、`reports/research-smoke.json`、`reports/arcface-pilot/comparison.json`、`reports/optimization-smoke/comparison.json`、`reports/wider_pilot.json`、`reports/environment.json`，以及Notebook输出。后续重跑应保存独立文件并说明变更，不能覆盖失败历史后只展示最佳数字。
 
-环境记录：Windows 11，Intel Core Ultra 5 225H、14个逻辑CPU、32GiB内存；主venv为Python3.12.14、PyTorch2.14.0+cpu、torchvision0.29.0+cpu、OpenCV5.0.0、NumPy2.5.3、ONNX1.23.0、ORT1.30.0。当前CUDA不可用；主venv无mmdet/mmcv/conda，MMDetection在独立Linux Docker中运行：Python3.10.21、PyTorch2.1.0CPU、torchvision0.16CPU、NumPy1.26.4、mmcv2.1、mmengine0.10.7、mmdet3.3、OpenCV4.11，CPU NMS与真实训练通过。这些版本来自本机记录，不是建议所有新机器盲目混装的组合。
+环境记录：Windows 11，Intel Core Ultra 5 225H、14个逻辑CPU、32GiB内存；主venv为Python3.12.14、PyTorch2.14.0+cpu、torchvision0.29.0+cpu、OpenCV5.0.0、NumPy2.5.3、ONNX1.23.0、ORT1.30.0。CUDA不可用；主venv与新增Anaconda/XPU环境分开，MMDetection在独立Linux Docker中运行：Python3.10.21、PyTorch2.1.0CPU、torchvision0.16CPU、NumPy1.26.4、mmcv2.1、mmengine0.10.7、mmdet3.3、OpenCV4.11，CPU NMS与真实训练通过。这些版本来自本机记录，不是建议所有新机器盲目混装的组合。
 
-核心lab容器实测镜像ID为 `sha256:5ac713694bf0697c72fc9e7808fbad1dc4ea924b6bbeeb5d9d5567af5a394369`。对外端口与应用监听端口须一致；本机使用8766:8766并显式监听8766后，Host校验和健康检查均通过。默认命令采用8765:8765，见README。镜像ID标识此次构建结果，后续源码或依赖更新可能生成不同ID。
+早期核心lab容器实测镜像ID为 `sha256:5ac713694bf0697c72fc9e7808fbad1dc4ea924b6bbeeb5d9d5567af5a394369`。对外端口与应用监听端口须一致；本机使用8766:8766并显式监听8766后，Host校验和健康检查均通过。默认命令采用8765:8765，见README。镜像ID标识那次构建结果；之后增加原生桌面依赖的源码版本不能自动继承这次镜像验收。桌面本身在Windows运行，不把Linux容器当作原生摄像头验证。
 
 ## 数据与实验方法
 
@@ -71,4 +139,4 @@ LFW图像与pairs来自scikit-learn维护代码记录的Figshare镜像，pairs S
 - 18课零基础专业教程、源码地图、完整源码汇编、来源表、问题记录与需求矩阵。
 - 项目汇报PPT及文档导出版，生成与打开检查由交付记录确认。
 
-下一轮优先取得完整合法训练数据；MMDetection兼容环境和32/16图真实训练闭环，以及ArcFace的52身份/133图真实训练pilot已经完成，后续需要正式训练与收敛评估。自训ArcFace的目标必须由其checkpoint在完整LFW协议上独立检验；GAN必须有真实属性训练和足量独立评估；移动端与摄像头必须在目标设备和实际输入上测量。
+后续应先解除仍缺失的数据和设备条件，再设计独立训练/评估。自训 ArcFace 的目标必须由其 checkpoint 在完整 LFW 协议上检验；关键点需真实标注与明确归一化 NME；移动端需记录实际机型、输入尺寸、温度、功耗与计时边界。教程和可运行代码已提供接续入口，但它们不构成这些任务已通过的证据。

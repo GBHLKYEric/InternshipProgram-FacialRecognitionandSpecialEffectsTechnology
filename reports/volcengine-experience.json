@@ -1,0 +1,12 @@
+{
+  "date": "2026-09-26",
+  "url": "https://www.volcengine.com/experience/effect-fusion",
+  "browser": "Chrome",
+  "action": "Opened official portrait-fusion experience and activated the built-in scheme-one fusion control.",
+  "observed": "Two official source portraits and a displayed fused portrait; three image elements in the scheme-one panel, including its embedded result image.",
+  "screenshot": "reports/volcengine-experience.png",
+  "personal_image_uploaded": false,
+  "account_created": false,
+  "paid_service_activated": false,
+  "scope": "Official built-in sample interaction only. The result may be precomputed; no authenticated API inference, SDK installation, SLA, latency, billing, or production deployment has been validated."
+}

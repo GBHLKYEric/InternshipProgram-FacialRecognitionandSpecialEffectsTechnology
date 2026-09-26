@@ -1,0 +1,28 @@
+{
+  "source": "reports\\celeba-expanded-data.json",
+  "images": 202599,
+  "labels": 40,
+  "selected_attributes": {
+    "Black_Hair": {
+      "positive": 48472,
+      "fraction": 0.23925093411122464
+    },
+    "Blond_Hair": {
+      "positive": 29983,
+      "fraction": 0.14799184596172735
+    },
+    "Brown_Hair": {
+      "positive": 41572,
+      "fraction": 0.2051935103332198
+    },
+    "Male": {
+      "positive": 84434,
+      "fraction": 0.41675427815537097
+    },
+    "Young": {
+      "positive": 156734,
+      "fraction": 0.773616849046639
+    }
+  },
+  "interpretation": "Dataset annotation frequencies; labels overlap and some are subjective. Not estimates of a general population."
+}

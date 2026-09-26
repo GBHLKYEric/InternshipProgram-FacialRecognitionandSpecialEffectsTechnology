@@ -1,0 +1,13 @@
+{
+  "dataset": "cofw",
+  "official_page": "https://data.caltech.edu/records/bc0bf-nc666",
+  "checksum_source": "Official CaltechDATA record file list",
+  "distribution": "Local research only; dataset is not included in the source-code repository",
+  "files": {
+    "COFW.zip": {
+      "source_url": "https://data.caltech.edu/records/bc0bf-nc666/files/COFW.zip?download=1",
+      "status": "unavailable",
+      "error": "URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+    }
+  }
+}

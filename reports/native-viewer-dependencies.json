@@ -1,0 +1,28 @@
+{
+  "checked_at_utc": "2026-09-26T14:30:57.597636+00:00",
+  "package": "pyglet",
+  "version": "2.1.16",
+  "requires_python": ">=3.8",
+  "license_expression": null,
+  "pypi_metadata": "https://pypi.org/pypi/pyglet/2.1.16/json",
+  "wheel_filename": "pyglet-2.1.16-py3-none-any.whl",
+  "official_wheel_sha256": "27f9cabf97a64b15d335cf70d9e8979bbab5f84a9900a058206bcd3a2de341ae",
+  "license_source": "https://raw.githubusercontent.com/pyglet/pyglet/v2.1.16/LICENSE",
+  "license_local": "vision3d/licenses/pyglet-2.1.16-LICENSE.txt",
+  "license_sha256": "57e7eecb673c8d40cf3192633c4807fba8c81685329a37e1b763e1556d5ded34",
+  "upstream_repository": "https://github.com/pyglet/pyglet/tree/v2.1.16",
+  "api_references": [
+    "https://docs.pyglet.org/en/latest/programming_guide/rendering.html",
+    "https://docs.pyglet.org/en/latest/programming_guide/context.html"
+  ],
+  "implementation": "Original project native viewer; pyglet installed as a dependency, not vendored.",
+  "tested": {
+    "python": "3.12.14",
+    "minimum_requested_opengl": "3.3",
+    "actual_opengl": "4.6",
+    "renderer": "Intel(R) Arc(TM) 130T GPU (16GB)",
+    "renderer_memory_note": "Driver string reports shared memory; this is not dedicated 16GB VRAM.",
+    "driver_changed": false
+  },
+  "license_identified_from_upstream_text": "BSD-3-Clause"
+}

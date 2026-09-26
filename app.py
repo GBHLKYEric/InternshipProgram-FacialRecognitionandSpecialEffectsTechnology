@@ -14,6 +14,7 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parent
 EFFECTS = {"none", "glasses", "crown", "beauty", "lipstick", "all"}
+STARGAN_MODEL = ROOT / "runs/stargan-deploy/generator.onnx"
 
 
 def decode_image(value: str) -> np.ndarray:
@@ -50,6 +51,7 @@ class Vision:
         cv2.setNumThreads(4)
         self.detector = cv2.FaceDetectorYN.create(str(detector), "", (320, 320), .8, .3, 5000)
         self.recognizer = cv2.FaceRecognizerSF.create(str(recognizer), "")
+        self.stargan = None
 
     def detect(self, frame: np.ndarray) -> np.ndarray:
         self.detector.setInputSize((frame.shape[1], frame.shape[0]))
@@ -68,6 +70,44 @@ class Vision:
         score = float(np.clip(self.recognizer.match(a, b, cv2.FaceRecognizerSF_FR_COSINE), -1, 1))
         return {"cosine": score, "threshold": threshold, "match": score >= threshold,
                 "note": "阈值演示结果，不是身份认证或 LFW 准确率；应在独立验证集校准。"}
+
+    def edit_attributes(self, frame: np.ndarray, targets: list) -> dict:
+        if not isinstance(targets, list) or len(targets) != 5 or any(type(v) is not int or v not in (0, 1) for v in targets):
+            raise ValueError("属性目标须依次为 Black_Hair、Blond_Hair、Brown_Hair、Male、Young 的五个0/1整数")
+        if sum(targets[:3]) != 1:
+            raise ValueError("请选择一种目标发色")
+        faces = self.detect(frame)
+        if len(faces) != 1:
+            raise ValueError(f"属性编辑须恰好有1张清晰人脸；当前检测到{len(faces)}张")
+        if not STARGAN_MODEL.is_file():
+            raise ValueError("本机尚未导出StarGAN模型，请先完成研究训练与部署导出")
+        if self.stargan is None:
+            try:
+                import onnxruntime as ort
+            except ImportError as exc:
+                raise ValueError("属性编辑需要研究环境中的onnxruntime依赖") from exc
+            options = ort.SessionOptions()
+            options.intra_op_num_threads = 2
+            options.inter_op_num_threads = 1
+            self.stargan = ort.InferenceSession(str(STARGAN_MODEL), sess_options=options, providers=['CPUExecutionProvider'])
+        x, y, width, height = faces[0, :4]
+        side = max(2, int(np.ceil(max(width, height) * 1.8)))
+        center_x, center_y = x + width / 2, y + height * .45
+        # ponytail: a detector-guided square crop is not CelebA alignment; large
+        # poses/backgrounds can reduce editing quality. No whole-frame compositing.
+        padded = cv2.copyMakeBorder(frame, side, side, side, side, cv2.BORDER_REFLECT_101)
+        left, top = int(round(center_x - side/2)) + side, int(round(center_y - side/2)) + side
+        crop = cv2.resize(padded[top:top+side, left:left+side], (128, 128))
+        tensor = ((crop[:, :, ::-1].astype(np.float32) / 127.5) - 1).transpose(2, 0, 1)[None]
+        start = time.perf_counter()
+        result = self.stargan.run(None, {'images': tensor, 'attributes': np.asarray([targets], np.float32)})[0]
+        milliseconds = (time.perf_counter() - start) * 1000
+        if result.shape != (1, 3, 128, 128) or not np.isfinite(result).all():
+            raise ValueError("模型输出形状或数值无效")
+        edited = np.uint8(np.rint(np.clip((result[0].transpose(1, 2, 0) + 1) * 127.5, 0, 255)))[:, :, ::-1]
+        return {'input_crop': encode_image(crop), 'image': encode_image(edited),
+                'model_ms': round(milliseconds, 3), 'targets': targets,
+                'note': 'StarGAN合成结果，128×128人脸裁剪；目标标签不是对人物真实属性的判断。'}
 
     def process(self, frame: np.ndarray, effect: str, strength: float, landmarks: bool) -> tuple:
         if effect not in EFFECTS:
@@ -173,7 +213,8 @@ class Handler(BaseHTTPRequestHandler):
             return self.json_reply(403, {"error": "仅允许本机访问"})
         path = urlsplit(self.path).path
         if path == "/health":
-            return self.json_reply(200, {"status": "ok", "backend": "OpenCV YuNet + SFace", "device": "CPU"})
+            return self.json_reply(200, {"status": "ok", "backend": "OpenCV YuNet + SFace", "device": "CPU",
+                                         "stargan_available": STARGAN_MODEL.is_file()})
         allowed_files = {"/": (ROOT / "web/index.html", "text/html; charset=utf-8"),
                          "/sample.jpg": (ROOT / "assets/sample.jpg", "image/jpeg"),
                          "/tutorial": (ROOT / "docs/tutorial.html", "text/html; charset=utf-8"),
@@ -182,7 +223,7 @@ class Handler(BaseHTTPRequestHandler):
                          "/face.obj": (ROOT / "reports/3d/face.obj", "text/plain; charset=utf-8"),
                          "/multiview.png": (ROOT / "reports/3d/multiview.png", "image/png")}
         for name in ("code-compendium", "code-map", "issues-and-fixes", "project-report",
-                     "requirements-matrix", "sources", "presentation-outline", "tutorial-zh"):
+                     "requirements-matrix", "sources", "presentation-outline", "tutorial-zh", "continued-experiments", "desktop-guide"):
             allowed_files[f"/{name}.md"] = (ROOT / f"docs/{name}.md", "text/plain; charset=utf-8")
             allowed_files[f"/{name}.html"] = (ROOT / f"docs/{'tutorial' if name == 'tutorial-zh' else name}.html", "text/html; charset=utf-8")
         if path not in allowed_files:
@@ -221,6 +262,8 @@ class Handler(BaseHTTPRequestHandler):
                     raise ValueError("阈值必须在 -1–1 之间")
                 return self.json_reply(200, self.vision.verify(decode_image(data.get("first")),
                     decode_image(data.get("second")), threshold))
+            if self.path == "/attributes":
+                return self.json_reply(200, self.vision.edit_attributes(decode_image(data.get("image")), data.get("targets")))
             return self.json_reply(404, {"error": "接口不存在"})
         except (ValueError, TypeError, cv2.error) as exc:
             self.json_reply(400, {"error": str(exc)})

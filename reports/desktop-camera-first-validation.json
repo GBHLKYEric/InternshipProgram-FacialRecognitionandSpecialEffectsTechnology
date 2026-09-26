@@ -1,0 +1,23 @@
+{
+  "source": "desktop-camera-first.json",
+  "checks": {
+    "frame_count": true,
+    "face_frames": true,
+    "fps": true,
+    "median": true,
+    "p95_higher": true
+  },
+  "groups": {
+    "face_present": {
+      "frames": 149,
+      "median_ms": 136.49350000196137,
+      "p95_higher_ms": 159.35549999994691
+    },
+    "no_face_detected": {
+      "frames": 0,
+      "median_ms": null,
+      "p95_higher_ms": null
+    }
+  },
+  "interpretation": "Timing conditioned on detector output is descriptive only; no annotated detection accuracy. Face/no-face composition and concurrent load differ between runs."
+}

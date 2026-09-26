@@ -1,0 +1,129 @@
+{
+  "checked_at_utc": "2026-09-26T16:25:06.389468+00:00",
+  "sample": "assets/sample.jpg (NASA astronaut example)",
+  "sample_sha256": "011901a3f9084e22497e2b27642b44a39e8965c4c2febc5ddf2c3ccf298c8787",
+  "camera_opened": false,
+  "mesh_type": "3DDFA_V2 image-conditioned 3DMM estimate; arbitrary units",
+  "process_start_method": "spawn",
+  "screenshots_explicitly_requested": true,
+  "limitations": [
+    "OpenGL rendering validation, not a reconstruction accuracy evaluation.",
+    "No end-to-end speed benchmark or physical face measurements."
+  ],
+  "ready": {
+    "event": "ready",
+    "pyglet": "2.1.16",
+    "vendor": "Intel",
+    "renderer": "Intel(R) Arc(TM) 130T GPU (16GB)",
+    "opengl": [
+      4,
+      6
+    ],
+    "depth_bits": 24,
+    "framebuffer": [
+      800,
+      720
+    ],
+    "primitives_generated": 76073,
+    "automatic_capture": false,
+    "degrees": 0.0,
+    "shader_radians": 0.0,
+    "frame_count": 1,
+    "triangles": 76073,
+    "vertices": 38365
+  },
+  "capture_0": {
+    "event": "captured",
+    "path": "C:\\Users\\0\\Documents\\Codex\\2026-09-26\\plugin-computer-use-openai-bundled-github\\outputs\\face-vision-lab\\reports\\3d-native\\yaw-000.png",
+    "bytes": 188342,
+    "sha256": "f68e3af1001b167d32330b0a8e9ac447bb24ba62a25489b8bca0b7c911a71df9",
+    "primitives_generated": 76073,
+    "degrees": 0.0,
+    "shader_radians": 0.0,
+    "frame_count": 2,
+    "triangles": 76073,
+    "vertices": 38365
+  },
+  "rotation": {
+    "event": "rotated",
+    "degrees": 35.0,
+    "shader_radians": 0.6108652353286743,
+    "frame_count": 4,
+    "triangles": 76073,
+    "vertices": 38365
+  },
+  "capture_35": {
+    "event": "captured",
+    "path": "C:\\Users\\0\\Documents\\Codex\\2026-09-26\\plugin-computer-use-openai-bundled-github\\outputs\\face-vision-lab\\reports\\3d-native\\yaw-035.png",
+    "bytes": 177584,
+    "sha256": "a1e3b144713f1eb4ed7bab3d2bd8e98cd53e30d171a56e803f50e136712af95b",
+    "primitives_generated": 76073,
+    "degrees": 35.0,
+    "shader_radians": 0.6108652353286743,
+    "frame_count": 5,
+    "triangles": 76073,
+    "vertices": 38365
+  },
+  "pixel_check": {
+    "size": [
+      720,
+      800,
+      3
+    ],
+    "mean_absolute_difference_0_255": 15.48217650462963,
+    "changed_pixel_fraction_over_5": 0.43811805555555555,
+    "baseline_foreground_fraction": 0.44207291666666665
+  },
+  "rotation_minus_35": {
+    "event": "rotated",
+    "degrees": -35.0,
+    "shader_radians": -0.6108652353286743,
+    "frame_count": 9,
+    "triangles": 76073,
+    "vertices": 38365
+  },
+  "capture_minus_35": {
+    "event": "captured",
+    "path": "C:\\Users\\0\\Documents\\Codex\\2026-09-26\\plugin-computer-use-openai-bundled-github\\outputs\\face-vision-lab\\reports\\3d-native\\yaw-minus035.png",
+    "bytes": 174376,
+    "sha256": "8d0104652a6240b01ad058f71757e5729150a1604417f848cfcb640b8e073357",
+    "primitives_generated": 76073,
+    "degrees": -35.0,
+    "shader_radians": -0.6108652353286743,
+    "frame_count": 11,
+    "triangles": 76073,
+    "vertices": 38365
+  },
+  "distinct_rendered_yaws": [
+    0,
+    35,
+    -35
+  ],
+  "reset": {
+    "event": "rotated",
+    "degrees": 0.0,
+    "shader_radians": 0.0,
+    "frame_count": 13,
+    "triangles": 76073,
+    "vertices": 38365
+  },
+  "capture_reset": {
+    "event": "captured",
+    "path": "C:\\Users\\0\\Documents\\Codex\\2026-09-26\\plugin-computer-use-openai-bundled-github\\outputs\\face-vision-lab\\reports\\3d-native\\yaw-000-reset.png",
+    "bytes": 188342,
+    "sha256": "f68e3af1001b167d32330b0a8e9ac447bb24ba62a25489b8bca0b7c911a71df9",
+    "primitives_generated": 76073,
+    "degrees": 0.0,
+    "shader_radians": 0.0,
+    "frame_count": 15,
+    "triangles": 76073,
+    "vertices": 38365
+  },
+  "reset_identical_pixels": true,
+  "closed": {
+    "event": "closed",
+    "reason": "command"
+  },
+  "child_exitcode": 0,
+  "status": "verified"
+}

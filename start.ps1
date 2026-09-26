@@ -1,3 +1,4 @@
+param([switch]$Web, [ValidateRange(1,65535)][int]$Port=8765)
 $ErrorActionPreference = 'Stop'
 Set-Location $PSScriptRoot
 # Repair restricted child-process environments without changing system settings.
@@ -13,5 +14,9 @@ if (-not (Test-Path '.venv/Scripts/python.exe')) {
 if ($LASTEXITCODE -ne 0) { throw 'Dependency installation failed.' }
 & .venv/Scripts/python.exe scripts/fetch_models.py
 if ($LASTEXITCODE -ne 0) { throw 'Model download failed.' }
-Start-Process 'http://127.0.0.1:8765'
-& .venv/Scripts/python.exe app.py
+if ($Web) {
+    Start-Process "http://127.0.0.1:$Port"
+    & .venv/Scripts/python.exe app.py --port $Port
+} else {
+    & .venv/Scripts/python.exe desktop.py
+}

@@ -1,0 +1,13 @@
+{
+  "status": "in_progress_snapshot",
+  "logged_points": 105,
+  "first_iteration": 25,
+  "last_iteration": 2625,
+  "first_logged_loss": 2.7301600313186647,
+  "last_logged_loss": 0.8162227335572243,
+  "scalar_file_sha256": {
+    "runs\\wider-mmdet-full-stable\\20260926_133858\\vis_data\\scalars.json": "4255fb9bac201627fbee6b63c4430b0e659683c1abb13348c9477b6030c91c38"
+  },
+  "negative_logged_data_time_points": 22,
+  "limitations": "Recorded 50-step log-window averages, generally emitted every 25 steps. Decreasing train loss does not establish validation quality or convergence. Negative wall-clock data_time is preserved, not used for throughput."
+}

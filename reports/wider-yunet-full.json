@@ -1,0 +1,53 @@
+{
+  "protocol": "WIDER official validation difficulty masks; Python port of author MATLAB protocol",
+  "iou": 0.5,
+  "thresholds": 1000,
+  "full_validation": true,
+  "counts": {
+    "images": 3226,
+    "images_without_detections": 31,
+    "total_detections": 52544
+  },
+  "ground_truth_sha256": {
+    "wider_easy_val.mat": "c2fb672d16f75653eb89fb8bc437a7d060896a71cd7a65c1a5a3e4479024099c",
+    "wider_face_val.mat": "1dfe6a9853950f9dde256b5e8bb75d8f272e6bc02a15ae1968f5a9b883f458cb",
+    "wider_hard_val.mat": "bb1af19dc5bc4dd9517dd8ae8096326c68175f2c3411763bdd4f23fa98638b78",
+    "wider_medium_val.mat": "4a031970bc132cef5cfacd05068aabcf4fe15d4a31a1e9f4f00eb134fdf449c1"
+  },
+  "metrics": {
+    "easy": {
+      "ap": 0.884422100812215,
+      "ground_truth_faces": 7211,
+      "recall_at_lowest_included_score": 0.918596588545278,
+      "precision_at_lowest_included_score": 0.21320973348783315
+    },
+    "medium": {
+      "ap": 0.8656839175873738,
+      "ground_truth_faces": 13319,
+      "recall_at_lowest_included_score": 0.8963886177640964,
+      "precision_at_lowest_included_score": 0.3276524507382403
+    },
+    "hard": {
+      "ap": 0.7504020894685941,
+      "ground_truth_faces": 31958,
+      "recall_at_lowest_included_score": 0.7934789411102071,
+      "precision_at_lowest_included_score": 0.5012453053963234
+    }
+  },
+  "inference": {
+    "model_sha256": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4",
+    "score": 0.3,
+    "nms": 0.45,
+    "top_k": 5000,
+    "input": "original resolution, single scale, no flips",
+    "opencv": "5.0.0",
+    "threads": 2,
+    "images_expected": 3226,
+    "new_images_this_run": 3226,
+    "wall_seconds_this_run": 225.05473879999772,
+    "inference_median_ms_this_run": 50.908149998576846,
+    "inference_p95_ms_this_run": 110.8007250004448
+  },
+  "evaluation_seconds": 24.12154069999815,
+  "limitations": "Pretrained baseline or supplied checkpoint; not proof of self-trained convergence. No official leaderboard submission."
+}

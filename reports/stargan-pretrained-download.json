@@ -1,0 +1,16 @@
+{
+  "dataset": "stargan-official",
+  "official_page": "https://github.com/yunjey/stargan/blob/master/download.sh",
+  "checksum_source": "Algorithm authors do not publish bundle hashes; observed hashes and ZIP CRC are recorded, not original CelebA archive MD5 verification",
+  "distribution": "Local research only; dataset is not included in the source-code repository",
+  "files": {
+    "celeba-128x128-5attrs.zip": {
+      "source_url": "https://www.dropbox.com/s/7e966qq0nlxwte4/celeba-128x128-5attrs.zip?dl=1",
+      "status": "downloaded_hash_recorded_no_published_archive_hash",
+      "bytes": 197085434,
+      "md5": "b840b789f71b5479012904c4b369fc00",
+      "sha256": "e14bb835524058241ac6129d1f255449b549304f8b3145ce5378edeb6fb53ff3",
+      "seconds": 13.099256000001333
+    }
+  }
+}

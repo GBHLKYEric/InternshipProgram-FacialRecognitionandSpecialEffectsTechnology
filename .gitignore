@@ -1,4 +1,6 @@
 .venv/
+work/
+%SystemDrive%/
 __pycache__/
 *.pyc
 .pytest_cache/
@@ -37,3 +39,10 @@ reports/*.jpg
 reports/*.png
 reports/3d/viewer.html
 assets/*.png
+!reports/desktop-window.png
+!reports/desktop-attributes.png
+!reports/desktop-3d.png
+!reports/3d-native/yaw-000.png
+!reports/3d-native/yaw-035.png
+!reports/3d-native/yaw-minus035.png
+!reports/celeba-distribution.png

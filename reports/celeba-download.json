@@ -1,0 +1,23 @@
+{
+  "dataset": "celeba",
+  "official_page": "https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html",
+  "checksum_source": "https://github.com/pytorch/vision/blob/main/torchvision/datasets/celeba.py",
+  "distribution": "Local research only; dataset is not included in the source-code repository",
+  "files": {
+    "img_align_celeba.zip": {
+      "source_url": "https://drive.usercontent.google.com/download?id=0B7EVK8r0v71pZjFTYXZWM3FlRnM&export=download&authuser=0",
+      "status": "unavailable",
+      "error": "RuntimeError: Official large-file confirmation did not yield a file: quota exceeded"
+    },
+    "list_attr_celeba.txt": {
+      "source_url": "https://drive.usercontent.google.com/download?id=0B7EVK8r0v71pblRyaVFSWGxPY0U&export=download&authuser=0",
+      "status": "unavailable",
+      "error": "RuntimeError: Official Google Drive download quota exceeded; no bypass attempted"
+    },
+    "list_eval_partition.txt": {
+      "source_url": "https://drive.usercontent.google.com/download?id=0B7EVK8r0v71pY0NSMzRuSXJEVkk&export=download&authuser=0",
+      "status": "unavailable",
+      "error": "RuntimeError: Official Google Drive download quota exceeded; no bypass attempted"
+    }
+  }
+}

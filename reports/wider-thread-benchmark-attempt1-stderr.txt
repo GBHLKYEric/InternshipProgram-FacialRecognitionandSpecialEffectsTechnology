@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/project/scripts/mmdet_thread_benchmark.py", line 93, in <module>
+    main(parser.parse_args())
+  File "/project/scripts/mmdet_thread_benchmark.py", line 30, in main
+    cfg = Config.fromstring(checkpoint['meta']['config'], file_format='.py')
+KeyError: 'config'
+Traceback (most recent call last):
+  File "C:\Users\0\Documents\Codex\2026-09-26\plugin-computer-use-openai-bundled-github\outputs\face-vision-lab\scripts\mmdet_thread_benchmark_host.py", line 75, in <module>
+    main(parser.parse_args())
+  File "C:\Users\0\Documents\Codex\2026-09-26\plugin-computer-use-openai-bundled-github\outputs\face-vision-lab\scripts\mmdet_thread_benchmark_host.py", line 42, in main
+    subprocess.run(command, check=True, timeout=180)
+  File "C:\Users\0\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['wsl', '-d', 'Ubuntu-24.04', '-u', 'root', '--', 'docker', 'run', '--rm', '--name', 'face-vision-wider-thread-bench', '--cpus', '8', '-e', 'OMP_NUM_THREADS=8', '-e', 'MKL_NUM_THREADS=8', '-e', 'OPENBLAS_NUM_THREADS=1', '-v', '/mnt/c/Users/0/Documents/Codex/2026-09-26/plugin-computer-use-openai-bundled-github/outputs/face-vision-lab:/project', 'face-vision-mmdet:3.3', 'python', 'scripts/mmdet_thread_benchmark.py', '--checkpoint', '/project/runs/wider-mmdet-full-stable/iter_2300.pth']' returned non-zero exit status 1.

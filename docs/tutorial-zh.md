@@ -1,6 +1,6 @@
 # 从零学人脸视觉：给高三学生的项目教程
 
-本教程配套源码仓库：[GBHLKYEric/face_ai_project](https://github.com/GBHLKYEric/face_ai_project)。你不需要先会编程，但需要愿意逐行运行小实验、记录结果，并用高中函数、向量和概率知识解释结果。学完的标准不是背下模型名称，而是能画出数据经过程序的路径、找出报错发生在哪里、独立完成一次可重复的实验。
+本教程配套源码仓库：[GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology](https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology)。你不需要先会编程，但需要愿意逐行运行小实验、记录结果，并用高中函数、向量和概率知识解释结果。学完的标准不是背下模型名称，而是能画出数据经过程序的路径、找出报错发生在哪里、独立完成一次可重复的实验。
 
 **先分清本项目的两层工作。**本地应用用已经训练好的 YuNet/SFace 完成检测、五点定位、两张照片的相似度比较和图像特效；`research/` 是训练和评估研究代码。会运行应用不等于自己训练出了 ArcFace，也不等于已达到 LFW 98.5%。最终做成了什么、还差什么，应查 [验收矩阵](requirements-matrix.md) 和 [项目报告](project-report.md)。本文讲完整知识路线；“拓展实验”不表示本机已经完成该实验。
 
@@ -43,7 +43,7 @@ flowchart LR
 
 终端不是“黑客窗口”，它只是用文字向电脑下达命令。Windows 的 PowerShell 中，`Get-Location` 查看当前位置，`Get-ChildItem` 查看文件，`Set-Location` 切换目录。路径中有空格时加引号。项目命令必须在仓库根目录执行，即能看到 `app.py` 的目录。
 
-如果你在另一台电脑上学习，先安装Git和仓库支持的Python，然后在准备保存项目的目录执行 `git clone https://github.com/GBHLKYEric/face_ai_project.git`，再执行 `Set-Location face_ai_project`。本机已经有交付目录时直接进入该目录即可，无需再次下载同一份源码。
+如果你在另一台电脑上学习，先安装Git和仓库支持的Python，然后在准备保存项目的目录执行 `git clone https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology.git face-vision-lab`，再执行 `Set-Location face-vision-lab`。本机已经有交付目录时，直接进入该目录即可，无需再次下载同一份源码。
 
 ```powershell
 Get-Location
@@ -61,10 +61,10 @@ python -c "import sys; print(sys.executable)"
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 .\.venv\Scripts\python.exe scripts/fetch_models.py
-.\.venv\Scripts\python.exe app.py --port 8765
+.\.venv\Scripts\python.exe desktop.py
 ```
 
-浏览器打开 `http://127.0.0.1:8765`。`127.0.0.1` 是本机地址；`8765` 是这项服务的端口。终端窗口保持运行，按 Ctrl+C 结束服务。摄像头需要浏览器权限；没有摄像头时仍可用示例图片。具体已核验操作见仓库 README；有依赖问题时先查看 `python -m pip list` 和实际环境报告。
+打开的是本机原生桌面窗口。点击“开启摄像头”直接读取设备，点击停止或关闭窗口会释放设备；没有摄像头时仍可用示例图片。最终前端的完整操作、线程设计和实测说明见[桌面程序教程](desktop-guide.md)。辅助网页版本另运行 `python app.py --port 8765` 后访问 `http://127.0.0.1:8765`；这条路径不用于代替桌面验收。遇到依赖问题，先查看 `python -m pip list` 和实际环境报告。
 
 下面是一段可独立保存为 `lesson01.py` 的 Python（避免与仓库已有的 `hello.py` 目录混淆）：
 
@@ -332,7 +332,11 @@ NeRF 以空间位置和观察方向为输入学习密度与颜色，再沿光线
 
 ## 第 15 课：把算法做成可用应用
 
-本项目采用 Python 标准库 HTTP 服务加浏览器原生 HTML/JavaScript。页面负责图片选择、摄像头帧获取、效果选项和显示；Python 解码输入、调用 OpenCV、生成结果和指标。浏览器发送 JPEG 的 base64 文本，服务器返回处理后的图像。简单结构便于你沿一次请求看懂整个流程。
+最终前端是 `desktop.py` 的 Tkinter 原生桌面程序。窗口中的按钮把命令送入队列；后台线程独占摄像头和模型，经 `cv2.VideoCapture` 读取图像并调用 `app.Vision`；主线程取出最新结果，用 Pillow 的 `ImageTk.PhotoImage` 更新窗口。摄像头帧不需要经过 HTTP、JPEG 或浏览器。`start.ps1` 默认启动此程序，具体按钮和代码阅读顺序见[桌面教程](desktop-guide.md)。
+
+为什么要分线程？假如主线程正在做一项耗时 150 ms 的计算，它就难以及时处理拖动窗口或停止按钮。后台线程负责计算，主线程负责界面，可以保持操作响应。结果队列只保留一个最新完成帧，避免积压很多过时画面。它不能使模型凭空算得更快，但能限制等待队列长度。StarGAN与三维重建按钮暂停摄像头，处理当前图像；三维网格由独立进程中的原生 OpenGL 窗口绘制全部 76,073 个三角面。
+
+`app.py` 还保留一个辅助网页版本，用来学习 HTTP 请求。网页负责将图像编码发送，服务端调用同一个 `Vision`；它与最终原生前端是两条调用入口。下述地址和接口仅适用于主动启动的辅助网页服务。
 
 本地服务只监听回环地址，并校验 Host/Origin、请求体类型与大小、图片格式、强度和阈值范围。输入校验能把用户误操作转化为可理解错误。把服务改为 `0.0.0.0` 会改变访问范围，不应为了“手机试一下”就跳过身份验证与传输设计。
 
@@ -349,7 +353,7 @@ Git 保存源码历史，GitHub 托管远程仓库。`git status` 看改动，`g
 ```powershell
 git status
 git diff
-git add app.py web/index.html docs
+git add desktop.py app.py vision3d/native_viewer.py docs
 git commit -m "Document face vision pipeline and evaluation"
 git push
 ```
@@ -364,7 +368,7 @@ docker build --target hello -t face-vision-hello .
 docker run --rm face-vision-hello
 ```
 
-这里应查看 client 和 server 都是否存在，保存 build 与 run 的真实日志；本机Docker在WSL中，上述命令需要在该WSL环境执行。`hello`是Dockerfile中的阶段，运行的是`hello_world.py`；远端已有名为`hello.py`的目录被保留，避免覆盖旧内容。摄像头并不天然能被 Linux 容器直接读取；本项目通过浏览器帧传输的思路可减少设备映射问题，但仍需端口绑定和实际验证。
+这里应查看 client 和 server 都是否存在，保存 build 与 run 的真实日志；本机Docker在WSL中，上述命令需要在该WSL环境执行。`hello`是Dockerfile中的阶段，运行的是`hello_world.py`；远端已有名为`hello.py`的目录被保留，避免覆盖旧内容。摄像头并不天然能被 Linux 容器直接读取。最终桌面程序在 Windows 环境直接运行；Docker用于隔离研究依赖和辅助服务，不承担本机原生窗口的显示与摄像头验收。
 
 核心应用的容器也已实际构建运行：`docker build --target lab -t face-vision-lab .`，随后 `docker run --rm -p 127.0.0.1:8765:8765 face-vision-lab`。访问宿主8765端口即可转发到容器8765端口。由于应用校验Host端口，若使用8766，映射与程序应一起改为8766；只改外部端口可能得到403。这个镜像包含检测/验证/特效与文档，训练和三维生成依赖仍按对应研究环境安装；成功运行核心镜像不证明所有研究模块都已部署。
 
@@ -378,9 +382,9 @@ Notebook 把文字、代码、结果放在同一文件，适合画训练曲线�
 
 按最小证据链排查：解释器能启动→标准库 SSL 能用→网络能访问目标→库可 import→模型文件不是下载错误页/Git LFS 指针→模型可加载→单张图推理→整批评估。每次只解决当前最先失败的层，不要同时升级十个包。
 
-本次运行发现进程环境缺少 `SystemRoot`、`WINDIR`、`COMSPEC` 会影响 Windows 标准功能、SSL/DNS 与 venv。修复在相关子进程中补齐必要环境，避免随意改全局设置。Chrome 自动化入口不可用属于控制连接问题；API 测试成功不能替代“已在 Chrome 操作成功”。完整实测错误与修复依据见 [问题记录](issues-and-fixes.md)。
+本次运行发现进程环境缺少 `SystemRoot`、`WINDIR`、`COMSPEC` 会影响 Windows 标准功能、SSL/DNS 与 venv。修复在相关子进程中补齐必要环境，避免随意改全局设置。Chrome 最初不可连接，连接恢复后已在真实 Chrome 和本机摄像头完成20秒实测；服务接口测试、浏览器操作和真人摄像头测试分别保存证据。完整实测错误与修复依据见 [问题记录](issues-and-fixes.md)。
 
-BytePS 需要 CUDA/NCCL，且官方仓库已归档；单机 CPU 不能用它完成真实分布式训练。ByteNN 未提供公开 SDK 时只能说明 ONNX 类推理模拟。火山引擎云体验需要用户账户、已开通服务与授权凭据；没有调用成功响应就不能写“已体验”。
+原PDF明确写的是BytePS和ByteNN“模拟”。真实BytePS安装依赖CUDA/NCCL，官方仓库已归档；本项目使用两个真实Python工作进程模拟同步参数服务器，并用ONNX Runtime模拟推理引擎的图优化。两项均有运行和数值验证，但不宣称调用了BytePS或ByteNN SDK。火山引擎官方人像融合内置示例已经实际打开、操作并展示结果；它可能使用预先计算的图片，因此只记为官方示例体验，未记为认证API调用或生产部署。[模拟与真实设备实验详解](continued-experiments.md)
 
 练习：`import cv2` 成功但读取模型时报解析失败，应先重装 Python 吗？答案：先检查模型文件大小、哈希、内容和来源，确认不是 HTML 页面或 Git LFS 文本指针；再查版本支持。
 

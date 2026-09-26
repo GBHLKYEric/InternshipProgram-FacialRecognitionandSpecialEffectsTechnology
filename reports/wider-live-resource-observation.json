@@ -1,0 +1,25 @@
+{
+  "seconds": 30.044146341000214,
+  "average_cpu_cores": 3.583393542890586,
+  "io_deltas": {
+    "rchar:": 2885978,
+    "wchar:": 0,
+    "syscr:": 56,
+    "syscw:": 0,
+    "read_bytes:": 2885978,
+    "write_bytes:": 0,
+    "cancelled_write_bytes:": 0
+  },
+  "cgroup_deltas": {
+    "usage_usec": 107662139,
+    "user_usec": 107207619,
+    "system_usec": 454520,
+    "nice_usec": 0,
+    "nr_periods": 300,
+    "nr_throttled": 1,
+    "throttled_usec": 5445,
+    "nr_bursts": 0,
+    "burst_usec": 0
+  },
+  "scope": "30-second live observation; no benchmark workload added"
+}

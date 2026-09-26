@@ -1,0 +1,34 @@
+{
+  "status": "prepared",
+  "model": "RetinaNet ResNet50 FPN",
+  "dataset": {
+    "train": {
+      "images": 12880,
+      "boxes": 156994
+    },
+    "val": {
+      "images": 3226,
+      "boxes": 39112
+    }
+  },
+  "training": {
+    "threads": 4,
+    "epochs": 1,
+    "batch_size": 2,
+    "size": 320,
+    "lr": 0.0005,
+    "output": "runs/wider-mmdet-full-stable",
+    "resume": null
+  },
+  "pretrained_url": "https://download.openmmlab.com/mmdetection/v2.0/retinanet/retinanet_r50_fpn_1x_coco/retinanet_r50_fpn_1x_coco_20200130-c2398f9e.pth",
+  "pretrained_sha256": "c2398f9ec0843ed9a29e72d7a788741abbf2b4250e64f8f793092eaecaa0ab4f",
+  "initialization": "COCO backbone/FPN/towers/regression loaded; one-class retina_cls newly initialized",
+  "frozen": "entire ResNet50 backbone; FPN and heads remain trainable",
+  "stability": "250-step linear learning-rate warmup, norm-10 gradient clipping, reject non-finite gradients/loss",
+  "discarded_source_parameters": [
+    "bbox_head.retina_cls.weight",
+    "bbox_head.retina_cls.bias"
+  ],
+  "metric": "Full validation COCO AP, separate WIDER difficulty evaluation",
+  "limitations": "One CPU transfer epoch at limited resolution does not establish convergence."
+}

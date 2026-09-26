@@ -1,0 +1,2553 @@
+{
+  "frontend": "native Tkinter; cv2.VideoCapture; no HTTP or browser",
+  "status": "completed",
+  "interruption_reason": null,
+  "requested_seconds": 20,
+  "seconds": 20.026671800005715,
+  "frames_rendered": 316,
+  "render_submission_fps": 15.778957340276072,
+  "device": {
+    "backend": "DSHOW",
+    "index": 0,
+    "width": 640,
+    "height": 480
+  },
+  "frames_with_face": 49,
+  "camera_frames_saved": false,
+  "effect": "all",
+  "scope": "read + detection/effect + latest-frame queue + Tk PhotoImage assignment; excludes sensor exposure age and physical display scanout",
+  "frame_policy": "latest completed frame only; old completed frames may be dropped to bound latency",
+  "settings_changed": false,
+  "latency_median_ms": 43.59760000807,
+  "latency_p95_ms": 168.6881999921752,
+  "samples": [
+    {
+      "latency_ms": 384.1470000043046,
+      "pipeline_ms": 203.54,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 185.4521999921417,
+      "pipeline_ms": 158.16,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 195.6206999893766,
+      "pipeline_ms": 172.63,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 210.24679999391083,
+      "pipeline_ms": 173.96,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 198.4103999857325,
+      "pipeline_ms": 182.71,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 164.03329999593552,
+      "pipeline_ms": 150.16,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 171.31109999900218,
+      "pipeline_ms": 159.0,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 149.1758999909507,
+      "pipeline_ms": 138.33,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 161.45759999926668,
+      "pipeline_ms": 127.53,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 129.8328999982914,
+      "pipeline_ms": 115.16,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 146.0984000004828,
+      "pipeline_ms": 119.16,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 132.09159999678377,
+      "pipeline_ms": 119.5,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 139.4465999910608,
+      "pipeline_ms": 129.61,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 148.24500000395346,
+      "pipeline_ms": 134.76,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 148.36639999703038,
+      "pipeline_ms": 122.55,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 132.29199999477714,
+      "pipeline_ms": 122.2,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 122.19209999602754,
+      "pipeline_ms": 103.73,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 132.35189999977592,
+      "pipeline_ms": 118.39,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 115.03810000431258,
+      "pipeline_ms": 104.92,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 131.1297999927774,
+      "pipeline_ms": 117.34,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 116.87709999387152,
+      "pipeline_ms": 103.19,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 112.4950999947032,
+      "pipeline_ms": 97.06,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 131.32689999474678,
+      "pipeline_ms": 115.56,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 132.10909999907017,
+      "pipeline_ms": 117.55,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 133.57809999433812,
+      "pipeline_ms": 120.34,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 154.1051999956835,
+      "pipeline_ms": 136.24,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 162.21239999867976,
+      "pipeline_ms": 149.62,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 178.26409998815507,
+      "pipeline_ms": 145.16,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 137.67470000311732,
+      "pipeline_ms": 128.46,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 194.90440000663511,
+      "pipeline_ms": 160.28,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 161.95019999577198,
+      "pipeline_ms": 142.0,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 167.74699999950826,
+      "pipeline_ms": 157.16,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 162.9798999929335,
+      "pipeline_ms": 151.83,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 152.88010000949726,
+      "pipeline_ms": 139.72,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 168.88539999490604,
+      "pipeline_ms": 146.0,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 155.9902000008151,
+      "pipeline_ms": 148.73,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 153.8035999983549,
+      "pipeline_ms": 141.38,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 168.6881999921752,
+      "pipeline_ms": 153.45,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 166.44869999436196,
+      "pipeline_ms": 156.01,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 184.89489999774378,
+      "pipeline_ms": 169.91,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 187.07409998751245,
+      "pipeline_ms": 167.09,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 162.42870000132825,
+      "pipeline_ms": 154.28,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 178.52490000950638,
+      "pipeline_ms": 155.38,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 178.65099999471568,
+      "pipeline_ms": 153.34,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 147.90630000061356,
+      "pipeline_ms": 132.61,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 162.04860000289045,
+      "pipeline_ms": 154.42,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 194.70389999332838,
+      "pipeline_ms": 173.71,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 45.82709999522194,
+      "pipeline_ms": 27.33,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 53.41890000272542,
+      "pipeline_ms": 37.8,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.27379998983815,
+      "pipeline_ms": 24.94,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 42.38389999954961,
+      "pipeline_ms": 33.76,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 158.06840000732336,
+      "pipeline_ms": 149.15,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 184.71970000246074,
+      "pipeline_ms": 165.05,
+      "faces": 1,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 36.71549999853596,
+      "pipeline_ms": 27.7,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.513800002168864,
+      "pipeline_ms": 24.11,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 44.002099995850585,
+      "pipeline_ms": 27.0,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 56.73909999313764,
+      "pipeline_ms": 30.87,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 54.64510001183953,
+      "pipeline_ms": 41.23,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 40.56049999780953,
+      "pipeline_ms": 26.38,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.74510000261944,
+      "pipeline_ms": 28.14,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 40.09399999631569,
+      "pipeline_ms": 28.18,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 58.381099996040575,
+      "pipeline_ms": 32.53,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 58.153000005404465,
+      "pipeline_ms": 39.14,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 57.16480000410229,
+      "pipeline_ms": 42.49,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 55.535200008307584,
+      "pipeline_ms": 34.2,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.29709999647457,
+      "pipeline_ms": 28.35,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.43610000330955,
+      "pipeline_ms": 28.17,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.04409999086056,
+      "pipeline_ms": 29.17,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 61.01610000769142,
+      "pipeline_ms": 32.01,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 56.040600000415,
+      "pipeline_ms": 37.15,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 37.800899997819215,
+      "pipeline_ms": 23.11,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 53.99080000643153,
+      "pipeline_ms": 30.64,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 52.988099996582605,
+      "pipeline_ms": 35.7,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 40.455399997881614,
+      "pipeline_ms": 25.46,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.09060001024045,
+      "pipeline_ms": 20.72,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 64.00889999349602,
+      "pipeline_ms": 32.11,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 57.14550000266172,
+      "pipeline_ms": 30.62,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 41.003999998793006,
+      "pipeline_ms": 31.5,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 53.36489999899641,
+      "pipeline_ms": 36.0,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 43.37300000770483,
+      "pipeline_ms": 27.54,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 54.97180001111701,
+      "pipeline_ms": 31.15,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.73030000634026,
+      "pipeline_ms": 31.74,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.683999988483265,
+      "pipeline_ms": 29.14,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 56.01230000320356,
+      "pipeline_ms": 32.95,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.364799998817034,
+      "pipeline_ms": 27.65,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 42.09509999782313,
+      "pipeline_ms": 22.44,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 40.856699997675605,
+      "pipeline_ms": 27.88,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 57.41279998619575,
+      "pipeline_ms": 35.24,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 60.4013000120176,
+      "pipeline_ms": 42.24,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 55.11319999641273,
+      "pipeline_ms": 39.9,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 59.53149999550078,
+      "pipeline_ms": 46.2,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 40.69480000180192,
+      "pipeline_ms": 27.14,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 63.917299994500354,
+      "pipeline_ms": 25.26,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 56.99339999409858,
+      "pipeline_ms": 29.83,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 69.79680000222288,
+      "pipeline_ms": 31.76,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 55.20190000243019,
+      "pipeline_ms": 28.59,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 37.88229999190662,
+      "pipeline_ms": 30.57,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 40.39350000675768,
+      "pipeline_ms": 24.03,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 55.000300009851344,
+      "pipeline_ms": 33.64,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 42.58159999153577,
+      "pipeline_ms": 24.45,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.694400009466335,
+      "pipeline_ms": 30.11,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 53.86180001369212,
+      "pipeline_ms": 29.19,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.29979998792987,
+      "pipeline_ms": 21.22,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.95859999465756,
+      "pipeline_ms": 30.28,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 55.30440001166426,
+      "pipeline_ms": 33.95,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.82519999751821,
+      "pipeline_ms": 27.59,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 37.97899998608045,
+      "pipeline_ms": 25.37,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 40.800400005537085,
+      "pipeline_ms": 30.52,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 41.625800004112534,
+      "pipeline_ms": 27.6,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 37.69589999865275,
+      "pipeline_ms": 24.32,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.11140000470914,
+      "pipeline_ms": 29.15,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 54.93009999918286,
+      "pipeline_ms": 31.6,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 54.78239999501966,
+      "pipeline_ms": 34.55,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 52.86589999741409,
+      "pipeline_ms": 31.75,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 50.91099999845028,
+      "pipeline_ms": 35.29,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 37.02079999493435,
+      "pipeline_ms": 29.79,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 67.26720000733621,
+      "pipeline_ms": 35.54,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 46.31390000577085,
+      "pipeline_ms": 31.77,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 44.01060000236612,
+      "pipeline_ms": 28.8,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 52.61909999535419,
+      "pipeline_ms": 30.93,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 55.25760000455193,
+      "pipeline_ms": 30.77,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 52.302900003269315,
+      "pipeline_ms": 37.38,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 52.426000009290874,
+      "pipeline_ms": 41.12,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.56050000467803,
+      "pipeline_ms": 28.79,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 37.115700004505925,
+      "pipeline_ms": 30.17,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 66.54980000166688,
+      "pipeline_ms": 28.94,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 53.07370000809897,
+      "pipeline_ms": 38.7,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 54.54719999397639,
+      "pipeline_ms": 34.16,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.44099999696482,
+      "pipeline_ms": 27.62,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 53.652700007660314,
+      "pipeline_ms": 32.89,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 37.47000001021661,
+      "pipeline_ms": 25.65,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 56.95549999654759,
+      "pipeline_ms": 29.47,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 37.28699999919627,
+      "pipeline_ms": 29.87,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 41.149399999994785,
+      "pipeline_ms": 27.94,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.52829999232199,
+      "pipeline_ms": 27.05,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 36.405900013050996,
+      "pipeline_ms": 29.48,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.72169999522157,
+      "pipeline_ms": 28.97,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.78880000067875,
+      "pipeline_ms": 26.38,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 36.639400001149625,
+      "pipeline_ms": 25.99,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.55420000036247,
+      "pipeline_ms": 24.22,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 54.70799999602605,
+      "pipeline_ms": 31.99,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 43.822200008435175,
+      "pipeline_ms": 31.72,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.74309999810066,
+      "pipeline_ms": 24.14,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 37.677300002542324,
+      "pipeline_ms": 23.17,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.49989999819081,
+      "pipeline_ms": 24.11,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.82420000829734,
+      "pipeline_ms": 27.72,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 37.956599990138784,
+      "pipeline_ms": 23.39,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.06760000588838,
+      "pipeline_ms": 24.09,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 56.87770000076853,
+      "pipeline_ms": 34.23,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 54.50550001114607,
+      "pipeline_ms": 31.86,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 49.218799991649576,
+      "pipeline_ms": 31.48,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.45240000030026,
+      "pipeline_ms": 28.97,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 54.44720000377856,
+      "pipeline_ms": 29.57,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.94790000049397,
+      "pipeline_ms": 28.94,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 33.968000003369525,
+      "pipeline_ms": 26.16,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 52.830899992841296,
+      "pipeline_ms": 32.33,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 53.66319998574909,
+      "pipeline_ms": 39.44,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 57.628599999588914,
+      "pipeline_ms": 32.46,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 58.16059999051504,
+      "pipeline_ms": 32.36,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 44.104199987486936,
+      "pipeline_ms": 27.11,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 54.296300004352815,
+      "pipeline_ms": 36.05,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 42.84120000374969,
+      "pipeline_ms": 26.22,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 57.645399996545166,
+      "pipeline_ms": 33.4,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 70.86669999989681,
+      "pipeline_ms": 34.12,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 66.11799998790957,
+      "pipeline_ms": 32.07,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 57.391499998630024,
+      "pipeline_ms": 34.46,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 41.615200010710396,
+      "pipeline_ms": 28.18,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.92599999764934,
+      "pipeline_ms": 30.42,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 55.140700002084486,
+      "pipeline_ms": 37.32,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.845599996624514,
+      "pipeline_ms": 29.15,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.032300002872944,
+      "pipeline_ms": 27.32,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 57.376500000827946,
+      "pipeline_ms": 24.69,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 40.09249999944586,
+      "pipeline_ms": 26.47,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.92890000133775,
+      "pipeline_ms": 27.91,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 40.522499999497086,
+      "pipeline_ms": 24.97,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.72780000185594,
+      "pipeline_ms": 28.45,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 41.00060000200756,
+      "pipeline_ms": 24.5,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.47360000165645,
+      "pipeline_ms": 24.45,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.59319999173749,
+      "pipeline_ms": 26.75,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.18819999671541,
+      "pipeline_ms": 25.42,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 42.5254000001587,
+      "pipeline_ms": 24.13,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 54.31659999885596,
+      "pipeline_ms": 41.35,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.06440001062583,
+      "pipeline_ms": 30.0,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 60.267900000326335,
+      "pipeline_ms": 33.33,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 57.0776999957161,
+      "pipeline_ms": 31.63,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 71.42510000267066,
+      "pipeline_ms": 47.6,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 42.70179999002721,
+      "pipeline_ms": 29.11,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 60.333100002026185,
+      "pipeline_ms": 38.89,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 82.8176000068197,
+      "pipeline_ms": 36.73,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 74.65560000855476,
+      "pipeline_ms": 41.88,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 56.93129998689983,
+      "pipeline_ms": 26.26,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 40.58699999586679,
+      "pipeline_ms": 27.17,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 42.52669999550562,
+      "pipeline_ms": 28.83,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 56.67869999888353,
+      "pipeline_ms": 28.9,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 49.69859999255277,
+      "pipeline_ms": 37.15,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.90280000632629,
+      "pipeline_ms": 28.17,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 53.4853999997722,
+      "pipeline_ms": 39.86,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 43.14639999938663,
+      "pipeline_ms": 22.82,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 54.10689998825546,
+      "pipeline_ms": 35.31,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 52.23419998947065,
+      "pipeline_ms": 35.04,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 56.1059000028763,
+      "pipeline_ms": 32.54,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 55.33909999940079,
+      "pipeline_ms": 36.21,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 41.56820000207517,
+      "pipeline_ms": 22.26,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 55.677900003502145,
+      "pipeline_ms": 29.39,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 40.59789999155328,
+      "pipeline_ms": 29.92,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 59.44860000454355,
+      "pipeline_ms": 32.79,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.83709999010898,
+      "pipeline_ms": 29.81,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.1422000102466,
+      "pipeline_ms": 28.35,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 57.071500006713904,
+      "pipeline_ms": 31.94,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.376699991407804,
+      "pipeline_ms": 23.15,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 59.227000005193986,
+      "pipeline_ms": 28.33,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 57.90710001019761,
+      "pipeline_ms": 44.04,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 59.06739999772981,
+      "pipeline_ms": 44.59,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.6409999957541,
+      "pipeline_ms": 28.8,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 58.7913000053959,
+      "pipeline_ms": 42.16,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 37.47160000784788,
+      "pipeline_ms": 29.81,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 56.44119999487884,
+      "pipeline_ms": 25.11,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 41.92930000135675,
+      "pipeline_ms": 31.26,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 40.350600000238046,
+      "pipeline_ms": 23.22,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 51.8484000058379,
+      "pipeline_ms": 23.46,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 37.619999988237396,
+      "pipeline_ms": 25.7,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.666299999225885,
+      "pipeline_ms": 22.05,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 55.00849999953061,
+      "pipeline_ms": 31.77,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 41.3367000001017,
+      "pipeline_ms": 24.5,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.30899999977555,
+      "pipeline_ms": 25.92,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 70.43479999992996,
+      "pipeline_ms": 44.36,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 71.09440000203904,
+      "pipeline_ms": 48.68,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 37.49630000675097,
+      "pipeline_ms": 25.97,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 41.597000003093854,
+      "pipeline_ms": 24.51,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.342500003636815,
+      "pipeline_ms": 28.07,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.27460001048166,
+      "pipeline_ms": 27.15,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.577299990924075,
+      "pipeline_ms": 27.4,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.77869999653194,
+      "pipeline_ms": 24.24,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.202499999897555,
+      "pipeline_ms": 28.41,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.841200002934784,
+      "pipeline_ms": 26.47,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.127000007079914,
+      "pipeline_ms": 21.94,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 41.231700000935234,
+      "pipeline_ms": 24.42,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.22590000345372,
+      "pipeline_ms": 22.77,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.16190001089126,
+      "pipeline_ms": 21.83,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 45.88700000022072,
+      "pipeline_ms": 22.47,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.79669999878388,
+      "pipeline_ms": 23.81,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.875199999893084,
+      "pipeline_ms": 28.23,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 54.90089999511838,
+      "pipeline_ms": 26.57,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.532100010546856,
+      "pipeline_ms": 22.68,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 37.1173000021372,
+      "pipeline_ms": 27.97,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.50030000123661,
+      "pipeline_ms": 24.79,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 36.79380001267418,
+      "pipeline_ms": 24.54,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.040099989506416,
+      "pipeline_ms": 23.28,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 36.603599990485236,
+      "pipeline_ms": 26.2,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 56.21130000508856,
+      "pipeline_ms": 34.19,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.9322999981232,
+      "pipeline_ms": 26.3,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 37.873799999943,
+      "pipeline_ms": 24.06,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 30.39790000184439,
+      "pipeline_ms": 21.03,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.9182999933837,
+      "pipeline_ms": 24.83,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 44.43340000580065,
+      "pipeline_ms": 23.42,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 57.872999997925945,
+      "pipeline_ms": 34.66,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 37.53020000294782,
+      "pipeline_ms": 25.6,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 53.7828999949852,
+      "pipeline_ms": 23.46,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 49.22320001060143,
+      "pipeline_ms": 22.79,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.89100000762846,
+      "pipeline_ms": 26.99,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.78229999484029,
+      "pipeline_ms": 27.7,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 42.2409000020707,
+      "pipeline_ms": 26.63,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.84179999679327,
+      "pipeline_ms": 27.69,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.119599998230115,
+      "pipeline_ms": 23.41,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.562299993122,
+      "pipeline_ms": 21.56,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.09099999489263,
+      "pipeline_ms": 26.18,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 42.21640000469051,
+      "pipeline_ms": 24.78,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 36.8424999905983,
+      "pipeline_ms": 25.21,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.974299997789785,
+      "pipeline_ms": 25.39,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 37.42979999515228,
+      "pipeline_ms": 20.35,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 37.186799992923625,
+      "pipeline_ms": 24.65,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 37.70869999425486,
+      "pipeline_ms": 23.17,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 55.34949999128003,
+      "pipeline_ms": 24.74,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 40.25829999591224,
+      "pipeline_ms": 23.83,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 50.17740000039339,
+      "pipeline_ms": 25.43,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 44.466499995905906,
+      "pipeline_ms": 29.45,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.137900006608106,
+      "pipeline_ms": 26.21,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.91049999219831,
+      "pipeline_ms": 31.11,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.87320000305772,
+      "pipeline_ms": 22.47,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.695700000971556,
+      "pipeline_ms": 25.69,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.8016999932006,
+      "pipeline_ms": 25.22,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.93170000810642,
+      "pipeline_ms": 23.75,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 54.392099991673604,
+      "pipeline_ms": 32.22,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.684099999954924,
+      "pipeline_ms": 27.26,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 56.52300000656396,
+      "pipeline_ms": 29.57,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 37.16580000764225,
+      "pipeline_ms": 24.7,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.31769999326207,
+      "pipeline_ms": 22.46,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 55.22939999355003,
+      "pipeline_ms": 24.07,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 37.61280000617262,
+      "pipeline_ms": 24.41,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 37.875100009841844,
+      "pipeline_ms": 24.84,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 37.998800005880184,
+      "pipeline_ms": 20.96,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.799500005552545,
+      "pipeline_ms": 22.84,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 36.88030000193976,
+      "pipeline_ms": 24.11,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 45.90670000470709,
+      "pipeline_ms": 22.59,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 37.804500010679476,
+      "pipeline_ms": 25.01,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 37.74469999189023,
+      "pipeline_ms": 23.43,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.163899997016415,
+      "pipeline_ms": 23.43,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.042499993229285,
+      "pipeline_ms": 24.92,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.620799998170696,
+      "pipeline_ms": 26.14,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 54.661500005749986,
+      "pipeline_ms": 28.57,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.61620000679977,
+      "pipeline_ms": 24.53,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.62770001089666,
+      "pipeline_ms": 20.9,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 36.229800010914914,
+      "pipeline_ms": 22.77,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 52.598399997805245,
+      "pipeline_ms": 19.75,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.54350001004059,
+      "pipeline_ms": 20.36,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 34.03979999711737,
+      "pipeline_ms": 24.14,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.042299991706386,
+      "pipeline_ms": 25.63,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 40.553600003477186,
+      "pipeline_ms": 23.09,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.989299995591864,
+      "pipeline_ms": 23.64,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 37.85269999934826,
+      "pipeline_ms": 25.57,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.747099999454804,
+      "pipeline_ms": 23.98,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 39.85699999611825,
+      "pipeline_ms": 24.66,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 55.90289999963716,
+      "pipeline_ms": 33.6,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 71.66309999593068,
+      "pipeline_ms": 34.78,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 55.49070000415668,
+      "pipeline_ms": 30.36,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    },
+    {
+      "latency_ms": 38.405500003136694,
+      "pipeline_ms": 28.96,
+      "faces": 0,
+      "effect": "all",
+      "strength": 0.5,
+      "show_landmarks": true
+    }
+  ]
+}

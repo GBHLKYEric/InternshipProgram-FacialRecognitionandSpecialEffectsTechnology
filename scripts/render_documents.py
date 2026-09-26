@@ -19,7 +19,8 @@ def main():
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
     sources = [ROOT.parent/name for name in
-               ['高三零基础专业教程.pdf', '项目总结报告.pdf', '执行问题与解决记录.pdf']]
+               ['高三零基础专业教程.pdf', '项目总结报告.pdf', '执行问题与解决记录.pdf',
+                '继续实验专业教程.pdf', '本地桌面程序使用与代码教程.pdf']]
     if args.slides_pdf:
         sources.append(args.slides_pdf)
     for source in sources:

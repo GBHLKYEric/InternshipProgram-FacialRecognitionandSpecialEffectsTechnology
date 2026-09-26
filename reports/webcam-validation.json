@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "frame_count": true,
+    "face_frames": true,
+    "visible_frames": true,
+    "fps": true,
+    "median_nearest_rank": true,
+    "p95_nearest_rank": true
+  },
+  "source": "webcam-chrome.json",
+  "plot": "webcam-latency.svg",
+  "face_presence_fraction": 0.868,
+  "interpretation": "Face presence is not annotated detection accuracy; latency excludes sensor age and physical display."
+}

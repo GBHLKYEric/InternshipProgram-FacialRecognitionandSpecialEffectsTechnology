@@ -1,0 +1,49 @@
+{
+  "experiment": "BytePS concept simulation using Python multiprocessing and PyTorch",
+  "actual_byteps_sdk_used": false,
+  "workers": 2,
+  "shard_sizes": [
+    3,
+    5
+  ],
+  "steps": 5,
+  "torch": "2.14.0+cpu",
+  "local_cpu_only": true,
+  "data": "Seed-42 synthetic 8x4 teaching vectors; no face accuracy result",
+  "elapsed_seconds_including_worker_startup": 2.7553859000036027,
+  "serialized_payload_bytes_protocol4_excluding_transport_headers": 5060,
+  "equivalence_tolerance": 1e-06,
+  "history": [
+    {
+      "step": 1,
+      "distributed_loss": 0.993182934820652,
+      "reference_loss": 0.993182897567749,
+      "parameter_max_abs_error": 2.9802322387695312e-08
+    },
+    {
+      "step": 2,
+      "distributed_loss": 0.9362366870045662,
+      "reference_loss": 0.9362366199493408,
+      "parameter_max_abs_error": 2.9802322387695312e-08
+    },
+    {
+      "step": 3,
+      "distributed_loss": 0.8846152946352959,
+      "reference_loss": 0.8846152424812317,
+      "parameter_max_abs_error": 2.9802322387695312e-08
+    },
+    {
+      "step": 4,
+      "distributed_loss": 0.8379880264401436,
+      "reference_loss": 0.837988018989563,
+      "parameter_max_abs_error": 2.9802322387695312e-08
+    },
+    {
+      "step": 5,
+      "distributed_loss": 0.7959634810686111,
+      "reference_loss": 0.7959635257720947,
+      "parameter_max_abs_error": 4.470348358154297e-08
+    }
+  ],
+  "conclusion": "Weighted gradient aggregation matches full-batch SGD; no speedup claim."
+}

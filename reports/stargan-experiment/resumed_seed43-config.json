@@ -1,0 +1,29 @@
+{
+  "command": "train",
+  "root": "data/stargan-official/celeba/images",
+  "labels": "data/celeba-expanded/attributes.txt",
+  "partition": "data/celeba-expanded/partition.txt",
+  "attributes": [
+    "Black_Hair",
+    "Blond_Hair",
+    "Brown_Hair",
+    "Male",
+    "Young"
+  ],
+  "output": "runs/stargan-resumed",
+  "device": "xpu",
+  "steps": 500,
+  "batch_size": 2,
+  "size": 128,
+  "width": 64,
+  "blocks": 6,
+  "n_critic": 5,
+  "seed": 43,
+  "log_interval": 50,
+  "save_interval": 100,
+  "lr": 1e-05,
+  "threads": 2,
+  "init_generator": null,
+  "init_discriminator": null,
+  "continue_checkpoint": "runs/stargan-expanded/last.pt"
+}

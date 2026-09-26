@@ -1,0 +1,30 @@
+{
+  "frontend": "Tkinter native window; direct OpenCV VideoCapture",
+  "checks": [
+    "real Tk window mapped, Vision loaded, public image rendered",
+    "native effect control 原图与检测",
+    "native effect control 眼镜",
+    "native effect control 皇冠",
+    "native effect control 美颜",
+    "native effect control 口红",
+    "native effect control 组合特效",
+    "same public image verification",
+    "3DDFA native window and 35 degree rotation changed rendering",
+    "20 second native camera capture/process/Tk render submission",
+    "stop button released camera",
+    "camera successfully reopened after release",
+    "public sample restored before screenshot",
+    "native window screenshot contains public sample only"
+  ],
+  "errors": [],
+  "webcam_images_saved": false,
+  "stargan": "not tested: local export absent at test time",
+  "window": {
+    "width": 1160,
+    "height": 800,
+    "mapped": true,
+    "tk": "8.6.12"
+  },
+  "camera_released_on_close": true,
+  "passed": true
+}

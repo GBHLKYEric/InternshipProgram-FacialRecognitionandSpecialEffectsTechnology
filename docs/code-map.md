@@ -4,6 +4,12 @@
 
 | 文件/模块 | 使用场景与调用入口 | PDF 要求 | 可重复检查 |
 |---|---|---|---|
+| `desktop.py` → `Desktop`、`Worker` | 最终原生桌面窗口；直接使用OpenCV读取摄像头并调用Vision，不启动HTTP | 9.2、9.3、统一界面、实时视频 | `python desktop.py`；`python desktop.py --self-test`，见 `reports/desktop-verification.json` |
+| `vision3d/native_viewer.py` → `prepare_mesh/start_viewer` | 最终原生 OpenGL 全网格窗口；spawn 子进程独占 GL 上下文，上传全部 38365 顶点/76073 面，Pipe 接收 yaw/capture/close；旧 `render_mesh` 抽样函数已删除 | 8.2、8.3、OpenGL、系统集成 | `python -m vision3d.native_viewer --self-test --output reports/3d-native`；GPU 图元查询76073、35° uniform读回/截图变化、归零像素一致、child退出0；只用公开NASA样图 |
+| `vision3d/licenses/pyglet-2.1.16-LICENSE.txt`、`reports/native-viewer-dependencies.json` | 保留 pyglet 上游完整 BSD-3-Clause 许可，记录固定版本、官方来源、wheel公布哈希、许可文件哈希和实际GL上下文；库作为依赖安装，不复制其全部实现进项目 | 第三方许可、环境复现、开源交付 | 来源为官方 pyglet v2.1.16 tag/PyPI；主venv与项目conda均导入通过、pip check通过；主venv实际OpenGL4.6，未改驱动，renderer的16GB为共享内存显示 |
+| `scripts/verify_desktop.py` | 实际Tk回调、六效果、同图验证、StarGAN、按钮打开全网格GL和35°回执；可选择摄像头20秒及停止/重开/退出释放；只保存公开样图截图 | 原生桌面验收 | `desktop.py --self-test-no-camera` → `reports/desktop-integration.json`，已实测通过；`--self-test`才打开相机。首轮历史为desktop-verification-first.json/desktop-camera-first.json，第二轮为desktop-verification.json/desktop-camera.json |
+| `启动桌面程序.cmd` | Windows双击入口 | 本机交付 | 调用 `start.ps1`，默认原生桌面，`-Web`才启动辅助网页 |
+| `scripts/copy_source_delivery.py` | 同步源码至桌面并按SHA256逐文件检查 | 用户新增桌面源码要求 | `python scripts/copy_source_delivery.py --destination <桌面目录> --report <清单路径>` |
 | `app.py` → `Vision.detect/feature/verify/process` | YuNet 检测五点、SFace 对齐和特征、同人验证、图片特效 | 2.1、2.4、4.3、9.1–9.3、系统集成 | `python -m unittest discover -s tests -p test_app.py`；`python app.py --port 8765` |
 | `app.py` → `decode_image`、`Handler` | 校验上传内容；`/health`、`/process`、`/verify` HTTP 接口 | 系统集成与部署 | 无效图片/无脸/错误参数测试；访问 `http://127.0.0.1:8765/health` |
 | `web/index.html` | 原生浏览器界面，图片选择、摄像头采集与结果绘制 | 实时视频、统一界面 | 本地服务启动后使用页面；摄像头/实时跟踪需设备与浏览器权限 |

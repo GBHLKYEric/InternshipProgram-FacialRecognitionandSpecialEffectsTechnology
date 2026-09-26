@@ -1,0 +1,28 @@
+{
+  "command": "train",
+  "root": "data/stargan-official/celeba/images",
+  "labels": "data/celeba-pilot/attributes.txt",
+  "partition": "data/celeba-pilot/partition.txt",
+  "attributes": [
+    "Black_Hair",
+    "Blond_Hair",
+    "Brown_Hair",
+    "Male",
+    "Young"
+  ],
+  "output": "runs/stargan-pilot",
+  "device": "xpu",
+  "steps": 200,
+  "batch_size": 2,
+  "size": 128,
+  "width": 64,
+  "blocks": 6,
+  "n_critic": 5,
+  "seed": 42,
+  "log_interval": 10,
+  "save_interval": 100,
+  "lr": 1e-05,
+  "threads": 2,
+  "init_generator": "data/stargan-official/200000-G.ckpt",
+  "init_discriminator": "data/stargan-official/200000-D.ckpt"
+}

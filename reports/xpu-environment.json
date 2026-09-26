@@ -1,0 +1,145 @@
+{
+  "checked_at_utc": "2026-09-26T13:35:19.152594+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "C:\\Users\\0\\Documents\\Codex\\2026-09-26\\plugin-computer-use-openai-bundled-github\\work\\xpu-env\\Scripts\\python.exe",
+  "torch": "2.14.0+xpu",
+  "torchvision": "0.29.0+xpu",
+  "official_wheel_index": "https://download.pytorch.org/whl/xpu",
+  "xpu_available": true,
+  "cpu_threads": 4,
+  "limitations": [
+    "Synthetic small compatibility checks are not dataset training or quality evaluation.",
+    "Concurrent work and power/thermal state were not controlled; timings apply only to the recorded shapes and operations.",
+    "MMDetection 3.3 uses its separate older CPU environment; successful XPU PyTorch does not migrate MMCV native operators automatically."
+  ],
+  "checks": {
+    "xpu_transfer_autograd": true,
+    "torchvision_nms_xpu": true,
+    "stargan_training": {
+      "xpu": {
+        "median_ms": 53.21589999948628,
+        "samples_ms": [
+          53.21589999948628,
+          62.01510000391863,
+          48.88749998644926
+        ],
+        "warmup": 1,
+        "synchronization": "torch.xpu.synchronize before/after each measured operation",
+        "model": "Small width16/two-block G and depth3 D",
+        "input": [
+          2,
+          3,
+          64,
+          64
+        ],
+        "dtype": "float32",
+        "validated": [
+          "Conv2d",
+          "ConvTranspose2d",
+          "InstanceNorm2d",
+          "Adam",
+          "WGAN-GP create_graph double backward",
+          "generator reconstruction backward"
+        ],
+        "final_losses": {
+          "d_loss": 10.57112979888916,
+          "g_loss": 8.702163696289062
+        }
+      },
+      "cpu": {
+        "median_ms": 79.99949999793898,
+        "samples_ms": [
+          78.45860000816174,
+          81.69160000397824,
+          79.99949999793898
+        ],
+        "warmup": 1,
+        "synchronization": "CPU calls synchronous",
+        "model": "Small width16/two-block G and depth3 D",
+        "input": [
+          2,
+          3,
+          64,
+          64
+        ],
+        "dtype": "float32",
+        "validated": [
+          "Conv2d",
+          "ConvTranspose2d",
+          "InstanceNorm2d",
+          "Adam",
+          "WGAN-GP create_graph double backward",
+          "generator reconstruction backward"
+        ],
+        "final_losses": {
+          "d_loss": 10.573463439941406,
+          "g_loss": 8.675366401672363
+        }
+      },
+      "cpu_median_divided_by_xpu_median": 1.5033007052161338
+    },
+    "stargan_generator_inference": {
+      "xpu": {
+        "median_ms": 23.664399996050633,
+        "samples_ms": [
+          23.486600010073744,
+          23.664399996050633,
+          23.716399999102578
+        ],
+        "warmup": 2,
+        "synchronization": "torch.xpu.synchronize before/after each measured operation",
+        "architecture": "Project Generator, width64, six residual blocks, five attributes",
+        "input": [
+          2,
+          3,
+          128,
+          128
+        ],
+        "dtype": "float32",
+        "includes": "forward only, model/input already on device",
+        "output_shape": [
+          2,
+          3,
+          128,
+          128
+        ]
+      },
+      "cpu": {
+        "median_ms": 350.6753999972716,
+        "samples_ms": [
+          369.68570000317413,
+          350.6753999972716,
+          347.5446000084048
+        ],
+        "warmup": 2,
+        "synchronization": "CPU calls synchronous",
+        "architecture": "Project Generator, width64, six residual blocks, five attributes",
+        "input": [
+          2,
+          3,
+          128,
+          128
+        ],
+        "dtype": "float32",
+        "includes": "forward only, model/input already on device",
+        "output_shape": [
+          2,
+          3,
+          128,
+          128
+        ]
+      },
+      "cpu_median_divided_by_xpu_median": 14.818689679679013
+    }
+  },
+  "device_name": "Intel(R) Arc(TM) 130T GPU (16GB)",
+  "device_properties": {
+    "total_memory": 17648951296,
+    "max_compute_units": 112,
+    "driver_version": "1.15.39183+1",
+    "is_integrated_gpu": true,
+    "has_fp16": true,
+    "has_fp64": true
+  },
+  "status": "xpu_available_and_autograd_verified"
+}

@@ -1,0 +1,57 @@
+{
+  "source_author_page": "http://shuoyang1213.me/WIDERFACE/",
+  "repository": "CUHK-CSE/wider_face",
+  "revision": "db171f1b7fedf4d3453e81297ff02f9915356d19",
+  "license": "CC-BY-NC-ND-4.0; local research use; no redistribution of face images",
+  "archives": {
+    "wider_face_split.zip": {
+      "url": "https://huggingface.co/datasets/CUHK-CSE/wider_face/resolve/db171f1b7fedf4d3453e81297ff02f9915356d19/data/wider_face_split.zip",
+      "bytes": 3591642,
+      "sha256": "c7561e4f5e7a118c249e0a5c5c902b0de90bbf120d7da9fa28d99041f68a8a5c",
+      "publisher_sha256_verified": true,
+      "files": 7,
+      "uncompressed_bytes": 9100296,
+      "all_member_crc_verified": true
+    },
+    "WIDER_val.zip": {
+      "url": "https://huggingface.co/datasets/CUHK-CSE/wider_face/resolve/db171f1b7fedf4d3453e81297ff02f9915356d19/data/WIDER_val.zip",
+      "bytes": 362752168,
+      "sha256": "f9efbd09f28c5d2d884be8c0eaef3967158c866a593fc36ab0413e4b2a58a17a",
+      "publisher_sha256_verified": true,
+      "files": 3226,
+      "uncompressed_bytes": 365054675,
+      "all_member_crc_verified": true
+    },
+    "WIDER_train.zip": {
+      "url": "https://huggingface.co/datasets/CUHK-CSE/wider_face/resolve/db171f1b7fedf4d3453e81297ff02f9915356d19/data/WIDER_train.zip",
+      "bytes": 1465602149,
+      "sha256": "e23b76129c825cafae8be944f65310b2e1ba1c76885afe732f179c41e5ed6d59",
+      "publisher_sha256_verified": true,
+      "files": 12880,
+      "uncompressed_bytes": 1474029628,
+      "all_member_crc_verified": true
+    }
+  },
+  "splits": {
+    "val": {
+      "images": 3226,
+      "valid_boxes": 39112,
+      "excluded_boxes": 596,
+      "zero_face_images": 0
+    },
+    "train": {
+      "images": 12880,
+      "valid_boxes": 156994,
+      "excluded_boxes": 2426,
+      "zero_face_images": 4
+    }
+  },
+  "evaluation_bundle": {
+    "url": "http://mmlab.ie.cuhk.edu.hk/projects/WIDERFace/support/eval_script/eval_tools.zip",
+    "sha256_recorded": "159ab2df01b6484831097f3107350d0d24c63916bb2648336e6bb779263d1301",
+    "publisher_sha256_available": false,
+    "files": 428,
+    "uncompressed_bytes": 6689868,
+    "all_member_crc_verified": true
+  }
+}

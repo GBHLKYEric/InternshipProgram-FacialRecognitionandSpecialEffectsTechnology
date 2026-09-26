@@ -29,6 +29,30 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="https://docs.python.org/3.12/library/tkinter.html">Python 3.12 Tkinter</a></td>
+<td>原生窗口、事件循环与线程模型；本机实际Tk8.6.12。Tk控件由主线程更新，后台线程通过队列提交结果。</td>
+</tr>
+<tr>
+<td><a href="https://docs.opencv.org/4.13.0/d8/dfe/classcv_1_1VideoCapture.html">OpenCV VideoCapture</a></td>
+<td>摄像头打开、读取和释放的API语义；文档4.13，实际本机使用OpenCV5并实测DirectShow路径，不能混写版本。</td>
+</tr>
+<tr>
+<td><a href="https://pillow.readthedocs.io/en/stable/reference/ImageTk.html">Pillow ImageTk</a></td>
+<td>将图像转换为Tk可显示的PhotoImage；实际Pillow12.3.0。</td>
+</tr>
+<tr>
+<td><a href="https://onnxruntime.ai/docs/performance/model-optimizations/graph-optimizations.html">ONNX Runtime图优化</a></td>
+<td>ORT图优化等级与后端限制；ByteNN概念模拟的公开实现依据。</td>
+</tr>
+<tr>
+<td><a href="https://github.com/pytorch/pytorch/blob/main/docs/source/notes/get_start_xpu.md">PyTorch Intel GPU支持</a></td>
+<td>XPU官方软件栈与支持设备；实际兼容性由本机算子和训练反向传播检查补充。</td>
+</tr>
+<tr>
+<td><a href="https://www.anaconda.com/docs/getting-started/advanced-install/silent-mode">Anaconda静默安装</a></td>
+<td>当前用户安装、PATH和默认Python选项；最终使用的NoRegistry/NoShortcuts由下载安装器帮助输出另核验。</td>
+</tr>
+<tr>
 <td><a href="https://github.com/open-mmlab/mmdetection/blob/v3.3.0/mmdet/__init__.py">MMDetection 3.3.0 版本断言</a></td>
 <td><code>2.0.0rc4 &lt;= mmcv &lt; 2.2.0</code>，<code>0.7.1 &lt;= mmengine &lt; 1.0.0</code>。并不是任意最新版本都兼容。</td>
 </tr>
@@ -107,12 +131,14 @@
 </tr>
 <tr>
 <td>COFW</td>
-<td><a href="https://www.vision.caltech.edu/~xpburgos/ICCV13/">作者论文页面</a></td>
-<td>可替代 300-W 的研究方向；标注数量和遮挡处理必须依具体协议，不能混用 300-W 的 68 点指标。</td>
+<td><a href="https://data.caltech.edu/records/bc0bf-nc666">当前官方CaltechDATA记录</a>；<a href="https://doi.org/10.22002/D1.20099">DOI 10.22002/D1.20099</a>；<a href="https://www.vision.caltech.edu/datasets/">Perona Lab数据目录</a></td>
+<td>旧作者页面已不可达，以当前记录为准。官方灰度包COFW.zip MD5为e092eeab9d0790674f86047880410e5a，彩色包为8b21d126c4e1fb307cb463578eef0511。本次普通下载中断/校验失败，未用于训练，见reports/cofw-access.json。原始29点与300-W的68点不可混用。</td>
 </tr>
 </tbody>
 </table>
 <p>后续实际获取：WIDER采用作者页面明确链接的 <a href="https://huggingface.co/datasets/CUHK-CSE/wider_face">CUHK-CSE维护镜像</a>，按固定提交和ZIP Range下载32训练图/16验证图，数据在本地保留，镜像标示CC BY-NC-ND-4.0；统计与来源清单随实验记录。300-W训练相关入口为 <a href="https://ibug.doc.ic.ac.uk/resources/facial-point-annotations/">官方facial point annotations页面</a>，下载表单需要姓名、邮箱和机构，未代填虚构身份。不要把可直接下载的600张challenge测试图当成正式训练集。</p>
+<p>CelebA原Google Drive下载出现配额限制后，本次采用<a href="https://github.com/yunjey/stargan/blob/master/download.sh">StarGAN官方项目download.sh</a>明确链接的<a href="https://www.dropbox.com/s/d1kjpkqklf0uw77/celeba.zip?dl=1">配套图片包</a>和<a href="https://www.dropbox.com/s/7e966qq0nlxwte4/celeba-128x128-5attrs.zip?dl=1">128×128五属性预训练权重包</a>。这是算法作者项目的配套下载源，不是CelebA数据作者官方镜像。完整ZIP未有作者公布哈希，记录本次观察SHA256和ZIP CRC；内部原属性表MD5与torchvision公布值75e246fa4810816ffd6ee81facbd244c一致。完整202599张图片文件名与属性表对应。原图、生成图和权重仅保留本地，未因代码开源而更改数据许可。</p>
+<p>StarGAN实验协议依据<a href="https://github.com/yunjey/stargan/blob/master/data_loader.py">官方data_loader.py</a>的seed1234打乱、前1999张测试划分，以及<a href="https://github.com/yunjey/stargan/blob/master/solver.py">官方solver.py</a>中的BCE按batch归一化、patch梯度惩罚和测试运行方式。复原当前作者代码不等于独立审计公开权重的历史训练数据。指标使用<a href="https://github.com/toshas/torch-fidelity">torch-fidelity官方实现</a>与其<a href="https://github.com/toshas/torch-fidelity/blob/master/torch_fidelity/feature_extractor_inceptionv3.py">Inception兼容特征器</a>所列权重，实际安装0.4.0。前后主比较均XPU生成、同torch2.14+xpu构建、CPU计算FID/IS；旧CPU前模型报告保留为历史。特征权重SHA256、输入规模与参数见reports/stargan-experiment/report.json。</p>
 <p>LFW 镜像校验值来自 scikit-learn 维护代码：</p>
 <pre><code class="language-text">lfw.tgz: https://ndownloader.figshare.com/files/5976018
 SHA256: 055f7d9c632d7370e6fb4afc7468d40f970c34a80d4c6f50ffec63f5a8d536c0

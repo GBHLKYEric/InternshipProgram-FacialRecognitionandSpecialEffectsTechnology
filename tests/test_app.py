@@ -36,6 +36,9 @@ class AppCheck(unittest.TestCase):
                 decode_image(malformed)
         with self.assertRaises(ValueError):
             vision.process(sample, 'unknown', .5, False)
+        for targets in [None, [0, 1], [1, 1, 0, 0, 1], [0, 0, 0, 0, 1], [0, 1, 0, 2, 1], [False, 1, 0, 0, 1]]:
+            with self.assertRaises(ValueError):
+                vision.edit_attributes(sample, targets)
 
 
 if __name__ == '__main__':

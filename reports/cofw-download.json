@@ -1,0 +1,13 @@
+{
+  "dataset": "cofw",
+  "official_page": "https://data.caltech.edu/records/bc0bf-nc666",
+  "checksum_source": "Official CaltechDATA record file list",
+  "distribution": "Local research only; dataset is not included in the source-code repository",
+  "files": {
+    "COFW_color.zip": {
+      "source_url": "https://data.caltech.edu/records/bc0bf-nc666/files/COFW_color.zip?download=1",
+      "status": "unavailable",
+      "error": "HTTPError: HTTP Error 500: Internal Server Error"
+    }
+  }
+}

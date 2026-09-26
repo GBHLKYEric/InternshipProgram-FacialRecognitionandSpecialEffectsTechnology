@@ -1,4 +1,6 @@
 .venv
+work
+%SystemDrive%
 .git
 data
 runs

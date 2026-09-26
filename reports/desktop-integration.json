@@ -1,0 +1,72 @@
+{
+  "frontend": "Tkinter native window; direct OpenCV VideoCapture",
+  "checks": [
+    "real Tk window mapped, Vision loaded, public image rendered",
+    "native effect control 原图与检测",
+    "native effect control 眼镜",
+    "native effect control 皇冠",
+    "native effect control 美颜",
+    "native effect control 口红",
+    "native effect control 组合特效",
+    "same public image verification",
+    "StarGAN from current image in native preview",
+    "desktop button opened native OpenGL and rendered all 76073 triangles",
+    "35 degree rotation acknowledged after actual GPU draw",
+    "public sample full mesh captured; native child closed with exit code 0",
+    "public sample restored before screenshot",
+    "native window screenshot contains public sample only"
+  ],
+  "errors": [],
+  "webcam_images_saved": false,
+  "camera_test_in_this_run": false,
+  "opengl": {
+    "event": "ready",
+    "pyglet": "2.1.16",
+    "vendor": "Intel",
+    "renderer": "Intel(R) Arc(TM) 130T GPU (16GB)",
+    "opengl": [
+      4,
+      6
+    ],
+    "depth_bits": 24,
+    "framebuffer": [
+      800,
+      720
+    ],
+    "primitives_generated": 76073,
+    "automatic_capture": false,
+    "degrees": 0.0,
+    "shader_radians": 0.0,
+    "frame_count": 1,
+    "triangles": 76073,
+    "vertices": 38365
+  },
+  "opengl_rotation": {
+    "event": "rotated",
+    "degrees": 35.0,
+    "shader_radians": 0.6108652353286743,
+    "frame_count": 5,
+    "triangles": 76073,
+    "vertices": 38365
+  },
+  "opengl_capture": {
+    "event": "captured",
+    "path": "C:\\Users\\0\\Documents\\Codex\\2026-09-26\\plugin-computer-use-openai-bundled-github\\outputs\\face-vision-lab\\reports\\desktop-3d.png",
+    "bytes": 177584,
+    "sha256": "a1e3b144713f1eb4ed7bab3d2bd8e98cd53e30d171a56e803f50e136712af95b",
+    "primitives_generated": 76073,
+    "degrees": 35.0,
+    "shader_radians": 0.6108652353286743,
+    "frame_count": 10,
+    "triangles": 76073,
+    "vertices": 38365
+  },
+  "window": {
+    "width": 1160,
+    "height": 800,
+    "mapped": true,
+    "tk": "8.6.12"
+  },
+  "camera_released_on_close": true,
+  "passed": true
+}

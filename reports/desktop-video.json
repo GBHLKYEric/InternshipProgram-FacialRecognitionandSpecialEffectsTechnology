@@ -1,0 +1,74 @@
+{
+  "output": "本地桌面程序演示.mp4",
+  "codec": "H.264",
+  "pixel_format": "yuv420p",
+  "width": 1200,
+  "height": 900,
+  "playback_fps": 5,
+  "frames": 216,
+  "playback_seconds": 43.2,
+  "capture_wall_seconds": 45.44478789999266,
+  "camera_opened": false,
+  "input": "public NASA sample only",
+  "scope": "Actual Tk window captures and explicitly requested native OpenGL framebuffer captures. 5 FPS time grid repeats the previous frame if capture is late; not algorithm throughput evidence.",
+  "events": [
+    {
+      "title": "原图与检测：公开示例逐项处理",
+      "frame": 0,
+      "completed_frame": 1
+    },
+    {
+      "title": "眼镜：公开示例逐项处理",
+      "frame": 15,
+      "completed_frame": 16
+    },
+    {
+      "title": "皇冠：公开示例逐项处理",
+      "frame": 29,
+      "completed_frame": 30
+    },
+    {
+      "title": "美颜：公开示例逐项处理",
+      "frame": 44,
+      "completed_frame": 45
+    },
+    {
+      "title": "口红：公开示例逐项处理",
+      "frame": 58,
+      "completed_frame": 59
+    },
+    {
+      "title": "组合特效：公开示例逐项处理",
+      "frame": 73,
+      "completed_frame": 74
+    },
+    {
+      "title": "双图验证：同图比较仅检查数值一致性",
+      "frame": 87,
+      "completed_frame": 88
+    },
+    {
+      "title": "StarGAN：左侧输入裁剪，右侧目标属性合成",
+      "frame": 104,
+      "completed_frame": 108
+    },
+    {
+      "title": "3DDFA：当前公开图像的三维重建",
+      "frame": 133,
+      "completed_frame": 142
+    },
+    {
+      "title": "原生三维窗口：旋转查看统计估计的人脸",
+      "frame": 167,
+      "completed_frame": 171
+    },
+    {
+      "title": "完成：摄像头功能已另作真实设备测试",
+      "frame": 196,
+      "completed_frame": 197
+    }
+  ],
+  "error": null,
+  "camera_released": true,
+  "all_scenes_acknowledged": true
+}

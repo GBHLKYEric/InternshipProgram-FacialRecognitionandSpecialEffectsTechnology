@@ -13,6 +13,12 @@
 
 | 资料 | 本项目用来核验的内容 |
 |---|---|
+| [Python 3.12 Tkinter](https://docs.python.org/3.12/library/tkinter.html) | 原生窗口、事件循环与线程模型；本机实际Tk8.6.12。Tk控件由主线程更新，后台线程通过队列提交结果。 |
+| [OpenCV VideoCapture](https://docs.opencv.org/4.13.0/d8/dfe/classcv_1_1VideoCapture.html) | 摄像头打开、读取和释放的API语义；文档4.13，实际本机使用OpenCV5并实测DirectShow路径，不能混写版本。 |
+| [Pillow ImageTk](https://pillow.readthedocs.io/en/stable/reference/ImageTk.html) | 将图像转换为Tk可显示的PhotoImage；实际Pillow12.3.0。 |
+| [ONNX Runtime图优化](https://onnxruntime.ai/docs/performance/model-optimizations/graph-optimizations.html) | ORT图优化等级与后端限制；ByteNN概念模拟的公开实现依据。 |
+| [PyTorch Intel GPU支持](https://github.com/pytorch/pytorch/blob/main/docs/source/notes/get_start_xpu.md) | XPU官方软件栈与支持设备；实际兼容性由本机算子和训练反向传播检查补充。 |
+| [Anaconda静默安装](https://www.anaconda.com/docs/getting-started/advanced-install/silent-mode) | 当前用户安装、PATH和默认Python选项；最终使用的NoRegistry/NoShortcuts由下载安装器帮助输出另核验。 |
 | [MMDetection 3.3.0 版本断言](https://github.com/open-mmlab/mmdetection/blob/v3.3.0/mmdet/__init__.py) | `2.0.0rc4 <= mmcv < 2.2.0`，`0.7.1 <= mmengine < 1.0.0`。并不是任意最新版本都兼容。 |
 | [MMDetection 安装](https://github.com/open-mmlab/mmdetection/blob/main/docs/en/get_started.md) | Python、PyTorch、MMCV、MMEngine 的安装顺序及推理流程。 |
 | [MMCV 安装](https://github.com/open-mmlab/mmcv/blob/main/docs/en/get_started/installation.md) | wheel 必须匹配操作系统、Python、PyTorch、CUDA；下载 `.tar.gz` 表示可能进入源码编译。`mmcv-lite` 不提供全部编译算子。 |
@@ -33,9 +39,13 @@
 | MS-Celeb-1M | [微软研究历史项目页](https://www.microsoft.com/en-us/research/project/ms-celeb-1m-challenge-recognizing-one-million-celebrities-real-world/)；[原始论文](https://arxiv.org/abs/1607.08221) | 历史页保留 2016 年竞赛说明，不是本次有效下载/授权凭证。本项目没有获得可核验的授权训练包，不从未知镜像补齐。若用合法自建身份数据，必须在报告写成替代数据实验。 |
 | WIDER FACE | [作者论文](https://arxiv.org/abs/1511.06523)；[作者项目页](http://shuoyang1213.me/WIDERFACE/)；[torchvision 官方下载器](https://github.com/pytorch/vision/blob/main/torchvision/datasets/widerface.py) | 原站本次网页工具不可达；维护方下载器保留 Google Drive 入口。需训练图、标注与独立验证图；不能把几张演示图的 AP 写成 WIDER 全集 mAP。 |
 | 300-W | [Imperial College iBUG 官方页](https://ibug.doc.ic.ac.uk/resources/300-W/) | 研究用途、禁止商业训练；68 点，原标注从 1 开始计数；评估 NME 使用外眼角距离。官方页中的 600 张 challenge test 与常见训练集不是同一个拆分，必须记清。 |
-| COFW | [作者论文页面](https://www.vision.caltech.edu/~xpburgos/ICCV13/) | 可替代 300-W 的研究方向；标注数量和遮挡处理必须依具体协议，不能混用 300-W 的 68 点指标。 |
+| COFW | [当前官方CaltechDATA记录](https://data.caltech.edu/records/bc0bf-nc666)；[DOI 10.22002/D1.20099](https://doi.org/10.22002/D1.20099)；[Perona Lab数据目录](https://www.vision.caltech.edu/datasets/) | 旧作者页面已不可达，以当前记录为准。官方灰度包COFW.zip MD5为e092eeab9d0790674f86047880410e5a，彩色包为8b21d126c4e1fb307cb463578eef0511。本次普通下载中断/校验失败，未用于训练，见reports/cofw-access.json。原始29点与300-W的68点不可混用。 |
 
 后续实际获取：WIDER采用作者页面明确链接的 [CUHK-CSE维护镜像](https://huggingface.co/datasets/CUHK-CSE/wider_face)，按固定提交和ZIP Range下载32训练图/16验证图，数据在本地保留，镜像标示CC BY-NC-ND-4.0；统计与来源清单随实验记录。300-W训练相关入口为 [官方facial point annotations页面](https://ibug.doc.ic.ac.uk/resources/facial-point-annotations/)，下载表单需要姓名、邮箱和机构，未代填虚构身份。不要把可直接下载的600张challenge测试图当成正式训练集。
+
+CelebA原Google Drive下载出现配额限制后，本次采用[StarGAN官方项目download.sh](https://github.com/yunjey/stargan/blob/master/download.sh)明确链接的[配套图片包](https://www.dropbox.com/s/d1kjpkqklf0uw77/celeba.zip?dl=1)和[128×128五属性预训练权重包](https://www.dropbox.com/s/7e966qq0nlxwte4/celeba-128x128-5attrs.zip?dl=1)。这是算法作者项目的配套下载源，不是CelebA数据作者官方镜像。完整ZIP未有作者公布哈希，记录本次观察SHA256和ZIP CRC；内部原属性表MD5与torchvision公布值75e246fa4810816ffd6ee81facbd244c一致。完整202599张图片文件名与属性表对应。原图、生成图和权重仅保留本地，未因代码开源而更改数据许可。
+
+StarGAN实验协议依据[官方data_loader.py](https://github.com/yunjey/stargan/blob/master/data_loader.py)的seed1234打乱、前1999张测试划分，以及[官方solver.py](https://github.com/yunjey/stargan/blob/master/solver.py)中的BCE按batch归一化、patch梯度惩罚和测试运行方式。复原当前作者代码不等于独立审计公开权重的历史训练数据。指标使用[torch-fidelity官方实现](https://github.com/toshas/torch-fidelity)与其[Inception兼容特征器](https://github.com/toshas/torch-fidelity/blob/master/torch_fidelity/feature_extractor_inceptionv3.py)所列权重，实际安装0.4.0。前后主比较均XPU生成、同torch2.14+xpu构建、CPU计算FID/IS；旧CPU前模型报告保留为历史。特征权重SHA256、输入规模与参数见reports/stargan-experiment/report.json。
 
 LFW 镜像校验值来自 scikit-learn 维护代码：
 

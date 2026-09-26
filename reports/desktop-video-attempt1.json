@@ -1,0 +1,54 @@
+{
+  "output": "本地桌面程序演示.mp4",
+  "codec": "H.264",
+  "pixel_format": "yuv420p",
+  "width": 1200,
+  "height": 900,
+  "playback_fps": 5,
+  "frames": 135,
+  "playback_seconds": 27.0,
+  "capture_wall_seconds": 29.049293400006718,
+  "camera_opened": false,
+  "input": "public NASA sample only",
+  "scope": "Actual Tk window captures and explicitly requested native OpenGL framebuffer captures. 5 FPS time grid repeats the previous frame if capture is late; not algorithm throughput evidence.",
+  "events": [
+    {
+      "title": "原图与检测：公开示例逐项处理",
+      "frame": 0
+    },
+    {
+      "title": "眼镜：公开示例逐项处理",
+      "frame": 11
+    },
+    {
+      "title": "皇冠：公开示例逐项处理",
+      "frame": 26
+    },
+    {
+      "title": "美颜：公开示例逐项处理",
+      "frame": 40
+    },
+    {
+      "title": "口红：公开示例逐项处理",
+      "frame": 55
+    },
+    {
+      "title": "组合特效：公开示例逐项处理",
+      "frame": 66
+    },
+    {
+      "title": "双图验证：同图比较仅检查数值一致性",
+      "frame": 79
+    },
+    {
+      "title": "StarGAN：左侧输入裁剪，右侧目标属性合成",
+      "frame": 97
+    },
+    {
+      "title": "3DDFA：当前公开图像的三维重建",
+      "frame": 121
+    }
+  ],
+  "error": "UnidentifiedImageError: cannot identify image file 'C:\\\\Users\\\\0\\\\Documents\\\\Codex\\\\2026-09-26\\\\plugin-computer-use-openai-bundled-github\\\\outputs\\\\face-vision-lab\\\\runs\\\\desktop-video-review\\\\current-opengl.png'",
+  "camera_released": true
+}

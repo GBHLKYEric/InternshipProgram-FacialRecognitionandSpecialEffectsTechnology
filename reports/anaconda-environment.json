@@ -1,0 +1,82 @@
+{
+  "status": "installed_and_functionally_verified",
+  "checked_at_utc": "2026-09-26T14:06:41.0184300Z",
+  "installer": {
+    "version": "2026.07-1",
+    "url": "https://repo.anaconda.com/archive/Anaconda3-2026.07-1-Windows-x86_64.exe",
+    "sha256": "b545f4bd8ab3bf32d99002a0779a887668ebfe479ee32ecbf060375670d5ee09",
+    "bytes": 1112492048,
+    "local_path": "C:\\Users\\0\\Documents\\Codex\\2026-09-26\\plugin-computer-use-openai-bundled-github\\work\\installers\\Anaconda3-2026.07-1-Windows-x86_64.exe",
+    "official_hash_source": "https://repo.anaconda.com/archive/",
+    "authenticode_status": "Valid",
+    "signer": "CN=\"Anaconda, Inc.\", O=\"Anaconda, Inc.\", L=Austin, S=Texas, C=US, SERIALNUMBER=5073497, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Delaware, OID.1.3.6.1.4.1.311.60.2.1.3=US"
+  },
+  "installation": {
+    "path": "C:\\Users\\0\\Documents\\Codex\\2026-09-26\\plugin-computer-use-openai-bundled-github\\work\\anaconda",
+    "project_environment": "C:\\Users\\0\\Documents\\Codex\\2026-09-26\\plugin-computer-use-openai-bundled-github\\work\\conda-face-vision",
+    "performed": true,
+    "add_to_path": false,
+    "register_default_python": false,
+    "conda_init": false,
+    "no_registry": true,
+    "no_shortcuts": true,
+    "registry_note": "The exact installer /S /? confirms support for /NoRegistry=1; this additional flag disables installer registry modifications.",
+    "physical_path": "C:\\Users\\0\\Documents\\Codex\\work\\fv-ana-260926",
+    "physical_project_environment": "C:\\Users\\0\\Documents\\Codex\\work\\fv-env-260926",
+    "long_paths_policy_modified": false,
+    "compatibility_notes": [
+      "On this computer LongPathsEnabled=0 and the 2026.07-1 installer rejected the 93-character prefix; its reported maximum was 54.",
+      "The installer also rejected NTFS 8.3 names containing ~. A short junction targeting a long physical directory still failed because conda resolved the physical path.",
+      "The successful strategy uses physical short directories under Documents/Codex/work and convenience junctions in the thread work directory. No long-path registry policy was changed."
+    ]
+  },
+  "terms": {
+    "accepted": true,
+    "url": "https://www.anaconda.com/legal/terms/terms-of-service",
+    "installer_notice_source": "https://repo.anaconda.com/archive/",
+    "main_channel": "https://repo.anaconda.com/pkgs/main",
+    "scope": "Anaconda Distribution Installer and main package repository; no paid plan or account signup",
+    "free_personal_use": "Section 1(a)(1): individual personal, non-commercial use. Institutional teaching has separate eligibility and Academic EULA conditions."
+  },
+  "validation": {
+    "python": "3.12.14 | packaged by Anaconda, Inc. | (main, Aug 27 2026, 14:37:13) [MSC v.1942 64 bit (AMD64)]",
+    "executable": "C:\\Users\\0\\Documents\\Codex\\work\\fv-env-260926\\python.exe",
+    "prefix": "C:\\Users\\0\\Documents\\Codex\\work\\fv-env-260926",
+    "torch": "2.14.0+cpu",
+    "opencv": "5.0.0",
+    "numpy": "2.5.3",
+    "jupyterlab": "4.6.4",
+    "cpu_autograd": true,
+    "sample_faces": 1,
+    "tk_patchlevel": "8.6.15",
+    "tk_window_create_update_destroy": true,
+    "pillow_imagetk_binding": true,
+    "camera_opened": false,
+    "notebook_kernel_execution": true,
+    "notebook_output": "C:\\Users\\0\\Documents\\Codex\\work\\fv-env-260926\n6",
+    "torch_fidelity": "0.4.0",
+    "pip_check": true,
+    "jsonpointer_record_and_files_complete": true,
+    "torchvision": "0.29.0+cpu",
+    "pillow": "12.3.0",
+    "pyglet": "2.1.16"
+  },
+  "anaconda_base": {
+    "installer_metadata": {
+      "name": "Anaconda3",
+      "version": "2026.07-1",
+      "platform": "win-64",
+      "type": "exe"
+    },
+    "conda_version": "conda 26.5.3",
+    "base_python": "3.14.6 | packaged by Anaconda, Inc. | (main, Jul  9 2026, 14:29:05) [MSC v.1942 64 bit (AMD64)]"
+  },
+  "verified_at_utc": "2026-09-26T14:10:43.476242+00:00",
+  "dependency_supplement_verified_at_utc": "2026-09-26T14:14:23.385720+00:00",
+  "native_viewer_dependency_supplement": {
+    "verified_at_utc": "2026-09-26T14:31:42.256783+00:00",
+    "package": "pyglet==2.1.16",
+    "pip_check_output": "No broken requirements found.",
+    "scope": "Package import and dependency check only; native OpenGL rendering separately tested in main .venv."
+  }
+}

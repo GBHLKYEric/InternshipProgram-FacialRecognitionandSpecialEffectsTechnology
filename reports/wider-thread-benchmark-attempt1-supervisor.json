@@ -1,0 +1,14 @@
+{
+  "status": "failed",
+  "main_container": "face-vision-wider-full",
+  "benchmark_container": "face-vision-wider-thread-bench",
+  "started_utc": "2026-09-26T14:24:02.805913+00:00",
+  "checkpoint": "/project/runs/wider-mmdet-full-stable/iter_2300.pth",
+  "error": "Command '['wsl', '-d', 'Ubuntu-24.04', '-u', 'root', '--', 'docker', 'run', '--rm', '--name', 'face-vision-wider-thread-bench', '--cpus', '8', '-e', 'OMP_NUM_THREADS=8', '-e', 'MKL_NUM_THREADS=8', '-e', 'OPENBLAS_NUM_THREADS=1', '-v', '/mnt/c/Users/0/Documents/Codex/2026-09-26/plugin-computer-use-openai-bundled-github/outputs/face-vision-lab:/project', 'face-vision-mmdet:3.3', 'python', 'scripts/mmdet_thread_benchmark.py', '--checkpoint', '/project/runs/wider-mmdet-full-stable/iter_2300.pth']' returned non-zero exit status 1.",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\0\\Documents\\Codex\\2026-09-26\\plugin-computer-use-openai-bundled-github\\outputs\\face-vision-lab\\scripts\\mmdet_thread_benchmark_host.py\", line 42, in main\n    subprocess.run(command, check=True, timeout=180)\n  File \"C:\\Users\\0\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\subprocess.py\", line 571, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['wsl', '-d', 'Ubuntu-24.04', '-u', 'root', '--', 'docker', 'run', '--rm', '--name', 'face-vision-wider-thread-bench', '--cpus', '8', '-e', 'OMP_NUM_THREADS=8', '-e', 'MKL_NUM_THREADS=8', '-e', 'OPENBLAS_NUM_THREADS=1', '-v', '/mnt/c/Users/0/Documents/Codex/2026-09-26/plugin-computer-use-openai-bundled-github/outputs/face-vision-lab:/project', 'face-vision-mmdet:3.3', 'python', 'scripts/mmdet_thread_benchmark.py', '--checkpoint', '/project/runs/wider-mmdet-full-stable/iter_2300.pth']' returned non-zero exit status 1.\n",
+  "benchmark_cleanup_returncode": 1,
+  "unpause_returncode": 0,
+  "unpause_output": "face-vision-wider-full\n",
+  "main_process_paused_seconds": 6.614415199990617,
+  "finished_utc": "2026-09-26T14:24:09.792364+00:00"
+}

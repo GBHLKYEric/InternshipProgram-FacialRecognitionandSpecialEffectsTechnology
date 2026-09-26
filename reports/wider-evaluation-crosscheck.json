@@ -1,0 +1,22 @@
+{
+  "source": "https://raw.githubusercontent.com/opencv/opencv_zoo/main/tools/eval/datasets/widerface.py",
+  "reference_source_sha256": "94461193a8a263af97cf34a0d7f9263edab10dd45e042d0b79bd1d219a0c6c5f",
+  "reference_AP": [
+    0.884422100812215,
+    0.8656839175873738,
+    0.7504020894685941
+  ],
+  "project_AP": [
+    0.884422100812215,
+    0.8656839175873738,
+    0.7504020894685941
+  ],
+  "absolute_differences": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "all_differences_below_1e-12": true,
+  "seconds": 44.80303299998923,
+  "scope": "Same complete real 3226-image predictions; reference evaluation functions only, no fabricated empty-image detections"
+}
