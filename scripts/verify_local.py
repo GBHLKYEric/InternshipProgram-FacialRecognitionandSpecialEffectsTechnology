@@ -20,7 +20,8 @@ def request(path, value=None, extra=None):
 
 def main():
     checks=[]
-    for path in ['/','/health','/tutorial','/3d','/sample.jpg']:
+    for path in ['/','/health','/tutorial','/tutorial.html','/code-map.html',
+                 '/code-compendium.html','/project-report.html','/3d','/sample.jpg']:
         status,body,mime=request(path);assert status==200,(path,status)
         checks.append({'path':path,'status':status,'bytes':len(body),'content_type':mime})
     assert request('/not-here')[0]==404

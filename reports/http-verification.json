@@ -2,7 +2,7 @@
   {
     "path": "/",
     "status": 200,
-    "bytes": 10444,
+    "bytes": 10753,
     "content_type": "text/html; charset=utf-8"
   },
   {
@@ -14,7 +14,31 @@
   {
     "path": "/tutorial",
     "status": 200,
-    "bytes": 46395,
+    "bytes": 60775,
+    "content_type": "text/html; charset=utf-8"
+  },
+  {
+    "path": "/tutorial.html",
+    "status": 200,
+    "bytes": 60775,
+    "content_type": "text/html; charset=utf-8"
+  },
+  {
+    "path": "/code-map.html",
+    "status": 200,
+    "bytes": 18761,
+    "content_type": "text/html; charset=utf-8"
+  },
+  {
+    "path": "/code-compendium.html",
+    "status": 200,
+    "bytes": 222854,
+    "content_type": "text/html; charset=utf-8"
+  },
+  {
+    "path": "/project-report.html",
+    "status": 200,
+    "bytes": 15052,
     "content_type": "text/html; charset=utf-8"
   },
   {
@@ -33,7 +57,7 @@
     "path": "/process",
     "status": 200,
     "faces": 1,
-    "pipeline_ms": 57.31
+    "pipeline_ms": 56.94
   },
   {
     "path": "/verify",

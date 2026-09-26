@@ -12,7 +12,7 @@ import textwrap
 from pathlib import Path
 
 import markdown
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, NavigableString
 from pptx import Presentation
 from pptx.dml.color import RGBColor
 from pptx.util import Inches, Pt
@@ -39,7 +39,8 @@ def rendered(source: str) -> str:
 
 def make_html(source: Path, destination: Path, title: str):
     body = rendered('[TOC]\n\n'+source.read_text(encoding='utf-8'))
-    body = re.sub(r'href="([a-z-]+)\.md([#"][^"]*)', r'href="\1.html\2', body)
+    body = re.sub(r'href="([a-z-]+)\.md(?=[#"])', r'href="\1.html', body)
+    body = body.replace('href="tutorial-zh.html', 'href="tutorial.html')
     destination.write_text(f'<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{html.escape(title)}</title><style>{CSS}</style><body>{body}</body></html>', encoding='utf-8')
 
 
@@ -47,7 +48,8 @@ def source_files():
     result = []
     for folder in ['research','vision3d','scripts','tests','web','notebooks']:
         result.extend(p for p in (ROOT/folder).rglob('*') if p.is_file() and (p.suffix in {'.py','.html','.ipynb','.sh','.ps1','.yml','.yaml','.Dockerfile'} or p.name=='Dockerfile') and '__pycache__' not in p.parts)
-    result.extend(p for p in ROOT.iterdir() if p.is_file() and (p.suffix in {'.py','.txt','.ps1','.toml','.yml'} or p.name in {'Dockerfile','.dockerignore','.gitignore'}))
+    result.extend(p for p in ROOT.iterdir() if p.is_file() and (p.suffix in {'.py','.txt','.ps1','.toml','.yml'} or p.name in {'Dockerfile','.dockerignore','.gitignore','.gitattributes'}))
+    result.append(ROOT/'models/registry.json')
     return sorted(set(result))
 
 
@@ -63,6 +65,7 @@ def use_of(path: Path) -> str:
     if rel=='Dockerfile': return 'docker build --target hello 或 --target lab；PDF任务1.3。'
     if rel=='hello_world.py': return 'Docker hello镜像启动命令；PDF任务1.2/1.3。保留了旧仓库hello.py目录。'
     if rel=='start.ps1': return 'Windows本地启动与环境准备入口；项目根执行 powershell -File start.ps1。'
+    if rel=='models/registry.json': return 'scripts/fetch_models.py 和 vision3d/reconstruct.py 读取；固定第三方模型来源、版本与校验值。'
     return '依赖固定、打包或版本控制配置；由 pip、Docker 或 Git 读取。'
 
 
@@ -116,8 +119,18 @@ def pdf_from_markdown(source: Path, destination: Path):
     soup=BeautifulSoup(rendered(source.read_text(encoding='utf-8')),'html.parser')
     story=[]
     def inline(node):
-        s=html.escape(node.get_text())
-        return s.replace('\n','<br/>')
+        def child_markup(child):
+            if isinstance(child, NavigableString):
+                return html.escape(str(child)).replace('\n', '<br/>')
+            contents = ''.join(child_markup(part) for part in child.children)
+            if child.name in {'strong', 'b'}:
+                return f'<b>{contents}</b>'
+            if child.name in {'em', 'i'}:
+                return f'<i>{contents}</i>'
+            if child.name == 'a' and child.get('href', '').startswith(('https://', 'http://')):
+                return f'<link href="{html.escape(child["href"], quote=True)}" color="#28674c">{contents}</link>'
+            return contents
+        return ''.join(child_markup(child) for child in node.children)
     for node in soup.children:
         if not getattr(node,'name',None): continue
         name=node.name
@@ -152,6 +165,7 @@ def slides():
     metrics=json.loads((REPORTS/'demo-metrics.json').read_text(encoding='utf-8'))
     lfw_path=REPORTS/'lfw-sface-largest.json'
     lfw=json.loads(lfw_path.read_text(encoding='utf-8')) if lfw_path.exists() else json.loads((REPORTS/'lfw-sface.json').read_text(encoding='utf-8'))
+    opt=json.loads((REPORTS/'arcface-pilot/comparison.json').read_text(encoding='utf-8'))
     prs=Presentation();prs.slide_width=Inches(13.333);prs.slide_height=Inches(7.5)
     entries=[
       ('人脸视觉 从原理到可运行系统',['本地 CPU 应用 · 训练与评估管线 · 3D 重建','面向高三学生的可复现学习项目','独立教育项目，与字节跳动无隶属关系'],None),
@@ -160,11 +174,12 @@ def slides():
       ('真实运行界面',['六种显示模式；本机图片与摄像头路径','明确区分检测耗时与浏览器端到端延迟'], 'reports/app-screenshot.png'),
       ('环境与可重复性',['Windows 11 · Intel Core Ultra 5 225H · 31.5 GB RAM · CPU','Python 3.12.14 · PyTorch 2.14 CPU · OpenCV 5 · ONNX Runtime 1.30','独立环境、版本记录、模型哈希；Docker Hello World 已运行'],None),
       ('人脸识别与 ArcFace',['对齐后的人脸 → ResNet50 → L2 归一化特征','ArcFace 训练正类 logit：s cos(θ + m)，使类间更易区分','P-K 采样与 batch-hard triplet 辅助；实测反向传播及保存重读'],None),
+      ('真实训练：结果尚未达到目标',['52 个身份 / 133 张训练图；3 epochs；测试身份名无交集','平均训练损失：40.112 → 36.925 → 36.126',f'自训 FP32 完整 LFW：{opt["accuracy"]["fp32"]["accuracy_mean"]*100:.4f}%；小数据短训未收敛'],None),
       ('LFW 的真实验证结果',[f'完整 6,000 对 / 10 折；准确率 {lfw.get("accuracy_mean",0)*100:.2f}%','阈值仅由其余训练折确定；测试折不选阈值','预训练 SFace 基线；不能归属于本项目从零训练的 ResNet50'],None),
       ('一次失败怎样变成有效实验',['首轮严格单脸策略：72.25%；全部失败都来自多脸图','原图包含背景人脸；应用验证与数据集主体选择规则不同','保留失败报告，按最大主体规则独立重跑；不删除困难样本'], 'reports/lfw-detection-audit.jpg'),
       ('动态特效与性能',[f'演示视频 18 秒 / 360 帧；{metrics["frames_with_face"]} 帧检测到人脸',f'混合特效管线中位数 {metrics["pipeline_ms_median"]:.2f} ms，P95 {metrics["pipeline_ms_p95"]:.2f} ms','公开静态样本经仿射运动；不是摄像头实测或移动端性能'], 'reports/effect-all.jpg'),
       ('从单张照片重建三维',['3DDFA_V2：预测 62 参数，重建 38,365 顶点 / 76,073 三角面','导出 OBJ，多视角图，以及 WebGL 可旋转展示','单目统计估计，无真实尺度；没有 3D 真值误差测试'], 'reports/3d/multiview.png'),
-      ('量化与 ONNX 不应只报好消息',['随机权重管线实测：ONNX 与 PyTorch 最大误差约 1.7×10⁻⁷','Linear 动态 int8：52.65 ms；FP32：48.84 ms，本轮没有加速','卷积占据 ResNet 主体；特征误差不等于识别准确率'],None),
+      ('真实训练模型的部署对比',[f'批量 8 / 2 线程：FP32 {opt["fp32"]["median_ms"]:.2f} ms；int8 {opt["dynamic_linear_int8"]["median_ms"]:.2f} ms',f'ONNX {opt["onnx"]["median_ms"]:.2f} ms；该设置下两者均未加速',f'int8 完整 LFW：{opt["accuracy"]["dynamic_linear_int8"]["accuracy_mean"]*100:.4f}%；微小变化不能证明更准确'],None),
       ('研究训练的完整路径',['WIDER → COCO 标注 → MMDetection；300-W → 关键点 → NME','身份文件夹 → ArcFace；CelebA 属性 → StarGAN → FID/IS','受数据授权、版本依赖与算力约束；逐项状态见验收矩阵'],None),
       ('版本与环境问题怎样解决',['缺系统目录变量 → 只补任务子进程；SSL/DNS/venv 恢复','Git LFS 指针 → 官方真实资产 URL + SHA256','旧 3D 代码 → 严格权重加载、ONNX + NumPy + WebGL'],None),
       ('专业学习路线与源码导航',['18 课：Python → 图像/向量 → 网络 → 评估 → 生成/3D → 部署','每课：准确概念、直观解释、运行步骤、练习与答案','全部源码汇编附用途、调用入口、函数行号和哈希'],None),

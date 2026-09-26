@@ -1,0 +1,4 @@
+* text=auto eol=lf
+# Preserve whitespace emitted by plotting tools and original training logs.
+reports/*.svg -whitespace
+reports/*log.txt -whitespace

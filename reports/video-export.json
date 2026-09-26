@@ -1,0 +1,12 @@
+{
+  "file": "\u9879\u76ee\u6f14\u793a\u89c6\u9891.mp4",
+  "codec": "H.264",
+  "pixel_format": "yuv420p",
+  "frames_decoded": 360,
+  "fps": 20.0,
+  "width": 1024.0,
+  "height": 620.0,
+  "seconds": 18.0,
+  "ffmpeg": "7.1-essentials_build-www.gyan.dev",
+  "scope": "Re-encoding only. Model timing remains the original measured run."
+}

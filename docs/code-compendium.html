@@ -4,10 +4,12 @@
 <li><a href="#_2">如何阅读</a></li>
 <li><a href="#_3">文件目录</a></li>
 <li><a href="#dockerignore">.dockerignore</a></li>
+<li><a href="#gitattributes">.gitattributes</a></li>
 <li><a href="#gitignore">.gitignore</a></li>
 <li><a href="#apppy">app.py</a></li>
 <li><a href="#dockerfile">Dockerfile</a></li>
 <li><a href="#hello_worldpy">hello_world.py</a></li>
+<li><a href="#modelsregistryjson">models/registry.json</a></li>
 <li><a href="#notebooks01-first-vision-labipynb">notebooks/01-first-vision-lab.ipynb</a><ul>
 <li><a href="#2">第 2 个单元</a></li>
 <li><a href="#4">第 4 个单元</a></li>
@@ -29,13 +31,16 @@
 <li><a href="#researchrecognitionpy">research/recognition.py</a></li>
 <li><a href="#researchsmokepy">research/smoke.py</a></li>
 <li><a href="#researchstarganpy">research/stargan.py</a></li>
+<li><a href="#scriptsanalyze_lfwpy">scripts/analyze_lfw.py</a></li>
 <li><a href="#scriptsbuild_deliverablespy">scripts/build_deliverables.py</a></li>
 <li><a href="#scriptsdemopy">scripts/demo.py</a></li>
 <li><a href="#scriptsdoctorpy">scripts/doctor.py</a></li>
+<li><a href="#scriptsexport_videopy">scripts/export_video.py</a></li>
 <li><a href="#scriptsfetch_modelspy">scripts/fetch_models.py</a></li>
 <li><a href="#scriptsmake_notebookpy">scripts/make_notebook.py</a></li>
 <li><a href="#scriptsmmdetdockerfile">scripts/mmdet.Dockerfile</a></li>
 <li><a href="#scriptsmmdet_pilotpy">scripts/mmdet_pilot.py</a></li>
+<li><a href="#scriptsrender_documentspy">scripts/render_documents.py</a></li>
 <li><a href="#scriptsverify_localpy">scripts/verify_local.py</a></li>
 <li><a href="#startps1">start.ps1</a></li>
 <li><a href="#teststest_apppy">tests/test_app.py</a></li>
@@ -66,7 +71,12 @@
 <tbody>
 <tr>
 <td><code>.dockerignore</code></td>
-<td style="text-align: right;">9</td>
+<td style="text-align: right;">12</td>
+<td>依赖固定、打包或版本控制配置；由 pip、Docker 或 Git 读取。</td>
+</tr>
+<tr>
+<td><code>.gitattributes</code></td>
+<td style="text-align: right;">4</td>
 <td>依赖固定、打包或版本控制配置；由 pip、Docker 或 Git 读取。</td>
 </tr>
 <tr>
@@ -76,12 +86,12 @@
 </tr>
 <tr>
 <td><code>app.py</code></td>
-<td style="text-align: right;">250</td>
+<td style="text-align: right;">251</td>
 <td>本地网页服务；web/index.html 调用 /process 和 /verify。PDF任务2.4、4.3、9.2、9.3及系统集成。</td>
 </tr>
 <tr>
 <td><code>Dockerfile</code></td>
-<td style="text-align: right;">16</td>
+<td style="text-align: right;">17</td>
 <td>docker build --target hello 或 --target lab；PDF任务1.3。</td>
 </tr>
 <tr>
@@ -90,13 +100,18 @@
 <td>Docker hello镜像启动命令；PDF任务1.2/1.3。保留了旧仓库hello.py目录。</td>
 </tr>
 <tr>
+<td><code>models/registry.json</code></td>
+<td style="text-align: right;">62</td>
+<td>scripts/fetch_models.py 和 vision3d/reconstruct.py 读取；固定第三方模型来源、版本与校验值。</td>
+</tr>
+<tr>
 <td><code>notebooks/01-first-vision-lab.ipynb</code></td>
 <td style="text-align: right;">240</td>
 <td>Jupyter中的循序实验；PDF任务1.4、2.1、2.4和OpenCV入门。</td>
 </tr>
 <tr>
 <td><code>requirements-docs.txt</code></td>
-<td style="text-align: right;">7</td>
+<td style="text-align: right;">9</td>
 <td>依赖固定、打包或版本控制配置；由 pip、Docker 或 Git 读取。</td>
 </tr>
 <tr>
@@ -165,8 +180,13 @@
 <td>研究训练与评估命令使用；详见 research/README.md 和 docs/code-map.md。对应PDF任务3.2–7.3。</td>
 </tr>
 <tr>
+<td><code>scripts/analyze_lfw.py</code></td>
+<td style="text-align: right;">52</td>
+<td>模型下载、环境检查、数据准备或交付物生成；本文件开头docstring和下方函数索引提供具体入口。</td>
+</tr>
+<tr>
 <td><code>scripts/build_deliverables.py</code></td>
-<td style="text-align: right;">214</td>
+<td style="text-align: right;">229</td>
 <td>模型下载、环境检查、数据准备或交付物生成；本文件开头docstring和下方函数索引提供具体入口。</td>
 </tr>
 <tr>
@@ -177,6 +197,11 @@
 <tr>
 <td><code>scripts/doctor.py</code></td>
 <td style="text-align: right;">60</td>
+<td>模型下载、环境检查、数据准备或交付物生成；本文件开头docstring和下方函数索引提供具体入口。</td>
+</tr>
+<tr>
+<td><code>scripts/export_video.py</code></td>
+<td style="text-align: right;">39</td>
 <td>模型下载、环境检查、数据准备或交付物生成；本文件开头docstring和下方函数索引提供具体入口。</td>
 </tr>
 <tr>
@@ -200,8 +225,13 @@
 <td>模型下载、环境检查、数据准备或交付物生成；本文件开头docstring和下方函数索引提供具体入口。</td>
 </tr>
 <tr>
+<td><code>scripts/render_documents.py</code></td>
+<td style="text-align: right;">50</td>
+<td>模型下载、环境检查、数据准备或交付物生成；本文件开头docstring和下方函数索引提供具体入口。</td>
+</tr>
+<tr>
 <td><code>scripts/verify_local.py</code></td>
-<td style="text-align: right;">42</td>
+<td style="text-align: right;">43</td>
 <td>模型下载、环境检查、数据准备或交付物生成；本文件开头docstring和下方函数索引提供具体入口。</td>
 </tr>
 <tr>
@@ -251,11 +281,11 @@
 </tr>
 </tbody>
 </table>
-<p>共 37 个源文件，2960 行文本（Notebook按JSON行统计）。</p>
+<p>共 42 个源文件，3190 行文本（Notebook按JSON行统计）。</p>
 <h2 id="dockerignore">.dockerignore</h2>
 <p><strong>使用位置：</strong> 依赖固定、打包或版本控制配置；由 pip、Docker 或 Git 读取。</p>
 <p><a href="https://github.com/GBHLKYEric/face_ai_project/blob/main/.dockerignore">GitHub中的文件</a></p>
-<p>SHA256：<code>f007018a9f97243fceba0724ac2b6ce9fcf272a6a462856d48d7134688f9c31b</code></p>
+<p>SHA256：<code>47d460af3be8882896d57bc14fe0cbd3cb6beecbdefea3182920bb3feb0d3f82</code></p>
 <pre><code class="language-text">.venv
 .git
 data
@@ -265,6 +295,19 @@ reports
 *.pdf
 *.pptx
 __pycache__
+models/3ddfa
+models/*.onnx
+assets
+
+</code></pre>
+<h2 id="gitattributes">.gitattributes</h2>
+<p><strong>使用位置：</strong> 依赖固定、打包或版本控制配置；由 pip、Docker 或 Git 读取。</p>
+<p><a href="https://github.com/GBHLKYEric/face_ai_project/blob/main/.gitattributes">GitHub中的文件</a></p>
+<p>SHA256：<code>aeea71fd99d9650aa68a8f84c98d78c2063c3a75365f177a606ff79a3eb7c44e</code></p>
+<pre><code class="language-text">* text=auto eol=lf
+# Preserve whitespace emitted by plotting tools and original training logs.
+reports/*.svg -whitespace
+reports/*log.txt -whitespace
 
 </code></pre>
 <h2 id="gitignore">.gitignore</h2>
@@ -315,8 +358,8 @@ assets/*.png
 <h2 id="apppy">app.py</h2>
 <p><strong>使用位置：</strong> 本地网页服务；web/index.html 调用 /process 和 /verify。PDF任务2.4、4.3、9.2、9.3及系统集成。</p>
 <p><a href="https://github.com/GBHLKYEric/face_ai_project/blob/main/app.py">GitHub中的文件</a></p>
-<p>SHA256：<code>c6cc5f2e885313173dbf3f9a88b68e87421ac82bdf991f1de1c3dbeba8869939</code></p>
-<p><strong>代码定位：</strong> <code>decode_image</code> 第19行；<code>encode_image</code> 第37行；<code>Vision</code> 第44行；<code>render_effect</code> 第85行；<code>Handler</code> 第143行；<code>main</code> 第230行。</p>
+<p>SHA256：<code>fcc5658c46910d10b637b1c6216d35b45de0dc052f71829a5f7d7e05b816ed93</code></p>
+<p><strong>代码定位：</strong> <code>decode_image</code> 第19行；<code>encode_image</code> 第37行；<code>Vision</code> 第44行；<code>render_effect</code> 第85行；<code>Handler</code> 第143行；<code>main</code> 第231行。</p>
 <pre><code class="language-python">&quot;&quot;&quot;Local face detection, explicit pair verification, and effects. Run: python app.py.&quot;&quot;&quot;
 from __future__ import annotations
 
@@ -496,6 +539,7 @@ class Handler(BaseHTTPRequestHandler):
         allowed_files = {&quot;/&quot;: (ROOT / &quot;web/index.html&quot;, &quot;text/html; charset=utf-8&quot;),
                          &quot;/sample.jpg&quot;: (ROOT / &quot;assets/sample.jpg&quot;, &quot;image/jpeg&quot;),
                          &quot;/tutorial&quot;: (ROOT / &quot;docs/tutorial.html&quot;, &quot;text/html; charset=utf-8&quot;),
+                         &quot;/tutorial.html&quot;: (ROOT / &quot;docs/tutorial.html&quot;, &quot;text/html; charset=utf-8&quot;),
                          &quot;/3d&quot;: (ROOT / &quot;reports/3d/viewer.html&quot;, &quot;text/html; charset=utf-8&quot;),
                          &quot;/face.obj&quot;: (ROOT / &quot;reports/3d/face.obj&quot;, &quot;text/plain; charset=utf-8&quot;),
                          &quot;/multiview.png&quot;: (ROOT / &quot;reports/3d/multiview.png&quot;, &quot;image/png&quot;)}
@@ -572,7 +616,7 @@ if __name__ == &quot;__main__&quot;:
 <h2 id="dockerfile">Dockerfile</h2>
 <p><strong>使用位置：</strong> docker build --target hello 或 --target lab；PDF任务1.3。</p>
 <p><a href="https://github.com/GBHLKYEric/face_ai_project/blob/main/Dockerfile">GitHub中的文件</a></p>
-<p>SHA256：<code>ec1fd3c97493505d52a9256b987ef2ead772c79d7523779eee264b2fbc699996</code></p>
+<p>SHA256：<code>cf9d16c65a6c54c95e11b341bac5f3408cf9b23243dc4d50993b28d4dedacc96</code></p>
 <pre><code class="language-text">FROM python:3.12-slim AS hello
 WORKDIR /app
 COPY hello_world.py .
@@ -586,7 +630,8 @@ COPY app.py .
 COPY scripts scripts
 COPY web web
 COPY docs docs
-COPY models models
+COPY models/registry.json models/registry.json
+COPY models/licenses models/licenses
 RUN python scripts/fetch_models.py
 CMD [&quot;python&quot;, &quot;app.py&quot;, &quot;--host&quot;, &quot;0.0.0.0&quot;]
 
@@ -601,10 +646,77 @@ import platform
 print(f&quot;Hello, Face Vision Lab! Python {platform.python_version()}&quot;)
 
 </code></pre>
+<h2 id="modelsregistryjson">models/registry.json</h2>
+<p><strong>使用位置：</strong> scripts/fetch_models.py 和 vision3d/reconstruct.py 读取；固定第三方模型来源、版本与校验值。</p>
+<p><a href="https://github.com/GBHLKYEric/face_ai_project/blob/main/models/registry.json">GitHub中的文件</a></p>
+<p>SHA256：<code>3bd424694af5a0830261bc3b3c04521cb7decb7818f8869a98f81557ea2dcedf</code></p>
+<pre><code class="language-text">{
+  &quot;opencv_zoo_revision&quot;: &quot;47534e27c9851bb1128ccc0102f1145e27f23f98&quot;,
+  &quot;3ddfa_revision&quot;: &quot;1b6c67601abffc1e9f248b291708aef0e43b55ae&quot;,
+  &quot;assets&quot;: [
+    {
+      &quot;path&quot;: &quot;models/face_detection_yunet_2023mar.onnx&quot;,
+      &quot;url&quot;: &quot;https://media.githubusercontent.com/media/opencv/opencv_zoo/47534e27c9851bb1128ccc0102f1145e27f23f98/models/face_detection_yunet/face_detection_yunet_2023mar.onnx&quot;,
+      &quot;group&quot;: &quot;baseline&quot;,
+      &quot;sha256&quot;: &quot;8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4&quot;,
+      &quot;bytes&quot;: 232589,
+      &quot;license&quot;: &quot;MIT&quot;
+    },
+    {
+      &quot;path&quot;: &quot;models/face_recognition_sface_2021dec.onnx&quot;,
+      &quot;url&quot;: &quot;https://media.githubusercontent.com/media/opencv/opencv_zoo/47534e27c9851bb1128ccc0102f1145e27f23f98/models/face_recognition_sface/face_recognition_sface_2021dec.onnx&quot;,
+      &quot;group&quot;: &quot;baseline&quot;,
+      &quot;sha256&quot;: &quot;0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79&quot;,
+      &quot;bytes&quot;: 38696353,
+      &quot;license&quot;: &quot;Apache-2.0&quot;
+    },
+    {
+      &quot;path&quot;: &quot;assets/astronaut.png&quot;,
+      &quot;url&quot;: &quot;https://raw.githubusercontent.com/scikit-image/scikit-image/v0.24.0/skimage/data/astronaut.png&quot;,
+      &quot;group&quot;: &quot;baseline&quot;,
+      &quot;sha256&quot;: &quot;88431cd9653ccd539741b555fb0a46b61558b301d4110412b5bc28b5e3ea6cb5&quot;,
+      &quot;bytes&quot;: 791555,
+      &quot;license&quot;: &quot;NASA public-domain image; Eileen Collins. See skimage.data.astronaut docs.&quot;
+    },
+    {
+      &quot;path&quot;: &quot;models/3ddfa/bfm_noneck_v3.pkl&quot;,
+      &quot;url&quot;: &quot;https://raw.githubusercontent.com/cleardusk/3DDFA_V2/1b6c67601abffc1e9f248b291708aef0e43b55ae/configs/bfm_noneck_v3.pkl&quot;,
+      &quot;group&quot;: &quot;3d&quot;,
+      &quot;sha256&quot;: &quot;89ac96480eddc331120f2c8401737c55a5fcc97b10f8a64574e63976c3d246ca&quot;,
+      &quot;bytes&quot;: 24393598,
+      &quot;license&quot;: &quot;3DDFA_V2 source MIT; BFM-derived assets carry underlying model terms. Local research only; not redistributed.&quot;
+    },
+    {
+      &quot;path&quot;: &quot;models/3ddfa/param_mean_std_62d_120x120.pkl&quot;,
+      &quot;url&quot;: &quot;https://raw.githubusercontent.com/cleardusk/3DDFA_V2/1b6c67601abffc1e9f248b291708aef0e43b55ae/configs/param_mean_std_62d_120x120.pkl&quot;,
+      &quot;group&quot;: &quot;3d&quot;,
+      &quot;sha256&quot;: &quot;090d7150f77cb66c29ddae21e4508fbde59123dcd1dea7facc24a7ed06d1c795&quot;,
+      &quot;bytes&quot;: 713,
+      &quot;license&quot;: &quot;3DDFA_V2 source MIT; BFM-derived assets carry underlying model terms. Local research only; not redistributed.&quot;
+    },
+    {
+      &quot;path&quot;: &quot;models/3ddfa/tri.pkl&quot;,
+      &quot;url&quot;: &quot;https://raw.githubusercontent.com/cleardusk/3DDFA_V2/1b6c67601abffc1e9f248b291708aef0e43b55ae/configs/tri.pkl&quot;,
+      &quot;group&quot;: &quot;3d&quot;,
+      &quot;sha256&quot;: &quot;0562a594d8369f7d1c86306522ff76fd3a2c81cf90ba9443893c1191ad0abbb8&quot;,
+      &quot;bytes&quot;: 913040,
+      &quot;license&quot;: &quot;3DDFA_V2 source MIT; BFM-derived assets carry underlying model terms. Local research only; not redistributed.&quot;
+    },
+    {
+      &quot;path&quot;: &quot;models/3ddfa/mb1_120x120.pth&quot;,
+      &quot;url&quot;: &quot;https://raw.githubusercontent.com/cleardusk/3DDFA_V2/1b6c67601abffc1e9f248b291708aef0e43b55ae/weights/mb1_120x120.pth&quot;,
+      &quot;group&quot;: &quot;3d&quot;,
+      &quot;sha256&quot;: &quot;a45a946c6e9b16f8d3cf2e69376da9560a7cf9afae671bebceb7e437a405ea79&quot;,
+      &quot;bytes&quot;: 13755269,
+      &quot;license&quot;: &quot;3DDFA_V2 source MIT; BFM-derived assets carry underlying model terms. Local research only; not redistributed.&quot;
+    }
+  ]
+}
+</code></pre>
 <h2 id="notebooks01-first-vision-labipynb">notebooks/01-first-vision-lab.ipynb</h2>
 <p><strong>使用位置：</strong> Jupyter中的循序实验；PDF任务1.4、2.1、2.4和OpenCV入门。</p>
 <p><a href="https://github.com/GBHLKYEric/face_ai_project/blob/main/notebooks/01-first-vision-lab.ipynb">GitHub中的文件</a></p>
-<p>SHA256：<code>09dcf34b45466cc4c5b0f21c359735edb25de756c3360c03bf23f7c55309040a</code></p>
+<p>SHA256：<code>2e73d9e36f8d39dc5e5bab908e0da42d930aa7cf530b723e8a5a3b2645ffaf60</code></p>
 <h3 id="2">第 2 个单元</h3>
 <pre><code class="language-python">from pathlib import Path
 import sys
@@ -647,7 +759,7 @@ print(vision.verify(image,image,.363))
 <h2 id="requirements-docstxt">requirements-docs.txt</h2>
 <p><strong>使用位置：</strong> 依赖固定、打包或版本控制配置；由 pip、Docker 或 Git 读取。</p>
 <p><a href="https://github.com/GBHLKYEric/face_ai_project/blob/main/requirements-docs.txt">GitHub中的文件</a></p>
-<p>SHA256：<code>dd3db4f423fa2a389570f45a47dc9922b6c58a288f3763f9e307af62272832ea</code></p>
+<p>SHA256：<code>8c785176f51ee1853bea4c14424858ba96360f2ea004c7320155d272e7c4c2b8</code></p>
 <pre><code class="language-text">markdown==3.11
 beautifulsoup4==4.15.0
 python-pptx==1.0.2
@@ -655,6 +767,8 @@ reportlab==5.0.1
 nbformat==5.11.1
 nbclient==0.11.0
 jupyterlab==4.6.4
+pypdfium2==5.13.0
+imageio-ffmpeg==0.6.0
 
 </code></pre>
 <h2 id="requirements-researchtxt">requirements-research.txt</h2>
@@ -2038,11 +2152,70 @@ if __name__=='__main__':
     args=parser.parse_args(); {'train':train,'generate':generate,'metrics':metrics}[args.command](args)
 
 </code></pre>
+<h2 id="scriptsanalyze_lfwpy">scripts/analyze_lfw.py</h2>
+<p><strong>使用位置：</strong> 模型下载、环境检查、数据准备或交付物生成；本文件开头docstring和下方函数索引提供具体入口。</p>
+<p><a href="https://github.com/GBHLKYEric/face_ai_project/blob/main/scripts/analyze_lfw.py">GitHub中的文件</a></p>
+<p>SHA256：<code>d30a8eb27ce8498962db6f17f6e0d9ae585edf80b090a3e101b625b4552c5596</code></p>
+<p><strong>代码定位：</strong> <code>main</code> 第15行。</p>
+<pre><code class="language-python">&quot;&quot;&quot;Measure the local LFW identity distribution; never invent demographic labels.&quot;&quot;&quot;
+import argparse
+from collections import Counter
+import json
+from pathlib import Path
+import statistics
+
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--root', type=Path, default=ROOT/'data/lfw/lfw')
+    parser.add_argument('--output', type=Path, default=ROOT/'reports/lfw-distribution')
+    args = parser.parse_args()
+    paths = sorted(args.root.glob('*/*.jpg'))
+    if not paths:
+        parser.error('No LFW images found; prepare the dataset using docs/sources.md.')
+    counts = Counter(path.parent.name for path in paths)
+    values = list(counts.values())
+    ranges = [(1, 1), (2, 4), (5, 9), (10, 19), (20, 49), (50, 99), (100, max(values))]
+    bins = {f'{lo}-{hi}' if lo != hi else str(lo): sum(lo &lt;= n &lt;= hi for n in values)
+            for lo, hi in ranges}
+    report = {
+        'source': 'Counts computed from local LFW image paths, not preset dataset statistics.',
+        'images': len(paths), 'identities': len(counts),
+        'images_per_identity_min': min(values), 'images_per_identity_max': max(values),
+        'images_per_identity_median': statistics.median(values),
+        'single_image_identities': sum(n == 1 for n in values),
+        'identity_histogram': bins,
+        'limitations': 'Counts do not establish consent, demographic balance, label correctness, or recognition performance.'
+    }
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    args.output.with_suffix('.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
+    fig, ax = plt.subplots(figsize=(9, 4.6), layout='constrained')
+    bars = ax.bar(list(bins), list(bins.values()), color='#27735a')
+    ax.bar_label(bars, padding=3)
+    ax.set(xlabel='Images per identity (inclusive)', ylabel='Number of identities',
+           title=f'Local LFW distribution: {len(paths):,} images / {len(counts):,} identities')
+    ax.spines[['top', 'right']].set_visible(False)
+    ax.set_ylim(0, max(bins.values())*1.15)
+    fig.savefig(args.output.with_suffix('.svg'))
+    plt.close(fig)
+    print(json.dumps(report, indent=2))
+
+
+if __name__ == '__main__':
+    main()
+
+</code></pre>
 <h2 id="scriptsbuild_deliverablespy">scripts/build_deliverables.py</h2>
 <p><strong>使用位置：</strong> 模型下载、环境检查、数据准备或交付物生成；本文件开头docstring和下方函数索引提供具体入口。</p>
 <p><a href="https://github.com/GBHLKYEric/face_ai_project/blob/main/scripts/build_deliverables.py">GitHub中的文件</a></p>
-<p>SHA256：<code>f8507961c2bcf108aa3f29092c9495a88502b6a70a5fa6a51e81d80e24a260a8</code></p>
-<p><strong>代码定位：</strong> <code>rendered</code> 第35行；<code>make_html</code> 第40行；<code>source_files</code> 第46行；<code>use_of</code> 第54行；<code>make_compendium</code> 第69行；<code>pdf_from_markdown</code> 第104行；<code>slides</code> 第151行；<code>main</code> 第201行。</p>
+<p>SHA256：<code>0c01b9929f912645f218313bb0f38e655c55958371885318a81a96a368bc7d49</code></p>
+<p><strong>代码定位：</strong> <code>rendered</code> 第35行；<code>make_html</code> 第40行；<code>source_files</code> 第47行；<code>use_of</code> 第56行；<code>make_compendium</code> 第72行；<code>pdf_from_markdown</code> 第107行；<code>slides</code> 第164行；<code>main</code> 第216行。</p>
 <pre><code class="language-python">&quot;&quot;&quot;Generate professional tutorial PDFs, slides, and a complete code/use-site compendium.
 
 Run with the project research/document environment. Reads source, never edits it.
@@ -2057,7 +2230,7 @@ import textwrap
 from pathlib import Path
 
 import markdown
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, NavigableString
 from pptx import Presentation
 from pptx.dml.color import RGBColor
 from pptx.util import Inches, Pt
@@ -2084,7 +2257,8 @@ def rendered(source: str) -&gt; str:
 
 def make_html(source: Path, destination: Path, title: str):
     body = rendered('[TOC]\n\n'+source.read_text(encoding='utf-8'))
-    body = re.sub(r'href=&quot;([a-z-]+)\.md([#&quot;][^&quot;]*)', r'href=&quot;\1.html\2', body)
+    body = re.sub(r'href=&quot;([a-z-]+)\.md(?=[#&quot;])', r'href=&quot;\1.html', body)
+    body = body.replace('href=&quot;tutorial-zh.html', 'href=&quot;tutorial.html')
     destination.write_text(f'&lt;!doctype html&gt;&lt;html lang=&quot;zh-CN&quot;&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;&lt;title&gt;{html.escape(title)}&lt;/title&gt;&lt;style&gt;{CSS}&lt;/style&gt;&lt;body&gt;{body}&lt;/body&gt;&lt;/html&gt;', encoding='utf-8')
 
 
@@ -2092,7 +2266,8 @@ def source_files():
     result = []
     for folder in ['research','vision3d','scripts','tests','web','notebooks']:
         result.extend(p for p in (ROOT/folder).rglob('*') if p.is_file() and (p.suffix in {'.py','.html','.ipynb','.sh','.ps1','.yml','.yaml','.Dockerfile'} or p.name=='Dockerfile') and '__pycache__' not in p.parts)
-    result.extend(p for p in ROOT.iterdir() if p.is_file() and (p.suffix in {'.py','.txt','.ps1','.toml','.yml'} or p.name in {'Dockerfile','.dockerignore','.gitignore'}))
+    result.extend(p for p in ROOT.iterdir() if p.is_file() and (p.suffix in {'.py','.txt','.ps1','.toml','.yml'} or p.name in {'Dockerfile','.dockerignore','.gitignore','.gitattributes'}))
+    result.append(ROOT/'models/registry.json')
     return sorted(set(result))
 
 
@@ -2108,6 +2283,7 @@ def use_of(path: Path) -&gt; str:
     if rel=='Dockerfile': return 'docker build --target hello 或 --target lab；PDF任务1.3。'
     if rel=='hello_world.py': return 'Docker hello镜像启动命令；PDF任务1.2/1.3。保留了旧仓库hello.py目录。'
     if rel=='start.ps1': return 'Windows本地启动与环境准备入口；项目根执行 powershell -File start.ps1。'
+    if rel=='models/registry.json': return 'scripts/fetch_models.py 和 vision3d/reconstruct.py 读取；固定第三方模型来源、版本与校验值。'
     return '依赖固定、打包或版本控制配置；由 pip、Docker 或 Git 读取。'
 
 
@@ -2161,8 +2337,18 @@ def pdf_from_markdown(source: Path, destination: Path):
     soup=BeautifulSoup(rendered(source.read_text(encoding='utf-8')),'html.parser')
     story=[]
     def inline(node):
-        s=html.escape(node.get_text())
-        return s.replace('\n','&lt;br/&gt;')
+        def child_markup(child):
+            if isinstance(child, NavigableString):
+                return html.escape(str(child)).replace('\n', '&lt;br/&gt;')
+            contents = ''.join(child_markup(part) for part in child.children)
+            if child.name in {'strong', 'b'}:
+                return f'&lt;b&gt;{contents}&lt;/b&gt;'
+            if child.name in {'em', 'i'}:
+                return f'&lt;i&gt;{contents}&lt;/i&gt;'
+            if child.name == 'a' and child.get('href', '').startswith(('https://', 'http://')):
+                return f'&lt;link href=&quot;{html.escape(child[&quot;href&quot;], quote=True)}&quot; color=&quot;#28674c&quot;&gt;{contents}&lt;/link&gt;'
+            return contents
+        return ''.join(child_markup(child) for child in node.children)
     for node in soup.children:
         if not getattr(node,'name',None): continue
         name=node.name
@@ -2197,6 +2383,7 @@ def slides():
     metrics=json.loads((REPORTS/'demo-metrics.json').read_text(encoding='utf-8'))
     lfw_path=REPORTS/'lfw-sface-largest.json'
     lfw=json.loads(lfw_path.read_text(encoding='utf-8')) if lfw_path.exists() else json.loads((REPORTS/'lfw-sface.json').read_text(encoding='utf-8'))
+    opt=json.loads((REPORTS/'arcface-pilot/comparison.json').read_text(encoding='utf-8'))
     prs=Presentation();prs.slide_width=Inches(13.333);prs.slide_height=Inches(7.5)
     entries=[
       ('人脸视觉 从原理到可运行系统',['本地 CPU 应用 · 训练与评估管线 · 3D 重建','面向高三学生的可复现学习项目','独立教育项目，与字节跳动无隶属关系'],None),
@@ -2205,11 +2392,12 @@ def slides():
       ('真实运行界面',['六种显示模式；本机图片与摄像头路径','明确区分检测耗时与浏览器端到端延迟'], 'reports/app-screenshot.png'),
       ('环境与可重复性',['Windows 11 · Intel Core Ultra 5 225H · 31.5 GB RAM · CPU','Python 3.12.14 · PyTorch 2.14 CPU · OpenCV 5 · ONNX Runtime 1.30','独立环境、版本记录、模型哈希；Docker Hello World 已运行'],None),
       ('人脸识别与 ArcFace',['对齐后的人脸 → ResNet50 → L2 归一化特征','ArcFace 训练正类 logit：s cos(θ + m)，使类间更易区分','P-K 采样与 batch-hard triplet 辅助；实测反向传播及保存重读'],None),
+      ('真实训练：结果尚未达到目标',['52 个身份 / 133 张训练图；3 epochs；测试身份名无交集','平均训练损失：40.112 → 36.925 → 36.126',f'自训 FP32 完整 LFW：{opt[&quot;accuracy&quot;][&quot;fp32&quot;][&quot;accuracy_mean&quot;]*100:.4f}%；小数据短训未收敛'],None),
       ('LFW 的真实验证结果',[f'完整 6,000 对 / 10 折；准确率 {lfw.get(&quot;accuracy_mean&quot;,0)*100:.2f}%','阈值仅由其余训练折确定；测试折不选阈值','预训练 SFace 基线；不能归属于本项目从零训练的 ResNet50'],None),
       ('一次失败怎样变成有效实验',['首轮严格单脸策略：72.25%；全部失败都来自多脸图','原图包含背景人脸；应用验证与数据集主体选择规则不同','保留失败报告，按最大主体规则独立重跑；不删除困难样本'], 'reports/lfw-detection-audit.jpg'),
       ('动态特效与性能',[f'演示视频 18 秒 / 360 帧；{metrics[&quot;frames_with_face&quot;]} 帧检测到人脸',f'混合特效管线中位数 {metrics[&quot;pipeline_ms_median&quot;]:.2f} ms，P95 {metrics[&quot;pipeline_ms_p95&quot;]:.2f} ms','公开静态样本经仿射运动；不是摄像头实测或移动端性能'], 'reports/effect-all.jpg'),
       ('从单张照片重建三维',['3DDFA_V2：预测 62 参数，重建 38,365 顶点 / 76,073 三角面','导出 OBJ，多视角图，以及 WebGL 可旋转展示','单目统计估计，无真实尺度；没有 3D 真值误差测试'], 'reports/3d/multiview.png'),
-      ('量化与 ONNX 不应只报好消息',['随机权重管线实测：ONNX 与 PyTorch 最大误差约 1.7×10⁻⁷','Linear 动态 int8：52.65 ms；FP32：48.84 ms，本轮没有加速','卷积占据 ResNet 主体；特征误差不等于识别准确率'],None),
+      ('真实训练模型的部署对比',[f'批量 8 / 2 线程：FP32 {opt[&quot;fp32&quot;][&quot;median_ms&quot;]:.2f} ms；int8 {opt[&quot;dynamic_linear_int8&quot;][&quot;median_ms&quot;]:.2f} ms',f'ONNX {opt[&quot;onnx&quot;][&quot;median_ms&quot;]:.2f} ms；该设置下两者均未加速',f'int8 完整 LFW：{opt[&quot;accuracy&quot;][&quot;dynamic_linear_int8&quot;][&quot;accuracy_mean&quot;]*100:.4f}%；微小变化不能证明更准确'],None),
       ('研究训练的完整路径',['WIDER → COCO 标注 → MMDetection；300-W → 关键点 → NME','身份文件夹 → ArcFace；CelebA 属性 → StarGAN → FID/IS','受数据授权、版本依赖与算力约束；逐项状态见验收矩阵'],None),
       ('版本与环境问题怎样解决',['缺系统目录变量 → 只补任务子进程；SSL/DNS/venv 恢复','Git LFS 指针 → 官方真实资产 URL + SHA256','旧 3D 代码 → 严格权重加载、ONNX + NumPy + WebGL'],None),
       ('专业学习路线与源码导航',['18 课：Python → 图像/向量 → 网络 → 评估 → 生成/3D → 部署','每课：准确概念、直观解释、运行步骤、练习与答案','全部源码汇编附用途、调用入口、函数行号和哈希'],None),
@@ -2399,6 +2587,52 @@ def report():
 
 if __name__ == '__main__':
     report()
+
+</code></pre>
+<h2 id="scriptsexport_videopy">scripts/export_video.py</h2>
+<p><strong>使用位置：</strong> 模型下载、环境检查、数据准备或交付物生成；本文件开头docstring和下方函数索引提供具体入口。</p>
+<p><a href="https://github.com/GBHLKYEric/face_ai_project/blob/main/scripts/export_video.py">GitHub中的文件</a></p>
+<p>SHA256：<code>c716624ebe6f57d94d462b5b886ce7c7e26322a711570352f1e893a69678c5cd</code></p>
+<p><strong>代码定位：</strong> <code>main</code> 第12行。</p>
+<pre><code class="language-python">&quot;&quot;&quot;Encode the complete measured demo as H.264/yuv420p for common video players.&quot;&quot;&quot;
+import json
+from pathlib import Path
+import subprocess
+
+import cv2
+import imageio_ffmpeg
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def main():
+    source = ROOT/'reports/demo.mp4'
+    target = ROOT.parent/'项目演示视频.mp4'
+    ffmpeg = imageio_ffmpeg.get_ffmpeg_exe()
+    subprocess.run([ffmpeg, '-hide_banner', '-loglevel', 'error', '-y', '-i', str(source),
+                    '-an', '-c:v', 'libx264', '-crf', '20', '-pix_fmt', 'yuv420p',
+                    '-movflags', '+faststart', str(target)], check=True)
+    metrics = json.loads((ROOT/'reports/demo-metrics.json').read_text(encoding='utf-8'))
+    capture = cv2.VideoCapture(str(target))
+    count = 0
+    fps = capture.get(cv2.CAP_PROP_FPS)
+    width = capture.get(cv2.CAP_PROP_FRAME_WIDTH)
+    height = capture.get(cv2.CAP_PROP_FRAME_HEIGHT)
+    while capture.read()[0]:
+        count += 1
+    capture.release()
+    if count != metrics['frames'] or abs(fps-metrics['playback_fps']) &gt; .01:
+        raise RuntimeError('Export changed the number of frames or playback speed.')
+    result = {'file': target.name, 'codec': 'H.264', 'pixel_format': 'yuv420p',
+              'frames_decoded': count, 'fps': fps, 'width': width, 'height': height,
+              'seconds': count/fps, 'ffmpeg': imageio_ffmpeg.get_ffmpeg_version(),
+              'scope': 'Re-encoding only. Model timing remains the original measured run.'}
+    (ROOT/'reports/video-export.json').write_text(json.dumps(result, indent=2), encoding='utf-8')
+    print(json.dumps(result, indent=2))
+
+
+if __name__ == '__main__':
+    main()
 
 </code></pre>
 <h2 id="scriptsfetch_modelspy">scripts/fetch_models.py</h2>
@@ -2593,10 +2827,67 @@ if __name__ == '__main__':
     main()
 
 </code></pre>
+<h2 id="scriptsrender_documentspy">scripts/render_documents.py</h2>
+<p><strong>使用位置：</strong> 模型下载、环境检查、数据准备或交付物生成；本文件开头docstring和下方函数索引提供具体入口。</p>
+<p><a href="https://github.com/GBHLKYEric/face_ai_project/blob/main/scripts/render_documents.py">GitHub中的文件</a></p>
+<p>SHA256：<code>afcad9b0d50c0d1611fbc49d7fca2e92caad01bf604a0ec9f024d2954c240517</code></p>
+<p><strong>代码定位：</strong> <code>main</code> 第15行。</p>
+<pre><code class="language-python">&quot;&quot;&quot;Render delivered PDFs to reviewable PNG pages and numbered contact sheets.
+
+Convert the PPTX with an installed office renderer separately, then pass its PDF
+through --slides-pdf. This tool checks appearance, not scientific correctness.
+&quot;&quot;&quot;
+import argparse
+from pathlib import Path
+
+import pypdfium2 as pdfium
+from PIL import Image, ImageDraw
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output', type=Path, default=ROOT/'runs/document-preview')
+    parser.add_argument('--slides-pdf', type=Path)
+    args = parser.parse_args()
+    args.output.mkdir(parents=True, exist_ok=True)
+    sources = [ROOT.parent/name for name in
+               ['高三零基础专业教程.pdf', '项目总结报告.pdf', '执行问题与解决记录.pdf']]
+    if args.slides_pdf:
+        sources.append(args.slides_pdf)
+    for source in sources:
+        with pdfium.PdfDocument(str(source)) as document:
+            previews = []
+            for index in range(len(document)):
+                page = document[index]
+                bitmap = page.render(scale=1.15)
+                picture = bitmap.to_pil().convert('RGB')
+                picture.save(args.output/f'{source.stem}-{index+1:02d}.png')
+                bitmap.close()
+                page.close()
+                picture.thumbnail((350, 480))
+                tile = Image.new('RGB', (370, 510), '#dfe4e0')
+                tile.paste(picture, ((370-picture.width)//2, 16))
+                ImageDraw.Draw(tile).text((12, 490), str(index+1), fill='black')
+                previews.append(tile)
+            columns = 4
+            rows = (len(previews)+columns-1)//columns
+            montage = Image.new('RGB', (370*columns, 510*rows), '#cbd3cd')
+            for index, picture in enumerate(previews):
+                montage.paste(picture, ((index%columns)*370, (index//columns)*510))
+            montage.save(args.output/f'{source.stem}-montage.jpg')
+            print(source.name, len(previews))
+
+
+if __name__ == '__main__':
+    main()
+
+</code></pre>
 <h2 id="scriptsverify_localpy">scripts/verify_local.py</h2>
 <p><strong>使用位置：</strong> 模型下载、环境检查、数据准备或交付物生成；本文件开头docstring和下方函数索引提供具体入口。</p>
 <p><a href="https://github.com/GBHLKYEric/face_ai_project/blob/main/scripts/verify_local.py">GitHub中的文件</a></p>
-<p>SHA256：<code>1460f9296e11c6f234a66cf0df3f70f2b12287b031dbfcd457b500d37405031b</code></p>
+<p>SHA256：<code>802b38fe909815510aeeed025a565cba55ea4423ce6e34cfef0d1a0b084c6de4</code></p>
 <p><strong>代码定位：</strong> <code>request</code> 第12行；<code>main</code> 第21行。</p>
 <pre><code class="language-python">&quot;&quot;&quot;HTTP smoke and boundary check of the running local app, without a browser.&quot;&quot;&quot;
 import base64
@@ -2620,7 +2911,8 @@ def request(path, value=None, extra=None):
 
 def main():
     checks=[]
-    for path in ['/','/health','/tutorial','/3d','/sample.jpg']:
+    for path in ['/','/health','/tutorial','/tutorial.html','/code-map.html',
+                 '/code-compendium.html','/project-report.html','/3d','/sample.jpg']:
         status,body,mime=request(path);assert status==200,(path,status)
         checks.append({'path':path,'status':status,'bytes':len(body),'content_type':mime})
     assert request('/not-here')[0]==404
@@ -2814,16 +3106,16 @@ if __name__ == '__main__':
 <h2 id="vision3dmobilenet_v1py">vision3d/mobilenet_v1.py</h2>
 <p><strong>使用位置：</strong> 由 python -m vision3d.reconstruct 及其导出脚本调用；PDF任务8.2、8.3。</p>
 <p><a href="https://github.com/GBHLKYEric/face_ai_project/blob/main/vision3d/mobilenet_v1.py">GitHub中的文件</a></p>
-<p>SHA256：<code>b05dcb4349b2be5b0e9cb479a6c8baf7e8626f4f8aca3386aafbeeef40354cbb</code></p>
+<p>SHA256：<code>0beb9c7d0b178f64058d09092b13d22c7d82f3862d84dcbcbb6929d2d83ac0a7</code></p>
 <p><strong>代码定位：</strong> <code>DepthWiseBlock</code> 第22行；<code>MobileNet</code> 第48行；<code>mobilenet</code> 第122行；<code>mobilenet_2</code> 第141行；<code>mobilenet_1</code> 第146行；<code>mobilenet_075</code> 第151行；<code>mobilenet_05</code> 第156行；<code>mobilenet_025</code> 第161行。</p>
 <pre><code class="language-python"># coding: utf-8
 
 from __future__ import division
 
-&quot;&quot;&quot; 
+&quot;&quot;&quot;
 Creates a MobileNet Model as defined in:
-Andrew G. Howard Menglong Zhu Bo Chen, et.al. (2017). 
-MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications. 
+Andrew G. Howard Menglong Zhu Bo Chen, et.al. (2017).
+MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications.
 Copyright (c) Yang Lu, 2017
 
 Modified By cleardusk

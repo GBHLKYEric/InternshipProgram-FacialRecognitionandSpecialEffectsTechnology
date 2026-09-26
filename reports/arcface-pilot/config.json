@@ -1,0 +1,14 @@
+{
+  "data": "data/lfw-pilot-train",
+  "output": "runs/arcface-pilot",
+  "epochs": 3,
+  "p": 4,
+  "k": 2,
+  "embedding_dim": 128,
+  "lr": 0.01,
+  "triplet_weight": 0.1,
+  "workers": 0,
+  "threads": 2,
+  "seed": 42,
+  "device": "cpu"
+}

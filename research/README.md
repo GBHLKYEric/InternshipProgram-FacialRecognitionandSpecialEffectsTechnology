@@ -38,10 +38,12 @@ ArcFace 将正确类别的 logit 从 $s\cos\theta_y$ 改为 $s\cos(\theta_y+m)$�
 python -m research.prepare_lfw_pilot
 python -m research.recognition --data data/lfw-pilot-train --output runs/arcface-pilot --epochs 3 --p 4 --k 2 --embedding-dim 128 --lr 0.01 --triplet-weight 0.1 --device cpu --threads 2
 python -m research.lfw --root data/lfw-aligned --pairs data/lfw/pairs.txt --checkpoint runs/arcface-pilot/last.pt --batch-size 32 --threads 2 --output reports/lfw-arcface-pilot.json
-python -m research.optimize --checkpoint runs/arcface-pilot/last.pt --images data/lfw-pilot-train --output runs/arcface-pilot/optimized --samples 8 --threads 2 --repeats 10
+python -m research.optimize --checkpoint runs/arcface-pilot/last.pt --images data/lfw-pilot-train --output runs/arcface-pilot/optimized --samples 8 --threads 2 --repeats 10 --lfw-root data/lfw-aligned --pairs data/lfw/pairs.txt
 ```
 
 `history.csv` 记录每个 epoch 的损失、训练分类准确率、抽样次数；P-K 按批独立抽样，`samples` 是采样次数，不等于去重图片数。自动生成 `training-curves.svg`，曲线点来自 CSV 的实际数值。`config.json` 保存全部命令参数。
+
+本机真实 pilot 的三轮损失为 40.111934、36.924611、36.125987，带 margin 的训练分类准确率均为 0。完整 LFW 的 FP32 准确率为 52.6667%（十折标准差 0.97468 个百分点），Linear 动态 INT8 为 53.0167%（标准差 1.60632 个百分点），均无失败配对。该微小差异不能证明量化提高了准确率，模型也没有达到 98.5%。批量 8、2 线程、10 次计时的中位数分别为 FP32 104.477 ms、INT8 105.454 ms、ORT 155.836 ms；当前设置下两条优化路线都没有加速。完整数值、文件大小、模型与配对哈希见 `reports/arcface-pilot/comparison.json`，真实训练曲线与配置也保存在该目录。
 
 动态量化只覆盖最后的 Linear，卷积保持 FP32，所以文件不一定显著缩小、速度也可能更慢。`comparison.json` 分开记录文件大小、延时、特征数值误差、可选真实 LFW 精度。仅数值误差不能证明识别精度不变。ONNX 使用 opset 17、动态 batch，导出后经 checker 和 ONNX Runtime 比对。当前 PyTorch 的旧动态量化和 TorchScript ONNX 导出均有弃用警告，但已实际运行；升级时优先重跑验证，再考虑 torchao/新导出器。
 

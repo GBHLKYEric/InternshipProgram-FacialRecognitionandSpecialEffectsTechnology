@@ -1,0 +1,12 @@
+{
+  "date": "2026-09-26",
+  "image": "face-vision-lab:local",
+  "image_id": "sha256:5ac713694bf0697c72fc9e7808fbad1dc4ea924b6bbeeb5d9d5567af5a394369",
+  "build": "docker build --target lab -t face-vision-lab:local .",
+  "build_context_bytes_approx": 1774000,
+  "asset_policy": "Pre-existing local models/assets excluded; build downloaded assets and verified SHA256.",
+  "core_pipeline": {"faces": 1, "effect": "all", "same_image_cosine": 1.0, "opencv": "5.0.0"},
+  "http": {"url": "http://127.0.0.1:8766/health", "status": 200, "body": {"status": "ok", "backend": "OpenCV YuNet + SFace", "device": "CPU"}},
+  "port_rule": "Host and container port must match the app --port; both were 8766 for this check.",
+  "scope": "Core app container only; training, camera hardware and generated 3D viewer are not validated by this check."
+}

@@ -22,7 +22,8 @@ python -m venv .venv
 - 3DDFA_V2 真实照片重建：38,365 顶点、76,073 三角面，OBJ 与 WebGL 查看器。没有三维真值，不报告重建精度。
 - 18 秒 / 360 帧的真实逐帧特效推理视频；输入是公开照片的仿射动画，不是实拍摄像头录像。
 - WIDER 32 张训练 / 16 张验证的真实 RetinaNet 训练、推理、COCO 评估闭环；1 epoch 尚未收敛，mAP=0，不是正式 WIDER benchmark。
-- ArcFace、关键点、StarGAN、量化与 ONNX 管线均有可执行源码。具体真实实验与代码烟测边界见验收矩阵。
+- ResNet50+ArcFace 真实小样本训练：52个LFW非pairs身份、133图、3epoch；完整6000对的FP32准确率52.6667%、动态Linear INT8为53.0167%，均未达到98.5%。这是替代数据pilot，不是MS-Celeb-1M训练。
+- 同一真实checkpoint的优化比较：batch8、CPU2线程、10次计时，FP32中位104.477ms、INT8 105.454ms、ONNX Runtime 155.836ms；本次两种转换均未加速。关键点和StarGAN有源码与计算路径测试，尚无指定数据训练成果。
 - Docker Hello World、模型 SHA256 校验、环境核验与可重复训练配置。
 
 ## 文档与全部代码
@@ -43,16 +44,30 @@ python -m unittest discover -s tests
 python scripts/demo.py
 python scripts/make_notebook.py
 python scripts/fetch_models.py --with-3d
-python -m vision3d.export_onnx
-python -m vision3d.reconstruct
+python -m vision3d.reconstruct --image assets/sample.jpg --output reports/3d
 python scripts/build_deliverables.py
 ```
 
-完整 LFW 需要先按 `scripts/fetch_lfw.py`（若存在）或数据准备说明取得数据，并使用 `data/lfw/lfw`、`data/lfw/pairs.txt`。所有训练数据、权重和大文件仅保留本地，开源仓库提供来源、哈希及生成代码。安装研究依赖后运行各模块 `--help` 查看精确参数。PDF/PPT生成需要 Windows 微软雅黑字体。
+三维ONNX导出是 `vision3d/reconstruct.py` 内部函数，首次重建会调用，不存在独立的 `vision3d.export_onnx` 模块。完整LFW按 [官方来源与SHA256](docs/sources.md) 获取并校验：把原图压缩包解压到 `data/lfw/`，使实际图像位于 `data/lfw/lfw/身份名/文件名.jpg`，把官方pairs保存为 `data/lfw/pairs.txt`；仓库没有 `scripts/fetch_lfw.py`。本机真实训练/评估的完整命令见 [源码地图](docs/code-map.md)。所有训练数据、权重和大文件仅保留本地，开源仓库提供来源、哈希及生成代码。安装研究依赖后运行各模块 `--help` 查看精确参数。PDF/PPT生成需要 Windows 微软雅黑字体。
 
 ```bash
 docker build --target hello -t face-vision-hello .
 docker run --rm face-vision-hello
+docker build --target lab -t face-vision-lab .
+docker run --rm -p 127.0.0.1:8765:8765 face-vision-lab
+```
+
+上面命令在本机已就绪的WSL Docker环境中执行。`lab`镜像实际构建并运行通过：容器中样图检测到1张脸，组合特效与同图相似度1.0通过，宿主HTTP健康检查返回200。它包含核心YuNet/SFace图像应用和文档；构建时下载并校验模型/样图，不依赖构建目录中已有的大权重。镜像默认不包含研究训练依赖、3DDFA重建模块和已生成的三维结果；三维实验需在本地研究环境按上述命令另外生成，再由本地应用查看。
+
+应用的Host校验要求对外端口与程序监听端口一致。如果8765已占用，可用：
+
+```bash
+docker run --rm -p 127.0.0.1:8766:8766 face-vision-lab python app.py --host 0.0.0.0 --port 8766
+```
+
+然后访问 `http://127.0.0.1:8766`。不要仅把映射改成8766:8765，否则Host端口校验会拒绝请求。MMDetection真实训练使用另一个兼容镜像：
+
+```bash
 docker build -f scripts/mmdet.Dockerfile -t face-vision-mmdet:3.3 .
 docker run --rm -v "$PWD:/project" face-vision-mmdet:3.3
 ```

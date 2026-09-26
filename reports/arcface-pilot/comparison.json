@@ -1,0 +1,263 @@
+{
+  "provenance": "Checkpoint runs/arcface-pilot/last.pt; 8 representative aligned images; no accuracy benchmark unless pairs supplied",
+  "torch": "2.14.0+cpu",
+  "onnx_version": "1.23.0",
+  "onnxruntime": "1.30.0",
+  "cpu_threads": 2,
+  "batch_size": 8,
+  "fp32": {
+    "state_bytes": 95398463,
+    "median_ms": 104.47724999539787,
+    "p95_ms": 105.79891500310623,
+    "repeats": 10
+  },
+  "dynamic_linear_int8": {
+    "state_bytes": 94612859,
+    "median_ms": 105.45374999492196,
+    "p95_ms": 107.86759000184247,
+    "repeats": 10,
+    "embedding_max_abs_error": 0.002706807106733322,
+    "mean_cosine_to_fp32": 0.9999701976776123
+  },
+  "onnx": {
+    "bytes": 95003456,
+    "embedding_max_abs_error": 8.791685104370117e-07,
+    "median_ms": 155.8359999980894,
+    "p95_ms": 176.51433999781148,
+    "repeats": 10
+  },
+  "accuracy": {
+    "fp32": {
+      "folds": [
+        {
+          "fold": 0,
+          "accuracy": 0.54,
+          "threshold": 0.9866231083869934,
+          "tar": 0.0,
+          "far": 0.0,
+          "far_threshold": 0.9985040426254272,
+          "test_pairs": 600,
+          "failed_pairs": 0
+        },
+        {
+          "fold": 1,
+          "accuracy": 0.535,
+          "threshold": 0.9866231083869934,
+          "tar": 0.006666666666666667,
+          "far": 0.0,
+          "far_threshold": 0.9985040426254272,
+          "test_pairs": 600,
+          "failed_pairs": 0
+        },
+        {
+          "fold": 2,
+          "accuracy": 0.5233333333333333,
+          "threshold": 0.987402081489563,
+          "tar": 0.0,
+          "far": 0.0,
+          "far_threshold": 0.9985040426254272,
+          "test_pairs": 600,
+          "failed_pairs": 0
+        },
+        {
+          "fold": 3,
+          "accuracy": 0.5183333333333333,
+          "threshold": 0.9861366748809814,
+          "tar": 0.0033333333333333335,
+          "far": 0.0,
+          "far_threshold": 0.9985040426254272,
+          "test_pairs": 600,
+          "failed_pairs": 0
+        },
+        {
+          "fold": 4,
+          "accuracy": 0.5266666666666666,
+          "threshold": 0.9866231083869934,
+          "tar": 0.006666666666666667,
+          "far": 0.0,
+          "far_threshold": 0.9985040426254272,
+          "test_pairs": 600,
+          "failed_pairs": 0
+        },
+        {
+          "fold": 5,
+          "accuracy": 0.5233333333333333,
+          "threshold": 0.9861366748809814,
+          "tar": 0.006666666666666667,
+          "far": 0.0,
+          "far_threshold": 0.9985040426254272,
+          "test_pairs": 600,
+          "failed_pairs": 0
+        },
+        {
+          "fold": 6,
+          "accuracy": 0.5183333333333333,
+          "threshold": 0.9866231083869934,
+          "tar": 0.0033333333333333335,
+          "far": 0.0,
+          "far_threshold": 0.9985040426254272,
+          "test_pairs": 600,
+          "failed_pairs": 0
+        },
+        {
+          "fold": 7,
+          "accuracy": 0.5383333333333333,
+          "threshold": 0.9851526021957397,
+          "tar": 0.006666666666666667,
+          "far": 0.006666666666666667,
+          "far_threshold": 0.9981194138526917,
+          "test_pairs": 600,
+          "failed_pairs": 0
+        },
+        {
+          "fold": 8,
+          "accuracy": 0.5083333333333333,
+          "threshold": 0.987402081489563,
+          "tar": 0.0,
+          "far": 0.0033333333333333335,
+          "far_threshold": 0.9983999133110046,
+          "test_pairs": 600,
+          "failed_pairs": 0
+        },
+        {
+          "fold": 9,
+          "accuracy": 0.535,
+          "threshold": 0.9936897158622742,
+          "tar": 0.0,
+          "far": 0.0,
+          "far_threshold": 0.9985040426254272,
+          "test_pairs": 600,
+          "failed_pairs": 0
+        }
+      ],
+      "accuracy_mean": 0.5266666666666666,
+      "accuracy_std": 0.009746794344808983,
+      "far_target": 0.001,
+      "tar_mean": 0.003333333333333333,
+      "far_mean": 0.001,
+      "failed_pairs": 0,
+      "failure_policy": "all failed pairs count incorrect for accuracy; unavailable features never accepted",
+      "threshold_protocol": "train folds only; unchanged official pair order",
+      "note": "FAR estimates at very low rates have limited resolution in a 6000-pair benchmark."
+    },
+    "dynamic_linear_int8": {
+      "folds": [
+        {
+          "fold": 0,
+          "accuracy": 0.5466666666666666,
+          "threshold": 0.9869620203971863,
+          "tar": 0.0,
+          "far": 0.0,
+          "far_threshold": 0.9985126852989197,
+          "test_pairs": 600,
+          "failed_pairs": 0
+        },
+        {
+          "fold": 1,
+          "accuracy": 0.5333333333333333,
+          "threshold": 0.985973060131073,
+          "tar": 0.006666666666666667,
+          "far": 0.0,
+          "far_threshold": 0.9985126852989197,
+          "test_pairs": 600,
+          "failed_pairs": 0
+        },
+        {
+          "fold": 2,
+          "accuracy": 0.5283333333333333,
+          "threshold": 0.9869620203971863,
+          "tar": 0.0,
+          "far": 0.0,
+          "far_threshold": 0.9985126852989197,
+          "test_pairs": 600,
+          "failed_pairs": 0
+        },
+        {
+          "fold": 3,
+          "accuracy": 0.5133333333333333,
+          "threshold": 0.9861401319503784,
+          "tar": 0.0033333333333333335,
+          "far": 0.0,
+          "far_threshold": 0.9985126852989197,
+          "test_pairs": 600,
+          "failed_pairs": 0
+        },
+        {
+          "fold": 4,
+          "accuracy": 0.5283333333333333,
+          "threshold": 0.9859768748283386,
+          "tar": 0.006666666666666667,
+          "far": 0.0,
+          "far_threshold": 0.9985126852989197,
+          "test_pairs": 600,
+          "failed_pairs": 0
+        },
+        {
+          "fold": 5,
+          "accuracy": 0.5216666666666666,
+          "threshold": 0.9869620203971863,
+          "tar": 0.0033333333333333335,
+          "far": 0.0,
+          "far_threshold": 0.9985126852989197,
+          "test_pairs": 600,
+          "failed_pairs": 0
+        },
+        {
+          "fold": 6,
+          "accuracy": 0.5183333333333333,
+          "threshold": 0.9861401319503784,
+          "tar": 0.0033333333333333335,
+          "far": 0.0,
+          "far_threshold": 0.9985126852989197,
+          "test_pairs": 600,
+          "failed_pairs": 0
+        },
+        {
+          "fold": 7,
+          "accuracy": 0.56,
+          "threshold": 0.9861401319503784,
+          "tar": 0.006666666666666667,
+          "far": 0.006666666666666667,
+          "far_threshold": 0.9980573654174805,
+          "test_pairs": 600,
+          "failed_pairs": 0
+        },
+        {
+          "fold": 8,
+          "accuracy": 0.505,
+          "threshold": 0.9862476587295532,
+          "tar": 0.0033333333333333335,
+          "far": 0.0033333333333333335,
+          "far_threshold": 0.9983455538749695,
+          "test_pairs": 600,
+          "failed_pairs": 0
+        },
+        {
+          "fold": 9,
+          "accuracy": 0.5466666666666666,
+          "threshold": 0.9869620203971863,
+          "tar": 0.0,
+          "far": 0.0,
+          "far_threshold": 0.9985126852989197,
+          "test_pairs": 600,
+          "failed_pairs": 0
+        }
+      ],
+      "accuracy_mean": 0.5301666666666667,
+      "accuracy_std": 0.01606324306538932,
+      "far_target": 0.001,
+      "tar_mean": 0.003333333333333333,
+      "far_mean": 0.001,
+      "failed_pairs": 0,
+      "failure_policy": "all failed pairs count incorrect for accuracy; unavailable features never accepted",
+      "threshold_protocol": "train folds only; unchanged official pair order",
+      "note": "FAR estimates at very low rates have limited resolution in a 6000-pair benchmark."
+    }
+  },
+  "accuracy_note": "Official pairs and training-fold threshold calibration for each model independently.",
+  "checkpoint_sha256": "edadc49818a0661ca5b20d098f601db5d15d06eca9ef785e647e3c78dd1a21f6",
+  "lfw_pairs_sha256": "ea42330c62c92989f9d7c03237ed5d591365e89b3e649747777b70e692dc1592",
+  "lfw_pairs": 6000,
+  "lfw_unique_images": 7701,
+  "training_identity_name_overlap": []
+}

@@ -4,7 +4,7 @@
 
 ## 成果与结论
 
-已建立可本地运行的图像检测、关键点、相似度验证与特效应用，生成18秒演示视频，完成真实预训练3DDFA三维推理、完整6000对LFW预训练基线、研究网络梯度检查、ONNX导出/推理检查、Notebook执行和Docker Hello World。预训练SFace的第二次LFW实验在固定最大面积选脸策略下达到98.9333%。**尚不能宣称PDF全部科研要求完成，也不能把该结果归为自训ArcFace达98.5%。**待完成的主要工作是指定数据上的真实模型训练、独立指标、部分框架/设备验收；详见 [逐条矩阵](requirements-matrix.md)。
+已建立可本地运行的图像检测、关键点、相似度验证与特效应用，生成18秒演示视频，完成真实预训练3DDFA三维推理、完整6000对LFW预训练基线、WIDER/MMDetection小样本训练、ArcFace真实图像小样本训练、研究网络梯度检查、ONNX导出/推理检查、Notebook执行和Docker Hello World。预训练SFace的第二次LFW实验在固定最大面积选脸策略下达到98.9333%。**尚不能宣称PDF全部科研要求完成，也不能把该结果归为自训ArcFace达98.5%。**待完成的主要工作是指定完整数据上的模型训练、达标指标和部分设备验收；详见 [逐条矩阵](requirements-matrix.md)。
 
 ## 系统结构
 
@@ -20,6 +20,7 @@
 |---|---|---|
 | 演示视频 | 360帧，20 FPS播放，18秒，360帧均检测到脸 | NASA公开样图做仿射动画，不是真人摄像头录像 |
 | 检测+特效计时 | 中位17.935ms，P95 62.103ms，平均吞吐约38.78 FPS | 不含编解码、浏览器传输/显示；不能据此保证端到端实时或手机表现 |
+| LFW本地数据统计 | 13233图、5749身份；每身份中位1图、最多530图；4069个身份仅有1张图 | `scripts/analyze_lfw.py`按实际路径计数，输出JSON与SVG；数量不证明标签正确、授权或人口分布平衡 |
 | LFW预训练SFace初次基线 | 6000对、十折，保守端到端正确率72.25%，折间标准差2.073个百分点 | 所有失败pairs计错；不是条件于成功检测的识别准确率；不是自训ArcFace |
 | LFW处理失败 | 7701张相关图，1175失败；1633 pairs受影响 | 多框/未检出等原因逐图保存；未删样本提高成绩 |
 | LFW第二次选脸实验 | 固定最大面积人脸、并列时离中心最近；98.9333%，折间标准差0.38873个百分点；7701张相关图全部成功 | `reports/lfw-sface-largest.json`；首轮错误分析后改了预处理，属于第二次基准实验，不能称未触碰测试集的最终认证；不是自训ArcFace |
@@ -27,22 +28,34 @@
 | LFW阈值协议 | 每个测试折的阈值仅用其余训练折选取 | 未独立审计预训练模型训练身份是否与LFW重叠 |
 | LFW低FAR点 | 训练折目标FAR=0.001；测试折平均FAR=0.001，平均TAR约70.867% | 300个负对/折的分辨率有限，不能外推极低FAR |
 | 三维 | 38365顶点、76073面、62参数；当前保存运行参数回归约4.34ms | 时间只含回归，不是加载+全重建+渲染总耗时 |
+| 三维交互渲染 | WebGL页面实际渲染并旋转35°，截图 `reports/3d/viewer-screenshot.png` | 是浏览器OpenGL ES路径；不宣称已安装PyTorch3D；与Chrome插件连接状态分开记录 |
 | 研究smoke | ResNet/ArcFace、P-K、triplet、68点、G/D及梯度惩罚通过 | 随机权重/张量，无任务准确率 |
+| ArcFace真实训练pilot | 52个与官方pairs身份无交集的LFW身份、133张真实图；随机初始化ResNet50，3epoch的loss40.111934→36.924611→36.125987 | 128维，P4/K2、SGD lr0.01、triplet权重0.1；margin分类训练准确率仍0；不是MS-Celeb-1M训练、也不代表收敛 |
+| 自训ArcFace完整LFW | FP32为52.6667%±0.97468个百分点，动态Linear INT8为53.0167%±1.60632个百分点；两者6000对、7701图、零失败 | 两个模型分别只用训练折校准阈值；均未达到98.5%，0.35个百分点差异不能作为量化显著提高准确率的证据 |
 | MMDetection真实训练pilot | WIDER32训练图/242框、16验证图/153框，RetinaNet ResNet50 FPN，随机初始化，1epoch16step约36.11秒 | COCO bboxAP=0/AP50=0，medium-size AP=.006；未收敛，不是WIDER官方完整基准 |
-| 优化smoke | FP32中位48.840ms，动态Linear INT8 52.653ms，ORT 24.896ms | batch2、CPU2线程、5次重复、随机权重；INT8在该测试反而变慢 |
-| ONNX数值 | 最大绝对误差约1.71×10^-7 | 数值一致性不等于识别精度 |
-| Docker | WSL Docker29.1.3构建/运行成功，容器Python3.12.14 | 不是GPU/移动端部署 |
+| 真实checkpoint优化 | FP32中位104.477ms/P95 105.799ms，动态Linear INT8 105.454ms/P95 107.868ms，ORT 155.836ms/P95 176.514ms | batch8、CPU2线程、10次重复、8张真实对齐图；只计模型推理，本次两种转换均未加速 |
+| 真实checkpoint文件与数值 | FP32 state为95,398,463字节，INT8 state为94,612,859字节；ONNX文件95,003,456字节，最大特征绝对差8.79×10^-7 | 文件格式不同，大小比较须保留格式；ONNX只测数值/速度，没有另算完整LFW精度 |
+| 早期优化smoke（附属） | 随机权重batch2，FP32 48.840ms、INT8 52.653ms、ORT 24.896ms；5次重复 | 无准确率；不能与batch8真实checkpoint计时拼接成收益表 |
+| Docker | WSL Docker29.1.3，Hello和核心lab镜像均构建/运行成功；lab容器faces1、组合特效、cosine1，宿主健康检查200 | 只验证CPU核心应用；研究训练/三维生成依赖另装，不是移动端部署 |
 | Notebook | 4个代码单元实际执行 | 内核与环境见环境报告 |
 
-原始证据：`reports/demo-metrics.json`、`reports/lfw-sface.json`、`reports/lfw-sface-largest.json`、`reports/3d/reconstruction.json`、`reports/research-smoke.json`、`reports/optimization-smoke/comparison.json`、`reports/environment.json`，以及Notebook输出。后续重跑应保存独立文件并说明变更，不能覆盖失败历史后只展示最佳数字。
+原始证据：`reports/demo-metrics.json`、`reports/lfw-sface.json`、`reports/lfw-sface-largest.json`、`reports/3d/reconstruction.json`、`reports/research-smoke.json`、`reports/arcface-pilot/comparison.json`、`reports/optimization-smoke/comparison.json`、`reports/wider_pilot.json`、`reports/environment.json`，以及Notebook输出。后续重跑应保存独立文件并说明变更，不能覆盖失败历史后只展示最佳数字。
 
 环境记录：Windows 11，Intel Core Ultra 5 225H、14个逻辑CPU、32GiB内存；主venv为Python3.12.14、PyTorch2.14.0+cpu、torchvision0.29.0+cpu、OpenCV5.0.0、NumPy2.5.3、ONNX1.23.0、ORT1.30.0。当前CUDA不可用；主venv无mmdet/mmcv/conda，MMDetection在独立Linux Docker中运行：Python3.10.21、PyTorch2.1.0CPU、torchvision0.16CPU、NumPy1.26.4、mmcv2.1、mmengine0.10.7、mmdet3.3、OpenCV4.11，CPU NMS与真实训练通过。这些版本来自本机记录，不是建议所有新机器盲目混装的组合。
+
+核心lab容器实测镜像ID为 `sha256:5ac713694bf0697c72fc9e7808fbad1dc4ea924b6bbeeb5d9d5567af5a394369`。对外端口与应用监听端口须一致；本机使用8766:8766并显式监听8766后，Host校验和健康检查均通过。默认命令采用8765:8765，见README。镜像ID标识此次构建结果，后续源码或依赖更新可能生成不同ID。
 
 ## 数据与实验方法
 
 LFW图像与pairs来自scikit-learn维护代码记录的Figshare镜像，pairs SHA256为 `ea42330c62c92989f9d7c03237ed5d591365e89b3e649747777b70e692dc1592`。程序严格检查6000对的数量、顺序、路径与同人/异人格式，拒绝缺文件的部分基准。初次应用基线要求恰好一张脸，YuNet阈值0.8，再SFace对齐112×112并归一化特征；这是一个明确但对LFW多脸图较保守的处理策略。
 
+本地数据探索得到每身份图像数的分组频数：1张为4069身份、2–4张为1257、5–9张为265、10–19张为96、20–49张为50、50–99张为7、100–530张为5。`reports/lfw-distribution.svg`由实际计数绘制，反映样本分布高度不均衡。P-K采样需要同一身份至少K张不同图；4069个单图身份无法提供K≥2所需的真实同人正样本。选择合格身份、身份不重叠拆分与重采样必须分别记录，不能通过复制单图制造“多张照片”。
+
 第二次实验保持同一检测阈值、模型和pairs，采用不读取身份标签的几何选脸规则：最大检测框面积，面积并列时取距图像中心更近者。它解决1175张图的多人选择失败，完整准确率升至98.9333%。该规则在第一次全基准观察失败之后引入，因此必须保留首轮、声明开发过程，并在额外未使用的数据上检验泛化后再作独立结论。两次模型相似度判定阈值仍均只使用训练折选择。
+
+真实ArcFace pilot以LFW中没有出现在官方pairs的身份构成训练集合，固定52身份/133图；评估相关4281身份/7701图，身份交集为空。训练与评估均采用YuNet阈值0.8、最大面积主体和SFace五点几何对齐，输出112×112图像；这里只借用SFace的对齐函数，不用SFace特征监督训练。`reports/lfw-pilot-data.json`记录来源哈希和身份排除检查；`runs/arcface-pilot/`保存配置、3epoch日志、曲线和checkpoint。每epoch的136样本次数来自P-K重采样，实际不同图像仍为133张。这样能验证真实图像训练流程，但规模远小于原要求，不能用训练loss下降替代完整验证。
+
+该checkpoint SHA256为 `edadc49818a0661ca5b20d098f601db5d15d06eca9ef785e647e3c78dd1a21f6`。完整LFW评估得到FP32 52.6667%、INT8 53.0167%，两个模型在训练折目标FAR=0.001时的测试平均TAR均仅0.3333%、平均FAR=0.001。准确率接近均衡同人/异人对上的50%参照，说明当前特征判别能力很弱。INT8多0.35个百分点是这一次固定实验的观察值，未经独立重复、配对统计和新数据验证，不能解释为量化改善了泛化。ONNX在8张计时图上通过数值一致性检查，但不将此当作6000对上的精度结论。
 
 演示素材与数据集分别处理。展示视频使用授权公开样图，不上传LFW、CelebA或用户私人照片。公开仓库收录原创源码、第三方许可证、模型注册表、教程、结果摘要和允许发布的素材。受限权重与原始数据的许可不随项目LICENSE改变。
 
@@ -58,4 +71,4 @@ LFW图像与pairs来自scikit-learn维护代码记录的Figshare镜像，pairs S
 - 18课零基础专业教程、源码地图、完整源码汇编、来源表、问题记录与需求矩阵。
 - 项目汇报PPT及文档导出版，生成与打开检查由交付记录确认。
 
-下一轮优先取得完整合法训练数据；MMDetection兼容环境和32/16图真实训练闭环已完成，后续需要正式训练与收敛评估。自训ArcFace的目标必须由其checkpoint在完整LFW协议上独立检验；GAN必须有真实属性训练和足量独立评估；移动端与摄像头必须在目标设备和实际输入上测量。
+下一轮优先取得完整合法训练数据；MMDetection兼容环境和32/16图真实训练闭环，以及ArcFace的52身份/133图真实训练pilot已经完成，后续需要正式训练与收敛评估。自训ArcFace的目标必须由其checkpoint在完整LFW协议上独立检验；GAN必须有真实属性训练和足量独立评估；移动端与摄像头必须在目标设备和实际输入上测量。

@@ -1,0 +1,19 @@
+{
+  "source": "Counts computed from local LFW image paths, not preset dataset statistics.",
+  "images": 13233,
+  "identities": 5749,
+  "images_per_identity_min": 1,
+  "images_per_identity_max": 530,
+  "images_per_identity_median": 1,
+  "single_image_identities": 4069,
+  "identity_histogram": {
+    "1": 4069,
+    "2-4": 1257,
+    "5-9": 265,
+    "10-19": 96,
+    "20-49": 50,
+    "50-99": 7,
+    "100-530": 5
+  },
+  "limitations": "Counts do not establish consent, demographic balance, label correctness, or recognition performance."
+}

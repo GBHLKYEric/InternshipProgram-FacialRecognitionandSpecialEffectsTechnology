@@ -37,7 +37,7 @@
 </div>
 <h1 id="_1">从零学人脸视觉：给高三学生的项目教程</h1>
 <p>本教程配套源码仓库：<a href="https://github.com/GBHLKYEric/face_ai_project">GBHLKYEric/face_ai_project</a>。你不需要先会编程，但需要愿意逐行运行小实验、记录结果，并用高中函数、向量和概率知识解释结果。学完的标准不是背下模型名称，而是能画出数据经过程序的路径、找出报错发生在哪里、独立完成一次可重复的实验。</p>
-<p><strong>先分清本项目的两层工作。</strong>本地应用用已经训练好的 YuNet/SFace 完成检测、五点定位、两张照片的相似度比较和图像特效；<code>research/</code> 是训练和评估研究代码。会运行应用不等于自己训练出了 ArcFace，也不等于已达到 LFW 98.5%。最终做成了什么、还差什么，应查 <a href="requirements-matrix.html">验收矩阵</a> 和 <a href="project-report.md">项目报告</a>。本文讲完整知识路线；“拓展实验”不表示本机已经完成该实验。</p>
+<p><strong>先分清本项目的两层工作。</strong>本地应用用已经训练好的 YuNet/SFace 完成检测、五点定位、两张照片的相似度比较和图像特效；<code>research/</code> 是训练和评估研究代码。会运行应用不等于自己训练出了 ArcFace，也不等于已达到 LFW 98.5%。最终做成了什么、还差什么，应查 <a href="requirements-matrix.html">验收矩阵</a> 和 <a href="project-report.html">项目报告</a>。本文讲完整知识路线；“拓展实验”不表示本机已经完成该实验。</p>
 <h2 id="_2">学习路线与每次学习的方法</h2>
 <p>建议按下面的顺序推进，课时是学习安排而非性能承诺。每节先读概念，手算例子，再运行代码，最后关掉答案独立完成练习。遇到专业词先回到“输入是什么、输出是什么、用什么数据检验”三个问题。</p>
 <table>
@@ -90,6 +90,7 @@
 <p>答案：完成了检测，尚未完成身份识别。若另外输入一张登记照，可以提取特征进行比对，但仍需阈值与误差评估。</p>
 <h2 id="2-python">第 2 课：Python、终端与隔离环境</h2>
 <p>终端不是“黑客窗口”，它只是用文字向电脑下达命令。Windows 的 PowerShell 中，<code>Get-Location</code> 查看当前位置，<code>Get-ChildItem</code> 查看文件，<code>Set-Location</code> 切换目录。路径中有空格时加引号。项目命令必须在仓库根目录执行，即能看到 <code>app.py</code> 的目录。</p>
+<p>如果你在另一台电脑上学习，先安装Git和仓库支持的Python，然后在准备保存项目的目录执行 <code>git clone https://github.com/GBHLKYEric/face_ai_project.git</code>，再执行 <code>Set-Location face_ai_project</code>。本机已经有交付目录时直接进入该目录即可，无需再次下载同一份源码。</p>
 <pre><code class="language-powershell">Get-Location
 Get-ChildItem
 python --version
@@ -100,10 +101,11 @@ python -c &quot;import sys; print(sys.executable)&quot;
 <pre><code class="language-powershell"># 新机器准备环境的通用示例；版本以仓库环境文件为准。
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe scripts/fetch_models.py
 .\.venv\Scripts\python.exe app.py --port 8765
 </code></pre>
-<p>浏览器打开 <code>http://127.0.0.1:8765</code>。<code>127.0.0.1</code> 是本机地址；<code>8765</code> 是这项服务的端口。终端窗口保持运行，按 Ctrl+C 结束服务。摄像头需要浏览器权限；没有摄像头时仍可用示例图片。具体已核验操作见仓库 README；如果依赖文件尚未生成，先查看 <code>python -m pip list</code> 和实际环境报告，不凭空运行不在仓库内的文件。</p>
-<p>下面是一段可独立保存为 <code>hello.py</code> 的 Python：</p>
+<p>浏览器打开 <code>http://127.0.0.1:8765</code>。<code>127.0.0.1</code> 是本机地址；<code>8765</code> 是这项服务的端口。终端窗口保持运行，按 Ctrl+C 结束服务。摄像头需要浏览器权限；没有摄像头时仍可用示例图片。具体已核验操作见仓库 README；有依赖问题时先查看 <code>python -m pip list</code> 和实际环境报告。</p>
+<p>下面是一段可独立保存为 <code>lesson01.py</code> 的 Python（避免与仓库已有的 <code>hello.py</code> 目录混淆）：</p>
 <pre><code class="language-python">name = &quot;视觉实验&quot;
 scores = [0.82, 0.31, 0.91]
 for score in scores:
@@ -180,6 +182,7 @@ y' = s sinθ · x + s cosθ · y + ty
 <p>训练集用于更新参数，验证集用于选择超参数和阈值，测试集用于最终评价。训练集和测试集出现同一文件、同一人的近重复帧，或测试时调阈值，都可能产生数据泄漏。人脸任务还应关注“身份是否重叠”：想测试对陌生人的泛化，就不能只在训练身份的新照片上自测。</p>
 <p>CelebA 的每张图有属性标签，适合属性编辑；LFW 的官方 pairs 定义同人/异人配对，适合验证；WIDER FACE 的框适合检测；300-W 的点适合关键点回归。MS-Celeb-1M 是历史大规模识别数据来源，本次未取得可核验授权包，不从不明镜像下载。<a href="sources.html#数据集">数据来源、许可与规模</a></p>
 <p>数据分析至少回答：图片数、身份数、每类最少/中位/最多样本、分辨率分布、损坏文件数、正负属性占比、训练测试拆分以及重复样本。十个身份各一万张与十万个身份各一张，虽然总图数相同，却是完全不同的问题。</p>
+<p>本次可以直接复现的统计命令为 <code>python scripts/analyze_lfw.py --root data/lfw/lfw --output reports/lfw-distribution</code>。它遍历本地图片路径，实际得到13233图、5749身份；其中4069个身份只有1张图，每身份中位数为1、最大值为530。打开 <code>reports/lfw-distribution.svg</code>：横轴是每身份图片数区间，纵轴是落在区间中的身份数量。大量身份只有极少图片、少数身份有很多图片，称为长尾分布。使用P-K采样且K≥2时，单图身份无法提供不同照片的同人正样本；复制同一文件不增加身份多样性。直方图仅证明文件数量分布，不能推断年龄/性别/族裔平衡或标签真实性。</p>
 <p>数据增强应保留任务所需真值。左右翻转后，关键点左右名称要交换；裁剪后，框和点坐标要同时改变；颜色变化可增强照明鲁棒性，但增强过强会破坏肤色/发色属性标签。LFW 测试时不要随机增强后挑最高成绩。</p>
 <p>身份目录示例：</p>
 <pre><code class="language-text">data/consented_faces/
@@ -216,13 +219,22 @@ print(dot / (norm_a * norm_b))  # 0.96
 <h2 id="9">第 9 课：第一次训练应该怎样做</h2>
 <p>不要一开始就拿满数据跑三天。先检查能读取 1 张，再看 1 个 batch 的形状和值域，然后用很小的固定数据检查 loss 是否有限、参数是否变化、checkpoint 能否重新载入。这个阶段叫 smoke test，只检查管线。之后再进行有合理样本规模、完整轮次与独立评估的训练。</p>
 <p>本项目身份训练命令（需要先准备合法数据）：</p>
-<pre><code class="language-powershell">.\.venv\Scripts\python.exe -m research.recognition --help
+<pre><code class="language-powershell">.\.venv\Scripts\python.exe -m pip install -r requirements-research.txt
+.\.venv\Scripts\python.exe -m research.recognition --help
 .\.venv\Scripts\python.exe -m research.recognition --data data/consented_faces --output runs/arcface --epochs 20 --p 8 --k 4 --device cpu
 </code></pre>
 <p>P=8、K=4 要求至少 8 个满足至少 4 张图的身份。一批共32张。若只有2人各2张，可用 <code>--p 2 --k 2</code> 检查程序，但不适合宣布达到人脸识别基准。CPU 训练 ResNet50 可能很慢；命令能运行不代表耗时适合课堂。GPU 可用时也要先确认显存和驱动，再选择 <code>--device cuda</code>。</p>
+<p>研究依赖比应用依赖大；首次安装需要网络和磁盘空间。MMDetection不安装进这份主venv，它使用单独Docker兼容链。首次实践可先运行 <code>python -m research.smoke --output reports/research-smoke.json</code>，确认计算路径，再取得数据训练；生成smoke报告不应填入“训练模型准确率”栏目。</p>
 <p>输出中的 <code>history.csv</code> 记录训练 loss 与分类训练准确率，<code>last.pt</code> 保存状态。训练准确率衡量训练分类头；LFW 验证衡量跨图片配对能力。画曲线时横轴 epoch，纵轴分别用 loss 和 accuracy，标明训练/验证，不能把训练准确率当测试准确率。</p>
+<p>本次还完成了一次真实图像训练pilot。程序从LFW选择52个没有出现在官方6000个pairs中的身份，共133张图，排除身份交集；训练与评估均作相同的五点对齐，得到112×112图像。然后随机初始化ResNet50，使用128维特征、P=4/K=2、学习率0.01、triplet权重0.1，在CPU上训练3个epoch。loss依次为40.111934、36.924611、36.125987；带角度间隔的分类训练准确率三个epoch均为0。其含义是“真实图像经过反向传播，目标函数有所下降，但这个小模型尚未证实具有足够判别能力”。不能只展示下降曲线、隐去准确率。这里用的是LFW的非pairs身份，不是PDF指定的MS-Celeb-1M。</p>
+<pre><code class="language-powershell">python -m research.prepare_lfw_pilot
+python -m research.recognition --data data/lfw-pilot-train --output runs/arcface-pilot --epochs 3 --p 4 --k 2 --embedding-dim 128 --lr 0.01 --triplet-weight 0.1 --workers 0 --threads 2 --seed 42 --device cpu
+</code></pre>
+<p>读取 <code>runs/arcface-pilot/history.csv</code> 并打开 <code>training-curves.svg</code>，将每行与曲线上对应的epoch核对。每epoch记录136个样本次数，是P-K重采样后的批次总量；不同文件仍只有133张。<code>reports/lfw-pilot-data.json</code>记录原图/对齐图哈希、身份集合和零交集证据。为了验证checkpoint，必须继续用 <code>data/lfw-aligned</code> 的完整6000对评估，不可换成未对齐原图，也不可拿SFace分数替它交作业。</p>
+<p>这一步已经实际执行：FP32模型在完整6000对上为52.6667%，十折标准差0.97468个百分点；动态Linear INT8为53.0167%，标准差1.60632个百分点，均没有处理失败。这两个成绩都没有达到98.5%。均衡同人/异人对上“总猜同人”或“总猜异人”的正确率为50%，所以这个短训模型只略高于简单参照，不能用于严肃身份验证。带margin的分类训练准确率为0与配对准确率约53%并不矛盾：前者要求在52个训练身份的类别分数中正确类取最大值，后者只判断两个特征是否属于同一人，是不同的问题。</p>
 <p>每次实验保存：源码 commit、数据清单/哈希、随机种子、预处理、优化器、学习率、batch、轮次、机器与库版本、完整日志、权重、评估配置。随机种子提高可重复性，但不同硬件或某些 GPU 算子仍可能产生差异。比较两方案时尽量只改变一个因素。</p>
 <p>WIDER 实验应先转 COCO 标注、检查框宽高为正和图像存在，再用 MMDetection 配置训练；300-W 应先把 <code>.pts</code> 与图片配对成清单，完成坐标约定转换，再训练坐标回归并按官方分母计算 NME。代码中具体参数以 <code>--help</code> 与 <a href="code-map.html">源码地图</a> 为准。完整数据未取得时，报告保留 blocked。</p>
+<p>本次MMDetection实践已在独立Docker里完成32张真实WIDER训练图、16张验证图的闭环：随机初始化RetinaNet ResNet50 FPN，一轮16次更新，COCO AP与AP50均为0。这证明标注转换、训练、评估和推理路径运行成功，也证明一轮极少数据不足以得到有用检测器；二者应同时报告。这里的RetinaNet是通用检测基线，不是RetinaFace。容器固定旧兼容链，主应用保留较新的PyTorch，不混装在一个环境。</p>
 <p>练习：训练 loss 从 2 降到 0.01，但测试准确率下降，下一步是什么？答案：检查泄漏/划分、过拟合和错误标签；考虑更多多样数据、适度增强、正则化、早停。不要直接再提高模型层数。</p>
 <h2 id="10-onnx">第 10 课：量化、剪枝、蒸馏和 ONNX</h2>
 <p>FP32 通常用 32 位表示一个数，INT8 用 8 位。量化大致为 <code>q=round(x/scale)+zero_point</code>，推理时近似还原。范围选择不好会截断极端数值，或让常见小值分辨率过粗，所以缩小模型不保证精度不变。</p>
@@ -230,6 +242,40 @@ print(dot / (norm_a * norm_b))  # 0.96
 <p>剪枝把部分参数或通道去掉。非结构化“置零”不会自动使普通稠密矩阵计算更快；结构化裁掉通道才更可能减少实际算量，但会改变网络尺寸。蒸馏让小模型学习大模型的输出或特征；学生模型仍需训练，并在独立数据上验证。</p>
 <p>ONNX 把模型计算表达为通用计算图，ONNX Runtime 是一个执行器。导出要确定输入 N×C×H×W、颜色范围、opset 和动态维度。ONNX checker 只证明图格式合法；还需把相同输入送到 PyTorch 与 ORT，比较最大绝对误差、余弦相似度、真正任务指标。<a href="https://docs.pytorch.org/docs/stable/onnx.html">PyTorch ONNX 文档</a></p>
 <p>评速度时固定设备、线程数、图像大小、batch，并先预热。重复测量报告中位数与 P95，注明是否包含解码、对齐、特效和浏览器传输。量化模型在桌面 CPU 变快，不代表手机也快。层融合减少多个相邻算子之间的开销；内存复用减少申请和拷贝；这些优化必须用 profiler 或计时证明。</p>
+<p>本次真实checkpoint的比较保存在 <code>reports/arcface-pilot/comparison.json</code>。条件为同一台CPU、2线程、8张真实112×112对齐图、batch8、10次计时；一次时间覆盖整批，不是单图端到端时间。完整LFW的准确率单独用7701张评估图计算，阈值由各模型的训练折分别选取：</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>文件大小</th>
+<th>整批中位/P95延迟</th>
+<th>完整LFW准确率与十折标准差</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FP32 state</td>
+<td>95,398,463字节</td>
+<td>104.477/105.799ms</td>
+<td>52.6667% ±0.97468个百分点</td>
+</tr>
+<tr>
+<td>仅Linear动态INT8 state</td>
+<td>94,612,859字节</td>
+<td>105.454/107.868ms</td>
+<td>53.0167% ±1.60632个百分点</td>
+</tr>
+<tr>
+<td>ONNX / ORT</td>
+<td>95,003,456字节</td>
+<td>155.836/176.514ms</td>
+<td>未单独执行ONNX全LFW评估</td>
+</tr>
+</tbody>
+</table>
+<p>INT8这次只省约0.82%的state文件空间，推理没有加速；ONNX在这个固定batch条件下也更慢。ONNX最大特征绝对误差约8.79×10^-7，证明这8张输入的数值输出接近，不能自动扩展成“所有输入精度相同”。INT8准确率多0.35个百分点，也不能单凭一次试验认定量化改进了模型：量化扰动、阈值重新校准和样本波动都可能影响它；需要独立重复和适当配对统计。早期随机权重smoke采用batch2/5次计时，结果单独保留，不能挑其中较快的ORT时间与本表拼接。</p>
+<pre><code class="language-powershell">python -m research.optimize --checkpoint runs/arcface-pilot/last.pt --images data/lfw-pilot-train --lfw-root data/lfw-aligned --pairs data/lfw/pairs.txt --samples 8 --threads 2 --repeats 10 --output runs/arcface-pilot/optimized
+</code></pre>
 <p>练习：原模型100MB，量化后95MB，速度从50ms变成55ms，可以称量化加速成功吗？答案：不能。它减少了文件大小但变慢，要如实写明并分析被量化部分、转换开销与硬件支持。</p>
 <h2 id="11">第 11 课：贴纸、美颜、美妆如何跟着脸移动</h2>
 <p>两眼中心给眼镜位置，两眼距离给比例，两眼连线给旋转角 <code>atan2(dy,dx)</code>。帽子或皇冠放在眼睛上方一定倍数眼距的位置。这样脸变大时贴纸也变大，歪头时贴纸旋转。贴纸超出边界时必须裁剪，不能用负数组索引把它画到另一边。</p>
@@ -277,6 +323,7 @@ docker build --target hello -t face-vision-hello .
 docker run --rm face-vision-hello
 </code></pre>
 <p>这里应查看 client 和 server 都是否存在，保存 build 与 run 的真实日志；本机Docker在WSL中，上述命令需要在该WSL环境执行。<code>hello</code>是Dockerfile中的阶段，运行的是<code>hello_world.py</code>；远端已有名为<code>hello.py</code>的目录被保留，避免覆盖旧内容。摄像头并不天然能被 Linux 容器直接读取；本项目通过浏览器帧传输的思路可减少设备映射问题，但仍需端口绑定和实际验证。</p>
+<p>核心应用的容器也已实际构建运行：<code>docker build --target lab -t face-vision-lab .</code>，随后 <code>docker run --rm -p 127.0.0.1:8765:8765 face-vision-lab</code>。访问宿主8765端口即可转发到容器8765端口。由于应用校验Host端口，若使用8766，映射与程序应一起改为8766；只改外部端口可能得到403。这个镜像包含检测/验证/特效与文档，训练和三维生成依赖仍按对应研究环境安装；成功运行核心镜像不证明所有研究模块都已部署。</p>
 <p>Notebook 把文字、代码、结果放在同一文件，适合画训练曲线、展示图像。单元格执行顺序可能混乱，交付前用“Restart and Run All”从头执行；只看画面中有数字不能证明当前代码能重现它。核查 notebook 所用 kernel 的 <code>sys.executable</code> 与命令行环境一致。</p>
 <p>练习：本地 commit 成功，GitHub 上却没有文件，缺了哪一步？答案：可能没有 push 或推到了不同分支/远程，先查 <code>git remote -v</code> 和 <code>git status</code>，最后直接读取远程验证。</p>
 <h2 id="17">第 17 课：版本兼容与故障定位</h2>
@@ -289,6 +336,7 @@ docker run --rm face-vision-hello
 <p>报告顺序：问题与目标→数据与许可→模型及处理流程→环境和实验设置→结果→错误分析→限制→下一步。每个数字都能回到命令和原始结果文件。失败也是结果：例如 INT8 没加速、完整数据下载被阻断、浏览器无法连接，都应如实记录。</p>
 <p>“识别率98.5%”必须跟随：哪个模型、是否自己训练、哪个数据集版本、多少 pairs、拆分协议、阈值如何选择、检测失败如何处理、均值/标准差。论文原作者结果、同图分数1.0、训练分类准确率100%都不能替代。</p>
 <p>汇报时建议现场演示一张正常图、一张没有脸的图、一张侧脸或遮挡图，让观众看到成功与边界。三维展示需要同时给输入、正面和侧面；GAN 展示给目标属性、原图和完整一组输出。最终用验收矩阵回答哪些要求 verified、哪些 blocked，不通过删行制造“全部完成”。</p>
+<p>练习：报告只写“本项目达到98.93%，INT8准确率还提高了”，缺少什么？答案：需要声明98.9333%属于预训练SFace第二次选脸实验；自训ArcFace FP32仅52.6667%、INT8为53.0167%。还需写6000对十折、训练折选阈值、首轮预处理变更、失败数量及折间标准差；0.35个百分点变化未经显著性检验，不应称作可靠提升。</p>
 <h2 id="_3">综合练习与参考答案</h2>
 <p>本次实际案例：严格单脸策略在6000对LFW中得到72.25%，有1633对因处理失败计错。分析发现许多图像有多个检测框；第二次实验用“面积最大、并列时距中心最近”的固定几何主体规则，在同一完整pairs集达到98.9333%±0.38873个百分点。两次阈值都仅由训练折选择，首轮完整结果也保留。这里学到的是预处理可能决定整个系统表现；第二次规则受首轮错误分析启发，仍需另一个未用于开发的数据集检验泛化。它也不等于我们从零训练出了同等性能的ArcFace。</p>
 <pre><code class="language-powershell">python -m research.lfw --backend sface --root data/lfw/lfw --pairs data/lfw/pairs.txt --models models --face-policy largest --on-failure count-incorrect --output reports/lfw-sface-largest.json

@@ -43,6 +43,8 @@ flowchart LR
 
 终端不是“黑客窗口”，它只是用文字向电脑下达命令。Windows 的 PowerShell 中，`Get-Location` 查看当前位置，`Get-ChildItem` 查看文件，`Set-Location` 切换目录。路径中有空格时加引号。项目命令必须在仓库根目录执行，即能看到 `app.py` 的目录。
 
+如果你在另一台电脑上学习，先安装Git和仓库支持的Python，然后在准备保存项目的目录执行 `git clone https://github.com/GBHLKYEric/face_ai_project.git`，再执行 `Set-Location face_ai_project`。本机已经有交付目录时直接进入该目录即可，无需再次下载同一份源码。
+
 ```powershell
 Get-Location
 Get-ChildItem
@@ -58,6 +60,7 @@ python -c "import sys; print(sys.executable)"
 # 新机器准备环境的通用示例；版本以仓库环境文件为准。
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe scripts/fetch_models.py
 .\.venv\Scripts\python.exe app.py --port 8765
 ```
 
@@ -154,6 +157,8 @@ CelebA 的每张图有属性标签，适合属性编辑；LFW 的官方 pairs �
 
 数据分析至少回答：图片数、身份数、每类最少/中位/最多样本、分辨率分布、损坏文件数、正负属性占比、训练测试拆分以及重复样本。十个身份各一万张与十万个身份各一张，虽然总图数相同，却是完全不同的问题。
 
+本次可以直接复现的统计命令为 `python scripts/analyze_lfw.py --root data/lfw/lfw --output reports/lfw-distribution`。它遍历本地图片路径，实际得到13233图、5749身份；其中4069个身份只有1张图，每身份中位数为1、最大值为530。打开 `reports/lfw-distribution.svg`：横轴是每身份图片数区间，纵轴是落在区间中的身份数量。大量身份只有极少图片、少数身份有很多图片，称为长尾分布。使用P-K采样且K≥2时，单图身份无法提供不同照片的同人正样本；复制同一文件不增加身份多样性。直方图仅证明文件数量分布，不能推断年龄/性别/族裔平衡或标签真实性。
+
 数据增强应保留任务所需真值。左右翻转后，关键点左右名称要交换；裁剪后，框和点坐标要同时改变；颜色变化可增强照明鲁棒性，但增强过强会破坏肤色/发色属性标签。LFW 测试时不要随机增强后挑最高成绩。
 
 身份目录示例：
@@ -217,13 +222,27 @@ LFW 官方常用 6,000 pairs、十折交叉验证。第 1 折作测试时，用�
 本项目身份训练命令（需要先准备合法数据）：
 
 ```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements-research.txt
 .\.venv\Scripts\python.exe -m research.recognition --help
 .\.venv\Scripts\python.exe -m research.recognition --data data/consented_faces --output runs/arcface --epochs 20 --p 8 --k 4 --device cpu
 ```
 
 P=8、K=4 要求至少 8 个满足至少 4 张图的身份。一批共32张。若只有2人各2张，可用 `--p 2 --k 2` 检查程序，但不适合宣布达到人脸识别基准。CPU 训练 ResNet50 可能很慢；命令能运行不代表耗时适合课堂。GPU 可用时也要先确认显存和驱动，再选择 `--device cuda`。
 
+研究依赖比应用依赖大；首次安装需要网络和磁盘空间。MMDetection不安装进这份主venv，它使用单独Docker兼容链。首次实践可先运行 `python -m research.smoke --output reports/research-smoke.json`，确认计算路径，再取得数据训练；生成smoke报告不应填入“训练模型准确率”栏目。
+
 输出中的 `history.csv` 记录训练 loss 与分类训练准确率，`last.pt` 保存状态。训练准确率衡量训练分类头；LFW 验证衡量跨图片配对能力。画曲线时横轴 epoch，纵轴分别用 loss 和 accuracy，标明训练/验证，不能把训练准确率当测试准确率。
+
+本次还完成了一次真实图像训练pilot。程序从LFW选择52个没有出现在官方6000个pairs中的身份，共133张图，排除身份交集；训练与评估均作相同的五点对齐，得到112×112图像。然后随机初始化ResNet50，使用128维特征、P=4/K=2、学习率0.01、triplet权重0.1，在CPU上训练3个epoch。loss依次为40.111934、36.924611、36.125987；带角度间隔的分类训练准确率三个epoch均为0。其含义是“真实图像经过反向传播，目标函数有所下降，但这个小模型尚未证实具有足够判别能力”。不能只展示下降曲线、隐去准确率。这里用的是LFW的非pairs身份，不是PDF指定的MS-Celeb-1M。
+
+```powershell
+python -m research.prepare_lfw_pilot
+python -m research.recognition --data data/lfw-pilot-train --output runs/arcface-pilot --epochs 3 --p 4 --k 2 --embedding-dim 128 --lr 0.01 --triplet-weight 0.1 --workers 0 --threads 2 --seed 42 --device cpu
+```
+
+读取 `runs/arcface-pilot/history.csv` 并打开 `training-curves.svg`，将每行与曲线上对应的epoch核对。每epoch记录136个样本次数，是P-K重采样后的批次总量；不同文件仍只有133张。`reports/lfw-pilot-data.json`记录原图/对齐图哈希、身份集合和零交集证据。为了验证checkpoint，必须继续用 `data/lfw-aligned` 的完整6000对评估，不可换成未对齐原图，也不可拿SFace分数替它交作业。
+
+这一步已经实际执行：FP32模型在完整6000对上为52.6667%，十折标准差0.97468个百分点；动态Linear INT8为53.0167%，标准差1.60632个百分点，均没有处理失败。这两个成绩都没有达到98.5%。均衡同人/异人对上“总猜同人”或“总猜异人”的正确率为50%，所以这个短训模型只略高于简单参照，不能用于严肃身份验证。带margin的分类训练准确率为0与配对准确率约53%并不矛盾：前者要求在52个训练身份的类别分数中正确类取最大值，后者只判断两个特征是否属于同一人，是不同的问题。
 
 每次实验保存：源码 commit、数据清单/哈希、随机种子、预处理、优化器、学习率、batch、轮次、机器与库版本、完整日志、权重、评估配置。随机种子提高可重复性，但不同硬件或某些 GPU 算子仍可能产生差异。比较两方案时尽量只改变一个因素。
 
@@ -244,6 +263,20 @@ FP32 通常用 32 位表示一个数，INT8 用 8 位。量化大致为 `q=round
 ONNX 把模型计算表达为通用计算图，ONNX Runtime 是一个执行器。导出要确定输入 N×C×H×W、颜色范围、opset 和动态维度。ONNX checker 只证明图格式合法；还需把相同输入送到 PyTorch 与 ORT，比较最大绝对误差、余弦相似度、真正任务指标。[PyTorch ONNX 文档](https://docs.pytorch.org/docs/stable/onnx.html)
 
 评速度时固定设备、线程数、图像大小、batch，并先预热。重复测量报告中位数与 P95，注明是否包含解码、对齐、特效和浏览器传输。量化模型在桌面 CPU 变快，不代表手机也快。层融合减少多个相邻算子之间的开销；内存复用减少申请和拷贝；这些优化必须用 profiler 或计时证明。
+
+本次真实checkpoint的比较保存在 `reports/arcface-pilot/comparison.json`。条件为同一台CPU、2线程、8张真实112×112对齐图、batch8、10次计时；一次时间覆盖整批，不是单图端到端时间。完整LFW的准确率单独用7701张评估图计算，阈值由各模型的训练折分别选取：
+
+| 版本 | 文件大小 | 整批中位/P95延迟 | 完整LFW准确率与十折标准差 |
+|---|---|---|---|
+| FP32 state | 95,398,463字节 | 104.477/105.799ms | 52.6667% ±0.97468个百分点 |
+| 仅Linear动态INT8 state | 94,612,859字节 | 105.454/107.868ms | 53.0167% ±1.60632个百分点 |
+| ONNX / ORT | 95,003,456字节 | 155.836/176.514ms | 未单独执行ONNX全LFW评估 |
+
+INT8这次只省约0.82%的state文件空间，推理没有加速；ONNX在这个固定batch条件下也更慢。ONNX最大特征绝对误差约8.79×10^-7，证明这8张输入的数值输出接近，不能自动扩展成“所有输入精度相同”。INT8准确率多0.35个百分点，也不能单凭一次试验认定量化改进了模型：量化扰动、阈值重新校准和样本波动都可能影响它；需要独立重复和适当配对统计。早期随机权重smoke采用batch2/5次计时，结果单独保留，不能挑其中较快的ORT时间与本表拼接。
+
+```powershell
+python -m research.optimize --checkpoint runs/arcface-pilot/last.pt --images data/lfw-pilot-train --lfw-root data/lfw-aligned --pairs data/lfw/pairs.txt --samples 8 --threads 2 --repeats 10 --output runs/arcface-pilot/optimized
+```
 
 练习：原模型100MB，量化后95MB，速度从50ms变成55ms，可以称量化加速成功吗？答案：不能。它减少了文件大小但变慢，要如实写明并分析被量化部分、转换开销与硬件支持。
 
@@ -333,6 +366,8 @@ docker run --rm face-vision-hello
 
 这里应查看 client 和 server 都是否存在，保存 build 与 run 的真实日志；本机Docker在WSL中，上述命令需要在该WSL环境执行。`hello`是Dockerfile中的阶段，运行的是`hello_world.py`；远端已有名为`hello.py`的目录被保留，避免覆盖旧内容。摄像头并不天然能被 Linux 容器直接读取；本项目通过浏览器帧传输的思路可减少设备映射问题，但仍需端口绑定和实际验证。
 
+核心应用的容器也已实际构建运行：`docker build --target lab -t face-vision-lab .`，随后 `docker run --rm -p 127.0.0.1:8765:8765 face-vision-lab`。访问宿主8765端口即可转发到容器8765端口。由于应用校验Host端口，若使用8766，映射与程序应一起改为8766；只改外部端口可能得到403。这个镜像包含检测/验证/特效与文档，训练和三维生成依赖仍按对应研究环境安装；成功运行核心镜像不证明所有研究模块都已部署。
+
 Notebook 把文字、代码、结果放在同一文件，适合画训练曲线、展示图像。单元格执行顺序可能混乱，交付前用“Restart and Run All”从头执行；只看画面中有数字不能证明当前代码能重现它。核查 notebook 所用 kernel 的 `sys.executable` 与命令行环境一致。
 
 练习：本地 commit 成功，GitHub 上却没有文件，缺了哪一步？答案：可能没有 push 或推到了不同分支/远程，先查 `git remote -v` 和 `git status`，最后直接读取远程验证。
@@ -356,6 +391,8 @@ BytePS 需要 CUDA/NCCL，且官方仓库已归档；单机 CPU 不能用它完�
 “识别率98.5%”必须跟随：哪个模型、是否自己训练、哪个数据集版本、多少 pairs、拆分协议、阈值如何选择、检测失败如何处理、均值/标准差。论文原作者结果、同图分数1.0、训练分类准确率100%都不能替代。
 
 汇报时建议现场演示一张正常图、一张没有脸的图、一张侧脸或遮挡图，让观众看到成功与边界。三维展示需要同时给输入、正面和侧面；GAN 展示给目标属性、原图和完整一组输出。最终用验收矩阵回答哪些要求 verified、哪些 blocked，不通过删行制造“全部完成”。
+
+练习：报告只写“本项目达到98.93%，INT8准确率还提高了”，缺少什么？答案：需要声明98.9333%属于预训练SFace第二次选脸实验；自训ArcFace FP32仅52.6667%、INT8为53.0167%。还需写6000对十折、训练折选阈值、首轮预处理变更、失败数量及折间标准差；0.35个百分点变化未经显著性检验，不应称作可靠提升。
 
 ## 综合练习与参考答案
 

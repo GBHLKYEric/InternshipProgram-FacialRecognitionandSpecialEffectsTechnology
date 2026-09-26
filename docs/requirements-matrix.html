@@ -9,7 +9,7 @@
 </div>
 <h1 id="pdf">原 PDF 要求与验收矩阵</h1>
 <p>状态口径：<code>verified</code> 表示已有本机证据支持所写的这一小项；<code>planned</code> 表示代码/文档准备中或尚未运行；<code>blocked</code> 表示依赖明确缺失，旁列解除条件。<strong>一行中的理论学习通过不代表训练、准确率或部署通过。</strong>本表禁止用模型作者的数字、合成图训练损失、预训练模型推理或模板网格冒充原要求的真实训练结果。</p>
-<p>本版已纳入2026-09-26的本机运行证据；未通过的部分保持未验收。理论说明见 <a href="tutorial-zh.html">教程</a>，官方依据见 <a href="sources.md">资料与许可</a>。<code>verified（部分）</code>只验证同一格中明确列出的子项，不代表整行PDF任务全部通过。</p>
+<p>本版已纳入2026-09-26的本机运行证据；未通过的部分保持未验收。理论说明见 <a href="tutorial.html">教程</a>，官方依据见 <a href="sources.html">资料与许可</a>。<code>verified（部分）</code>只验证同一格中明确列出的子项，不代表整行PDF任务全部通过。</p>
 <table>
 <thead>
 <tr>
@@ -30,13 +30,13 @@
 <td>1.2</td>
 <td>Git 基本操作、GitHub 仓库与首次提交</td>
 <td>远程公共仓库 URL、提交 SHA、实际文件清单</td>
-<td>planned；本地 Git commit 不是远程开源成功。</td>
+<td>verified：公开仓库GBHLKYEric/face_ai_project，已发布提交38db093c375e6dcd2e129d9048f7857e564cd314；最新文档与最终文件清单另在收尾提交核对。</td>
 </tr>
 <tr>
 <td>1.3</td>
 <td>Docker 镜像与环境</td>
 <td>Dockerfile、build 日志、容器内 Hello World</td>
-<td>verified：WSL Docker29.1.3实际构建运行，容器Python3.12.14；Dockerfile/hello_world.py；MMDetection研究镜像另外Python3.10。</td>
+<td>verified：WSL Docker29.1.3，Hello及核心lab镜像均实际构建运行；lab容器faces1/组合特效/cosine1、宿主健康检查200；MMDetection研究镜像另外Python3.10。</td>
 </tr>
 <tr>
 <td>1.4</td>
@@ -54,7 +54,7 @@
 <td>2.2</td>
 <td>下载探索 CelebA、LFW，可视化</td>
 <td>实际文件统计、分布与本地样本图</td>
-<td>verified（部分）：LFW合法维护镜像已本地下载，6000对真实运行；CelebA图像与完整分析尚未完成，已有旧CSV不代表图像已取得。</td>
+<td>verified（部分）：本地LFW实际统计13233图/5749身份，4069身份仅1图，中位1/最多530，<code>reports/lfw-distribution.json/.svg</code>；6000对真实运行。CelebA图像与完整分析未完成，旧CSV不代表取得图像。</td>
 </tr>
 <tr>
 <td>2.3</td>
@@ -114,13 +114,13 @@
 <td>5.2</td>
 <td>MS-Celeb-1M 或其子集训练 ResNet50+ArcFace</td>
 <td>数据来源授权、ResNet50 配置、训练曲线与 checkpoint</td>
-<td>blocked：未获得可核验 MS-Celeb-1M 训练包；合法自建数据属于明确替代实验。</td>
+<td>blocked（指定数据）：未获得可核验MS-Celeb-1M训练包；已另做真实替代pilot，LFW非pairs的52身份/133图、身份交集0，3epoch的loss40.1119→36.12599，margin分类训练准确率仍0；<code>runs/arcface-pilot/</code>有日志/曲线/权重，不把替代数据算作原数据要求通过。</td>
 </tr>
 <tr>
 <td>5.3</td>
 <td>LFW 验证，自训模型 &gt;98.5%</td>
 <td>6,000 pairs 十折、阈值仅从训练折选择、均值/标准差、失败计数</td>
-<td>verified（部分）：预训练SFace首轮严格单脸72.25%；第二轮最大主体98.9333%±0.38873个百分点、零失败，两个JSON均保留；后者达预训练基线数值目标，自训ArcFace尚无正式结果。</td>
+<td>verified（评估流程），数值目标未通过：真实短训ArcFace在完整6000对上FP32为52.6667%±0.97468个百分点、INT8为53.0167%±1.60632个百分点，零失败；预训练SFace第二轮98.9333%属于另一模型，不能代替自训结果。</td>
 </tr>
 <tr>
 <td>6.1</td>
@@ -132,13 +132,13 @@
 <td>6.2</td>
 <td>训练好识别模型的动态量化</td>
 <td>FP32/INT8 文件、相同输入精度、速度、大小</td>
-<td>verified（部分）：随机ResNet50动态Linear量化管线和计时已跑；<code>reports/optimization-smoke/comparison.json</code>；训练模型精度未验，INT8本次变慢。</td>
+<td>verified（部分）：真实短训checkpoint已量化并做完整LFW；batch8中位104.477→105.454ms，大小95,398,463→94,612,859字节；<code>reports/arcface-pilot/comparison.json</code>。训练尚未收敛，量化只覆盖Linear，本次没有加速。</td>
 </tr>
 <tr>
 <td>6.3</td>
 <td>ONNX 转换与推理</td>
 <td>ONNX checker、ORT 推理、数值差、输入输出规格</td>
-<td>verified（部分）：随机ResNet50导出+checker+ORT数值检查通过，3DDFA真实预训练回归器也已导出运行；自训识别checkpoint导出待5.2。</td>
+<td>verified：真实短训checkpoint导出opset17动态batch，checker/ORT通过，最大特征绝对误差8.79×10^-7，batch8中位155.836ms；3DDFA真实回归器也已导出运行。ONNX全LFW精度未单独计算，不能由数值误差直接认定。</td>
 </tr>
 <tr>
 <td>6.4 可选</td>
@@ -180,7 +180,7 @@
 <td>8.3</td>
 <td>PyTorch3D 或 OpenGL 渲染多视图</td>
 <td>重建网格、渲染过程、至少三个视角</td>
-<td>verified（部分）：matplotlib三个视角已输出；WebGL（OpenGL ES）查看器已生成，浏览器实际交互验证单独记录；未安装PyTorch3D。</td>
+<td>verified（WebGL替代路径）：matplotlib三个视角已输出；WebGL（基于OpenGL ES）已在浏览器实际渲染并旋转35°，<code>reports/3d/viewer-screenshot.png</code>；未安装PyTorch3D或使用桌面OpenGL绑定。</td>
 </tr>
 <tr>
 <td>9.1</td>
@@ -220,12 +220,12 @@
 <tr>
 <td>数据分析报告与基线</td>
 <td>数量、类别、失败数量、数据拆分和指标</td>
-<td>verified（部分）：LFW全协议与失败；CelebA完整探索未完成</td>
+<td>verified（部分）：LFW本地身份频数/长尾SVG、全协议与失败记录；CelebA完整探索未完成</td>
 </tr>
 <tr>
 <td>难例挖掘/难例采样、大规模类别问题</td>
 <td>原理说明及训练代码，不能仅出现术语</td>
-<td>verified：P-K/batch-hard实现与梯度检查；真实训练效果待评估</td>
+<td>verified：P-K/batch-hard实现、梯度检查与真实133图训练；性能收益未做独立消融，不能归因给难例策略</td>
 </tr>
 <tr>
 <td>三类特效演示程序</td>
@@ -265,7 +265,7 @@
 <tr>
 <td>全部源代码 GitHub 开源</td>
 <td>公共仓库可读取、源码齐全、许可证、无私密数据</td>
-<td>planned</td>
+<td>verified（已有公开提交）：GBHLKYEric/face_ai_project，38db093c375e6dcd2e129d9048f7857e564cd314；最终文档修订与源码清单核对依最后发布记录，不以旧提交覆盖后续新文件</td>
 </tr>
 <tr>
 <td>面向高三零基础教程</td>

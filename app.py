@@ -177,6 +177,7 @@ class Handler(BaseHTTPRequestHandler):
         allowed_files = {"/": (ROOT / "web/index.html", "text/html; charset=utf-8"),
                          "/sample.jpg": (ROOT / "assets/sample.jpg", "image/jpeg"),
                          "/tutorial": (ROOT / "docs/tutorial.html", "text/html; charset=utf-8"),
+                         "/tutorial.html": (ROOT / "docs/tutorial.html", "text/html; charset=utf-8"),
                          "/3d": (ROOT / "reports/3d/viewer.html", "text/html; charset=utf-8"),
                          "/face.obj": (ROOT / "reports/3d/face.obj", "text/plain; charset=utf-8"),
                          "/multiview.png": (ROOT / "reports/3d/multiview.png", "image/png")}

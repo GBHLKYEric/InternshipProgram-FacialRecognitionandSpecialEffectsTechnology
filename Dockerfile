@@ -11,6 +11,7 @@ COPY app.py .
 COPY scripts scripts
 COPY web web
 COPY docs docs
-COPY models models
+COPY models/registry.json models/registry.json
+COPY models/licenses models/licenses
 RUN python scripts/fetch_models.py
 CMD ["python", "app.py", "--host", "0.0.0.0"]

@@ -47,7 +47,7 @@
 <td>旧GitHub创建仓库接口限流</td>
 <td><code>create_repo</code>入口失败</td>
 <td>检索已连接GitHub，使用用户已存在公开仓库 <code>GBHLKYEric/face_ai_project</code></td>
-<td>已开始写入LICENSE；完整发布以远程文件读取和提交SHA为准</td>
+<td>已发布38db093c375e6dcd2e129d9048f7857e564cd314；最新文档的收尾提交仍需最终远程核对</td>
 </tr>
 <tr>
 <td>Docker首次拉取镜像出现CloudFront EOF</td>
@@ -76,14 +76,14 @@
 <tr>
 <td>动态INT8未加速</td>
 <td>ResNet大部分是Conv2d，当前动态量化仅覆盖Linear；转换开销与硬件有关</td>
-<td>原样记录FP32/INT8/ORT计时，不写预设加速倍数</td>
-<td>随机权重smoke中48.840ms→52.653ms，实际变慢；准确率字段为null</td>
+<td>原样记录同一真实checkpoint的FP32/INT8/ORT，不写预设加速倍数</td>
+<td>batch8/2线程/10次，104.477ms→105.454ms；state只省约0.82%；完整LFW52.6667%→53.0167%，不能称有统计显著改善</td>
 </tr>
 <tr>
 <td>ONNX导出API随PyTorch变动</td>
 <td>现代导出器与旧教程默认行为不同</td>
-<td>当前代码显式 <code>dynamo=False</code>、opset17，并用checker与ORT对比</td>
-<td>随机权重smoke最大绝对差1.71e-7；不是训练模型精度验证</td>
+<td>当前代码显式 <code>dynamo=False</code>、opset17，并用checker与ORT对比；保留弃用警告作为升级事项</td>
+<td>真实checkpoint最大绝对差8.79e-7；ORT中位155.836ms，比同批FP32慢；数值接近不等于已单独验证全LFW准确率</td>
 </tr>
 <tr>
 <td>3DDFA checkpoint含辅助头和不同参数名称</td>
@@ -157,9 +157,70 @@
 <td>未编造信息，不把测试集切成训练后声称标准协议</td>
 <td>300-W真实训练仍blocked；代码入口已提供</td>
 </tr>
+<tr>
+<td>MS-Celeb-1M授权训练包未取得</td>
+<td>不能从未知转载包推定拥有可使用数据，也不能把评估身份混入训练</td>
+<td>另建明确标识的替代pilot：LFW非pairs身份52个/133图，训练与评估身份交集0</td>
+<td>真实3epoch训练和曲线已保存；不改变PDF指定数据要求的未验收状态</td>
+</tr>
+<tr>
+<td>小样本ArcFace训练loss下降，margin分类准确率仍0</td>
+<td>随机初始化大型骨干、133图、3epoch与角度间隔共同使任务困难；不能仅由日志断定某一因素贡献</td>
+<td>同时保存loss/准确率，执行完整6000pairs评估，不手写好看的准确率</td>
+<td>loss40.111934→36.125987；FP32 LFW52.6667%/INT8 53.0167%，均未达标；数据/模型/轮次需后续受控实验改进</td>
+</tr>
+<tr>
+<td>README引用不存在的独立模块/下载器</td>
+<td>把三维脚本内部函数误写成模块，数据下载命令没有纳入仓库</td>
+<td>删除 <code>python -m vision3d.export_onnx</code>，改用实际reconstruct入口；LFW按官方来源/SHA256说明布局，明确没有fetch_lfw.py</td>
+<td>用实际文件清单与CLI逐项校准；不把“若存在”留作可执行教程命令</td>
+</tr>
+<tr>
+<td>Windows非法Origin请求触发客户端10053</td>
+<td>服务在未读取请求体时立即返回403，连接关闭可能造成客户端接收失败</td>
+<td>先在22MB请求体上限内读取，再按Origin规则返回403；仍保持来源限制</td>
+<td><code>scripts/verify_local.py</code>实测错误路径通过，没有为了消除错误放宽跨源访问</td>
+</tr>
+<tr>
+<td>已存在venv但缺依赖时启动失败</td>
+<td>旧启动逻辑仅在新建venv后安装依赖</td>
+<td><code>start.ps1</code>改为每次执行幂等依赖安装，已有符合要求的包会复用</td>
+<td>初次创建和已有环境两种状态遵循同一依赖清单</td>
+</tr>
+<tr>
+<td>新clone缺少本地素材/权重会影响Docker构建和运行</td>
+<td>原工作目录存在下载文件，可能掩盖干净副本的依赖</td>
+<td>Docker构建阶段按来源/哈希下载，构建上下文排除本机数据及已有权重</td>
+<td>lab镜像已真实构建运行；容器中faces=1、组合特效、同图cosine=1通过，宿主8766健康检查200；镜像只含核心应用，三维另生成</td>
+</tr>
+<tr>
+<td>网页教程里的相对Markdown链接返回404</td>
+<td>文档链接按文件布局编写，服务没有对应路由</td>
+<td>生成HTML时重写链接，服务仅允许白名单docs文件路由</td>
+<td>本地教程可通过服务浏览；不暴露任意文件路径</td>
+</tr>
+<tr>
+<td>摄像头授权异步返回可能覆盖新状态</td>
+<td>getUserMedia在用户切换/停止后才返回，旧结果可能重新绑定视频</td>
+<td>使用generation token识别过期请求，申请期间禁用按钮并释放过期流</td>
+<td>代码处理竞态；真人摄像头授权与连续跟踪仍未手工实测</td>
+</tr>
+<tr>
+<td>WSL默认用户没有Docker socket权限</td>
+<td>该用户不在所需访问上下文中</td>
+<td>本次Docker命令显式以WSL root运行</td>
+<td>没有放宽socket权限或修改全局用户组；Hello构建/运行证据已保存</td>
+</tr>
+<tr>
+<td>Docker映射8766:8765后浏览器得到403</td>
+<td>程序监听8765，HTTP Host是外部8766，已有Host端口白名单拒绝不匹配值</td>
+<td>改为 <code>-p 127.0.0.1:8766:8766</code> 并显式 <code>python app.py --host 0.0.0.0 --port 8766</code></td>
+<td>宿主健康检查200；默认8765:8765即可，无须削弱Host校验</td>
+</tr>
 </tbody>
 </table>
 <h2 id="_2">已有项目的审计与本次工程关系</h2>
+<p>最终交付检查还发现Windows生成的CRLF与远端历史文本混用，使Git将行尾CR识别为尾随空白。项目增加 <code>.gitattributes</code> 固定文本LF，并在发布时统一换行；源码汇编在统一后的源码上计算哈希。视频原始输出为OpenCV的MPEG-4 Part 2，为提高常见浏览器/播放器兼容性，另以FFmpeg导出H.264/yuv420p并逐帧解码核对360帧、20 FPS、18秒；这属于交付格式处理，不改变原始模型计时。LibreOffice转换PPT时出现Python prefix提示及终端中文乱码，实际PDF文件存在、16页可渲染；以文件读取和逐页视觉检查为准。</p>
 <p>用户现有公开仓库 <a href="https://github.com/GBHLKYEric/ByteDance_stage_1">GBHLKYEric/ByteDance_stage_1</a> 已只读检查，未修改。它包含教学演示、配置和CelebA标注CSV。本次源码发布到 <code>face_ai_project</code>，并不覆盖原仓库。旧脚本可以帮助理解张量/API，但下述结果不能作为原PDF科研要求已完成的证据。</p>
 <table>
 <thead>
@@ -209,4 +270,4 @@
 </table>
 <p>审计是在说明证据范围，不否认演示代码的学习价值。科研报告可保留“早期原型”，但必须明确随机数据、手填数值和真实基准的差别。</p>
 <h2 id="_3">尚待解除的外部条件</h2>
-<p>完整CelebA图像与属性训练、WIDER全量正式训练（小样本已完成）、300-W或COFW训练测试数据、可核验MS-Celeb-1M授权数据、可用的浏览器/摄像头连接、真实移动设备，以及云服务凭据。MMCV兼容环境已在独立Docker中解除。源码与教程已给出推进路径；缺少外部条件时，不填补虚构数据、不购买未知服务、不伪造项目通过。</p></body></html>
+<p>完整CelebA图像与属性训练、WIDER全量正式训练（小样本已完成）、300-W或COFW训练测试数据、可核验MS-Celeb-1M授权数据、真人摄像头授权与连续输入、真实移动设备，以及云服务凭据。MMCV兼容环境已在独立Docker中解除；三维页面已有实际浏览器渲染证据，但原Chrome插件连接错误与真人摄像头实测分别保留。源码与教程已给出推进路径；缺少外部条件时，不填补虚构数据、不购买未知服务、不伪造项目通过。</p></body></html>

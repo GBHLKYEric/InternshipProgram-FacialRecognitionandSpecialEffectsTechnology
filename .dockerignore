@@ -7,3 +7,6 @@ reports
 *.pdf
 *.pptx
 __pycache__
+models/3ddfa
+models/*.onnx
+assets
