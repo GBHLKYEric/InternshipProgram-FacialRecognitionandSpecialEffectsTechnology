@@ -1,13 +1,13 @@
 <!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>requirements-matrix</title><style>body{font:17px/1.85 "Segoe UI","Microsoft YaHei",sans-serif;color:#1b2925;background:#f7f8f4;max-width:1040px;margin:auto;padding:44px 28px}h1{font-size:36px;line-height:1.4;color:#1c4939}h2{font-size:25px;margin-top:2.5em;border-bottom:1px solid #cdd7cf;padding-bottom:12px}h3{font-size:20px;margin-top:1.8em}a{color:#1f6550}p{margin:1em 0}code{font:14px/1.65 Consolas,"Microsoft YaHei",monospace;background:#eaf0ea;padding:2px 4px}pre{background:#142c25;color:#e4efdf;padding:22px;overflow:auto;border-radius:8px;line-height:1.7}pre code{background:transparent;color:inherit;white-space:pre}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:12px;border:1px solid #d4ded6;vertical-align:top;overflow-wrap:anywhere}th{background:#e7eee8;text-align:left}.toc{font-size:14px;columns:2;column-gap:36px}.toc ul{padding-left:18px}blockquote{margin-left:0;padding-left:18px;border-left:3px solid #789c85;color:#40594b}img{max-width:100%}.meta{font-size:13px;color:#63756a}@media(max-width:600px){.toc{columns:1}body{padding:20px 16px}h1{font-size:28px}table{display:block;overflow:auto}}@media print{body{background:white;max-width:none;font-size:10pt;padding:0}.toc{columns:2}h2{break-before:page}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f3f5f2;color:#111;font-size:8pt}pre code{white-space:pre-wrap}a{color:inherit}table{font-size:8pt}tr{break-inside:avoid}}</style><body><div class="toc">
 <ul>
-<li><a href="#pdf">原 PDF 要求与验收矩阵</a><ul>
-<li><a href="#_1">阶段与综合交付</a></li>
-<li><a href="#_2">不能改变口径的四条规则</a></li>
+<li><a href="#原-pdf-要求与验收矩阵">原 PDF 要求与验收矩阵</a><ul>
+<li><a href="#阶段与综合交付">阶段与综合交付</a></li>
+<li><a href="#不能改变口径的四条规则">不能改变口径的四条规则</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<h1 id="pdf">原 PDF 要求与验收矩阵</h1>
+<h1 id="原-pdf-要求与验收矩阵">原 PDF 要求与验收矩阵</h1>
 <p>状态口径：<code>verified</code> 表示已有本机证据支持所写的这一小项；<code>planned</code> 表示代码/文档准备中或尚未运行；<code>blocked</code> 表示依赖明确缺失，旁列解除条件。<strong>一行中的理论学习通过不代表训练、准确率或部署通过。</strong>本表禁止用模型作者的数字、合成图训练损失、预训练模型推理或模板网格冒充原要求的真实训练结果。</p>
 <p>本版已纳入2026-09-26—27的本机运行证据；未通过的部分保持未验收。理论说明见 <a href="tutorial.html">教程</a>，官方依据见 <a href="sources.html">资料与许可</a>。<code>verified（部分）</code>只验证同一格中明确列出的子项，不代表整行PDF任务全部通过。</p>
 <table>
@@ -36,7 +36,7 @@
 <td>1.3</td>
 <td>Docker 镜像与环境</td>
 <td>Dockerfile、build 日志、容器内 Hello World</td>
-<td>verified：WSL Docker29.1.3，Hello及核心lab镜像均实际构建运行；lab容器faces1/组合特效/cosine1、宿主健康检查200；MMDetection研究镜像另外Python3.10。</td>
+<td>verified：WSL Docker29.1.3，Hello及早期lab已运行；当前源码重新构建desktop-integration镜像并核对哈希，六模式各faces1、五种效果像素改变、五点覆盖、cosine1和pip check通过。仅CPU核心，见reports/docker-lab-current.json；MMDetection研究镜像另Python3.10。</td>
 </tr>
 <tr>
 <td>1.4</td>
@@ -60,7 +60,7 @@
 <td>2.3</td>
 <td>MMDetection 人脸模型检测</td>
 <td>框架推理日志、权重来源、检测图</td>
-<td>verified（部分）：WIDER小样本自训RetinaNet推理已跑，<code>reports/wider_pilot_prediction.jpg</code>显示top10低分候选，模型未收敛不能称有效检测器；YuNet属于独立应用基线。</td>
+<td>verified（完整迁移基线）：MMDetection RetinaNet全部12880图一轮训练，3226图预测与COCO/官方难度评估已完成；COCO AP=0.055，小脸表现弱，不把YuNet成绩归给它。</td>
 </tr>
 <tr>
 <td>2.4</td>
@@ -78,13 +78,13 @@
 <td>3.2</td>
 <td>MMDetection 在 WIDER FACE 训练</td>
 <td>COCO 转换、配置、训练日志、权重、数据清单</td>
-<td>verified（部分）：完整12880图/156994个COCO有效框与兼容Docker已准备；完整1epoch迁移训练进行中。早期32图随机初始化pilot保留；只有最终完成记录才能验收全量训练。</td>
+<td>verified（限定一轮迁移）：完整12880图/156994个COCO有效框，batch2共6440次更新；冻结COCO预训练ResNet50，训练FPN/检测头。最终权重及内嵌配置哈希一致，见reports/wider-mmdet-audit.json；不是论文完整训练或收敛证明。</td>
 </tr>
 <tr>
 <td>3.3</td>
 <td>WIDER 验证集检测指标</td>
 <td>Precision、Recall、明确协议的 AP</td>
-<td>verified（预训练完整基线）：YuNet全部3226张val，官方难度协议Python实现，AP easy0.8844221/medium0.8656839/hard0.7504021，与OpenCV Zoo参考实现绝对差均0；不是自训RetinaNet结果。其全量训练模型评估仍进行中。</td>
+<td>verified（完整验证协议）：两模型各3226图；YuNet AP easy0.8844221/medium0.8656839/hard0.7504021；自训RetinaNet为0.3865926 / 0.2589124 / 0.1310345，参考交叉检查通过；Precision/Recall与曲线见第6.4节，输入设置差异另列。</td>
 </tr>
 <tr>
 <td>4.1</td>
@@ -202,7 +202,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_1">阶段与综合交付</h2>
+<h2 id="阶段与综合交付">阶段与综合交付</h2>
 <table>
 <thead>
 <tr>
@@ -250,7 +250,7 @@
 <tr>
 <td>项目总结报告、汇报 PPT</td>
 <td>本文档目录及实际 PPTX</td>
-<td>verified（部分）：Markdown、教程/报告/问题PDF与PPTX已生成；最终视觉检查另记录</td>
+<td>verified：五份PDF、实际PPTX及Markdown/HTML已生成；最终渲染与文字检查见交付文件校验及本轮核验记录。</td>
 </tr>
 <tr>
 <td>StyleGAN3、DECA 必读、CNN/度量/GAN/扩散/3DGS/可微渲染</td>
@@ -265,7 +265,7 @@
 <tr>
 <td>全部源代码 GitHub 开源</td>
 <td>公共仓库可读取、源码齐全、许可证、无私密数据</td>
-<td>verified（已有公开基线）：仓库已公开且沿用用户重命名后的地址；本次最终桌面源码与新增实验须按最终交付清单同步发布</td>
+<td>verified：公共仓库沿用用户重命名后的地址，包含最终原生前端、研究源码及证据；最终提交SHA与桌面/ZIP校验见交付说明。</td>
 </tr>
 <tr>
 <td>面向高三零基础教程</td>
@@ -280,12 +280,12 @@
 <tr>
 <td>全部源码汇编与使用位置（新增要求）</td>
 <td>源码快照、模块/调用入口/PDF编号/验证命令</td>
-<td>verified：code-map.md、完整Markdown/HTML源码汇编及reports/code-inventory.json；最终发布前再按文件清单核对</td>
+<td>verified：code-map.md、完整Markdown/HTML源码汇编及reports/code-inventory.json；最终源码逐文件校验，包含实际运行配置快照。</td>
 </tr>
 </tbody>
 </table>
 <p>桌面源码副本位于用户桌面的“智能视觉AI项目_完整源代码”文件夹；复制后按逐文件SHA256核对，最终清单见交付文件。</p>
-<h2 id="_2">不能改变口径的四条规则</h2>
+<h2 id="不能改变口径的四条规则">不能改变口径的四条规则</h2>
 <ol>
 <li>测试训练代码能反向传播，只证明“训练程序能执行”；必须有训练数据、训练轮次与验证才能评价模型。</li>
 <li>预训练模型取得的性能归属于指定预训练模型与本次处理协议，不能归给本项目从零训练。</li>

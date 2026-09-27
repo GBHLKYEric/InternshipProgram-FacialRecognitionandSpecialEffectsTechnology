@@ -206,6 +206,7 @@ def plot_curves(report_path):
     axis.legend(loc='lower left')
     axis.grid(alpha=.2)
     fig.savefig(report_path.with_name(report_path.stem+'-pr.svg'))
+    fig.savefig(report_path.with_name(report_path.stem+'-pr.png'), dpi=180)
     plt.close(fig)
 
 

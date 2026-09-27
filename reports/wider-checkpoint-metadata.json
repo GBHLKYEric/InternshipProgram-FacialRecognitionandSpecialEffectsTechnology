@@ -1,0 +1,23 @@
+{
+  "checkpoint": "runs/wider-mmdet-full-stable/iter_6440.pth",
+  "epoch": 0,
+  "iter": 6440,
+  "meta_keys": [
+    "cfg",
+    "dataset_meta",
+    "epoch",
+    "experiment_name",
+    "iter",
+    "mmengine_version",
+    "seed",
+    "time"
+  ],
+  "checkpoint_config_sha256": "fac440328f4f4438703070a1f9d9fc79c51b4e90502bf16dc1a933f37feddbb7",
+  "saved_config_sha256": "fac440328f4f4438703070a1f9d9fc79c51b4e90502bf16dc1a933f37feddbb7",
+  "checkpoint_config_equals_saved_config": true,
+  "inspection_runtime": {
+    "torch": "2.1.0+cpu",
+    "mmengine": "0.10.7",
+    "mmdet": "3.3.0"
+  }
+}

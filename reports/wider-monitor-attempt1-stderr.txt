@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\0\Documents\Codex\2026-09-26\plugin-computer-use-openai-bundled-github\outputs\face-vision-lab\research\wider_watch.py", line 104, in <module>
+    run(arguments)
+  File "C:\Users\0\Documents\Codex\2026-09-26\plugin-computer-use-openai-bundled-github\outputs\face-vision-lab\research\wider_watch.py", line 64, in run
+    raise TimeoutError('Monitor timeout; training is preserved and has not been stopped')
+TimeoutError: Monitor timeout; training is preserved and has not been stopped

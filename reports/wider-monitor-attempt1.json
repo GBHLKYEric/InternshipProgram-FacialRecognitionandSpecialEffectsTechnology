@@ -1,0 +1,6 @@
+{
+  "status": "failed",
+  "error": "Monitor timeout; training is preserved and has not been stopped",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\0\\Documents\\Codex\\2026-09-26\\plugin-computer-use-openai-bundled-github\\outputs\\face-vision-lab\\research\\wider_watch.py\", line 64, in run\n    raise TimeoutError('Monitor timeout; training is preserved and has not been stopped')\nTimeoutError: Monitor timeout; training is preserved and has not been stopped\n",
+  "updated_utc": "2026-09-27T02:46:10.064346+00:00"
+}

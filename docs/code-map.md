@@ -12,7 +12,7 @@
 | `scripts/copy_source_delivery.py` | 同步源码至桌面并按SHA256逐文件检查 | 用户新增桌面源码要求 | `python scripts/copy_source_delivery.py --destination <桌面目录> --report <清单路径>` |
 | `app.py` → `Vision.detect/feature/verify/process` | YuNet 检测五点、SFace 对齐和特征、同人验证、图片特效 | 2.1、2.4、4.3、9.1–9.3、系统集成 | `python -m unittest discover -s tests -p test_app.py`；`python app.py --port 8765` |
 | `app.py` → `decode_image`、`Handler` | 校验上传内容；`/health`、`/process`、`/verify` HTTP 接口 | 系统集成与部署 | 无效图片/无脸/错误参数测试；访问 `http://127.0.0.1:8765/health` |
-| `web/index.html` | 原生浏览器界面，图片选择、摄像头采集与结果绘制 | 实时视频、统一界面 | 本地服务启动后使用页面；摄像头/实时跟踪需设备与浏览器权限 |
+| `web/index.html` | 辅助网页界面，图片选择、摄像头采集与结果绘制 | 实时视频、统一界面 | 本地服务启动后使用页面；摄像头/实时跟踪需设备与浏览器权限 |
 | `start.ps1` | Windows 快速启动；补齐子进程环境、建venv、幂等安装依赖、下载模型、启动 | 1.1、部署 | `powershell -File start.ps1`；每次核对依赖，已有满足版本的包复用 |
 | `hello_world.py`、`Dockerfile`、`.dockerignore` | 构建与容器 Hello World；保留远端已有hello.py目录 | 1.3 | `docker build --target hello -t face-vision-hello .`；`docker run --rm face-vision-hello` |
 | `Dockerfile` 的 `lab` 阶段 | 核心CPU图像应用容器；构建时按哈希下载模型和素材 | 1.3、系统部署 | `docker build --target lab -t face-vision-lab .`；`docker run --rm -p 127.0.0.1:8765:8765 face-vision-lab`；不含研究训练/三维生成依赖 |
@@ -87,7 +87,7 @@ python -m research.landmarks prepare --root data/300w/val --output data/300w/val
 python -m research.landmarks train --root data/300w/train --train data/300w/train.json --val-root data/300w/val --val data/300w/val.json --epochs 20 --output runs/landmarks
 
 python -m research.stargan train --root data/celeba/img_align_celeba --labels data/celeba/list_attr_celeba.txt --partition data/celeba/list_eval_partition.txt --output runs/stargan
-python -m research.stargan generate --checkpoint runs/stargan/last.pt --image assets/sample.jpg --targets 0,1,0,0,1 --output runs/stargan/example.png
+python -m research.stargan generate --checkpoint runs/stargan/last.pt --image data/stargan-official/celeba/images/028136.jpg --targets 0,1,0,0,1 --output runs/stargan/example.png
 python -m research.stargan metrics --real data/celeba-eval --generated runs/stargan/generated --output runs/stargan-metrics.json
 
 ```
@@ -99,6 +99,8 @@ python -m research.optimize --checkpoint runs/arcface-pilot/last.pt --images dat
 ```
 
 `--images`这里提供8张真实对齐训练图用于计时与数值一致性；任务准确率另由 `--lfw-root` 的7701张独立身份图、6000个官方pairs决定。原始输出 `runs/arcface-pilot/optimized/comparison.json`，便于公开核查的副本为 `reports/arcface-pilot/comparison.json`。FP32为52.6667%、动态Linear INT8为53.0167%，本次均未达到98.5%；ONNX本次只评数值与延迟，没有另外计算其完整LFW准确率。
+
+StarGAN单图示例要求训练检查点已经存在，并按[继续实验教程第8节](continued-experiments.md#8-用真实-celeba-数据完成-stargan-微调评估与桌面部署)完成配套数据下载与 `prepare`，使已对齐的 `028136.jpg` 位于所示路径。本机已有该图；源码仓库不包含它，生成命令本身也不下载图片。CLI使用中心裁剪，与桌面程序的检测框引导裁剪不同。
 
 StarGAN的 `--targets` 必须与checkpoint保存的属性顺序完全一致；例中的五个值不是对输入照片真实属性的断言。FID/IS使用有意义规模的独立真实集和生成集，不能把重复同一张图片当成大样本。MMDetection的训练脚本来自其安装/克隆版本，项目配置通过 `mmdet::` 继承上游配置；必须运行在匹配的MMCV环境中。
 

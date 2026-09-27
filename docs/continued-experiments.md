@@ -2,6 +2,8 @@
 
 本章连接主教程与本轮新实验。所有命令在项目根目录执行；`python`须替换为对应环境的解释器。代码正文完整收录于[源码汇编](code-compendium.md)，文件用途见[代码地图](code-map.md)。本文的硬件结果来自这台电脑，不能直接套用到另一台电脑或手机。
 
+**命令阅读提示：** PDF会为版面自动折行；复制执行时请使用随附Markdown/HTML中的代码块或原始脚本，避免把显示换行误当作命令分隔。
+
 最终前端已经按用户要求改为原生桌面程序，直接调用本机摄像头。其运行方法、线程设计和实测见[本地桌面教程](desktop-guide.md)。下节保留较早的网页摄像头对照实验，避免把两种实现及不同后台负载的数字混在一起。
 
 ## 1. 辅助网页的摄像头对照实验
@@ -121,6 +123,10 @@ python -m research.wider_reference
 | medium | 13,319 | 0.8656839 |
 | hard | 31,958 | 0.7504021 |
 
+![完整YuNet基线的真实Precision–Recall曲线](../reports/wider-yunet-full-pr.png)
+
+这张图由全部预测与官方难度标记计算。最低纳入分数处，easy/medium/hard的Precision分别为0.213210/0.327652/0.501245，Recall分别为0.918597/0.896389/0.793479；它们是这一操作点的值，不是AP。不同难度的忽略目标和分母不同，不能仅凭三个Precision排序判断哪个难度更简单。
+
 同一份预测另交给固定源码哈希的 OpenCV Zoo 参考评估函数，三项 AP 的绝对差均为 0。这里的意义是两个实现对同一输入得出一致结果，提高了计算过程的可信度；它不能证明数据标注绝无错误，也不能把预训练 YuNet 的成绩归给本项目训练的 RetinaNet。
 
 原始推理总时间 225.0547 秒；单图推理中位 50.9081 ms、P95 110.8007 ms，CPU 两线程。这些图的尺寸不同于原生摄像头的 640×480，且没有窗口显示和特效，因此不能直接拿它与桌面 FPS 比快慢。
@@ -129,7 +135,7 @@ python -m research.wider_reference
 
 早期 32 张训练图的随机初始化 RetinaNet 只用于验证 MMDetection 的训练、保存、读取和评估路径。其 mAP=0 需要保留，不能称“检测器已经学会”。后续完整实验载入 MMDetection 官方 COCO 预训练 RetinaNet R50/FPN，替换最后的 80 类分类层为人脸单类，冻结 ResNet50，训练 FPN 和检测头。
 
-完整训练采用原始 train/val 拆分，最大边 320、batch2，一轮 6,440 次更新。它是一轮迁移训练基线，不是原论文的完整训练计划。若验证 AP 很低，也必须记录，而不是只展示损失下降。训练状态和最终结果分别见 `reports/wider-mmdet-full-progress.json` 与训练完成后的报告。
+完整训练采用原始 train/val 拆分，最大边 320、batch2，一轮 6,440 次更新。它是一轮迁移训练基线，不是原论文的完整训练计划。若验证 AP 很低，也必须记录，而不是只展示损失下降。本次已经完成全量一轮训练和完整验证，真实结果见第6.4节及 `reports/wider-mmdet-full.json`。
 
 首次尝试学习率 0.0025、没有 warmup，在第 100 次更新附近出现 NaN。原始框数据检查未发现非有限坐标或非正尺寸，但这不足以证明原因只有学习率。修正尝试采用学习率 0.0005、250 步线性 warmup、梯度范数 10 裁剪、逐步有限性检查，每 100 步保存 checkpoint，并在独立目录保留失败历史。
 
@@ -151,6 +157,45 @@ python -m research.wider_reference --prediction-dir runs/wider-mmdet-full-stable
 ```
 
 练习：预训练 YuNet 的 hard AP 为 0.7504，而一轮 RetinaNet 的 COCO AP 是另一个数，能直接宣布哪个模型更好吗？答案：不能。需要相同数据、框匹配协议、输入尺寸和预测设置；WIDER hard AP 与 COCO 的多 IoU AP 也不是同一个指标。应在一致协议下比较，并保留两种模型各自的来源。
+
+### 6.4 完整训练的最终结果与如何判断
+
+本次已经完成全部12,880张训练图的一轮迁移训练，最终检查点内的更新次数为 **6,440**。全部3,226张验证图都有对应预测文件，共2,743,965个预测框、0张零检测图；没有因结果不好而删除验证图片。
+
+COCO bbox AP 为 **0.055**，AP50为 **0.108**，AP75为 **0.053**；small/medium/large AP 分别为 **0.001/0.143/0.574**。本次实际pycocotools摘要中，bbox AP使用maxDets=100；AP50、AP75及三个尺寸AP使用maxDets=1000，不能把全部行统一标成同一候选上限。COCO bbox AP平均IoU 0.50到0.95的多个匹配条件；WIDER难度AP采用IoU 0.5、官方难度目标与忽略规则，因此两组数字不能混称同一指标。MMDetection日志中的`coco/face_precision`实际是face类AP@maxDets1000，不是某置信度工作点的Precision；即使本次四舍五入数值碰巧与bbox AP相同，也不能说两者定义完全相同。
+
+| 难度 | AP | 最低纳入分数处 Precision | 同一操作点 Recall |
+|---|---:|---:|---:|
+| easy | 0.3865926 | 0.0024223 | 0.9177645 |
+| medium | 0.2589124 | 0.0039194 | 0.8058413 |
+| hard | 0.1310345 | 0.0055213 | 0.4740284 |
+
+
+![本次一轮RetinaNet的完整WIDER难度PR曲线](../reports/wider-mmdet-full-official-pr.png)
+
+同一份完整预测另交给固定哈希的OpenCV Zoo参考评估函数，三项AP交叉检查通过，具体差值见[独立核对报告](../reports/wider-mmdet-full-crosscheck.json)。这里完成的是官方协议的Python计算，没有运行MATLAB或提交官方榜单。表中的Precision、Recall是最低纳入分数处的同一操作点；它们不是AP，亦不是人脸身份识别准确率。
+
+这个最低分数操作点保留大量低分候选，因此Precision很低。即使某一难度Recall较高，也不能据此把它当作适合交互程序的部署阈值。最终桌面程序的检测仍使用已验证的YuNet；本页RetinaNet用于展示真实训练与评测结果，两者的来源、用途和成绩分别记录。
+
+推理采用与本次训练匹配的最大边320、单尺度、无翻转、分数截断0.001及每图最多1000个预测框。COCO评估使用已安装MMDetection的默认maxDets 100/300/1000，单进程执行。YuNet基线使用原图分辨率与另一套预测设置，所以本页不能当两个模型在完全同等条件下的公平排名。
+
+![真实完整训练日志的损失与学习率曲线](../reports/wider-mmdet-training-curves.png)
+
+曲线是日志中最多50步窗口的平均值，通常每25步记录；最后记录点为第6425步，最终权重由元数据另行确认到6440步。有限训练损失并不证明模型收敛。尤其small AP仅0.001，应如实判断为当前短训与有限分辨率条件下的小脸表现很弱，不能写成“全量训练后检测已达标”。后续若要研究改进，需要独立设定更长训练、分辨率与主干训练策略，并预先固定比较协议。
+
+最终权重仅保留本机：`runs\wider-mmdet-full-stable\iter_6440.pth`；SHA256为`402aca891aedbb230751eb6465847af7db17a4a334e16f9906c52dc97c8d550f`。运行时完整配置保存于[实际配置快照](../reports/wider-mmdet-effective-config.py)，与检查点内嵌配置逐字一致。检查点`meta.epoch=0`来自迭代钩子的零基轮次，不能据此说没有完成一轮；应结合`meta.iter=6440`、完整数据和最终报告判断。
+
+### 6.5 时间、中断与复现时必须保留的边界
+
+本次容器从 2026-09-26T13:38:35.320027448Z 运行到独立评估完成的 2026-09-27T03:18:09.666022+00:00，记录的UTC时间戳之差为 49174.3 秒。内部 runner.train() 记录 7960.1516 秒，其中包含第一次完整验证；显式第二次验证记录 984.2750 秒。这两个值都不是纯训练时间。日志还观察到墙钟回跳，因此UTC跨度只用于说明日历等待范围，不能代替单调时钟性能测量。
+
+三组捕获的 Modern Standby 进入→退出区间为：2026-09-26 14:37:21.632Z→16:07:55.544Z、17:05:44.836Z→19:03:55.968Z，以及19:03:55.980Z→2026-09-27 02:46:07.219Z；合计 40256.283 秒，约11小时10分56秒。前两次进入原因是Lid；第三次进入为数字16777220，未擅自解释。这些是观察到的事件区间，不是完整电源历史，也不证明每一毫秒CPU都停止。本机WSL的perf_counter没有累加全部长待机，因此不能拿内部计时冒充用户实际等待时间。首次一次性监护因8小时超时退出，训练容器仍继续；旧状态保留后重新监护已有进程，未重训。最终监护完成，临时SYSTEM_REQUIRED请求已释放；没有改变电源计划，手动睡眠始终优先。
+
+当前源码已修正末轮重复验证，后续运行只执行一次显式验证；真实保存的配置快照仍保留本轮旧行为，不能把后续修复反写进历史。两轮验证来自同一个检查点，不是两个独立训练实验。配置、容器、环境、权重、时间来源和释放状态见[完整运行审计](../reports/wider-mmdet-audit.json)。
+
+**练习：** 日志显示训练完成、loss有限，是否已经证明一个检测器能可靠发现小脸？为什么本次不能把0.055解释成5.5%的身份识别正确率？
+
+**参考答案：** 训练完成只证明规定的数据与更新执行完毕。实际检测质量仍须由完整验证集的框匹配、难度AP及PR曲线判断。COCO AP是跨阈值、跨IoU的检测排序统计，不是逐人的身份分类正确率；本次还要同时报告较弱的小脸AP和有限训练设置，不能只展示loss下降。
 
 ## 7. 把四类运行环境真正弄明白：Anaconda 安装、启动与排错
 
@@ -396,6 +441,10 @@ Windows 的传统路径限制涉及“环境目录 + 包内子目录 + 文件名
 
 扩展阶段原计划运行 1000 步，任务中断时日志至少到 650 步，但最后一个完整检查点只保存到 500 步。因此后续至少 150 次已经记录的更新丢失，不能计入最终模型；没有写日志的尾部更新数量未知。恢复时同时载入 G、D 以及两个 Adam 优化器的状态，并以 seed 43 开始新的数据顺序，再训练 500 步。这是恢复参数和优化器，不是精确恢复中断瞬间的数据迭代器。最终历史 CSV 保留丢弃行并加标记，曲线只画最终模型真正继承的更新。
 
+![StarGAN 真实微调训练历史：三段保留更新的 D/G 损失及重建平均绝对误差](../reports/stargan-experiment/training-curves.png)
+
+图 8-1：曲线来自原始训练日志中的已记录点，横轴累计最终检查点保留的 D 更新次数；虚线标出第 200 和第 700 次保留更新之后的阶段切换。**第 200 次保留 D 更新之后，分类损失和梯度惩罚的归一化方式改变，不能跨阶段直接比较 loss 的绝对值，也不能把跳变解释为质量突变。Loss 是优化过程中的目标，不是生成质量指标，不能用它代替 FID。** 下图的重建平均绝对误差只描述循环重建约束；生成质量仍需按第 8.6 节的相同协议比较 FID/IS，并检查实际图像。中断后被丢弃的更新不画入曲线，但仍保留在历史 CSV 中供审计。
+
 恢复阶段 500 步实际耗时 372.452 秒，PyTorch 报告的 XPU 峰值已分配内存为 1,143,694,848 字节。耗时包含数据处理、平均每五步一次的 G 更新和检查点保存，不能当作单独 D 前向延时；峰值也不是整台电脑或驱动的全部显存使用量。
 
 ### 8.5 真实遇到的 InstanceNorm 推理错误
@@ -460,6 +509,17 @@ python -m research.stargan train --root data/stargan-official/celeba/images --la
 
 **单图生成、前后评估、独立指标与汇总：**
 
+XPU 张量和训练算子检查通过，不等于 FID/IS 的依赖已经装好。指标函数还需要 `torch-fidelity==0.4.0`。更新后的 `scripts/setup_xpu.ps1` 会先从 PyTorch 官方 XPU 源安装固定的 torch/torchvision，再从普通 PyPI 安装指标工具，最后执行 `pip check`。对于已建立的 XPU 环境，在首次评估前使用它自己的解释器补齐并核验；本机已经完成这一步，以下是复现命令，不表示本次重新安装或重新计算了指标：
+
+```powershell
+$XpuPython = '../../work/xpu-env/Scripts/python.exe'
+& $XpuPython -m pip install torch-fidelity==0.4.0 --index-url https://pypi.org/simple
+& $XpuPython -m pip check
+& $XpuPython -c "import torch, torchvision, torch_fidelity; from importlib.metadata import version; print(torch.__version__, torchvision.__version__, version('torch-fidelity')); assert torch.__version__ == '2.14.0+xpu' and torchvision.__version__ == '0.29.0+xpu'"
+```
+
+上述相对路径对应本次工作区布局，换一台电脑时应指向自己的独立 XPU 解释器。不要为补这个指标工具把主 `.venv` 的 torch 安装命令套进 XPU 环境，也不要混用两个解释器生成受控比较的前后报告。
+
 ```powershell
 python -m research.stargan generate --checkpoint runs/stargan-resumed/last.pt --image data/stargan-official/celeba/images/028136.jpg --targets 0,1,0,0,1 --output runs/stargan-example.png
 ../../work/xpu-env/Scripts/python.exe -m research.stargan_pilot evaluate --checkpoint data/stargan-official/200000-G.ckpt --manifest data/celeba-expanded/manifest.json --attributes data/celeba-expanded/attributes.txt --output runs/stargan-before-xpu --report reports/stargan-before.json --device xpu --threads 2
@@ -472,7 +532,7 @@ python -m research.stargan_pilot summarize
 
 桌面程序接受普通照片或摄像头画面，使用另一种输入处理：先要求 YuNet 检测到恰好一张脸，再围绕检测框截取方形区域，边长约为框的较长边的 1.8 倍，水平中心位于框中心，竖直中心位于框顶向下 0.45 倍框高处；超出图像边界的部分用反射填充，随后缩放为 128×128 并做相同归一化。这是检测框引导的裁剪，并不是 CelebA 的几何对齐。两者复用同一个生成器，但姿态、脸部位置和背景分布可能不同，所以本章的 CelebA FID/IS 不能直接解释为任意摄像头输入的质量指标。界面展示的是输入裁剪与生成裁剪，不会自动把编辑后的人脸贴回整张原图。
 
-`summarize` 是针对本次已记录的 200+500+500 实验的收集器，先检查阶段和检查点一致性，再输出 `reports/stargan-experiment/report.json`、原始历史 CSV、真实训练曲线 SVG 和三个阶段配置。另一个训练计划应建立自己的实验清单，不能套用这份固定历史称作自己的训练结果。
+`summarize` 是针对本次已记录的 200+500+500 实验的收集器，先检查阶段和检查点一致性，再输出 `reports/stargan-experiment/report.json`、原始历史 CSV、真实训练曲线 SVG/PNG 和三个阶段配置。另一个训练计划应建立自己的实验清单，不能套用这份固定历史称作自己的训练结果。
 
 **导出、验证和启动原生桌面程序：**
 

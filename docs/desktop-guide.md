@@ -155,13 +155,11 @@ OpenGL 负责画出已经计算好的网格，与 PyTorch 的 XPU 训练后端�
 .\.venv\Scripts\python.exe desktop.py --self-test-no-camera
 ```
 
-本轮已通过，记录见 [desktop-integration.json](../reports/desktop-integration.json)。它实际从桌面按钮打开原生 GL，确认 76,073 个面、35° 绘制回执、公开样图截图、子进程退出码 0；StarGAN 和六种效果、同图验证也通过。`camera_test_in_this_run=false` 表示这轮没有重新打开摄像头，不能据此声称完成第三轮相机性能测量。
+最终[集成报告](../reports/desktop-integration.json)验证六效果、同图比较、StarGAN与桌面按钮启动的原生GL，确认76,073面、35°回执及子进程正常退出。此轮未重开摄像头，不能当作第三轮相机性能测量。
 
-需要检查真实相机时运行 `desktop.py --self-test`；它会打开摄像头、测量 20 秒、停止、重新开启并检查退出释放，更新 `reports/desktop-verification.json` 与 `reports/desktop-camera.json`。如果要与已有实验比较，先给原始报告另存不会混淆的名称。本项目已保留第一轮 [desktop-verification-first.json](../reports/desktop-verification-first.json) / `desktop-camera-first.json`，第二轮 `desktop-verification.json` / `desktop-camera.json`；不要覆盖历史后把同名路径当作多轮独立证据。
+真实相机检查用 `desktop.py --self-test`：打开、测20秒、停止、重开、退出释放。它更新 `reports/desktop-verification.json` 和 `reports/desktop-camera.json`，重跑前请另存旧报告。首轮`*-first.json`、第二轮普通文件分别保留；首轮GAN未测、第二轮GAN通过，最终GL由本轮单独验收。
 
-第一轮执行的六种显示模式、同图验证、早期三维预览旋转、摄像头及设备释放检查通过；当时 StarGAN 导出文件尚未到位，该项明确记录为未测。第二轮新增实际 StarGAN 窗口检查。最终全网格 GL 的按钮集成由上面的无摄像头检查独立验收。所有保存的窗口截图均在公开样图状态生成，没有保存摄像头照片。
-
-若只检查 OpenGL 模块，可以执行 `python -m vision3d.native_viewer --self-test --output reports/3d-native`。它仅用公开 NASA 样图，检查全网格、35°、归零像素一致与子进程关闭。摄像头异常分支的自动测试见 `tests/test_desktop.py`：模拟断流并确认测量中断、按钮恢复、任务编号递增、旧帧不覆盖错误状态。模拟错误的测试证明控制逻辑，不产生新的真实摄像头性能数字。
+独立GL检查用 `python -m vision3d.native_viewer --self-test --output reports/3d-native`，检查0°/±35°、归零一致及退出。全部保存截图均为NASA公开样图。`tests/test_desktop.py`另模拟断流、单帧推理异常和坏验证图片，确认错误后恢复及状态一致；这些模拟不产生真实相机性能数字。
 
 **练习一：** 为什么不能把 `pipeline_fps = 1000 / pipeline_ms` 当成窗口实际 FPS？
 

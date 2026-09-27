@@ -63,6 +63,7 @@ def run(args):
     axes[1].set(xlabel='Completed training iteration', ylabel='Learning rate')
     axes[1].grid(alpha=.2)
     fig.savefig(prefix.with_suffix('.svg'))
+    fig.savefig(prefix.with_suffix('.png'), dpi=180)
     plt.close(fig)
     report = {'status': 'completed' if complete else 'in_progress_snapshot',
               'logged_points': len(ordered), 'first_iteration': steps[0], 'last_iteration': steps[-1],

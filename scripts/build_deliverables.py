@@ -12,6 +12,7 @@ import textwrap
 from pathlib import Path
 
 import markdown
+from markdown.extensions.toc import slugify_unicode
 from bs4 import BeautifulSoup, NavigableString
 from pptx import Presentation
 from pptx.dml.color import RGBColor
@@ -35,7 +36,7 @@ CSS = '''body{font:17px/1.85 "Segoe UI","Microsoft YaHei",sans-serif;color:#1b29
 
 def rendered(source: str) -> str:
     source = re.sub(r'```mermaid\n.*?```', '\n**处理路径：** 图像或视频帧 → 检测与关键点 → 对齐 → 特征向量 → 余弦比较。检测与关键点也用于定位贴纸、美颜与三维重建。\n', source, flags=re.S)
-    return markdown.markdown(source, extensions=['tables', 'fenced_code', 'toc', 'sane_lists'])
+    return markdown.markdown(source, extensions=['tables', 'fenced_code', 'toc', 'sane_lists'], extension_configs={'toc': {'slugify': slugify_unicode}})
 
 
 def make_html(source: Path, destination: Path, title: str):
@@ -51,6 +52,9 @@ def source_files():
         result.extend(p for p in (ROOT/folder).rglob('*') if p.is_file() and (p.suffix in {'.py','.html','.ipynb','.sh','.ps1','.yml','.yaml','.Dockerfile'} or p.name=='Dockerfile' or ('licenses' in p.parts and p.suffix=='.txt')) and '__pycache__' not in p.parts)
     result.extend(p for p in ROOT.iterdir() if p.is_file() and (p.suffix in {'.py','.txt','.ps1','.cmd','.toml','.yml'} or p.name in {'Dockerfile','.dockerignore','.gitignore','.gitattributes'}))
     result.append(ROOT/'models/registry.json')
+    result.append(ROOT/'hello.py/Untitled-1.md')
+    effective_config=REPORTS/'wider-mmdet-effective-config.py'
+    if effective_config.exists(): result.append(effective_config)
     return sorted(set(result))
 
 
@@ -68,6 +72,10 @@ def use_of(path: Path) -> str:
         'vision3d/licenses/pyglet-2.1.16-LICENSE.txt': '原生OpenGL窗口依赖pyglet的原始BSD许可证，随源码交付；不由本项目MIT许可覆盖。',
         'research/wider_training_report.py': '读取MMEngine真实逐步日志，输出CSV和损失曲线；区分进行中快照与最终完成。',
         'research/wider_watch.py': '监护已运行的完整WIDER训练，全部预测存在后执行官方协议与独立参考评估，不重启训练。',
+        'research/wider_awake.py': '在本轮监护运行期间发出Windows防闲置休眠请求，完成、失败或超时后释放；不改电源计划且尊重用户手动睡眠。',
+        'research/wider_checkpoint.py': '在对应MMDetection容器内读取本机最终checkpoint元数据，核对6440次更新及保存配置，不加载未知来源权重。',
+        'research/wider_audit.py': '完整训练与两份评估完成后汇总配置、环境、checkpoint哈希及计时；要求临时电源请求已经释放。',
+        'reports/wider-mmdet-effective-config.py': '本次真实运行保存的MMDetection完整有效配置；与checkpoint内嵌配置逐字一致。它保留旧版末轮重复验证行为，与后续修正入口分开记录。',
         'scripts/mmdet_thread_benchmark.py': '容器内用相同checkpoint和真实批次测试4/6/8线程训练步；微测不包含整条数据管线。',
         'scripts/mmdet_thread_benchmark_host.py': '临时暂停既有训练容器后执行线程微测，finally恢复同一个容器，保存调度证据。',
         'scripts/setup_anaconda.ps1': '下载校验官方Anaconda；显式接受条款参数后安装、创建独立conda环境并调用verify_anaconda.py。',
@@ -92,6 +100,7 @@ def use_of(path: Path) -> str:
     if rel.startswith('scripts/'): return '模型下载、环境检查、数据准备或交付物生成；本文件开头docstring和下方函数索引提供具体入口。'
     if rel=='Dockerfile': return 'docker build --target hello 或 --target lab；PDF任务1.3。'
     if rel=='hello_world.py': return 'Docker hello镜像启动命令；PDF任务1.2/1.3。保留了旧仓库hello.py目录。'
+    if rel=='hello.py/Untitled-1.md': return '用户原仓库保留的最初Hello World文件；当前Docker实际运行根目录hello_world.py，不执行此Markdown文件。'
     if rel=='start.ps1': return 'Windows环境准备及原生桌面启动入口；加-Web才打开辅助网页，-Port只用于网页模式。'
     if rel=='models/registry.json': return 'scripts/fetch_models.py 和 vision3d/reconstruct.py 读取；固定第三方模型来源、版本与校验值。'
     return '依赖固定、打包或版本控制配置；由 pip、Docker 或 Git 读取。'
@@ -114,7 +123,16 @@ def make_compendium():
         if p.suffix=='.py':
             try:
                 tree=ast.parse(raw)
-                symbols=[f'`{node.name}` 第{node.lineno}行' for node in tree.body if isinstance(node,(ast.FunctionDef,ast.AsyncFunctionDef,ast.ClassDef))]
+                symbols=[]
+                def locate(parent, prefix=''):
+                    for node in ast.iter_child_nodes(parent):
+                        if isinstance(node,(ast.FunctionDef,ast.AsyncFunctionDef,ast.ClassDef)):
+                            qualified=prefix+node.name
+                            symbols.append(f'`{qualified}` 第{node.lineno}行')
+                            locate(node,qualified+'.')
+                        else:
+                            locate(node,prefix)
+                locate(tree)
                 if symbols: chunks.append('**代码定位：** '+'；'.join(symbols)+'。\n')
             except SyntaxError: pass
         if p.suffix=='.ipynb':
@@ -140,7 +158,7 @@ def pdf_from_markdown(source: Path, destination: Path):
         pdfmetrics.registerFontFamily('Chinese',normal='Chinese',bold='Chinese',italic='Chinese',boldItalic='Chinese')
     styles=getSampleStyleSheet()
     for style in styles.byName.values(): style.fontName='Chinese'
-    body=ParagraphStyle('BodyCJK',fontName='Chinese',fontSize=10.2,leading=17,spaceAfter=8,wordWrap='CJK')
+    body=ParagraphStyle('BodyCJK',fontName='Chinese',fontSize=10.2,leading=17,spaceAfter=8,wordWrap='CJK',allowOrphans=0,allowWidows=0)
     code=ParagraphStyle('CodeCJK',fontName='Chinese',fontSize=8.2,leading=12,spaceAfter=10,backColor=colors.HexColor('#eef3ee'),borderPadding=7)
     heading=ParagraphStyle('HeadingCJK',parent=body,fontSize=16,leading=23,spaceBefore=20,spaceAfter=12,keepWithNext=True,textColor=colors.HexColor('#214b39'))
     small=ParagraphStyle('SmallCJK',parent=body,fontSize=8,leading=12)
@@ -165,6 +183,11 @@ def pdf_from_markdown(source: Path, destination: Path):
         if name in {'h1','h2','h3','h4'}:
             if name=='h2' and node.get_text().startswith('第') and story: story.append(PageBreak())
             style=heading if name!='h1' else ParagraphStyle('TitleCJK',parent=heading,fontSize=24,leading=34,spaceAfter=20)
+            following=node.find_next_sibling()
+            if following is not None and following.name=='table':
+                # Let a long table split on this page instead of keeping the
+                # heading together with the entire multi-page table.
+                style=ParagraphStyle('HeadingBeforeTable',parent=style,keepWithNext=False)
             story.append(Paragraph(inline(node),style))
         elif name=='pre':
             lines=[]
@@ -210,6 +233,9 @@ def slides():
     lfw_path=REPORTS/'lfw-sface-largest.json'
     lfw=json.loads(lfw_path.read_text(encoding='utf-8')) if lfw_path.exists() else json.loads((REPORTS/'lfw-sface.json').read_text(encoding='utf-8'))
     opt=json.loads((REPORTS/'arcface-pilot/comparison.json').read_text(encoding='utf-8'))
+    wider=json.loads((REPORTS/'wider-mmdet-full-official.json').read_text(encoding='utf-8'))
+    assert wider['full_validation'] and wider['counts']['images']==3226
+    wider_ap=' / '.join(f"{wider['metrics'][name]['ap']:.5f}" for name in ['easy','medium','hard'])
     prs=Presentation();prs.slide_width=Inches(13.333);prs.slide_height=Inches(7.5)
     entries=[
       ('人脸视觉 从原理到可运行系统',['本地 CPU 应用 · 训练与评估管线 · 3D 重建','面向高三学生的可复现学习项目','独立教育项目，与字节跳动无隶属关系'],None),
@@ -231,6 +257,8 @@ def slides():
       ('真实训练模型的部署对比',[f'批量 8 / 2 线程：FP32 {opt["fp32"]["median_ms"]:.2f} ms；int8 {opt["dynamic_linear_int8"]["median_ms"]:.2f} ms',f'ONNX {opt["onnx"]["median_ms"]:.2f} ms；该设置下两者均未加速',f'int8 完整 LFW：{opt["accuracy"]["dynamic_linear_int8"]["accuracy_mean"]*100:.4f}%；微小变化不能证明更准确'],None),
       ('研究训练的完整路径',['WIDER → COCO 标注 → MMDetection；300-W → 关键点 → NME','身份文件夹 → ArcFace；CelebA 属性 → StarGAN → FID/IS','受数据授权、版本依赖与算力约束；逐项状态见验收矩阵'],None),
       ('WIDER 完整验证与交叉检查',['全部 3,226 张验证图；31 张零检测保留为空','YuNet AP：easy 0.88442 / medium 0.86568 / hard 0.75040','与 OpenCV Zoo 参考评估三项差为 0；预训练基线不归属自训模型'],None),
+      ('完整 WIDER 迁移训练的实测结果',['12,880 张训练图；6,440 次更新；全部 3,226 张验证图',f'easy / medium / hard AP：{wider_ap}','COCO 预训练迁移、冻结主干、最大边 320；不代表论文收敛结果'],'reports/wider-mmdet-full-official-pr.png'),
+      ('训练曲线与失败记录怎样读',['学习率 0.0005，250 步 warmup，梯度范数裁剪 10','曲线是实际日志窗口均值；下降不等于验证成绩达标','首次 NaN、待机时间、参考评估交叉检查均保留证据'],'reports/wider-mmdet-training-curves.png'),
       ('Intel Arc 的实际 XPU 路径',['独立 PyTorch 2.14 XPU 环境；不改主 CPU 环境或驱动','张量、NMS、GAN 二阶梯度及优化器更新实际通过','完整生成器微测中位 23.66 ms；形状/负载有限定，不外推全训练'],None),
       ('BytePS 与 ByteNN 概念实验',['两个真实工作进程按 3/8 与 5/8 聚合梯度；与参考误差 4.47e−8','ORT 图优化：batch1 本次中位 34.37 → 25.27 ms','两项都标为模拟；没有冒充内部 SDK 或移动端部署'],None),
       ('火山引擎官方样例体验',['官方人像融合页内置方案交互：两张示例输入与融合输出','未上传用户照片；截图只用于记录官方样例体验','展示可能是预计算，不能据此宣称完成鉴权云 API 部署'], 'reports/volcengine-experience.png'),

@@ -46,3 +46,7 @@ assets/*.png
 !reports/3d-native/yaw-035.png
 !reports/3d-native/yaw-minus035.png
 !reports/celeba-distribution.png
+!reports/stargan-experiment/training-curves.png
+!reports/wider-yunet-full-pr.png
+!reports/wider-mmdet-full-official-pr.png
+!reports/wider-mmdet-training-curves.png

@@ -91,9 +91,11 @@ MMDetection 依赖带编译算子的 MMCV，单独环境安装，避免与 Windo
 
 令 $G(x,c)$ 为把图片 $x$ 编辑成属性 $c$ 的生成器，$D_{src}$ 为判别器的真实度分数，$D_{cls}$ 为属性分类器。判别器最小化 $E[D_{src}(G(x,c))]-E[D_{src}(x)]+L_{cls,real}+10L_{GP}$；生成器最小化 $-E[D_{src}(G(x,c))]+L_{cls,fake}+10\lVert G(G(x,c),c_{original})-x\rVert_1$。其中 $L_{GP}=E[(\lVert\nabla_{\hat x}D_{src}(\hat x)\rVert_2-1)^2]$，$\hat x$ 是真假图像之间的随机插值。分类损失为多标签二元交叉熵；目标标签从真实批次打乱得到，保持合法属性组合。
 
+下面的训练命令要求自行准备合法的完整 CelebA 图片、属性表与分区表；生成命令还要求训练检查点已存在。单图示例使用本次已在本机准备的对齐图片 `data/stargan-official/celeba/images/028136.jpg`；从干净源码开始时，先按下文配套下载与 `prepare` 流程取得它。仓库不附带该图片，也不会在运行生成命令时自动下载。命令按中心裁剪处理输入，不宜直接替换为人脸偏离中心的整张照片。
+
 ```powershell
 python -m research.stargan train --root data/celeba/img_align_celeba --labels data/celeba/list_attr_celeba.txt --partition data/celeba/list_eval_partition.txt --output runs/stargan --device cpu
-python -m research.stargan generate --checkpoint runs/stargan/last.pt --image assets/face.jpg --targets 0,1,0,0,1 --output runs/stargan/blond.png
+python -m research.stargan generate --checkpoint runs/stargan/last.pt --image data/stargan-official/celeba/images/028136.jpg --targets 0,1,0,0,1 --output runs/stargan/blond.png
 python -m research.stargan metrics --real data/celeba-heldout --generated runs/generated-heldout --output reports/stargan-quality.json
 ```
 

@@ -1,25 +1,25 @@
 <!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>sources</title><style>body{font:17px/1.85 "Segoe UI","Microsoft YaHei",sans-serif;color:#1b2925;background:#f7f8f4;max-width:1040px;margin:auto;padding:44px 28px}h1{font-size:36px;line-height:1.4;color:#1c4939}h2{font-size:25px;margin-top:2.5em;border-bottom:1px solid #cdd7cf;padding-bottom:12px}h3{font-size:20px;margin-top:1.8em}a{color:#1f6550}p{margin:1em 0}code{font:14px/1.65 Consolas,"Microsoft YaHei",monospace;background:#eaf0ea;padding:2px 4px}pre{background:#142c25;color:#e4efdf;padding:22px;overflow:auto;border-radius:8px;line-height:1.7}pre code{background:transparent;color:inherit;white-space:pre}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:12px;border:1px solid #d4ded6;vertical-align:top;overflow-wrap:anywhere}th{background:#e7eee8;text-align:left}.toc{font-size:14px;columns:2;column-gap:36px}.toc ul{padding-left:18px}blockquote{margin-left:0;padding-left:18px;border-left:3px solid #789c85;color:#40594b}img{max-width:100%}.meta{font-size:13px;color:#63756a}@media(max-width:600px){.toc{columns:1}body{padding:20px 16px}h1{font-size:28px}table{display:block;overflow:auto}}@media print{body{background:white;max-width:none;font-size:10pt;padding:0}.toc{columns:2}h2{break-before:page}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f3f5f2;color:#111;font-size:8pt}pre code{white-space:pre-wrap}a{color:inherit}table{font-size:8pt}tr{break-inside:avoid}}</style><body><div class="toc">
 <ul>
-<li><a href="#_1">官方资料、论文与许可核验</a><ul>
-<li><a href="#_2">原需求中需要校正的事实</a></li>
-<li><a href="#_3">环境与工程</a></li>
-<li><a href="#_4">数据集</a></li>
-<li><a href="#_5">必读论文与扩展阅读</a></li>
-<li><a href="#_6">引用与发布规则</a></li>
+<li><a href="#官方资料论文与许可核验">官方资料、论文与许可核验</a><ul>
+<li><a href="#原需求中需要校正的事实">原需求中需要校正的事实</a></li>
+<li><a href="#环境与工程">环境与工程</a></li>
+<li><a href="#数据集">数据集</a></li>
+<li><a href="#必读论文与扩展阅读">必读论文与扩展阅读</a></li>
+<li><a href="#引用与发布规则">引用与发布规则</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<h1 id="_1">官方资料、论文与许可核验</h1>
+<h1 id="官方资料论文与许可核验">官方资料、论文与许可核验</h1>
 <p>核验日期：2026-09-26。资料中的基准数字是作者的实验结果，不是本项目测量值。所有可变的软件版本以本机环境报告为准；网页使用滚动的 <code>main</code>/<code>stable</code> 时，复现实验应另记录提交号或安装版本。</p>
-<h2 id="_2">原需求中需要校正的事实</h2>
+<h2 id="原需求中需要校正的事实">原需求中需要校正的事实</h2>
 <ul>
 <li><strong>OpenMMLab 不应写成“字节跳动开源项目”。</strong>其官方介绍及教程列出的机构包括香港中文大学、商汤等；本项目应写“使用 OpenMMLab 开源视觉框架”。没有证据支持原 PDF 对字节内部使用范围的陈述。<a href="https://openmmlab.com/community/cvpr2021-tutorial">OpenMMLab 官方教程</a></li>
 <li><strong>BytePS 是实际存在的开源分布式训练框架。</strong>官方仓库于 2025-12-08 归档，其说明要求 CUDA/NCCL，明确不支持纯 CPU 训练。一个单进程梯度平均示例只能叫原理模拟。<a href="https://github.com/bytedance/byteps">BytePS 官方仓库</a></li>
 <li><strong>ByteNN（模拟）不可写成已经安装了字节内部引擎。</strong>本次未获得可核验的官方公开 SDK、授权或运行接口；ONNX Runtime 可以演示跨平台推理原理，但不等于 ByteNN。<a href="https://github.com/bytedance">字节跳动官方开源组织</a></li>
 <li><strong>MMClassification 的后续项目为 MMPreTrain。</strong>学习旧文档时应留意工程名称与版本，而不要把新旧配置混装。<a href="https://github.com/open-mmlab/mmpretrain">MMPreTrain 官方仓库</a></li>
 </ul>
-<h2 id="_3">环境与工程</h2>
+<h2 id="环境与工程">环境与工程</h2>
 <table>
 <thead>
 <tr>
@@ -94,7 +94,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_4">数据集</h2>
+<h2 id="数据集">数据集</h2>
 <table>
 <thead>
 <tr>
@@ -145,7 +145,7 @@ SHA256: 055f7d9c632d7370e6fb4afc7468d40f970c34a80d4c6f50ffec63f5a8d536c0
 pairs.txt: https://ndownloader.figshare.com/files/5976006
 SHA256: ea42330c62c92989f9d7c03237ed5d591365e89b3e649747777b70e692dc1592
 </code></pre>
-<h2 id="_5">必读论文与扩展阅读</h2>
+<h2 id="必读论文与扩展阅读">必读论文与扩展阅读</h2>
 <ol>
 <li><a href="https://arxiv.org/abs/1905.00641">RetinaFace: Single-stage Dense Face Localisation in the Wild</a>：检测、五点与多任务监督；读“输出是什么、多个任务如何共同训练”。</li>
 <li><a href="https://arxiv.org/abs/1801.07698">ArcFace: Additive Angular Margin Loss for Deep Face Recognition</a>：把类别分离转换到归一化特征的角度空间；注意论文发表年份与预印本年份不同。</li>
@@ -158,5 +158,5 @@ SHA256: ea42330c62c92989f9d7c03237ed5d591365e89b3e649747777b70e692dc1592
 <li><a href="https://arxiv.org/abs/1908.07919">HRNet</a>：保留高分辨率与跨尺度融合。<a href="https://arxiv.org/abs/1803.04108">SAN</a>：用风格聚合减少输入风格变化对关键点检测的影响。<a href="https://arxiv.org/abs/1711.10678">AttGAN</a>：属性约束与保留非目标内容的生成研究。</li>
 <li><a href="https://www.khronos.org/webgl/">Khronos WebGL 官方说明</a>：WebGL基于OpenGL ES，使用浏览器图形接口；生成查看器HTML不等于已在目标GPU/浏览器渲染验收。</li>
 </ol>
-<h2 id="_6">引用与发布规则</h2>
+<h2 id="引用与发布规则">引用与发布规则</h2>
 <p>本项目原创源码以仓库 LICENSE 为准。第三方依赖、下载权重、样本数据、模型基底和生成结果不自动继承该许可。保留第三方原始许可证与来源；GitHub 只上传允许发布的代码、文档、配置和演示素材，不上传数据集、人脸库、访问令牌、未核清许可权重或用户摄像头照片。下载链接可变，下载失败应写真实错误，不填写预设成功结果。</p></body></html>

@@ -1,10 +1,1 @@
-{
-  "status": "training",
-  "iteration": 4325,
-  "total_iterations": 6440,
-  "elapsed_seconds_current_run": 4945.351967842,
-  "seconds_per_iteration_current_run": 1.1434339810039307,
-  "estimated_remaining_seconds": 2418.3628698233133,
-  "threads": 4,
-  "work_dir": "/project/runs/wider-mmdet-full-stable"
-}
+{"status": "completed", "report": "reports/wider-mmdet-full.json"}

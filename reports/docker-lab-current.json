@@ -1,0 +1,185 @@
+{
+  "passed": true,
+  "checked_at_utc": "2026-09-26T16:48:08.193321+00:00",
+  "scope": "CPU auxiliary-service Vision core only; no desktop/camera/GAN/3D execution",
+  "versions": {
+    "python": "3.12.14",
+    "opencv_runtime": "5.0.0",
+    "numpy": "2.5.3",
+    "opencv-python": "5.0.0.93",
+    "Pillow": "12.3.0",
+    "pyglet": "2.1.16"
+  },
+  "opencv_threads": 2,
+  "cgroup_cpu_max": "200000 100000",
+  "source_sha256": {
+    "app.py": "22458ee3fc5935e939d4727834074813436477484f4e7a21898d77cb1efc3e30",
+    "requirements.txt": "2c904cecc243685029773cd2d5f2d43e76d407599ba62bcd7fb205677c54fcaf",
+    "models/registry.json": "3bd424694af5a0830261bc3b3c04521cb7decb7818f8869a98f81557ea2dcedf",
+    "scripts/fetch_models.py": "f0e6846c0bb6be2772ada133d47e30f70b97d83cd510cdee72eabbf2116f4e65"
+  },
+  "verified_assets": [
+    {
+      "path": "models/face_detection_yunet_2023mar.onnx",
+      "sha256": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4"
+    },
+    {
+      "path": "models/face_recognition_sface_2021dec.onnx",
+      "sha256": "0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79"
+    },
+    {
+      "path": "assets/astronaut.png",
+      "sha256": "88431cd9653ccd539741b555fb0a46b61558b301d4110412b5bc28b5e3ea6cb5"
+    }
+  ],
+  "sample": {
+    "path": "assets/sample.jpg",
+    "source": "Public NASA astronaut image",
+    "sha256": "011901a3f9084e22497e2b27642b44a39e8965c4c2febc5ddf2c3ccf298c8787"
+  },
+  "effects": [
+    {
+      "effect": "none",
+      "faces": 1,
+      "output_shape": [
+        512,
+        512,
+        3
+      ],
+      "changed_pixels": 0
+    },
+    {
+      "effect": "glasses",
+      "faces": 1,
+      "output_shape": [
+        512,
+        512,
+        3
+      ],
+      "changed_pixels": 1714
+    },
+    {
+      "effect": "crown",
+      "faces": 1,
+      "output_shape": [
+        512,
+        512,
+        3
+      ],
+      "changed_pixels": 3057
+    },
+    {
+      "effect": "beauty",
+      "faces": 1,
+      "output_shape": [
+        512,
+        512,
+        3
+      ],
+      "changed_pixels": 7787
+    },
+    {
+      "effect": "lipstick",
+      "faces": 1,
+      "output_shape": [
+        512,
+        512,
+        3
+      ],
+      "changed_pixels": 511
+    },
+    {
+      "effect": "all",
+      "faces": 1,
+      "output_shape": [
+        512,
+        512,
+        3
+      ],
+      "changed_pixels": 10360
+    }
+  ],
+  "landmark_overlay": {
+    "passed": true,
+    "points": 5
+  },
+  "same_image_verification": {
+    "cosine": 1.0,
+    "threshold": 0.363,
+    "match": true,
+    "note": "阈值演示结果，不是身份认证或 LFW 准确率；应在独立验证集校准。"
+  },
+  "pip_check": "No broken requirements found.",
+  "unavailable_features": {
+    "desktop_camera": "not copied or tested",
+    "gan": "weights and onnxruntime absent",
+    "3d": "weights and implementation absent"
+  },
+  "missing_gan_request_rejected": "本机尚未导出StarGAN模型，请先完成研究训练与部署导出",
+  "images_saved": false,
+  "timing_is_benchmark": false,
+  "report_created_at_utc": "2026-09-26T16:49:14.418931+00:00",
+  "image": {
+    "tag": "face-vision-lab:desktop-integration",
+    "id": "sha256:6b8840fc610427faba24adc2814615e543c49dc19beb10343119e32d37fd2911",
+    "created": "2026-09-27T00:47:24.31787911+08:00",
+    "size_bytes": 263081769,
+    "architecture": "amd64",
+    "os": "linux"
+  },
+  "base_image": {
+    "tag": "python:3.12-slim",
+    "id": "sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f",
+    "pulled_again": false
+  },
+  "engine_version": "29.1.3",
+  "host_execution": {
+    "distribution": "Ubuntu-24.04",
+    "user": "root",
+    "image_sources_match_current_host": true,
+    "dockerfile_sha256": "cf9d16c65a6c54c95e11b341bac5f3408cf9b23243dc4d50993b28d4dedacc96",
+    "dockerignore_sha256": "f177faeb7c1d25acf30b6ea918783240e003c8f58cf3ed132fad6445c9577d9b"
+  },
+  "commands": {
+    "build": "wsl -d Ubuntu-24.04 -u root -- docker build --target lab --cpu-period 100000 --cpu-quota 200000 --memory 2g --tag face-vision-lab:desktop-integration --iidfile /mnt/c/Users/0/Documents/Codex/2026-09-26/plugin-computer-use-openai-bundled-github/outputs/face-vision-lab/work/docker-current/image-id.txt /mnt/c/Users/0/Documents/Codex/2026-09-26/plugin-computer-use-openai-bundled-github/outputs/face-vision-lab",
+    "verify": "wsl -d Ubuntu-24.04 -u root -- docker run --rm --name face-vision-lab-current-verify --cpus 2 --memory 2g --network none --read-only --tmpfs /tmp:rw,noexec,nosuid,size=64m --env PYTHONDONTWRITEBYTECODE=1 --env OMP_NUM_THREADS=2 --env OPENBLAS_NUM_THREADS=2 --mount type=bind,source=/mnt/c/Users/0/Documents/Codex/2026-09-26/plugin-computer-use-openai-bundled-github/outputs/face-vision-lab/work/docker-current,target=/verification,readonly face-vision-lab:desktop-integration python /verification/verify.py"
+  },
+  "build": {
+    "attempts": 1,
+    "exit_code": 0,
+    "network_failures": 0,
+    "source_compilation": false,
+    "context_bytes_approx": 3202000,
+    "cpu_quota": 200000,
+    "cpu_period": 100000,
+    "local_log": "work/docker-current/build-attempt1.log"
+  },
+  "verification": {
+    "exit_code": 0,
+    "temporary_container_removed": true,
+    "cpu_limit": 2,
+    "memory_limit": "2g",
+    "network": "none",
+    "read_only_root": true,
+    "program_sha256": "fdcd6930de14285df51ae958588208dbdd850a6c62e193d08c201ad0b1baffae",
+    "program": "\"\"\"Read-only CPU smoke check for the current Docker lab image.\"\"\"\nimport hashlib\nimport importlib.metadata\nimport importlib.util\nimport json\nimport platform\nimport subprocess\nimport sys\nfrom datetime import datetime, timezone\nfrom pathlib import Path\n\nsys.path.insert(0, '/app')\nimport cv2\nimport numpy as np\nfrom app import EFFECTS, STARGAN_MODEL, Vision\n\nroot = Path('/app')\nregistry = json.loads((root / 'models/registry.json').read_text())\nverified_assets = []\nfor entry in registry['assets']:\n    if entry['group'] != 'baseline':\n        continue\n    path = root / entry['path']\n    digest = hashlib.sha256(path.read_bytes()).hexdigest()\n    assert digest == entry['sha256'], entry['path']\n    verified_assets.append({'path': entry['path'], 'sha256': digest})\n\nframe = cv2.imread(str(root / 'assets/sample.jpg'))\nassert frame is not None and frame.shape == (512, 512, 3)\nvision = Vision()\ncv2.setNumThreads(2)\nassert EFFECTS == {'none', 'glasses', 'crown', 'beauty', 'lipstick', 'all'}\neffects = []\nfor effect in ['none', 'glasses', 'crown', 'beauty', 'lipstick', 'all']:\n    result, metrics = vision.process(frame, effect, 0.5, False)\n    assert metrics['faces'] == 1, (effect, metrics['faces'])\n    assert result.shape == frame.shape and result.dtype == np.uint8\n    assert len(metrics['landmarks']) == 1 and len(metrics['landmarks'][0]) == 5\n    changed = int(np.count_nonzero(np.any(result != frame, axis=2)))\n    assert changed == 0 if effect == 'none' else changed > 0\n    effects.append({'effect': effect, 'faces': metrics['faces'],\n                    'output_shape': list(result.shape), 'changed_pixels': changed})\nresult, metrics = vision.process(frame, 'none', 0.5, True)\nassert metrics['faces'] == 1 and np.any(result != frame)\nverification = vision.verify(frame, frame, 0.363)\nassert verification['match'] and 0.999 < verification['cosine'] <= 1\n\nassert not STARGAN_MODEL.exists()\nassert not (root / 'models/3ddfa').exists()\nassert not (root / 'desktop.py').exists()\nassert importlib.util.find_spec('onnxruntime') is None\ntry:\n    vision.edit_attributes(frame, [1, 0, 0, 0, 1])\nexcept ValueError as exc:\n    missing_gan_error = str(exc)\n    assert 'StarGAN' in missing_gan_error\nelse:\n    raise AssertionError('Missing GAN weights were not rejected')\npip_check = subprocess.run([sys.executable, '-m', 'pip', 'check'],\n                           text=True, capture_output=True, check=False)\nassert pip_check.returncode == 0, pip_check.stdout + pip_check.stderr\n\nreport = {\n    'passed': True,\n    'checked_at_utc': datetime.now(timezone.utc).isoformat(),\n    'scope': 'CPU auxiliary-service Vision core only; no desktop/camera/GAN/3D execution',\n    'versions': {'python': platform.python_version(), 'opencv_runtime': cv2.__version__,\n                 **{name: importlib.metadata.version(name) for name in\n                    ['numpy', 'opencv-python', 'Pillow', 'pyglet']}},\n    'opencv_threads': cv2.getNumThreads(),\n    'cgroup_cpu_max': Path('/sys/fs/cgroup/cpu.max').read_text().strip(),\n    'source_sha256': {name: hashlib.sha256((root / name).read_bytes()).hexdigest()\n                      for name in ['app.py', 'requirements.txt', 'models/registry.json',\n                                   'scripts/fetch_models.py']},\n    'verified_assets': verified_assets,\n    'sample': {'path': 'assets/sample.jpg', 'source': 'Public NASA astronaut image',\n               'sha256': hashlib.sha256((root / 'assets/sample.jpg').read_bytes()).hexdigest()},\n    'effects': effects,\n    'landmark_overlay': {'passed': True, 'points': 5},\n    'same_image_verification': verification,\n    'pip_check': pip_check.stdout.strip(),\n    'unavailable_features': {'desktop_camera': 'not copied or tested',\n                             'gan': 'weights and onnxruntime absent',\n                             '3d': 'weights and implementation absent'},\n    'missing_gan_request_rejected': missing_gan_error,\n    'images_saved': False,\n    'timing_is_benchmark': False,\n}\nprint(json.dumps(report, ensure_ascii=True, indent=2))\n"
+  },
+  "preserved": {
+    "previous_lab_tag": "face-vision-lab:local",
+    "previous_lab_image_id": "sha256:5ac713694bf0697c72fc9e7808fbad1dc4ea924b6bbeeb5d9d5567af5a394369",
+    "wider_container_id": "5660e05b62bd576bac64998bc6f3178df99c3e861468ca22d76ba6c37272b87e",
+    "wider_still_running": true,
+    "wider_started_at": "2026-09-26T13:38:35.320027448Z",
+    "no_wider_mutations_performed": true
+  },
+  "warnings": [
+    "Installed Docker currently uses the legacy builder and emitted its deprecation notice; the build succeeded without installing buildx.",
+    "OpenCV 5 printed that targets are not supported by its new graph engine. CPU assertions passed; no GPU target or performance claim is made."
+  ],
+  "limitations": [
+    "Only the CPU auxiliary-service Vision core was validated. No HTTP endpoint, native Tk desktop, camera capture, GPU rendering, GAN inference, or 3D reconstruction was exercised in this container.",
+    "GAN weights/onnxruntime, 3D weights/implementation, and desktop.py are absent from this image. Pyglet being installed does not validate OpenGL in this container.",
+    "Same-image cosine 1.0 checks numerical consistency; it is not biometric recognition accuracy.",
+    "This was a functional smoke test during concurrent WIDER training, not a performance benchmark."
+  ]
+}

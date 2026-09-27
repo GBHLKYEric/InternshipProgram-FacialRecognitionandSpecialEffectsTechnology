@@ -1,0 +1,15 @@
+{
+  "pid": 48904,
+  "monitor_pid": 23208,
+  "started_utc": "2026-09-27T02:50:14.730927+00:00",
+  "flags": "ES_CONTINUOUS | ES_SYSTEM_REQUIRED",
+  "display_required": false,
+  "power_plan_changed": false,
+  "manual_sleep_has_priority": true,
+  "documentation": "https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-setthreadexecutionstate",
+  "status": "released",
+  "request_return_value": 2147483648,
+  "release_reason": "monitor_process_exited",
+  "release_return_value": 2147483649,
+  "finished_utc": "2026-09-27T03:18:14.916865+00:00"
+}

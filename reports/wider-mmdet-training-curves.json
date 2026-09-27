@@ -1,13 +1,16 @@
 {
-  "status": "in_progress_snapshot",
-  "logged_points": 105,
+  "status": "completed",
+  "logged_points": 257,
   "first_iteration": 25,
-  "last_iteration": 2625,
+  "last_iteration": 6425,
   "first_logged_loss": 2.7301600313186647,
-  "last_logged_loss": 0.8162227335572243,
+  "last_logged_loss": 0.766121786236763,
   "scalar_file_sha256": {
-    "runs\\wider-mmdet-full-stable\\20260926_133858\\vis_data\\scalars.json": "4255fb9bac201627fbee6b63c4430b0e659683c1abb13348c9477b6030c91c38"
+    "runs\\wider-mmdet-full-stable\\20260926_133858\\vis_data\\scalars.json": "1cdb5d0365a8dc41b443e6007b7a88ac20b948b6005feffcc5b4feb5b458079d"
   },
-  "negative_logged_data_time_points": 22,
-  "limitations": "Recorded 50-step log-window averages, generally emitted every 25 steps. Decreasing train loss does not establish validation quality or convergence. Negative wall-clock data_time is preserved, not used for throughput."
+  "negative_logged_data_time_points": 44,
+  "limitations": "Loss uses recorded up-to-50-step log-window averages, generally emitted every 25 steps; learning rate is the reported value at that iteration. Decreasing train loss does not establish validation quality or convergence. Negative wall-clock data_time is preserved, not used for throughput.",
+  "final_checkpoint": "runs\\wider-mmdet-full-stable\\iter_6440.pth",
+  "final_checkpoint_sha256": "402aca891aedbb230751eb6465847af7db17a4a334e16f9906c52dc97c8d550f",
+  "final_checkpoint_bytes": 197804518
 }

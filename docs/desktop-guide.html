@@ -1,22 +1,22 @@
 <!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>desktop-guide</title><style>body{font:17px/1.85 "Segoe UI","Microsoft YaHei",sans-serif;color:#1b2925;background:#f7f8f4;max-width:1040px;margin:auto;padding:44px 28px}h1{font-size:36px;line-height:1.4;color:#1c4939}h2{font-size:25px;margin-top:2.5em;border-bottom:1px solid #cdd7cf;padding-bottom:12px}h3{font-size:20px;margin-top:1.8em}a{color:#1f6550}p{margin:1em 0}code{font:14px/1.65 Consolas,"Microsoft YaHei",monospace;background:#eaf0ea;padding:2px 4px}pre{background:#142c25;color:#e4efdf;padding:22px;overflow:auto;border-radius:8px;line-height:1.7}pre code{background:transparent;color:inherit;white-space:pre}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:12px;border:1px solid #d4ded6;vertical-align:top;overflow-wrap:anywhere}th{background:#e7eee8;text-align:left}.toc{font-size:14px;columns:2;column-gap:36px}.toc ul{padding-left:18px}blockquote{margin-left:0;padding-left:18px;border-left:3px solid #789c85;color:#40594b}img{max-width:100%}.meta{font-size:13px;color:#63756a}@media(max-width:600px){.toc{columns:1}body{padding:20px 16px}h1{font-size:28px}table{display:block;overflow:auto}}@media print{body{background:white;max-width:none;font-size:10pt;padding:0}.toc{columns:2}h2{break-before:page}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f3f5f2;color:#111;font-size:8pt}pre code{white-space:pre-wrap}a{color:inherit}table{font-size:8pt}tr{break-inside:avoid}}</style><body><div class="toc">
 <ul>
-<li><a href="#_1">本地桌面程序使用与代码教程</a><ul>
-<li><a href="#1">1 从桌面启动</a></li>
-<li><a href="#2">2 使用摄像头与图片</a></li>
-<li><a href="#3">3 双图验证与生成式编辑</a></li>
-<li><a href="#4">4 在原生窗口查看三维人脸</a></li>
-<li><a href="#5">5 怎样读懂摄像头性能报告</a></li>
-<li><a href="#6">6 从代码理解窗口与计算怎样分工</a></li>
-<li><a href="#7">7 已执行的检查与练习</a></li>
+<li><a href="#本地桌面程序使用与代码教程">本地桌面程序使用与代码教程</a><ul>
+<li><a href="#1-从桌面启动">1 从桌面启动</a></li>
+<li><a href="#2-使用摄像头与图片">2 使用摄像头与图片</a></li>
+<li><a href="#3-双图验证与生成式编辑">3 双图验证与生成式编辑</a></li>
+<li><a href="#4-在原生窗口查看三维人脸">4 在原生窗口查看三维人脸</a></li>
+<li><a href="#5-怎样读懂摄像头性能报告">5 怎样读懂摄像头性能报告</a></li>
+<li><a href="#6-从代码理解窗口与计算怎样分工">6 从代码理解窗口与计算怎样分工</a></li>
+<li><a href="#7-已执行的检查与练习">7 已执行的检查与练习</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<h1 id="_1">本地桌面程序使用与代码教程</h1>
+<h1 id="本地桌面程序使用与代码教程">本地桌面程序使用与代码教程</h1>
 <p>本教程介绍最终交付的原生桌面前端。它使用 Python 自带的 Tkinter 创建窗口，用 OpenCV 直接读取这台电脑的摄像头，并在本机调用检测、识别和特效模型。启动桌面程序不需要浏览器，也不启动 HTTP 服务。已有网页版本保留为辅助实验，网页的测试数字与桌面程序分别记录。</p>
 <p>你可以把它理解成三个合作的部分：摄像头提供图像，算法把图像变成结果，窗口把结果显示出来。学会使用后，再沿着这三个部分阅读代码，比从第一行机械地往下看更容易。</p>
 <p><img alt="原生桌面窗口截图，显示 NASA 公开示例图像和组合特效，不包含用户摄像头照片" src="../reports/desktop-window.png" /></p>
-<h2 id="1">1 从桌面启动</h2>
+<h2 id="1-从桌面启动">1 从桌面启动</h2>
 <p>本机完整源码保存在桌面的 <code>智能视觉AI项目_完整源代码</code> 文件夹。源码目录包含 <code>desktop.py</code>、<code>app.py</code>、启动脚本、训练评估程序和教程。虚拟环境、数据集和大型权重与源码分开保存；源码副本不意味着把所有第三方软件再复制一遍。</p>
 <p>在已经配置好的项目目录，双击 <code>启动桌面程序.cmd</code>，或在 PowerShell 执行：</p>
 <pre><code class="language-powershell">powershell -NoProfile -File start.ps1
@@ -36,7 +36,7 @@
 .\.venv\Scripts\python.exe scripts/fetch_models.py --with-3d
 </code></pre>
 <p>StarGAN 使用真实训练后导出的 <code>runs/stargan-deploy/generator.onnx</code>。源码仓库不包含受许可约束的训练数据或大模型文件；模型缺失时属性编辑按钮不可用，程序不会用颜色滤镜冒充神经网络生成结果。具体训练、导出命令见研究教程和模块的 <code>--help</code>。</p>
-<h2 id="2">2 使用摄像头与图片</h2>
+<h2 id="2-使用摄像头与图片">2 使用摄像头与图片</h2>
 <ol>
 <li>初次打开显示公开示例。先选择“原图与检测”，观察绿色矩形与五个点：矩形表示模型找到的人脸位置，五点表示双眼、鼻尖和两个嘴角。</li>
 <li>摄像头序号通常从 0 开始。点击“开启摄像头”，程序直接打开本机设备。若有多个设备，可停止后换序号再开启。</li>
@@ -47,12 +47,12 @@
 <p>程序采用镜像摄像头预览，接近照镜子的操作习惯。镜像后再进行检测，特效坐标始终对应当前显示图像。图片模式保留文件本身的方向。</p>
 <p>摄像头打开失败时，依次核对设备序号、Windows 的“相机”隐私设置中桌面应用的访问权限、其他应用是否占用设备以及摄像头是否被硬件开关关闭。程序先尝试 Windows DirectShow，打开失败再尝试 Media Foundation；它不会自动更改系统隐私设置。</p>
 <p>窗口未提供自动录像功能。摄像头帧只在内存中处理；性能测量保存的是帧数、耗时和检测人脸数量，不保存用户图像。</p>
-<h2 id="3">3 双图验证与生成式编辑</h2>
+<h2 id="3-双图验证与生成式编辑">3 双图验证与生成式编辑</h2>
 <p>“选择两张图片进行验证”要求一次选择两张各有一张清晰人脸的图片。程序依次检测、对齐、提取 SFace 特征，再计算余弦相似度。演示阈值固定为 0.363，结果用于理解相似度比较，不是经过身份认证系统校准的结论。用同一张图片比较自己，只能检查计算一致性，不能证明识别准确率为 100%。</p>
 <p>StarGAN 属性编辑使用当前原始画面，而不是已经画上眼镜的结果图。点击按钮后摄像头暂停，程序取一份内存快照，按人脸框裁剪并缩放到 128×128。输出左侧是输入裁剪，右侧是合成图。模型只编辑裁剪区域，不把结果贴回整幅视频，也不宣称此路径是实时生成视频。</p>
 <p>界面中的 <code>Male</code>、<code>Young</code> 是 CelebA 数据集采用的二元属性名称。这里的勾选框表示用户要求模型生成的方向，不表示软件判断画面中人物的真实身份或属性。黑、金、棕三种发色目标只能选择一种，传入网络的五个值严格依照 checkpoint 的属性顺序。</p>
 <p>发色变化不自然、脸部细节模糊或身份特征变化，都可能是生成模型的局限。当前检测框裁剪与 CelebA 对齐规则并不完全相同，背景、姿态和光线也可能超出训练分布。不能仅凭一张“看起来不错”的图宣布模型可靠。</p>
-<h2 id="4">4 在原生窗口查看三维人脸</h2>
+<h2 id="4-在原生窗口查看三维人脸">4 在原生窗口查看三维人脸</h2>
 <p>“当前画面 → 三维重建”要求恰好一张清晰人脸。程序把当前图像交给 3DDFA_V2，预测姿态、形状和表情参数，然后计算 38,365 个顶点与 76,073 个三角面。最终桌面程序会打开独立的原生 OpenGL 窗口，绘制全部三角面。这个窗口由 pyglet 创建，不是浏览器，也不经过本机 HTTP 服务。</p>
 <p>在三维窗口中按住鼠标左键左右拖动，或按左右方向键，每次旋转 5°；按 Home 回到正面，按 Esc 或窗口关闭按钮退出。三维窗口与主 Tk 窗口使用不同的进程和事件循环；关闭主窗口时也会回收它创建的渲染子进程。默认查看不会保存三维截图。</p>
 <p>早期实现为 Tk 中约 9,000 面的 CPU 抽样预览，抽掉的三角面会造成可见孔洞。最终版本已经删除该抽样渲染函数，使用全部索引和 24 位深度缓冲：可以把深度缓冲理解为给每个像素记录“目前最近的表面距离”，从而决定鼻子、脸颊等表面的遮挡关系。若 OpenGL 初始化失败，界面报告错误；没有把未验证的 CPU 回退作为默认功能。</p>
@@ -60,7 +60,7 @@
 <p><img alt="桌面按钮打开的原生 OpenGL 三维窗口在 35 度时的完整面网格，输入为公开 NASA 样图" src="../reports/desktop-3d.png" /></p>
 <p>OpenGL 负责画出已经计算好的网格，与 PyTorch 的 XPU 训练后端是不同用途。因此主环境使用 CPU 版 PyTorch，并不妨碍 OpenGL 通过现有显卡驱动渲染。报告中 renderer 字符串的“16GB”是共享内存显示，不能解释成独立显存容量。依赖版本及 BSD 许可见 <a href="../reports/native-viewer-dependencies.json">来源记录</a>。</p>
 <p>单张照片无法提供看不见的所有表面。模型借助从训练数据学到的形状先验做统计估计，因此结果没有真实毫米尺度，侧面和遮挡区域也可能不准确。嘴部开口、头顶和后脑不完整属于这个面部模型的范围与拓扑，不是本次抽样遗漏面造成的孔洞；程序没有凭空补成完整头部扫描。本项目没有配对三维真值，完整绘制通过不能替代几何精度评估。</p>
-<h2 id="5">5 怎样读懂摄像头性能报告</h2>
+<h2 id="5-怎样读懂摄像头性能报告">5 怎样读懂摄像头性能报告</h2>
 <p>开启摄像头后点击“20 秒性能测量”。计时范围是读取一帧、检测与特效、传递最新处理结果、创建 Tk 图像并提交给窗口控件。它不包括传感器曝光到驱动交付前的全部图像年龄，也不等于屏幕完成扫描显示的时间。因此报告使用“渲染提交帧率”这一明确口径。</p>
 <p>两轮实测均使用 DirectShow 摄像头序号 0、640×480 帧尺寸和组合特效。第一轮历史原始文件保留为 <a href="../reports/desktop-camera-first.json">desktop-camera-first.json</a>，第二轮为 <a href="../reports/desktop-camera.json">desktop-camera.json</a>。首轮在完整训练任务同时运行时进行；两轮没有固定同一输入内容和后台负载，不能当受控 A/B 实验。</p>
 <table>
@@ -162,7 +162,7 @@
 <p>这些数值不能证明所有电脑都能达到流畅的实时效果。比较优化方案时，应控制输入尺寸、特效、线程数、设备、画面中的脸以及后台负载；未控制的条件如实记录，不能把不同条件的最好数字拼在一起。完整 OpenGL 接入后的集成检查没有再运行摄像头测量，因此不能把上述两轮数字标成“OpenGL 接入后再次测得”。</p>
 <p>程序采用容量为 1 的结果队列：算法比界面快时，旧的已处理帧可以被新结果替换，避免显示长时间积压的旧画面。因此“算法处理次数”与“窗口实际提交帧数”可能不同。报告计算的是后者。</p>
 <p>如果测量提前停止、切换图片、关闭窗口，或遇到摄像头读取错误，报告标记 <code>interrupted</code> 并记录原因，不能当完整实验使用。实际断流即使发生在第 20 秒之后，也不能仅凭时长足够把错误报告改成 <code>completed</code>；该边界有独立回归测试。</p>
-<h2 id="6">6 从代码理解窗口与计算怎样分工</h2>
+<h2 id="6-从代码理解窗口与计算怎样分工">6 从代码理解窗口与计算怎样分工</h2>
 <p><code>Desktop</code> 负责窗口控件，只在主线程操作 Tk。<code>Worker</code> 是单个后台线程，独占摄像头和 <code>Vision</code> 模型。它们通过 <code>queue.Queue</code> 交换命令与结果。这个分工有两个目的：耗时的读取和推理不阻塞窗口事件循环；同一个 OpenCV 检测器也不会同时被两个线程修改输入尺寸。</p>
 <p>原生 OpenGL 另放在独立进程中，独占自己的窗口、上下文和网格缓冲。父进程通过 Pipe 发送角度与关闭命令，子进程完成绘制后回执；Tk 在已有轮询中接收事件。这个设计分离了两套窗口循环，但不代表所有计算都不消耗 CPU 或界面永远不会受系统负载影响。</p>
 <p>可以按以下顺序阅读源码：</p>
@@ -229,14 +229,13 @@
 </table>
 <p>任务编号 <code>token</code> 像窗口为操作发放的小票。用户已经换到图片时，即使旧摄像头任务稍后返回，窗口也只接收编号匹配的结果，避免旧画面覆盖新选择。它不是身份编号，也不会识别画面中的人。</p>
 <p>完整原始代码及每个函数的行号在 <code>code-compendium.md</code> 和对应 HTML 中。代码汇编由文件自动生成，并附 SHA256；应运行原始 <code>.py</code> 文件，不需要从 PDF 里手工重新拼接代码。</p>
-<h2 id="7">7 已执行的检查与练习</h2>
+<h2 id="7-已执行的检查与练习">7 已执行的检查与练习</h2>
 <p>当前默认推荐用不打开摄像头的集成检查，验证真实 Tk 按钮、六种效果、同图验证、本地 StarGAN 和完整 OpenGL 网格：</p>
 <pre><code class="language-powershell">.\.venv\Scripts\python.exe desktop.py --self-test-no-camera
 </code></pre>
-<p>本轮已通过，记录见 <a href="../reports/desktop-integration.json">desktop-integration.json</a>。它实际从桌面按钮打开原生 GL，确认 76,073 个面、35° 绘制回执、公开样图截图、子进程退出码 0；StarGAN 和六种效果、同图验证也通过。<code>camera_test_in_this_run=false</code> 表示这轮没有重新打开摄像头，不能据此声称完成第三轮相机性能测量。</p>
-<p>需要检查真实相机时运行 <code>desktop.py --self-test</code>；它会打开摄像头、测量 20 秒、停止、重新开启并检查退出释放，更新 <code>reports/desktop-verification.json</code> 与 <code>reports/desktop-camera.json</code>。如果要与已有实验比较，先给原始报告另存不会混淆的名称。本项目已保留第一轮 <a href="../reports/desktop-verification-first.json">desktop-verification-first.json</a> / <code>desktop-camera-first.json</code>，第二轮 <code>desktop-verification.json</code> / <code>desktop-camera.json</code>；不要覆盖历史后把同名路径当作多轮独立证据。</p>
-<p>第一轮执行的六种显示模式、同图验证、早期三维预览旋转、摄像头及设备释放检查通过；当时 StarGAN 导出文件尚未到位，该项明确记录为未测。第二轮新增实际 StarGAN 窗口检查。最终全网格 GL 的按钮集成由上面的无摄像头检查独立验收。所有保存的窗口截图均在公开样图状态生成，没有保存摄像头照片。</p>
-<p>若只检查 OpenGL 模块，可以执行 <code>python -m vision3d.native_viewer --self-test --output reports/3d-native</code>。它仅用公开 NASA 样图，检查全网格、35°、归零像素一致与子进程关闭。摄像头异常分支的自动测试见 <code>tests/test_desktop.py</code>：模拟断流并确认测量中断、按钮恢复、任务编号递增、旧帧不覆盖错误状态。模拟错误的测试证明控制逻辑，不产生新的真实摄像头性能数字。</p>
+<p>最终<a href="../reports/desktop-integration.json">集成报告</a>验证六效果、同图比较、StarGAN与桌面按钮启动的原生GL，确认76,073面、35°回执及子进程正常退出。此轮未重开摄像头，不能当作第三轮相机性能测量。</p>
+<p>真实相机检查用 <code>desktop.py --self-test</code>：打开、测20秒、停止、重开、退出释放。它更新 <code>reports/desktop-verification.json</code> 和 <code>reports/desktop-camera.json</code>，重跑前请另存旧报告。首轮<code>*-first.json</code>、第二轮普通文件分别保留；首轮GAN未测、第二轮GAN通过，最终GL由本轮单独验收。</p>
+<p>独立GL检查用 <code>python -m vision3d.native_viewer --self-test --output reports/3d-native</code>，检查0°/±35°、归零一致及退出。全部保存截图均为NASA公开样图。<code>tests/test_desktop.py</code>另模拟断流、单帧推理异常和坏验证图片，确认错误后恢复及状态一致；这些模拟不产生真实相机性能数字。</p>
 <p><strong>练习一：</strong> 为什么不能把 <code>pipeline_fps = 1000 / pipeline_ms</code> 当成窗口实际 FPS？</p>
 <p><strong>答案：</strong> <code>pipeline_ms</code> 只包括检测与特效，而窗口还需要读取、传递和显示图像，也可能丢弃旧结果。实际提交帧率必须用实际提交帧数除以整段墙上时间计算。</p>
 <p><strong>练习二：</strong> 为什么线程不能直接调用另一个线程创建的 Tk 控件？</p>

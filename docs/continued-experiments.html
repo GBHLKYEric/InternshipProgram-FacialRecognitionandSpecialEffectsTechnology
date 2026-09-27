@@ -1,46 +1,49 @@
 <!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>continued-experiments</title><style>body{font:17px/1.85 "Segoe UI","Microsoft YaHei",sans-serif;color:#1b2925;background:#f7f8f4;max-width:1040px;margin:auto;padding:44px 28px}h1{font-size:36px;line-height:1.4;color:#1c4939}h2{font-size:25px;margin-top:2.5em;border-bottom:1px solid #cdd7cf;padding-bottom:12px}h3{font-size:20px;margin-top:1.8em}a{color:#1f6550}p{margin:1em 0}code{font:14px/1.65 Consolas,"Microsoft YaHei",monospace;background:#eaf0ea;padding:2px 4px}pre{background:#142c25;color:#e4efdf;padding:22px;overflow:auto;border-radius:8px;line-height:1.7}pre code{background:transparent;color:inherit;white-space:pre}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:12px;border:1px solid #d4ded6;vertical-align:top;overflow-wrap:anywhere}th{background:#e7eee8;text-align:left}.toc{font-size:14px;columns:2;column-gap:36px}.toc ul{padding-left:18px}blockquote{margin-left:0;padding-left:18px;border-left:3px solid #789c85;color:#40594b}img{max-width:100%}.meta{font-size:13px;color:#63756a}@media(max-width:600px){.toc{columns:1}body{padding:20px 16px}h1{font-size:28px}table{display:block;overflow:auto}}@media print{body{background:white;max-width:none;font-size:10pt;padding:0}.toc{columns:2}h2{break-before:page}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f3f5f2;color:#111;font-size:8pt}pre code{white-space:pre-wrap}a{color:inherit}table{font-size:8pt}tr{break-inside:avoid}}</style><body><div class="toc">
 <ul>
-<li><a href="#_1">继续实验：从环境可用到可核验的实际结果</a><ul>
-<li><a href="#1">1. 辅助网页的摄像头对照实验</a></li>
-<li><a href="#2-byteps">2. BytePS概念模拟：两个人如何一起更新同一个模型</a></li>
-<li><a href="#3-bytenn">3. ByteNN概念模拟：让同一张计算图以不同方式执行</a></li>
-<li><a href="#4-intel-arccuda">4. Intel Arc不是CUDA设备，但可能是可用的训练设备</a></li>
-<li><a href="#5">5. 火山引擎：官方样例体验与部署学习</a></li>
-<li><a href="#6-wider">6. 完整WIDER验证与检测指标</a><ul>
-<li><a href="#61">6.1 数据完整性先于训练</a></li>
-<li><a href="#62">6.2 从一个阈值走到整条曲线</a></li>
-<li><a href="#63">6.3 从短训试验到完整迁移训练</a></li>
+<li><a href="#继续实验从环境可用到可核验的实际结果">继续实验：从环境可用到可核验的实际结果</a><ul>
+<li><a href="#1-辅助网页的摄像头对照实验">1. 辅助网页的摄像头对照实验</a></li>
+<li><a href="#2-byteps概念模拟两个人如何一起更新同一个模型">2. BytePS概念模拟：两个人如何一起更新同一个模型</a></li>
+<li><a href="#3-bytenn概念模拟让同一张计算图以不同方式执行">3. ByteNN概念模拟：让同一张计算图以不同方式执行</a></li>
+<li><a href="#4-intel-arc不是cuda设备但可能是可用的训练设备">4. Intel Arc不是CUDA设备，但可能是可用的训练设备</a></li>
+<li><a href="#5-火山引擎官方样例体验与部署学习">5. 火山引擎：官方样例体验与部署学习</a></li>
+<li><a href="#6-完整wider验证与检测指标">6. 完整WIDER验证与检测指标</a><ul>
+<li><a href="#61-数据完整性先于训练">6.1 数据完整性先于训练</a></li>
+<li><a href="#62-从一个阈值走到整条曲线">6.2 从一个阈值走到整条曲线</a></li>
+<li><a href="#63-从短训试验到完整迁移训练">6.3 从短训试验到完整迁移训练</a></li>
+<li><a href="#64-完整训练的最终结果与如何判断">6.4 完整训练的最终结果与如何判断</a></li>
+<li><a href="#65-时间中断与复现时必须保留的边界">6.5 时间、中断与复现时必须保留的边界</a></li>
 </ul>
 </li>
-<li><a href="#7-anaconda">7. 把四类运行环境真正弄明白：Anaconda 安装、启动与排错</a><ul>
-<li><a href="#71">7.1 先认识“解释器、包、环境”</a></li>
-<li><a href="#72">7.2 实际安装在哪里：区分物理目录与目录联接</a></li>
-<li><a href="#73">7.3 安装做了什么，哪些证据说明已经成功</a></li>
-<li><a href="#74">7.4 日常启动：先固定目录，再指定解释器</a></li>
-<li><a href="#75">7.5 实际遇到的路径故障与修复依据</a></li>
-<li><a href="#76">7.6 练习与参考答案</a></li>
+<li><a href="#7-把四类运行环境真正弄明白anaconda-安装启动与排错">7. 把四类运行环境真正弄明白：Anaconda 安装、启动与排错</a><ul>
+<li><a href="#71-先认识解释器包环境">7.1 先认识“解释器、包、环境”</a></li>
+<li><a href="#72-实际安装在哪里区分物理目录与目录联接">7.2 实际安装在哪里：区分物理目录与目录联接</a></li>
+<li><a href="#73-安装做了什么哪些证据说明已经成功">7.3 安装做了什么，哪些证据说明已经成功</a></li>
+<li><a href="#74-日常启动先固定目录再指定解释器">7.4 日常启动：先固定目录，再指定解释器</a></li>
+<li><a href="#75-实际遇到的路径故障与修复依据">7.5 实际遇到的路径故障与修复依据</a></li>
+<li><a href="#76-练习与参考答案">7.6 练习与参考答案</a></li>
 </ul>
 </li>
-<li><a href="#8-celeba-stargan">8. 用真实 CelebA 数据完成 StarGAN 微调、评估与桌面部署</a><ul>
-<li><a href="#81">8.1 先理解模型究竟在做什么</a></li>
-<li><a href="#82">8.2 数据从哪里来，哪些验证真正完成了</a></li>
-<li><a href="#83">8.3 训练池、抽样次数、去重数量不是一回事</a></li>
-<li><a href="#84">8.4 为什么使用预训练，怎样理解三段训练</a></li>
-<li><a href="#85-instancenorm">8.5 真实遇到的 InstanceNorm 推理错误</a></li>
-<li><a href="#86-fid-is">8.6 FID 和 IS 计算了什么，结果能说明多少</a></li>
-<li><a href="#87">8.7 所有入口与本机复现步骤</a></li>
-<li><a href="#88">8.8 尚未取得的数据，不写成已完成训练</a></li>
-<li><a href="#89">8.9 自测题与参考答案</a></li>
+<li><a href="#8-用真实-celeba-数据完成-stargan-微调评估与桌面部署">8. 用真实 CelebA 数据完成 StarGAN 微调、评估与桌面部署</a><ul>
+<li><a href="#81-先理解模型究竟在做什么">8.1 先理解模型究竟在做什么</a></li>
+<li><a href="#82-数据从哪里来哪些验证真正完成了">8.2 数据从哪里来，哪些验证真正完成了</a></li>
+<li><a href="#83-训练池抽样次数去重数量不是一回事">8.3 训练池、抽样次数、去重数量不是一回事</a></li>
+<li><a href="#84-为什么使用预训练怎样理解三段训练">8.4 为什么使用预训练，怎样理解三段训练</a></li>
+<li><a href="#85-真实遇到的-instancenorm-推理错误">8.5 真实遇到的 InstanceNorm 推理错误</a></li>
+<li><a href="#86-fid-和-is-计算了什么结果能说明多少">8.6 FID 和 IS 计算了什么，结果能说明多少</a></li>
+<li><a href="#87-所有入口与本机复现步骤">8.7 所有入口与本机复现步骤</a></li>
+<li><a href="#88-尚未取得的数据不写成已完成训练">8.8 尚未取得的数据，不写成已完成训练</a></li>
+<li><a href="#89-自测题与参考答案">8.9 自测题与参考答案</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </div>
-<h1 id="_1">继续实验：从环境可用到可核验的实际结果</h1>
+<h1 id="继续实验从环境可用到可核验的实际结果">继续实验：从环境可用到可核验的实际结果</h1>
 <p>本章连接主教程与本轮新实验。所有命令在项目根目录执行；<code>python</code>须替换为对应环境的解释器。代码正文完整收录于<a href="code-compendium.html">源码汇编</a>，文件用途见<a href="code-map.html">代码地图</a>。本文的硬件结果来自这台电脑，不能直接套用到另一台电脑或手机。</p>
+<p><strong>命令阅读提示：</strong> PDF会为版面自动折行；复制执行时请使用随附Markdown/HTML中的代码块或原始脚本，避免把显示换行误当作命令分隔。</p>
 <p>最终前端已经按用户要求改为原生桌面程序，直接调用本机摄像头。其运行方法、线程设计和实测见<a href="desktop-guide.html">本地桌面教程</a>。下节保留较早的网页摄像头对照实验，避免把两种实现及不同后台负载的数字混在一起。</p>
-<h2 id="1">1. 辅助网页的摄像头对照实验</h2>
+<h2 id="1-辅助网页的摄像头对照实验">1. 辅助网页的摄像头对照实验</h2>
 <p>打开本地应用，允许浏览器使用摄像头，选择“组合特效”，展开“摄像头性能实验”，点击“测量20秒”。保持页面可见并让脸处于画面中。程序对每一帧依次执行：画入Canvas、编码JPEG、发送HTTP请求、检测和合成特效、返回图像、浏览器解码。完成后可保存不含图像的JSON报告；停止按钮释放摄像头。</p>
 <p>2026-09-26的Chrome实测使用640×480、设备报告30 FPS输入设置，20.0695秒完成250帧，实际处理吞吐量12.4567 FPS。采集到结果解码耗时中位83.1 ms、P95 93.2 ms，250帧均在页面可见时记录；217帧检出人脸。原始逐帧数值在<code>reports/webcam-chrome.json</code>，独立复核和曲线由下列命令生成：</p>
 <pre><code class="language-powershell">python scripts/analyze_webcam.py --report reports/webcam-chrome.json
@@ -48,7 +51,7 @@
 <p>这里有四个容易混淆的量。摄像头设置的30 FPS表示设备提供画面的配置；页面实际处理的12.46 FPS是完成帧数除以测量秒数；单帧延迟描述一帧经历所记录环节的时长；“检测到脸的帧比例”只说明检测器返回非空结果，没有逐帧人工真值，不能叫检测准确率。33帧没有脸也应保留，因为删除它们会改变观测记录。无脸时省去部分特效合成，耗时可能明显较短。</p>
 <p>本次计时尚未测量传感器曝光到画面采集之间的等待，也未测量屏幕真正发光的时刻。因此它不是严格的物理“传感器到屏幕”延迟。处理吞吐量包含帧调度，通常不能用“1000除以延迟中位数”替代。后台训练、功耗和温度没有做实验室级控制，记录代表这一次实际运行。</p>
 <p>练习：若模型内部耗时10 ms，但每秒只能显示15个结果，能否声称系统达到100 FPS？答案：不能。1000/10只描述该模型调用的理论处理能力，编码、数据传输、页面调度和显示还会消耗时间。应报告完整系统的完成帧数和所测阶段。</p>
-<h2 id="2-byteps">2. BytePS概念模拟：两个人如何一起更新同一个模型</h2>
+<h2 id="2-byteps概念模拟两个人如何一起更新同一个模型">2. BytePS概念模拟：两个人如何一起更新同一个模型</h2>
 <p>把一批8个样本分给两个工作进程：甲有3个，乙有5个。参数服务器先把同一份模型参数发给两人；每人根据自己的样本计算平均梯度。梯度可以直观理解为“参数往哪个方向调整，损失会增加多快”。服务器收集梯度后，按样本数加权，再进行一次SGD更新：</p>
 <pre><code class="language-text">g = (3/8) × g_甲 + (5/8) × g_乙
 θ_next = θ_current − learning_rate × g
@@ -60,7 +63,7 @@
 <p>该等价性有明确条件：两边使用同一初始参数与同一批次，损失按样本求平均，更新规则相同。本例没有BatchNorm、随机Dropout和不同步的模型状态。把同样结论直接套到含局部BatchNorm统计的深层网络可能不成立，需要同步统计或重新设计比较。真实多机环境还涉及网络、故障恢复、异步执行与通信压缩，本例没有复现这些机制，也没有声称两个进程一定比一个更快。</p>
 <p><a href="https://github.com/bytedance/byteps">BytePS官方项目</a>的公开安装说明依赖CUDA和NCCL。此处按原PDF“模拟”范围交付原理实验，源码和报告均明确<code>actual_byteps_sdk_used=false</code>。</p>
 <p>练习：甲有2个样本，平均梯度为6；乙有6个样本，平均梯度为2，整个批次平均梯度是多少？答案：<code>(2/8)×6+(6/8)×2=3</code>。直接平均得到4，会高估甲的贡献。</p>
-<h2 id="3-bytenn">3. ByteNN概念模拟：让同一张计算图以不同方式执行</h2>
+<h2 id="3-bytenn概念模拟让同一张计算图以不同方式执行">3. ByteNN概念模拟：让同一张计算图以不同方式执行</h2>
 <p>神经网络除了可以改变权重，也可以改变执行安排。图优化会尝试消除冗余、合并支持的算子、选择适合后端的算子实现与布局。它不等于重新训练，也不等于全部权重变成INT8。<a href="https://onnxruntime.ai/docs/performance/model-optimizations/graph-optimizations.html">ONNX Runtime图优化说明</a></p>
 <p>本实验加载已真实训练的ArcFace pilot所导出的同一个ONNX模型，用同一组8张对齐图像，比较<code>ORT_DISABLE_ALL</code>与<code>ORT_ENABLE_ALL</code>。两组都限定CPUExecutionProvider、算子内2线程、算子间1线程；每组预热3次、重复15次。源码在<code>research/ecosystem_simulation.py</code>的<code>inference_engine</code>函数：</p>
 <pre><code class="language-powershell">python -m research.ecosystem_simulation inference-engine --model runs/arcface-pilot/optimized/embedding.onnx --images data/lfw-pilot-train --repeats 15
@@ -92,25 +95,25 @@
 <p>输出特征最大绝对差分别为5.01×10⁻⁷与5.36×10⁻⁷，通过<code>rtol=10⁻³、atol=10⁻⁵</code>数值一致性检查。报告为<code>reports/inference-engine-simulation.json</code>。比值大于1表示这次开启图优化更快，但不保证换模型、设备或并发负载后仍有相同收益。两组按顺序运行且存在其他实验进程，时间并非严格随机交错、独占设备的性能研究。</p>
 <p>这项结果属于ONNX Runtime的桌面CPU执行，不属于内部ByteNN SDK，也没有验证移动端。它比较的是同一个ONNX模型的两种执行配置，不能与先前PyTorch/INT8实验不同负载下的绝对时间拼接成加速结论。特征数值接近也不等于已经测过完整LFW的任务准确率。</p>
 <p>练习：优化后特征最大差只有10⁻⁶，能直接写“识别准确率完全不变”吗？答案：不能。若某个配对原分数恰好在阈值附近，小变化可能改变判定；应在固定评估协议上重新计算准确率、TAR和FAR。</p>
-<h2 id="4-intel-arccuda">4. Intel Arc不是CUDA设备，但可能是可用的训练设备</h2>
+<h2 id="4-intel-arc不是cuda设备但可能是可用的训练设备">4. Intel Arc不是CUDA设备，但可能是可用的训练设备</h2>
 <p>这台电脑有Intel Arc 130T集成GPU。主环境安装的<code>torch 2.14.0+cpu</code>无法使用XPU，说明该软件构建没有相应后端，不能据此断定硬件无法训练。独立<code>work/xpu-env</code>安装官方<code>torch 2.14.0+xpu</code>及<code>torchvision 0.29.0+xpu</code>后，已实际通过张量传入GPU、反向传播、NMS，以及项目StarGAN的WGAN-GP二阶梯度和Adam更新检查。CPU主环境与旧MMDetection容器各自保留。</p>
 <p>GPU运算通常异步。只在Python函数调用前后看时间，可能只测到提交任务的时间。计时前后调用<code>torch.xpu.synchronize()</code>，等待GPU完成，再计算差值。<code>scripts/verify_xpu.py</code>与<code>reports/xpu-environment.json</code>记录实际形状、预热次数和每次耗时。</p>
 <p>完整生成器的微测使用宽度64、6个残差块、batch2、128×128、FP32，且模型与输入事先放到设备。3次同步前向计时中位数为XPU23.6644 ms、CPU350.6754 ms；它只说明这个形状的一次微测，不代表训练全过程或所有模型都有14.8倍加速。集成GPU报告的约16 GiB可用内存是共享内存视角，不能称为独立16 GB显存显卡。</p>
 <p>OpenCL、XPU、CUDA和ONNX Runtime的ExecutionProvider是不同接口。OpenCV的UMat能够在OpenCL上完成小运算，并不能证明OpenCV DNN也在GPU上运行；本机OpenCV 5请求DNN OpenCL target时出现不支持提示，因此没有把那次回退推理记为GPU加速。MMCV原生算子也不能因新PyTorch的XPU成功而自动迁移。</p>
 <p>练习：<code>torch.cuda.is_available()</code>返回False，是否所有GPU路线都不可用？答案：不是。它只检查CUDA后端；Intel设备需要合适的XPU构建，并对实际模型算子逐项验证。</p>
-<h2 id="5">5. 火山引擎：官方样例体验与部署学习</h2>
+<h2 id="5-火山引擎官方样例体验与部署学习">5. 火山引擎：官方样例体验与部署学习</h2>
 <p>本次在Chrome打开<a href="https://www.volcengine.com/experience/effect-fusion">官方人像融合体验页</a>，激活内置“方案一”的融合控件，观察两张官方示例输入与融合输出。截图保存为<code>reports/volcengine-experience.png</code>，文字证据为同名JSON。没有上传用户照片、创建账户或开通计费服务。结果图可能为预先计算，因此只将其归为官方样例交互体验，未宣称完成实时云API推理。</p>
 <p>把学习应用部署为云服务时，须确定输入图像格式、尺寸与数量限制，处理授权和用途约束，设置鉴权和请求签名，管理超时/重试/限流，再记录请求成功率、延迟分位数和成本。密钥由服务端管理，不能写在公开网页JavaScript或Git仓库。一个网页展示出合成图，并不能证明你已获得可部署SDK、API额度或服务等级承诺。</p>
 <p>对比本地应用，云端还增加网络传输与服务侧排队；移动端则增加机型、功耗、温度、摄像头和算子支持的差异。浏览器缩成手机宽度仅验证排版，真实手机的速度必须在真实设备上记录。尚未完成的设备或服务验收继续保留在<a href="requirements-matrix.html">需求矩阵</a>。</p>
 <p>练习：为什么网页能展示融合效果，却不能据此把“云API部署”写成完成？答案：展示可能来自静态预计算资源；API部署还要有实际请求、授权配置、响应、错误处理与可复现日志，两种证据证明的事情不同。</p>
-<h2 id="6-wider">6. 完整WIDER验证与检测指标</h2>
-<h3 id="61">6.1 数据完整性先于训练</h3>
+<h2 id="6-完整wider验证与检测指标">6. 完整WIDER验证与检测指标</h2>
+<h3 id="61-数据完整性先于训练">6.1 数据完整性先于训练</h3>
 <p>这次已完整取得 WIDER 官方训练集 12,880 张和验证集 3,226 张，来源为作者页面链接的 CUHK-CSE 镜像，固定版本 <code>db171f1b7fedf4d3453e81297ff02f9915356d19</code>。训练 ZIP 为 1,465,602,149 字节，验证 ZIP 为 362,752,168 字节，标注 ZIP 为 3,591,642 字节。整包 SHA256 与每个 ZIP 成员的 CRC 均检查；路径穿越和符号链接也在解压前拒绝。完整哈希保存在 <code>reports/wider-full-data.json</code>。</p>
 <pre><code class="language-powershell">python -m research.wider_download
 </code></pre>
 <p>文件存在并不代表下载完整。一次被截断的 ZIP 可能仍有文件名与非零大小；完整哈希、ZIP 目录和逐项 CRC 各自检查不同层面的完整性。下载器先把不完整内容保留为 <code>.incomplete</code>，完成核验后才作为正式数据使用。Windows 长文件名通过局部扩展路径处理，没有截短原始文件名或修改全局注册表。</p>
 <p>转换到 COCO 标注后，训练集有 156,994 个有效框、2,426 个排除框；验证集有 39,112 个有效框、596 个排除框。原始训练 TXT 声明 159,420 个真实框，而相应 MAT 里有 159,424 个条目：差额来自四张零脸图片各有一个 <code>[0,0,0,0]</code> 占位条目。四张图片应当保留，但占位条目不能当成人脸。</p>
-<h3 id="62">6.2 从一个阈值走到整条曲线</h3>
+<h3 id="62-从一个阈值走到整条曲线">6.2 从一个阈值走到整条曲线</h3>
 <p>假设一张图有两个真实人脸，算法画出三个框，其中两个正确、一个误检，那么这个简单例子的 Precision 是 <code>2/3</code>，Recall 是 <code>2/2</code>。如果提高分数阈值，算法通常会少保留一些框，误检和漏检都会发生变化。AP 用整条 Precision–Recall 曲线评价排序质量，不能当作某个阈值下的“正确率”。</p>
 <p>WIDER 还按 easy、medium、hard 提供不同难度的目标与忽略标记。评估必须使用原始难度 MAT，不能拿经过 COCO 转换的框数替代。重复框的匹配、坐标的面积约定和被忽略目标的处理都会改变 AP，即使它们看起来只是几行代码。</p>
 <p>本项目的 <code>research/wider_eval.py</code> 对应官方 MATLAB 协议实现了 Python 计算：IoU≥0.5、包含端点的面积约定、难度 ignore、重复匹配、全局分数归一化、1,000 个阈值扫描与 precision envelope 积分。实际运行的是 Python 版本，没有宣称运行了 MATLAB 或获得官方榜单认证。</p>
@@ -144,11 +147,13 @@ python -m research.wider_reference
 </tr>
 </tbody>
 </table>
+<p><img alt="完整YuNet基线的真实Precision–Recall曲线" src="../reports/wider-yunet-full-pr.png" /></p>
+<p>这张图由全部预测与官方难度标记计算。最低纳入分数处，easy/medium/hard的Precision分别为0.213210/0.327652/0.501245，Recall分别为0.918597/0.896389/0.793479；它们是这一操作点的值，不是AP。不同难度的忽略目标和分母不同，不能仅凭三个Precision排序判断哪个难度更简单。</p>
 <p>同一份预测另交给固定源码哈希的 OpenCV Zoo 参考评估函数，三项 AP 的绝对差均为 0。这里的意义是两个实现对同一输入得出一致结果，提高了计算过程的可信度；它不能证明数据标注绝无错误，也不能把预训练 YuNet 的成绩归给本项目训练的 RetinaNet。</p>
 <p>原始推理总时间 225.0547 秒；单图推理中位 50.9081 ms、P95 110.8007 ms，CPU 两线程。这些图的尺寸不同于原生摄像头的 640×480，且没有窗口显示和特效，因此不能直接拿它与桌面 FPS 比快慢。</p>
-<h3 id="63">6.3 从短训试验到完整迁移训练</h3>
+<h3 id="63-从短训试验到完整迁移训练">6.3 从短训试验到完整迁移训练</h3>
 <p>早期 32 张训练图的随机初始化 RetinaNet 只用于验证 MMDetection 的训练、保存、读取和评估路径。其 mAP=0 需要保留，不能称“检测器已经学会”。后续完整实验载入 MMDetection 官方 COCO 预训练 RetinaNet R50/FPN，替换最后的 80 类分类层为人脸单类，冻结 ResNet50，训练 FPN 和检测头。</p>
-<p>完整训练采用原始 train/val 拆分，最大边 320、batch2，一轮 6,440 次更新。它是一轮迁移训练基线，不是原论文的完整训练计划。若验证 AP 很低，也必须记录，而不是只展示损失下降。训练状态和最终结果分别见 <code>reports/wider-mmdet-full-progress.json</code> 与训练完成后的报告。</p>
+<p>完整训练采用原始 train/val 拆分，最大边 320、batch2，一轮 6,440 次更新。它是一轮迁移训练基线，不是原论文的完整训练计划。若验证 AP 很低，也必须记录，而不是只展示损失下降。本次已经完成全量一轮训练和完整验证，真实结果见第6.4节及 <code>reports/wider-mmdet-full.json</code>。</p>
 <p>首次尝试学习率 0.0025、没有 warmup，在第 100 次更新附近出现 NaN。原始框数据检查未发现非有限坐标或非正尺寸，但这不足以证明原因只有学习率。修正尝试采用学习率 0.0005、250 步线性 warmup、梯度范数 10 裁剪、逐步有限性检查，每 100 步保存 checkpoint，并在独立目录保留失败历史。</p>
 <pre><code class="language-bash">docker run --rm --name face-vision-wider-full --cpus 4 \
   -e OMP_NUM_THREADS=4 -e MKL_NUM_THREADS=4 -e OPENBLAS_NUM_THREADS=4 \
@@ -162,9 +167,55 @@ python -m research.wider_reference
 python -m research.wider_reference --prediction-dir runs/wider-mmdet-full-stable/wider_predictions --project-report reports/wider-mmdet-full-official.json --output reports/wider-mmdet-full-crosscheck.json
 </code></pre>
 <p>练习：预训练 YuNet 的 hard AP 为 0.7504，而一轮 RetinaNet 的 COCO AP 是另一个数，能直接宣布哪个模型更好吗？答案：不能。需要相同数据、框匹配协议、输入尺寸和预测设置；WIDER hard AP 与 COCO 的多 IoU AP 也不是同一个指标。应在一致协议下比较，并保留两种模型各自的来源。</p>
-<h2 id="7-anaconda">7. 把四类运行环境真正弄明白：Anaconda 安装、启动与排错</h2>
+<h3 id="64-完整训练的最终结果与如何判断">6.4 完整训练的最终结果与如何判断</h3>
+<p>本次已经完成全部12,880张训练图的一轮迁移训练，最终检查点内的更新次数为 <strong>6,440</strong>。全部3,226张验证图都有对应预测文件，共2,743,965个预测框、0张零检测图；没有因结果不好而删除验证图片。</p>
+<p>COCO bbox AP 为 <strong>0.055</strong>，AP50为 <strong>0.108</strong>，AP75为 <strong>0.053</strong>；small/medium/large AP 分别为 <strong>0.001/0.143/0.574</strong>。本次实际pycocotools摘要中，bbox AP使用maxDets=100；AP50、AP75及三个尺寸AP使用maxDets=1000，不能把全部行统一标成同一候选上限。COCO bbox AP平均IoU 0.50到0.95的多个匹配条件；WIDER难度AP采用IoU 0.5、官方难度目标与忽略规则，因此两组数字不能混称同一指标。MMDetection日志中的<code>coco/face_precision</code>实际是face类AP@maxDets1000，不是某置信度工作点的Precision；即使本次四舍五入数值碰巧与bbox AP相同，也不能说两者定义完全相同。</p>
+<table>
+<thead>
+<tr>
+<th>难度</th>
+<th style="text-align: right;">AP</th>
+<th style="text-align: right;">最低纳入分数处 Precision</th>
+<th style="text-align: right;">同一操作点 Recall</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>easy</td>
+<td style="text-align: right;">0.3865926</td>
+<td style="text-align: right;">0.0024223</td>
+<td style="text-align: right;">0.9177645</td>
+</tr>
+<tr>
+<td>medium</td>
+<td style="text-align: right;">0.2589124</td>
+<td style="text-align: right;">0.0039194</td>
+<td style="text-align: right;">0.8058413</td>
+</tr>
+<tr>
+<td>hard</td>
+<td style="text-align: right;">0.1310345</td>
+<td style="text-align: right;">0.0055213</td>
+<td style="text-align: right;">0.4740284</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="本次一轮RetinaNet的完整WIDER难度PR曲线" src="../reports/wider-mmdet-full-official-pr.png" /></p>
+<p>同一份完整预测另交给固定哈希的OpenCV Zoo参考评估函数，三项AP交叉检查通过，具体差值见<a href="../reports/wider-mmdet-full-crosscheck.json">独立核对报告</a>。这里完成的是官方协议的Python计算，没有运行MATLAB或提交官方榜单。表中的Precision、Recall是最低纳入分数处的同一操作点；它们不是AP，亦不是人脸身份识别准确率。</p>
+<p>这个最低分数操作点保留大量低分候选，因此Precision很低。即使某一难度Recall较高，也不能据此把它当作适合交互程序的部署阈值。最终桌面程序的检测仍使用已验证的YuNet；本页RetinaNet用于展示真实训练与评测结果，两者的来源、用途和成绩分别记录。</p>
+<p>推理采用与本次训练匹配的最大边320、单尺度、无翻转、分数截断0.001及每图最多1000个预测框。COCO评估使用已安装MMDetection的默认maxDets 100/300/1000，单进程执行。YuNet基线使用原图分辨率与另一套预测设置，所以本页不能当两个模型在完全同等条件下的公平排名。</p>
+<p><img alt="真实完整训练日志的损失与学习率曲线" src="../reports/wider-mmdet-training-curves.png" /></p>
+<p>曲线是日志中最多50步窗口的平均值，通常每25步记录；最后记录点为第6425步，最终权重由元数据另行确认到6440步。有限训练损失并不证明模型收敛。尤其small AP仅0.001，应如实判断为当前短训与有限分辨率条件下的小脸表现很弱，不能写成“全量训练后检测已达标”。后续若要研究改进，需要独立设定更长训练、分辨率与主干训练策略，并预先固定比较协议。</p>
+<p>最终权重仅保留本机：<code>runs\wider-mmdet-full-stable\iter_6440.pth</code>；SHA256为<code>402aca891aedbb230751eb6465847af7db17a4a334e16f9906c52dc97c8d550f</code>。运行时完整配置保存于<a href="../reports/wider-mmdet-effective-config.py">实际配置快照</a>，与检查点内嵌配置逐字一致。检查点<code>meta.epoch=0</code>来自迭代钩子的零基轮次，不能据此说没有完成一轮；应结合<code>meta.iter=6440</code>、完整数据和最终报告判断。</p>
+<h3 id="65-时间中断与复现时必须保留的边界">6.5 时间、中断与复现时必须保留的边界</h3>
+<p>本次容器从 2026-09-26T13:38:35.320027448Z 运行到独立评估完成的 2026-09-27T03:18:09.666022+00:00，记录的UTC时间戳之差为 49174.3 秒。内部 runner.train() 记录 7960.1516 秒，其中包含第一次完整验证；显式第二次验证记录 984.2750 秒。这两个值都不是纯训练时间。日志还观察到墙钟回跳，因此UTC跨度只用于说明日历等待范围，不能代替单调时钟性能测量。</p>
+<p>三组捕获的 Modern Standby 进入→退出区间为：2026-09-26 14:37:21.632Z→16:07:55.544Z、17:05:44.836Z→19:03:55.968Z，以及19:03:55.980Z→2026-09-27 02:46:07.219Z；合计 40256.283 秒，约11小时10分56秒。前两次进入原因是Lid；第三次进入为数字16777220，未擅自解释。这些是观察到的事件区间，不是完整电源历史，也不证明每一毫秒CPU都停止。本机WSL的perf_counter没有累加全部长待机，因此不能拿内部计时冒充用户实际等待时间。首次一次性监护因8小时超时退出，训练容器仍继续；旧状态保留后重新监护已有进程，未重训。最终监护完成，临时SYSTEM_REQUIRED请求已释放；没有改变电源计划，手动睡眠始终优先。</p>
+<p>当前源码已修正末轮重复验证，后续运行只执行一次显式验证；真实保存的配置快照仍保留本轮旧行为，不能把后续修复反写进历史。两轮验证来自同一个检查点，不是两个独立训练实验。配置、容器、环境、权重、时间来源和释放状态见<a href="../reports/wider-mmdet-audit.json">完整运行审计</a>。</p>
+<p><strong>练习：</strong> 日志显示训练完成、loss有限，是否已经证明一个检测器能可靠发现小脸？为什么本次不能把0.055解释成5.5%的身份识别正确率？</p>
+<p><strong>参考答案：</strong> 训练完成只证明规定的数据与更新执行完毕。实际检测质量仍须由完整验证集的框匹配、难度AP及PR曲线判断。COCO AP是跨阈值、跨IoU的检测排序统计，不是逐人的身份分类正确率；本次还要同时报告较弱的小脸AP和有限训练设置，不能只展示loss下降。</p>
+<h2 id="7-把四类运行环境真正弄明白anaconda-安装启动与排错">7. 把四类运行环境真正弄明白：Anaconda 安装、启动与排错</h2>
 <p>本节记录 2026-09-26 在这台电脑上完成的安装。Anaconda 已经实际安装，项目 conda 环境也通过了计算、检测、Notebook 和图形组件验证。请先使用现成环境学习，不必再次安装。完整机器记录见 <a href="../reports/anaconda-environment.json">Anaconda 验证报告</a>，精确 Python 包版本见 <a href="../reports/anaconda-environment-freeze.txt">conda 项目环境清单</a>。</p>
-<h3 id="71">7.1 先认识“解释器、包、环境”</h3>
+<h3 id="71-先认识解释器包环境">7.1 先认识“解释器、包、环境”</h3>
 <p><code>desktop.py</code> 是源代码；<code>python.exe</code> 是读懂并执行源代码的解释器；PyTorch、OpenCV、Pillow 是代码调用的包。一个运行环境把解释器、包和相应的本地库组织在一起。相同的源代码换一个解释器执行，可能得到不同版本的包，甚至提示找不到包。</p>
 <p><code>venv</code> 是 Python 自带的隔离工具，主要隔离项目使用的 Python 包。<code>conda</code> 可以管理独立解释器和包，也可以管理许多非 Python 的二进制依赖。Anaconda Distribution 是包含 conda、Python 和一批常用软件的发行版。因此，“已经创建 <code>.venv</code>”能证明有一个隔离环境，不能证明安装了 Anaconda。最初验收把 Anaconda 标为未完成是正确的；实际安装并验证后，才能更新该项。</p>
 <p>本项目有四类运行环境。它们共享源代码和按需读取的模型文件，安装的包相互隔离。Anaconda 自带的 <code>base</code> 另外承担管理工具所在基础环境的角色；不要把它与项目环境混称为同一个 Python。</p>
@@ -200,7 +251,7 @@ python -m research.wider_reference --prediction-dir runs/wider-mmdet-full-stable
 </tbody>
 </table>
 <p>OpenCV 的 Python 导入名是 <code>cv2</code>；此处 <code>cv2.__version__</code> 为 <code>5.0.0</code>，其安装分发包 <code>opencv-python</code> 的版本为 <code>5.0.0.93</code>。这两个显示不同不代表装了两份相互冲突的 OpenCV。类似地，<code>+cpu</code> 与 <code>+xpu</code> 是 PyTorch 构建标记，选包时不能省略其含义。</p>
-<h3 id="72">7.2 实际安装在哪里：区分物理目录与目录联接</h3>
+<h3 id="72-实际安装在哪里区分物理目录与目录联接">7.2 实际安装在哪里：区分物理目录与目录联接</h3>
 <p>下面是这台电脑的真实路径，不能直接假定另一台电脑也有同名目录。</p>
 <table>
 <thead>
@@ -241,7 +292,7 @@ python -m research.wider_reference --prediction-dir runs/wider-mmdet-full-stable
 </tbody>
 </table>
 <p>目录联接（Junction）可以理解为文件系统中的“另一条入口”，它没有复制一份安装。最终方案是<strong>长入口指向真实短目录</strong>，因为安装工具可能解析入口背后的真实路径。反过来创建一个短入口，让它指向仍然很长的真实目录，本次已经试过，解包仍然失败。不要移动、复制后直接运行一个已安装环境来代替重新创建；环境中可能记录原来的绝对路径。</p>
-<h3 id="73">7.3 安装做了什么，哪些证据说明已经成功</h3>
+<h3 id="73-安装做了什么哪些证据说明已经成功">7.3 安装做了什么，哪些证据说明已经成功</h3>
 <p>安装器取自 <a href="https://repo.anaconda.com/archive/">Anaconda 官方归档</a>，文件名为 <code>Anaconda3-2026.07-1-Windows-x86_64.exe</code>。实测 SHA256 与官方值一致：</p>
 <pre><code class="language-text">b545f4bd8ab3bf32d99002a0779a887668ebfe479ee32ecbf060375670d5ee09
 </code></pre>
@@ -258,7 +309,7 @@ python -m research.wider_reference --prediction-dir runs/wider-mmdet-full-stable
 <li>补齐 <code>torch-fidelity==0.4.0</code> 后实际导入，运行 <code>pip check</code> 通过；恢复安装涉及的 <code>jsonpointer</code> 包清单及文件也完整。</li>
 </ol>
 <p>验证边界同样要准确：conda 验证没有打开摄像头；摄像头、六种效果和窗口关闭释放的实测来自主 <code>.venv</code>，见<a href="desktop-guide.html">本地桌面教程</a>。导入 torch-fidelity 也不等于计算过 FID/IS，质量评估应查对应的真实实验报告。</p>
-<h3 id="74">7.4 日常启动：先固定目录，再指定解释器</h3>
+<h3 id="74-日常启动先固定目录再指定解释器">7.4 日常启动：先固定目录，再指定解释器</h3>
 <p>以下命令适用于这台电脑的 PowerShell。<code>&amp;</code> 是调用运算符，用来执行引号或变量中保存的程序路径。<code>$env:</code> 设置只影响当前进程及随后启动的子进程；此处不修改系统持久设置。</p>
 <pre><code class="language-powershell">$Project = 'C:\Users\0\Documents\Codex\2026-09-26\plugin-computer-use-openai-bundled-github\outputs\face-vision-lab'
 Set-Location -LiteralPath $Project
@@ -293,7 +344,7 @@ $EnvPrefix = 'C:\Users\0\Documents\Codex\work\fv-env-260926'
 </code></pre>
 <p>本机已经验证 <code>2.14.0+xpu</code> 与 <code>True</code>。完整的算子、反向传播和同步计时入口是 <a href="../scripts/verify_xpu.py">verify_xpu.py</a>，适合没有其他训练抢占设备时运行；兼容性证据见 <a href="../reports/xpu-environment.json">XPU 报告</a>。第 4 节已解释计时边界，不能把这些小实验推广为所有模型的加速倍数。MMDetection 按第 6 节在 WSL 的专用 Docker 镜像里运行，不要往主 <code>.venv</code> 中补装那套旧依赖。</p>
 <p>遇到包缺失时，先看 <code>sys.executable</code>，再对<strong>同一个解释器</strong>运行 <code>-m pip</code>。裸写 <code>pip install ...</code> 可能命中 PATH 中另一个环境；这比“反复安装仍无法导入”更值得先检查。项目已锁定依赖，练习时也不要随意把 torch、torchvision、MMCV 全部升级到最新。</p>
-<h3 id="75">7.5 实际遇到的路径故障与修复依据</h3>
+<h3 id="75-实际遇到的路径故障与修复依据">7.5 实际遇到的路径故障与修复依据</h3>
 <p>Windows 的传统路径限制涉及“环境目录 + 包内子目录 + 文件名”的完整路径。安装前缀看起来不长，不代表安装后的每个文件都足够短；不同程序对扩展路径、符号别名的支持也不同。本机的 <code>LongPathsEnabled</code> 原值为 <code>0</code>，本次没有修改它。</p>
 <table>
 <thead>
@@ -347,7 +398,7 @@ $EnvPrefix = 'C:\Users\0\Documents\Codex\work\fv-env-260926'
 </tbody>
 </table>
 <p>最后保留三个习惯：先记录完整错误和解释器路径；一次只改一个可解释的条件；修复后运行实际功能，再更新验收结论。“安装命令返回成功”与“模型、内核和窗口都工作”是不同层次的证据。</p>
-<h3 id="76">7.6 练习与参考答案</h3>
+<h3 id="76-练习与参考答案">7.6 练习与参考答案</h3>
 <p><strong>练习 1：</strong> 主 <code>.venv</code> 中可以 <code>import torch</code>，是否足以勾选“Anaconda 已安装”？</p>
 <p><strong>答案：</strong> 不足以。需要验证 Anaconda 发行版或 conda 工具真实存在，并验证项目 conda 环境的解释器、<code>conda-meta/history</code> 及功能。本项目在补装之前只完成了 venv，在补装并通过报告中的检查之后才满足 Anaconda 项。</p>
 <p><strong>练习 2：</strong> 安装一个包后，桌面程序仍提示 <code>ModuleNotFoundError</code>。先重新装所有依赖，还是先看解释器？请写出主环境的检查命令。</p>
@@ -360,9 +411,9 @@ $EnvPrefix = 'C:\Users\0\Documents\Codex\work\fv-env-260926'
 <p><strong>答案：</strong> 第一个判断不成立：CUDA 是另一套计算后端，当前主环境还是 CPU 构建。独立 XPU 环境已经验证 <code>torch.xpu.is_available()</code> 为 True，以及实际张量、反向传播和部分模型算子可用。第二个做法会替换主环境的 torch 构建，改变已验收条件，因此本项目使用独立环境。</p>
 <p><strong>练习 6：</strong> conda 的 Tk、ImageTk 与 Notebook 都通过，能否声称该环境摄像头已达到某个 FPS？</p>
 <p><strong>答案：</strong> 不能。这些测试没有打开摄像头。摄像头吞吐量必须在对应环境、分辨率、效果、设备和负载条件下单独测量。引用主 <code>.venv</code> 的结果时应保留其环境与测量条件，不能移植为 conda 的实测数字。</p>
-<h2 id="8-celeba-stargan">8. 用真实 CelebA 数据完成 StarGAN 微调、评估与桌面部署</h2>
+<h2 id="8-用真实-celeba-数据完成-stargan-微调评估与桌面部署">8. 用真实 CelebA 数据完成 StarGAN 微调、评估与桌面部署</h2>
 <p>这一节已经完成真实数据训练和指标计算。我们使用作者公开的 StarGAN 预训练模型作为起点，在本机 Intel Arc 130T 上微调，最后把生成器接入原生桌面程序。最终模型实际继承本次 <strong>1200 次判别器更新、240 次生成器更新</strong>。这不是从零复现论文的完整训练，也不表示把全部 CelebA 图片训练了一遍。</p>
-<h3 id="81">8.1 先理解模型究竟在做什么</h3>
+<h3 id="81-先理解模型究竟在做什么">8.1 先理解模型究竟在做什么</h3>
 <p>设一张人脸图片为 $x$，目标属性向量为 $c$。生成器 $G(x,c)$ 接收图片与指定的目标标签，输出一张编辑后的图片。判别器有两个任务：给图片一个真实度分数，预测图片的属性。训练时，生成器试图让编辑后的图片既符合目标标签，又能被判别器看作真实图片；判别器则学习区分真实图片和生成图片。</p>
 <p>本项目的属性顺序固定为：</p>
 <table>
@@ -403,7 +454,7 @@ $EnvPrefix = 'C:\Users\0\Documents\Codex\work\fv-env-260926'
 </table>
 <p>这些是生成条件，不是判断现实人物真实年龄或性别的结论。桌面程序让使用者选择合成方向，不把生成结果当作身份认证。发色选项采用互斥设置；模型也不保证一定达到目标或保持身份。</p>
 <p>生成器采用宽度 64、六个残差块的网络；判别器采用六层下采样结构。输入和输出图片均为 128×128。残差块的基本思想是学习对已有特征的修改量，而不是每一层都重新构造全部信息。</p>
-<h3 id="82">8.2 数据从哪里来，哪些验证真正完成了</h3>
+<h3 id="82-数据从哪里来哪些验证真正完成了">8.2 数据从哪里来，哪些验证真正完成了</h3>
 <p>首先尝试的是 <a href="https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html">CelebA 数据作者主页</a>指向的原始 Google Drive 下载。普通大文件确认后仍出现公开下载配额限制，没有规避配额、登录或登记要求。</p>
 <p>随后使用 <a href="https://github.com/yunjey/stargan/blob/master/download.sh">StarGAN 官方项目 <code>download.sh</code></a>明确提供的配套下载链接。准确名称是 <strong>“StarGAN 官方项目配套下载源”</strong>，不能称作“CelebA 数据作者官方镜像”。原始数据仍遵守 CelebA 非商业研究条件；原图、生成图、模型权重保留本机，不随源代码再分发。</p>
 <p>实际取得的完整图片 ZIP 为 1,417,753,833 字节，观察到的 SHA256 为 <code>8ef7e94f7e82121a137491406bcfb1a22be832bcffc5d0fa3f232a0fe36410b0</code>。配套来源没有公布完整 ZIP 的官方哈希，所以不能把这个观察值说成“已通过原 CelebA 图片包官方 MD5”。哈希只是文件指纹；是否来自正确来源，还要结合下载地址和来源说明判断。</p>
@@ -447,7 +498,7 @@ $EnvPrefix = 'C:\Users\0\Documents\Codex\work\fv-env-260926'
 </table>
 <p>比例的计算就是“该标签为 1 的图片数 ÷ 全部图片数”。这些标签并不均衡，不能假定模型在每个属性上都学得同样充分。它们是多标签标注，三个发色也不要求覆盖全部图片；这些数字不代表真实世界人口分布。</p>
 <p>完整解压曾因任务中断停止。解决方法不是假定“目录里有很多图就等于完整数据”，而是保留完整 ZIP，按实验清单直接提取所需图片。这样既验证来源和完整性，也避免反复解压二十万个小文件。</p>
-<h3 id="83">8.3 训练池、抽样次数、去重数量不是一回事</h3>
+<h3 id="83-训练池抽样次数去重数量不是一回事">8.3 训练池、抽样次数、去重数量不是一回事</h3>
 <p>本次按照作者 <code>data_loader.py</code> 的代码复原划分：从原始属性表顺序开始，使用 Python 随机种子 1234 打乱，前 1999 张作为作者代码中的测试部分，其余作为训练部分。它不同于 CelebA 另行提供的官方分区表。</p>
 <p>从训练部分取前 4096 张作为扩大后的训练池；从测试部分取前 768 张作为生成源，再取随后 768 张作为真实参考。训练图、生成源图和真实参考图的文件名三者无交集。<strong>图片不重叠，不等于人物身份不重叠</strong>：同一个人可能有多张不同照片。作者当前代码也不能独立证明公开检查点历史上确实采用了相同划分，所以报告保留预训练数据重叠的审计限制。</p>
 <p>一个 batch 是一次送入网络的小批图片；本次 batch size 为 2。一个 step 是一次判别器参数更新。一个 epoch 才表示遍历一轮训练池。</p>
@@ -493,7 +544,7 @@ $EnvPrefix = 'C:\Users\0\Documents\Codex\work\fv-env-260926'
 </tbody>
 </table>
 <p>为什么合计不是 2400 张去重图片？不同阶段可能再次抽到同一张图。当前没有逐次访问清单，因此总去重数记为未知，不能编造。为什么也不能说训练了 4096 张？训练池只是可供抽样的范围，每个扩展阶段只取了其中 1000 次，没有走完一个 epoch。图片数量更不能当作不同人物的数量。</p>
-<h3 id="84">8.4 为什么使用预训练，怎样理解三段训练</h3>
+<h3 id="84-为什么使用预训练怎样理解三段训练">8.4 为什么使用预训练，怎样理解三段训练</h3>
 <p>随机初始化意味着模型最开始几乎不会画脸。作者预训练检查点已经形成图像表征与编辑能力，微调是在这些权重上做小幅调整。本次机器适合完成真实的小规模实验，但没有执行论文量级的从零长训。因此下载并严格载入作者提供的 <code>200000-G.ckpt</code> 和 <code>200000-D.ckpt</code>，学习率设为 $10^{-5}$。文件名中的原始训练阶段来自作者发布信息，不能计入本机本次新增训练量。</p>
 <p>训练目标包含四种约束：</p>
 <ol>
@@ -505,12 +556,14 @@ $EnvPrefix = 'C:\Users\0\Documents\Codex\work\fv-env-260926'
 <p>判别器的目标为 $E[D(G(x,c))]-E[D(x)]+L_{cls,real}+10L_{GP}$。生成器的目标为 $-E[D(G(x,c))]+L_{cls,fake}+10L_{rec}$，其中 $L_{rec}$ 是还原图与输入图的平均绝对误差。判别器输出实数分数，不是限制在 0 到 1 的概率，所以 D/G loss 可以为负。GAN 中两个网络的目标同时变化，一条损失下降不能单独证明图片变好。</p>
 <p>代码审查发现初始先导阶段与作者损失归一化有两处差异：五属性 BCE 默认平均除以 $N\times5$，作者实现只除以 batch 大小 $N$；另外，判别器输出 2×2 patch 分数，梯度惩罚应先对四个分数求和再求输入梯度，提前平均会改变梯度尺度。这两处已在扩展阶段修正，分类、重建、梯度惩罚的权重分别为 1、10、10。原先导结果保留，不能改写成“从第一步起就完全相同”。命令中的 <code>--loss-protocol legacy</code> 专门用于复现历史先导，默认 <code>official</code> 使用修正后的公式。</p>
 <p>扩展阶段原计划运行 1000 步，任务中断时日志至少到 650 步，但最后一个完整检查点只保存到 500 步。因此后续至少 150 次已经记录的更新丢失，不能计入最终模型；没有写日志的尾部更新数量未知。恢复时同时载入 G、D 以及两个 Adam 优化器的状态，并以 seed 43 开始新的数据顺序，再训练 500 步。这是恢复参数和优化器，不是精确恢复中断瞬间的数据迭代器。最终历史 CSV 保留丢弃行并加标记，曲线只画最终模型真正继承的更新。</p>
+<p><img alt="StarGAN 真实微调训练历史：三段保留更新的 D/G 损失及重建平均绝对误差" src="../reports/stargan-experiment/training-curves.png" /></p>
+<p>图 8-1：曲线来自原始训练日志中的已记录点，横轴累计最终检查点保留的 D 更新次数；虚线标出第 200 和第 700 次保留更新之后的阶段切换。<strong>第 200 次保留 D 更新之后，分类损失和梯度惩罚的归一化方式改变，不能跨阶段直接比较 loss 的绝对值，也不能把跳变解释为质量突变。Loss 是优化过程中的目标，不是生成质量指标，不能用它代替 FID。</strong> 下图的重建平均绝对误差只描述循环重建约束；生成质量仍需按第 8.6 节的相同协议比较 FID/IS，并检查实际图像。中断后被丢弃的更新不画入曲线，但仍保留在历史 CSV 中供审计。</p>
 <p>恢复阶段 500 步实际耗时 372.452 秒，PyTorch 报告的 XPU 峰值已分配内存为 1,143,694,848 字节。耗时包含数据处理、平均每五步一次的 G 更新和检查点保存，不能当作单独 D 前向延时；峰值也不是整台电脑或驱动的全部显存使用量。</p>
-<h3 id="85-instancenorm">8.5 真实遇到的 InstanceNorm 推理错误</h3>
+<h3 id="85-真实遇到的-instancenorm-推理错误">8.5 真实遇到的 InstanceNorm 推理错误</h3>
 <p>训练模型和使用模型是两种运行状态。PyTorch 的 <code>.train()</code>、<code>.eval()</code> 对某些归一化层有不同含义；它们不是“要不要计算梯度”的同义词。</p>
 <p>作者测试代码没有把 G 切到普通 eval 状态，InstanceNorm 使用每张图自身的统计量。我们最初直接 <code>.eval()</code> 后采用旧检查点的 running statistics，真实图出现明显色偏与棋盘纹理。加载成功没有报错，仍可能存在这种语义兼容问题。</p>
 <p>修复时先严格载入全部模型权重，再关闭 InstanceNorm 的运行均值/方差缓冲区，使模型在 eval 模式下仍使用每张图自身的统计量。回归测试确认这与作者测试所用的逐图归一化数值一致。此前错误网格保存在本地审计目录，未用作最终“微调前”基线。<strong>前后两个模型都应用同一修复</strong>，不能把修复推理错误获得的变化说成微调提升。</p>
-<h3 id="86-fid-is">8.6 FID 和 IS 计算了什么，结果能说明多少</h3>
+<h3 id="86-fid-和-is-计算了什么结果能说明多少">8.6 FID 和 IS 计算了什么，结果能说明多少</h3>
 <p>本次使用 <code>torch-fidelity 0.4.0</code> 的 InceptionV3 兼容实现及其公开权重，没有自造替代指标。FID 使用 2048 维特征；IS 使用分类 logits，划分为 10 组，随机种子 2020，batch size 为 16，PyTorch CPU 线程数为 2。初次前模型用 CPU 生成、后模型用 XPU 生成，且 torch 构建不同；虽然差异可能很小，严谨比较仍应控制这个变量。因此又将前模型改为与后模型相同的 XPU 生成、<code>torch 2.14.0+xpu</code> 构建、CPU 指标设备，重新完成对照。旧结果保存在 <code>reports/stargan-before-cpu.json</code>，不删除，也不再作为主比较。</p>
 <p>两次评估使用相同的 768 张生成源图和 768 张独立真实参考。第 i 张生成图的目标向量等于第 i 张参考图的五个属性，保持目标属性分布一致。读入前重新检查图像 SHA256 和三组图片无交集。处理为 RGB、中心裁剪 178×178、双线性缩放到 128×128、像素归一化到 [-1,1]。生成图与真实参考都保存为相同处理后的 PNG 再计算指标。</p>
 <p>FID 用一组特征的均值和协方差描述其分布，比较生成集合与真实集合的差异，通常越低越接近参考分布。IS 同时鼓励单张图片有明确类别、整体图片覆盖多样类别。但其分类器来自 ImageNet，人脸编辑的细致质量不一定能被这些类别描述。</p>
@@ -541,7 +594,7 @@ $EnvPrefix = 'C:\Users\0\Documents\Codex\work\fv-env-260926'
 </tbody>
 </table>
 <p>FID 减少约 0.292388，IS 均值增加约 0.009965。变化很小，而且只有 768 个样本，协方差估计不稳定；这不是统计显著性证明，也不能直接与论文大样本 FID 比较。IS 的划分标准差不是两个模型性能差的置信区间。真实输出仍可见生成伪影，身份保持也没有单独量化验证。可靠结论是：训练、生成、标准指标计算都真实执行；在此固定协议上观察到上述微小变化。旧 CPU 前模型对照为 FID 41.272913、IS 3.088127，只保留为历史，不用于上表主比较。</p>
-<h3 id="87">8.7 所有入口与本机复现步骤</h3>
+<h3 id="87-所有入口与本机复现步骤">8.7 所有入口与本机复现步骤</h3>
 <p>以下命令的工作目录都是项目根目录。<code>python</code> 应明确指向所需环境：本机数据准备、汇总和 ONNX 导出使用 <code>.venv/Scripts/python.exe</code>；XPU 训练以及前后两次受控评估使用 <code>../../work/xpu-env/Scripts/python.exe</code>，但这两次评估的 Inception 指标计算设备仍为 CPU。独立 XPU 环境已经验证真实张量传输、反向传播与 WGAN-GP 二阶自动微分。不要把 CPU/XPU 轮子混装到同一个环境。</p>
 <p>PowerShell 工具环境曾缺少 Windows 运行时变量。执行命令前补回本机真实系统路径：</p>
 <pre><code class="language-powershell">$env:SystemRoot='C:\Windows'
@@ -566,6 +619,13 @@ python -m research.stargan train --root data/stargan-official/celeba/images --la
 </code></pre>
 <p>第二条复现命令直接运行被保留的 500 步，不必故意再制造一次中断。原始计划参数仍在原始 config 中，CSV 的丢弃标记不能在复现时伪造。固定随机种子有助于复现抽样和初始化条件，但没有承诺不同硬件、驱动或算子实现下逐字节相同。本机长任务后来使用隐藏后台进程、stdout/stderr 日志与更频繁检查点保存，聊天中断不再需要取消训练。</p>
 <p><strong>单图生成、前后评估、独立指标与汇总：</strong></p>
+<p>XPU 张量和训练算子检查通过，不等于 FID/IS 的依赖已经装好。指标函数还需要 <code>torch-fidelity==0.4.0</code>。更新后的 <code>scripts/setup_xpu.ps1</code> 会先从 PyTorch 官方 XPU 源安装固定的 torch/torchvision，再从普通 PyPI 安装指标工具，最后执行 <code>pip check</code>。对于已建立的 XPU 环境，在首次评估前使用它自己的解释器补齐并核验；本机已经完成这一步，以下是复现命令，不表示本次重新安装或重新计算了指标：</p>
+<pre><code class="language-powershell">$XpuPython = '../../work/xpu-env/Scripts/python.exe'
+&amp; $XpuPython -m pip install torch-fidelity==0.4.0 --index-url https://pypi.org/simple
+&amp; $XpuPython -m pip check
+&amp; $XpuPython -c &quot;import torch, torchvision, torch_fidelity; from importlib.metadata import version; print(torch.__version__, torchvision.__version__, version('torch-fidelity')); assert torch.__version__ == '2.14.0+xpu' and torchvision.__version__ == '0.29.0+xpu'&quot;
+</code></pre>
+<p>上述相对路径对应本次工作区布局，换一台电脑时应指向自己的独立 XPU 解释器。不要为补这个指标工具把主 <code>.venv</code> 的 torch 安装命令套进 XPU 环境，也不要混用两个解释器生成受控比较的前后报告。</p>
 <pre><code class="language-powershell">python -m research.stargan generate --checkpoint runs/stargan-resumed/last.pt --image data/stargan-official/celeba/images/028136.jpg --targets 0,1,0,0,1 --output runs/stargan-example.png
 ../../work/xpu-env/Scripts/python.exe -m research.stargan_pilot evaluate --checkpoint data/stargan-official/200000-G.ckpt --manifest data/celeba-expanded/manifest.json --attributes data/celeba-expanded/attributes.txt --output runs/stargan-before-xpu --report reports/stargan-before.json --device xpu --threads 2
 ../../work/xpu-env/Scripts/python.exe -m research.stargan_pilot evaluate --checkpoint runs/stargan-resumed/last.pt --manifest data/celeba-expanded/manifest.json --attributes data/celeba-expanded/attributes.txt --output runs/stargan-after --report reports/stargan-after.json --device xpu --threads 2
@@ -574,7 +634,7 @@ python -m research.stargan_pilot summarize
 </code></pre>
 <p>单图命令使用已经在本机实验中读取过的 CelebA 图片 <code>028136.jpg</code>。<code>research.stargan generate</code> 与本次 CelebA 评估采用相同的预处理：把 RGB 图像中心裁成 178×178，再用双线性插值缩放到 128×128，最后把像素归一化到 [-1, 1]。因此，它适合人脸已居中、按 CelebA 方式对齐的输入；把人脸偏在一侧的整张照片直接传给它，中心裁剪可能截掉人脸。</p>
 <p>桌面程序接受普通照片或摄像头画面，使用另一种输入处理：先要求 YuNet 检测到恰好一张脸，再围绕检测框截取方形区域，边长约为框的较长边的 1.8 倍，水平中心位于框中心，竖直中心位于框顶向下 0.45 倍框高处；超出图像边界的部分用反射填充，随后缩放为 128×128 并做相同归一化。这是检测框引导的裁剪，并不是 CelebA 的几何对齐。两者复用同一个生成器，但姿态、脸部位置和背景分布可能不同，所以本章的 CelebA FID/IS 不能直接解释为任意摄像头输入的质量指标。界面展示的是输入裁剪与生成裁剪，不会自动把编辑后的人脸贴回整张原图。</p>
-<p><code>summarize</code> 是针对本次已记录的 200+500+500 实验的收集器，先检查阶段和检查点一致性，再输出 <code>reports/stargan-experiment/report.json</code>、原始历史 CSV、真实训练曲线 SVG 和三个阶段配置。另一个训练计划应建立自己的实验清单，不能套用这份固定历史称作自己的训练结果。</p>
+<p><code>summarize</code> 是针对本次已记录的 200+500+500 实验的收集器，先检查阶段和检查点一致性，再输出 <code>reports/stargan-experiment/report.json</code>、原始历史 CSV、真实训练曲线 SVG/PNG 和三个阶段配置。另一个训练计划应建立自己的实验清单，不能套用这份固定历史称作自己的训练结果。</p>
 <p><strong>导出、验证和启动原生桌面程序：</strong></p>
 <pre><code class="language-powershell">python -m research.stargan_deploy --checkpoint runs/stargan-resumed/last.pt --image data/stargan-official/celeba/images/028136.jpg --threads 2 --repeats 5 --output runs/stargan-deploy/generator.onnx --report reports/stargan-deployment.json
 python -m unittest discover -s tests -p test_research.py -v
@@ -582,12 +642,12 @@ python desktop.py
 </code></pre>
 <p>ONNX 的输入名固定为 <code>images</code> 和 <code>attributes</code>，形状分别为 <code>[1,3,128,128]</code>、<code>[1,5]</code>，类型为 FP32；输出名为 <code>edited</code>。图片是 RGB 的 NCHW 排列：1 张图片、3 个颜色通道、128 行、128 列。输出裁剪到 [-1,1] 后，以 <code>(output+1)*127.5</code> 变回图片像素。原生程序直接加载此本地模型，可从图片或当前相机画面进行一次属性编辑；这不等于实时视频 GAN 编辑。</p>
 <p>实际模型大小为 33736691 字节。真实图片上 PyTorch 与 ONNX Runtime 的最大绝对误差为 $1.96695\times10^{-6}$，ONNX checker 和数值一致性断言通过。CPU 两线程、五次运行中位数为 281.333 ms；测量时有其他实验同时运行，不能视为独占硬件基准。旧 ONNX 导出器给出的 InstanceNorm <code>train=True</code> 警告表示该算子使用输入统计量，不表示正在更新模型权重；真实数值对照是是否兼容的重要证据。</p>
-<h3 id="88">8.8 尚未取得的数据，不写成已完成训练</h3>
+<h3 id="88-尚未取得的数据不写成已完成训练">8.8 尚未取得的数据，不写成已完成训练</h3>
 <p>本轮还测试了 COFW 官方公开下载，入口为：</p>
 <pre><code class="language-powershell">python -m research.fetch_official_data cofw --file COFW.zip --extract --report reports/cofw-grayscale-resume.json
 </code></pre>
 <p><a href="https://data.caltech.edu/records/bc0bf-nc666">当前官方 CaltechDATA 记录</a>可读，但彩色包只收到 1086044 字节，灰度包只收到 293760 / 178022021 字节。正常续传遇到 HTTP 500 或 SSL EOF，Chrome 普通下载跳转显示 <code>ERR_BLOCKED_BY_CLIENT</code>；没有修改安全设置。残缺包未通过公布的 MD5，程序保留 <code>.part</code> 并拒绝把它当作可训练数据。具体记录为 <code>reports/cofw-access.json</code>。300-W 下载登记需要真实个人联系信息，未捏造身份。因此本项目不能报告真实 COFW/300-W 训练 NME；已有 68 点基线也不能直接当作原始 COFW 29 点模型。</p>
-<h3 id="89">8.9 自测题与参考答案</h3>
+<h3 id="89-自测题与参考答案">8.9 自测题与参考答案</h3>
 <ol>
 <li><strong>500 个 step、batch size 为 2，是否代表 500 个 epoch？</strong> 不是。代表 500 次 D 更新和 1000 次图片抽样；训练池 4096 张时不足一轮。每五步更新一次 G，则有 100 次 G 更新。</li>
 <li><strong>三个阶段抽样 2400 次，可以说见过 2400 个不同人吗？</strong> 不可以。图片可能重复，不同图片也可能属于同一个人；总去重图片数与人物数都未审计。</li>

@@ -15,6 +15,10 @@ if (-not (Test-Path -LiteralPath $EnvironmentPython)) {
 }
 & $EnvironmentPython -m pip install torch==2.14.0+xpu torchvision==0.29.0+xpu --index-url https://download.pytorch.org/whl/xpu
 if ($LASTEXITCODE -ne 0) { throw 'Official XPU wheel installation failed.' }
+# Install metric tooling from PyPI only after the pinned XPU builds are present.
+# Existing torch/torchvision satisfy torch-fidelity; do not replace them with CPU wheels.
+& $EnvironmentPython -m pip install torch-fidelity==0.4.0 --index-url https://pypi.org/simple
+if ($LASTEXITCODE -ne 0) { throw 'XPU evaluation dependency installation failed.' }
 & $EnvironmentPython -m pip check
 if ($LASTEXITCODE -ne 0) { throw 'XPU dependency check failed.' }
 & $EnvironmentPython (Join-Path $PSScriptRoot 'verify_xpu.py')

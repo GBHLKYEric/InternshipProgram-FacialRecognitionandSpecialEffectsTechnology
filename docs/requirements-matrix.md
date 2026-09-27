@@ -8,15 +8,15 @@
 |---|---|---|---|
 | 1.1 | Anaconda、Python、PyTorch、OpenCV、MMDetection | 安装版本、解释器路径、import 和算子测试 | verified：Anaconda 2026.07-1、conda 26.5.3 与独立项目 Python 3.12.14 已安装；CPU autograd、YuNet、Tk/ImageTk、真实 Jupyter 内核及 pip check 通过，见 [Anaconda 报告](../reports/anaconda-environment.json) 与[环境教程第 7 节](continued-experiments.md#7-把四类运行环境真正弄明白anaconda-安装启动与排错)。原主 venv 保留；独立 XPU 算子验证通过；独立 Docker MMDetection 3.3/MMCV 2.1 CPU NMS 与训练通过，版本见 reports/mmdet-environment-freeze.txt。 |
 | 1.2 | Git 基本操作、GitHub 仓库与首次提交 | 远程公共仓库 URL、提交 SHA、实际文件清单 | verified：公开仓库GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology；沿用用户原仓库并保留原文件。最终提交与文件核验见交付说明。 |
-| 1.3 | Docker 镜像与环境 | Dockerfile、build 日志、容器内 Hello World | verified：WSL Docker29.1.3，Hello及核心lab镜像均实际构建运行；lab容器faces1/组合特效/cosine1、宿主健康检查200；MMDetection研究镜像另外Python3.10。 |
+| 1.3 | Docker 镜像与环境 | Dockerfile、build 日志、容器内 Hello World | verified：WSL Docker29.1.3，Hello及早期lab已运行；当前源码重新构建desktop-integration镜像并核对哈希，六模式各faces1、五种效果像素改变、五点覆盖、cosine1和pip check通过。仅CPU核心，见reports/docker-lab-current.json；MMDetection研究镜像另Python3.10。 |
 | 1.4 | Jupyter 实验 | notebook 文件、执行后的输出与无错误记录 | verified：`notebooks/01-first-vision-lab.ipynb` 4个代码单元实际执行。 |
 | 2.1 | 检测、对齐、识别、验证基础 | 教程第 1、5、7 课及练习 | verified：教程与答案已交付；学习效果仍需学生自己完成练习。 |
 | 2.2 | 下载探索 CelebA、LFW，可视化 | 实际文件统计、分布与本地样本图 | verified：LFW实际13233图/5749身份及分布SVG；CelebA完整202599图官方StarGAN配套ZIP已下载并校验，图像名与40属性表对应，按真实清单统计属性；实际训练/评估所需图像按名单解压，不把配置池大小写成已访问样本数。 |
-| 2.3 | MMDetection 人脸模型检测 | 框架推理日志、权重来源、检测图 | verified（部分）：WIDER小样本自训RetinaNet推理已跑，`reports/wider_pilot_prediction.jpg`显示top10低分候选，模型未收敛不能称有效检测器；YuNet属于独立应用基线。 |
+| 2.3 | MMDetection 人脸模型检测 | 框架推理日志、权重来源、检测图 | verified（完整迁移基线）：MMDetection RetinaNet全部12880图一轮训练，3226图预测与COCO/官方难度评估已完成；COCO AP=0.055，小脸表现弱，不把YuNet成绩归给它。 |
 | 2.4 | 关键点模型定位 | 输入、坐标输出、可视化 | verified：YuNet五点真实推理，`reports/effect-none.jpg`；不代表68点训练。 |
 | 3.1 | MTCNN、RetinaFace 原理 | 教程对照与原论文链接 | verified：教程第5课；RetinaNet配置不能叫RetinaFace实现。 |
-| 3.2 | MMDetection 在 WIDER FACE 训练 | COCO 转换、配置、训练日志、权重、数据清单 | verified（部分）：完整12880图/156994个COCO有效框与兼容Docker已准备；完整1epoch迁移训练进行中。早期32图随机初始化pilot保留；只有最终完成记录才能验收全量训练。 |
-| 3.3 | WIDER 验证集检测指标 | Precision、Recall、明确协议的 AP | verified（预训练完整基线）：YuNet全部3226张val，官方难度协议Python实现，AP easy0.8844221/medium0.8656839/hard0.7504021，与OpenCV Zoo参考实现绝对差均0；不是自训RetinaNet结果。其全量训练模型评估仍进行中。 |
+| 3.2 | MMDetection 在 WIDER FACE 训练 | COCO 转换、配置、训练日志、权重、数据清单 | verified（限定一轮迁移）：完整12880图/156994个COCO有效框，batch2共6440次更新；冻结COCO预训练ResNet50，训练FPN/检测头。最终权重及内嵌配置哈希一致，见reports/wider-mmdet-audit.json；不是论文完整训练或收敛证明。 |
+| 3.3 | WIDER 验证集检测指标 | Precision、Recall、明确协议的 AP | verified（完整验证协议）：两模型各3226图；YuNet AP easy0.8844221/medium0.8656839/hard0.7504021；自训RetinaNet为0.3865926 / 0.2589124 / 0.1310345，参考交叉检查通过；Precision/Recall与曲线见第6.4节，输入设置差异另列。 |
 | 4.1 | HRNet、SAN 原理 | 教程关键点章节 | verified：教程第5课。 |
 | 4.2 | 在 300-W 或 COFW 训练 | 数据协议、训练日志、权重、独立评估 NME | blocked：300-W需要真实登记信息；COFW官方彩色/灰度下载中断，灰度仅293760/178022021字节且MD5不符，普通续传失败。未使用残缺包、未产生真实NME；见[下载证据](../reports/cofw-access.json)。预训练五点不能替代。 |
 | 4.3 | 仿射变换对齐 | 对齐实现、关键点、前后图 | verified（部分）：SFace alignCrop在完整LFW推理中实际运行；68点仿射实现位于research/landmarks.py，单独前后图须依真实训练权重补充。 |
@@ -48,13 +48,13 @@
 | 统一界面、实时视频 | 原生桌面窗口、实际摄像头、模块集成 | verified（本机功能）：desktop.py直接调用摄像头、六效果、双图验证、真实StarGAN ONNX属性编辑与完整网格原生OpenGL；最新集成报告desktop-integration.json通过。摄像头两轮独立记录；网页仅辅助版本。 |
 | CPU/移动端实时性 | 分辨率、设备、计时边界与FPS；移动端单独实测 | verified（本机测量）：保留两轮原生报告及有脸/无脸分层，首轮7.4277FPS/P95 159.3555ms，第二轮15.7790FPS/P95 168.6882ms；并行训练且输入不同，不称优化收益。CPU流畅度目标未通过，真实移动端未验证。 |
 | 项目演示视频 | 可播放视频、实际处理过程与限制说明 | verified：最终原生程序43.2秒/216帧H.264演示，真实Tk控件与GL帧缓冲，只用公开样图；另保留18秒仿射特效视频。播放FPS不是算法吞吐。 |
-| 项目总结报告、汇报 PPT | 本文档目录及实际 PPTX | verified（部分）：Markdown、教程/报告/问题PDF与PPTX已生成；最终视觉检查另记录 |
+| 项目总结报告、汇报 PPT | 本文档目录及实际 PPTX | verified：五份PDF、实际PPTX及Markdown/HTML已生成；最终渲染与文字检查见交付文件校验及本轮核验记录。 |
 | StyleGAN3、DECA 必读、CNN/度量/GAN/扩散/3DGS/可微渲染 | 教程覆盖、原论文链接、练习与答案 | verified：18课完整教程与sources.md；不称所有模型都已训练 |
 | BytePS、火山引擎、内部高效工具 | 原文要求的模拟、官方体验及准确范围 | verified（模拟/样例体验）：BytePS概念两进程加权SGD与全批参考最大误差4.47e-8；ByteNN概念由ORT模拟；火山引擎官方人像融合样例交互已体验。未使用内部SDK或部署鉴权云API |
-| 全部源代码 GitHub 开源 | 公共仓库可读取、源码齐全、许可证、无私密数据 | verified（已有公开基线）：仓库已公开且沿用用户重命名后的地址；本次最终桌面源码与新增实验须按最终交付清单同步发布 |
+| 全部源代码 GitHub 开源 | 公共仓库可读取、源码齐全、许可证、无私密数据 | verified：公共仓库沿用用户重命名后的地址，包含最终原生前端、研究源码及证据；最终提交SHA与桌面/ZIP校验见交付说明。 |
 | 面向高三零基础教程 | 专业概念、直观解释、运行步骤、练习答案 | verified：18课主教程、继续实验教程、原生桌面使用与代码教程，配完整源码汇编和文件用途 |
 | 执行问题及解决方法 | 实际错误、根因、修改、复测与剩余限制 | verified：issues-and-fixes.md，包含版本兼容、网络/环境与旧代码审计 |
-| 全部源码汇编与使用位置（新增要求） | 源码快照、模块/调用入口/PDF编号/验证命令 | verified：code-map.md、完整Markdown/HTML源码汇编及reports/code-inventory.json；最终发布前再按文件清单核对 |
+| 全部源码汇编与使用位置（新增要求） | 源码快照、模块/调用入口/PDF编号/验证命令 | verified：code-map.md、完整Markdown/HTML源码汇编及reports/code-inventory.json；最终源码逐文件校验，包含实际运行配置快照。 |
 
 桌面源码副本位于用户桌面的“智能视觉AI项目_完整源代码”文件夹；复制后按逐文件SHA256核对，最终清单见交付文件。
 

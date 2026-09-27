@@ -1,5 +1,5 @@
 {
-  "status": "prepared",
+  "status": "completed",
   "model": "RetinaNet ResNet50 FPN",
   "dataset": {
     "train": {
@@ -30,5 +30,18 @@
     "bbox_head.retina_cls.bias"
   ],
   "metric": "Full validation COCO AP, separate WIDER difficulty evaluation",
-  "limitations": "One CPU transfer epoch at limited resolution does not establish convergence."
+  "limitations": "One CPU transfer epoch at limited resolution does not establish convergence.",
+  "trainable_parameters": 12821805,
+  "training_seconds": 7960.151558401,
+  "coco_metrics": {
+    "coco/face_precision": 0.055,
+    "coco/bbox_mAP": 0.055,
+    "coco/bbox_mAP_50": 0.108,
+    "coco/bbox_mAP_75": 0.053,
+    "coco/bbox_mAP_s": 0.001,
+    "coco/bbox_mAP_m": 0.143,
+    "coco/bbox_mAP_l": 0.574
+  },
+  "validation_seconds": 984.2750033810007,
+  "prediction_files": 3226
 }

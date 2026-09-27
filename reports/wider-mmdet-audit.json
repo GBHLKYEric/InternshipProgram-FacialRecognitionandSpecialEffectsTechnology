@@ -1,0 +1,205 @@
+{
+  "status": "completed",
+  "created_utc": "2026-09-27T03:18:34.897929+00:00",
+  "container": {
+    "container_id": "5660e05b62bd576bac64998bc6f3178df99c3e861468ca22d76ba6c37272b87e",
+    "image_id": "sha256:532d79fdc0362291ee9917cf2883354c4ee07e1b7148ab9b3bd39bea4fe0dee9",
+    "started_at": "2026-09-26T13:38:35.320027448Z",
+    "nano_cpus": 4000000000,
+    "command": [
+      "python",
+      "scripts/mmdet_full.py",
+      "--threads",
+      "4",
+      "--epochs",
+      "1",
+      "--batch-size",
+      "2",
+      "--size",
+      "320",
+      "--lr",
+      "0.0005",
+      "--output",
+      "runs/wider-mmdet-full-stable"
+    ]
+  },
+  "effective_config": {
+    "source": "runs\\wider-mmdet-full-stable\\effective-config.py",
+    "published_snapshot": "reports\\wider-mmdet-effective-config.py",
+    "sha256": "fac440328f4f4438703070a1f9d9fc79c51b4e90502bf16dc1a933f37feddbb7",
+    "bytes": 10423,
+    "runtime_loop": "EpochBasedTrainLoop, max_epochs=1, val_interval=2; no val_begin override",
+    "scope": "Exact config saved before this stable training started. Later launcher fixes (resume loop and one-validation scheduling) were not executed by this process."
+  },
+  "environment": {
+    "source": "reports\\mmdet-environment-freeze.txt",
+    "sha256": "0099964a3b084634ddab6ca171333e3148a4f5e9016d5b4bae18b551fbb53823",
+    "python_from_actual_log": "3.10.21 (main, Sep 19 2026, 01:08:03) [GCC 12.2.0]",
+    "selected_packages": [
+      "mmcv @ https://download.openmmlab.com/mmcv/dist/cpu/torch2.1.0/mmcv-2.1.0-cp310-cp310-manylinux1_x86_64.whl#sha256=953a7ef4bab732a66eb48a57f0884fd0e444e5599582ed81f87289b8e265ad8d",
+      "mmdet==3.3.0",
+      "mmengine==0.10.7",
+      "numpy==1.26.4",
+      "pycocotools==2.0.11",
+      "torch==2.1.0+cpu",
+      "torchvision==0.16.0+cpu"
+    ]
+  },
+  "checkpoint": {
+    "final_checkpoint": "runs\\wider-mmdet-full-stable\\iter_6440.pth",
+    "final_checkpoint_sha256": "402aca891aedbb230751eb6465847af7db17a4a334e16f9906c52dc97c8d550f",
+    "final_checkpoint_bytes": 197804518
+  },
+  "checkpoint_metadata": {
+    "checkpoint": "runs/wider-mmdet-full-stable/iter_6440.pth",
+    "epoch": 0,
+    "iter": 6440,
+    "meta_keys": [
+      "cfg",
+      "dataset_meta",
+      "epoch",
+      "experiment_name",
+      "iter",
+      "mmengine_version",
+      "seed",
+      "time"
+    ],
+    "checkpoint_config_sha256": "fac440328f4f4438703070a1f9d9fc79c51b4e90502bf16dc1a933f37feddbb7",
+    "saved_config_sha256": "fac440328f4f4438703070a1f9d9fc79c51b4e90502bf16dc1a933f37feddbb7",
+    "checkpoint_config_equals_saved_config": true,
+    "inspection_runtime": {
+      "torch": "2.1.0+cpu",
+      "mmengine": "0.10.7",
+      "mmdet": "3.3.0"
+    }
+  },
+  "training_iterations_completed": 6440,
+  "last_loss_logged_iteration": 6425,
+  "calendar": {
+    "started_at": "2026-09-26T13:38:35.320027448Z",
+    "independent_evaluation_finished_at": "2026-09-27T03:18:09.666022+00:00",
+    "elapsed_seconds": 49174.345995,
+    "scope": "Actual UTC interval from Docker process start through both final independent AP evaluations. Includes observed standby and diagnostic pauses; excludes earlier acquisition and failed attempt."
+  },
+  "internal_timing": {
+    "runner_train_seconds": 7960.151558401,
+    "explicit_second_validation_seconds": 984.2750033810007,
+    "controlled_diagnostic_pause_seconds": 65.22460809999029,
+    "scope": "runner.train() includes one automatic full validation and diagnostic pauses; explicit validation is the duplicate second pass. Observed WSL perf_counter did not accumulate the long host standby intervals. Neither field is pure training time or user elapsed waiting time."
+  },
+  "observed_modern_standby_intervals": [
+    {
+      "source": "reports\\wider-power-transitions.json",
+      "entered_utc": "2026-09-26T14:37:21.6323838Z",
+      "exited_utc": "2026-09-26T16:07:55.5441164Z",
+      "entered_message": "系统正在进入新型待机状态 \r\n\r\n原因: Lid。",
+      "exited_message": "系统正在退出新型待机状态 \r\n\r\n原因: 16777220。",
+      "observed_interval_seconds": 5433.911733
+    },
+    {
+      "source": "reports\\wider-power-transitions-second.json",
+      "entered_utc": "2026-09-26T17:05:44.8363120Z",
+      "exited_utc": "2026-09-26T19:03:55.9679544Z",
+      "entered_message": "系统正在进入新型待机状态 \r\n\r\n原因: Lid。",
+      "exited_message": "系统正在退出新型待机状态 \r\n\r\n原因: 16777220。",
+      "observed_interval_seconds": 7091.131642
+    },
+    {
+      "source": "reports\\wider-power-transitions-third.json",
+      "entered_utc": "2026-09-26T19:03:55.9795391Z",
+      "exited_utc": "2026-09-27T02:46:07.2192012Z",
+      "entered_message": "系统正在进入新型待机状态 \r\n\r\n原因: 16777220。",
+      "exited_message": "系统正在退出新型待机状态 \r\n\r\n原因: Lid。",
+      "observed_interval_seconds": 27731.239662
+    }
+  ],
+  "observed_intervals_total_seconds": 40256.283037,
+  "power_event_limitations": "Only captured adjacent entered/exited pairs are summed. No claim of an exhaustive power history or zero computation at every instant. Numeric reason 16777220 is retained without interpretation.",
+  "monitor_attempt1": {
+    "status": "failed",
+    "error": "Monitor timeout; training is preserved and has not been stopped",
+    "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\0\\Documents\\Codex\\2026-09-26\\plugin-computer-use-openai-bundled-github\\outputs\\face-vision-lab\\research\\wider_watch.py\", line 64, in run\n    raise TimeoutError('Monitor timeout; training is preserved and has not been stopped')\nTimeoutError: Monitor timeout; training is preserved and has not been stopped\n",
+    "updated_utc": "2026-09-27T02:46:10.064346+00:00"
+  },
+  "power_helper_attempt1": {
+    "pid": 32948,
+    "monitor_pid": 52116,
+    "started_utc": "2026-09-26T16:23:02.963590+00:00",
+    "flags": "ES_CONTINUOUS | ES_SYSTEM_REQUIRED",
+    "display_required": false,
+    "power_plan_changed": false,
+    "manual_sleep_has_priority": true,
+    "documentation": "https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-setthreadexecutionstate",
+    "status": "released",
+    "request_return_value": 2147483648,
+    "release_reason": "eight_hour_timeout",
+    "release_return_value": 2147483649,
+    "finished_utc": "2026-09-27T02:46:09.812003+00:00"
+  },
+  "monitor_final": {
+    "status": "completed",
+    "updated_utc": "2026-09-27T03:18:09.666022+00:00"
+  },
+  "power_helper_final": {
+    "pid": 48904,
+    "monitor_pid": 23208,
+    "started_utc": "2026-09-27T02:50:14.730927+00:00",
+    "flags": "ES_CONTINUOUS | ES_SYSTEM_REQUIRED",
+    "display_required": false,
+    "power_plan_changed": false,
+    "manual_sleep_has_priority": true,
+    "documentation": "https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-setthreadexecutionstate",
+    "status": "released",
+    "request_return_value": 2147483648,
+    "release_reason": "monitor_process_exited",
+    "release_return_value": 2147483649,
+    "finished_utc": "2026-09-27T03:18:14.916865+00:00"
+  },
+  "coco_evaluator": {
+    "implementation": "MMDetection 3.3.0 CocoMetric with pycocotools 2.0.11",
+    "proposal_nums_maxDets": [
+      100,
+      300,
+      1000
+    ],
+    "reported_metric_maxDets": {
+      "bbox_mAP": 100,
+      "bbox_mAP_50": 1000,
+      "bbox_mAP_75": 1000,
+      "bbox_mAP_s": 1000,
+      "bbox_mAP_m": 1000,
+      "bbox_mAP_l": 1000,
+      "classwise_face_precision_ap": 1000
+    },
+    "use_mp_eval": false,
+    "verification": "Inspected the installed CocoMetric signature in the actual running container; the saved effective config does not override these defaults.",
+    "classwise_name_caution": "coco/face_precision is the classwise face AP in this evaluator, not precision at one confidence operating point.",
+    "actual_logged_summaries": [
+      "Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.055",
+      "Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=1000 ] = 0.108",
+      "Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=1000 ] = 0.053",
+      "Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.001",
+      "Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.143",
+      "Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.574",
+      "Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.118",
+      "Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=300 ] = 0.137",
+      "Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=1000 ] = 0.152",
+      "Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.055",
+      "Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.337",
+      "Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.647",
+      "Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.055",
+      "Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=1000 ] = 0.108",
+      "Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=1000 ] = 0.053",
+      "Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.001",
+      "Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.143",
+      "Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.574",
+      "Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.118",
+      "Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=300 ] = 0.137",
+      "Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=1000 ] = 0.152",
+      "Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.055",
+      "Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.337",
+      "Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.647"
+    ]
+  },
+  "evaluation_scope": "WIDER difficulty AP uses IoU 0.5, official ignore masks and 1000 score thresholds. COCO bbox_mAP averages IoUs 0.50:0.05:0.95 on converted valid boxes, a distinct metric. One epoch at maximum edge 320 does not establish convergence."
+}

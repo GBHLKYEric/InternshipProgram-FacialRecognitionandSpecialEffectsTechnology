@@ -1,23 +1,25 @@
 <!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>全部源码与使用位置</title><style>body{font:17px/1.85 "Segoe UI","Microsoft YaHei",sans-serif;color:#1b2925;background:#f7f8f4;max-width:1040px;margin:auto;padding:44px 28px}h1{font-size:36px;line-height:1.4;color:#1c4939}h2{font-size:25px;margin-top:2.5em;border-bottom:1px solid #cdd7cf;padding-bottom:12px}h3{font-size:20px;margin-top:1.8em}a{color:#1f6550}p{margin:1em 0}code{font:14px/1.65 Consolas,"Microsoft YaHei",monospace;background:#eaf0ea;padding:2px 4px}pre{background:#142c25;color:#e4efdf;padding:22px;overflow:auto;border-radius:8px;line-height:1.7}pre code{background:transparent;color:inherit;white-space:pre}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:12px;border:1px solid #d4ded6;vertical-align:top;overflow-wrap:anywhere}th{background:#e7eee8;text-align:left}.toc{font-size:14px;columns:2;column-gap:36px}.toc ul{padding-left:18px}blockquote{margin-left:0;padding-left:18px;border-left:3px solid #789c85;color:#40594b}img{max-width:100%}.meta{font-size:13px;color:#63756a}@media(max-width:600px){.toc{columns:1}body{padding:20px 16px}h1{font-size:28px}table{display:block;overflow:auto}}@media print{body{background:white;max-width:none;font-size:10pt;padding:0}.toc{columns:2}h2{break-before:page}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f3f5f2;color:#111;font-size:8pt}pre code{white-space:pre-wrap}a{color:inherit}table{font-size:8pt}tr{break-inside:avoid}}</style><body><div class="toc">
 <ul>
-<li><a href="#_1">全部项目源码与使用位置</a><ul>
-<li><a href="#_2">如何阅读</a></li>
-<li><a href="#_3">文件目录</a></li>
+<li><a href="#全部项目源码与使用位置">全部项目源码与使用位置</a><ul>
+<li><a href="#如何阅读">如何阅读</a></li>
+<li><a href="#文件目录">文件目录</a></li>
 <li><a href="#dockerignore">.dockerignore</a></li>
 <li><a href="#gitattributes">.gitattributes</a></li>
 <li><a href="#gitignore">.gitignore</a></li>
 <li><a href="#apppy">app.py</a></li>
 <li><a href="#desktoppy">desktop.py</a></li>
 <li><a href="#dockerfile">Dockerfile</a></li>
+<li><a href="#hellopyuntitled-1md">hello.py/Untitled-1.md</a></li>
 <li><a href="#hello_worldpy">hello_world.py</a></li>
 <li><a href="#modelsregistryjson">models/registry.json</a></li>
 <li><a href="#notebooks01-first-vision-labipynb">notebooks/01-first-vision-lab.ipynb</a><ul>
-<li><a href="#2">第 2 个单元</a></li>
-<li><a href="#4">第 4 个单元</a></li>
-<li><a href="#6">第 6 个单元</a></li>
-<li><a href="#8">第 8 个单元</a></li>
+<li><a href="#第-2-个单元">第 2 个单元</a></li>
+<li><a href="#第-4-个单元">第 4 个单元</a></li>
+<li><a href="#第-6-个单元">第 6 个单元</a></li>
+<li><a href="#第-8-个单元">第 8 个单元</a></li>
 </ul>
 </li>
+<li><a href="#reportswider-mmdet-effective-configpy">reports/wider-mmdet-effective-config.py</a></li>
 <li><a href="#requirements-docstxt">requirements-docs.txt</a></li>
 <li><a href="#requirements-researchtxt">requirements-research.txt</a></li>
 <li><a href="#requirementstxt">requirements.txt</a></li>
@@ -36,7 +38,9 @@
 <li><a href="#researchstarganpy">research/stargan.py</a></li>
 <li><a href="#researchstargan_deploypy">research/stargan_deploy.py</a></li>
 <li><a href="#researchstargan_pilotpy">research/stargan_pilot.py</a></li>
+<li><a href="#researchwider_auditpy">research/wider_audit.py</a></li>
 <li><a href="#researchwider_awakepy">research/wider_awake.py</a></li>
+<li><a href="#researchwider_checkpointpy">research/wider_checkpoint.py</a></li>
 <li><a href="#researchwider_downloadpy">research/wider_download.py</a></li>
 <li><a href="#researchwider_evalpy">research/wider_eval.py</a></li>
 <li><a href="#researchwider_referencepy">research/wider_reference.py</a></li>
@@ -78,16 +82,16 @@
 <li><a href="#vision3dreconstructpy">vision3d/reconstruct.py</a></li>
 <li><a href="#vision3dviewer-templatehtml">vision3d/viewer-template.html</a></li>
 <li><a href="#webindexhtml">web/index.html</a></li>
-<li><a href="#cmd">启动桌面程序.cmd</a></li>
+<li><a href="#启动桌面程序cmd">启动桌面程序.cmd</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<h1 id="_1">全部项目源码与使用位置</h1>
+<h1 id="全部项目源码与使用位置">全部项目源码与使用位置</h1>
 <p>此文档逐字收录本项目源文件，并提供使用位置、符号行号、原文件链接与SHA256。它由 <code>scripts/build_deliverables.py</code> 从实际文件自动生成，避免手工粘贴漏代码。第三方Python库与预训练权重不复制进本文；它们的版本、官方来源与许可证见环境锁定文件、<code>models/registry.json</code>、<code>models/licenses/</code>及<code>docs/sources.md</code>。</p>
-<h2 id="_2">如何阅读</h2>
+<h2 id="如何阅读">如何阅读</h2>
 <p>先查用途，再打开对应文件。文中的代码是完整源码，不是删节片段。Notebook收录全部代码单元，图像输出在原始ipynb中。算法的专业解释见主教程。</p>
-<h2 id="_3">文件目录</h2>
+<h2 id="文件目录">文件目录</h2>
 <table>
 <thead>
 <tr>
@@ -109,7 +113,7 @@
 </tr>
 <tr>
 <td><code>.gitignore</code></td>
-<td style="text-align: right;">48</td>
+<td style="text-align: right;">52</td>
 <td>依赖固定、打包或版本控制配置；由 pip、Docker 或 Git 读取。</td>
 </tr>
 <tr>
@@ -128,6 +132,11 @@
 <td>docker build --target hello 或 --target lab；PDF任务1.3。</td>
 </tr>
 <tr>
+<td><code>hello.py/Untitled-1.md</code></td>
+<td style="text-align: right;">1</td>
+<td>用户原仓库保留的最初Hello World文件；当前Docker实际运行根目录hello_world.py，不执行此Markdown文件。</td>
+</tr>
+<tr>
 <td><code>hello_world.py</code></td>
 <td style="text-align: right;">4</td>
 <td>Docker hello镜像启动命令；PDF任务1.2/1.3。保留了旧仓库hello.py目录。</td>
@@ -141,6 +150,11 @@
 <td><code>notebooks/01-first-vision-lab.ipynb</code></td>
 <td style="text-align: right;">240</td>
 <td>Jupyter中的循序实验；PDF任务1.4、2.1、2.4和OpenCV入门。</td>
+</tr>
+<tr>
+<td><code>reports/wider-mmdet-effective-config.py</code></td>
+<td style="text-align: right;">376</td>
+<td>本次真实运行保存的MMDetection完整有效配置；与checkpoint内嵌配置逐字一致。它保留旧版末轮重复验证行为，与后续修正入口分开记录。</td>
 </tr>
 <tr>
 <td><code>requirements-docs.txt</code></td>
@@ -229,13 +243,23 @@
 </tr>
 <tr>
 <td><code>research/stargan_pilot.py</code></td>
-<td style="text-align: right;">216</td>
+<td style="text-align: right;">219</td>
 <td>研究训练与评估命令使用；详见 research/README.md 和 docs/code-map.md。对应PDF任务3.2–7.3。</td>
+</tr>
+<tr>
+<td><code>research/wider_audit.py</code></td>
+<td style="text-align: right;">144</td>
+<td>完整训练与两份评估完成后汇总配置、环境、checkpoint哈希及计时；要求临时电源请求已经释放。</td>
 </tr>
 <tr>
 <td><code>research/wider_awake.py</code></td>
 <td style="text-align: right;">82</td>
-<td>研究训练与评估命令使用；详见 research/README.md 和 docs/code-map.md。对应PDF任务3.2–7.3。</td>
+<td>在本轮监护运行期间发出Windows防闲置休眠请求，完成、失败或超时后释放；不改电源计划且尊重用户手动睡眠。</td>
+</tr>
+<tr>
+<td><code>research/wider_checkpoint.py</code></td>
+<td style="text-align: right;">50</td>
+<td>在对应MMDetection容器内读取本机最终checkpoint元数据，核对6440次更新及保存配置，不加载未知来源权重。</td>
 </tr>
 <tr>
 <td><code>research/wider_download.py</code></td>
@@ -244,7 +268,7 @@
 </tr>
 <tr>
 <td><code>research/wider_eval.py</code></td>
-<td style="text-align: right;">240</td>
+<td style="text-align: right;">241</td>
 <td>全部3226张WIDER验证图推理，以及官方难度mask/IoU/AP协议的Python计算；支持给定自训预测目录。</td>
 </tr>
 <tr>
@@ -254,7 +278,7 @@
 </tr>
 <tr>
 <td><code>research/wider_training_report.py</code></td>
-<td style="text-align: right;">91</td>
+<td style="text-align: right;">92</td>
 <td>读取MMEngine真实逐步日志，输出CSV和损失曲线；区分进行中快照与最终完成。</td>
 </tr>
 <tr>
@@ -279,7 +303,7 @@
 </tr>
 <tr>
 <td><code>scripts/build_deliverables.py</code></td>
-<td style="text-align: right;">290</td>
+<td style="text-align: right;">318</td>
 <td>模型下载、环境检查、数据准备或交付物生成；本文件开头docstring和下方函数索引提供具体入口。</td>
 </tr>
 <tr>
@@ -359,7 +383,7 @@
 </tr>
 <tr>
 <td><code>scripts/setup_xpu.ps1</code></td>
-<td style="text-align: right;">21</td>
+<td style="text-align: right;">25</td>
 <td>建立独立Intel XPU环境并安装官方PyTorch XPU构建；不改主venv或驱动。</td>
 </tr>
 <tr>
@@ -449,7 +473,7 @@
 </tr>
 </tbody>
 </table>
-<p>共 70 个源文件，7178 行文本（Notebook按JSON行统计）。</p>
+<p>共 74 个源文件，7790 行文本（Notebook按JSON行统计）。</p>
 <h2 id="dockerignore">.dockerignore</h2>
 <p><strong>使用位置：</strong> 依赖固定、打包或版本控制配置；由 pip、Docker 或 Git 读取。</p>
 <p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/.dockerignore">GitHub中的文件</a></p>
@@ -483,7 +507,7 @@ reports/*log.txt -whitespace
 <h2 id="gitignore">.gitignore</h2>
 <p><strong>使用位置：</strong> 依赖固定、打包或版本控制配置；由 pip、Docker 或 Git 读取。</p>
 <p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/.gitignore">GitHub中的文件</a></p>
-<p>SHA256：<code>4bca3f20690b20431c2e8ee365999dae1ea22cfb70a6e8d1ac71e4735feaa525</code></p>
+<p>SHA256：<code>68dc01da3058deb817834ffa6b17bbd38ceb37c38924f8b0f9bd602fc107a600</code></p>
 <pre><code class="language-text">.venv/
 work/
 %SystemDrive%/
@@ -532,13 +556,17 @@ assets/*.png
 !reports/3d-native/yaw-035.png
 !reports/3d-native/yaw-minus035.png
 !reports/celeba-distribution.png
+!reports/stargan-experiment/training-curves.png
+!reports/wider-yunet-full-pr.png
+!reports/wider-mmdet-full-official-pr.png
+!reports/wider-mmdet-training-curves.png
 
 </code></pre>
 <h2 id="apppy">app.py</h2>
 <p><strong>使用位置：</strong> 核心Vision检测/五点/验证/特效/属性编辑，被desktop.py直接调用；独立启动时也提供辅助网页HTTP服务。PDF任务2.4、4.3、7.2、9.2、9.3及系统集成。</p>
 <p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/app.py">GitHub中的文件</a></p>
 <p>SHA256：<code>22458ee3fc5935e939d4727834074813436477484f4e7a21898d77cb1efc3e30</code></p>
-<p><strong>代码定位：</strong> <code>decode_image</code> 第20行；<code>encode_image</code> 第38行；<code>Vision</code> 第45行；<code>render_effect</code> 第125行；<code>Handler</code> 第183行；<code>main</code> 第274行。</p>
+<p><strong>代码定位：</strong> <code>decode_image</code> 第20行；<code>encode_image</code> 第38行；<code>Vision</code> 第45行；<code>Vision.__init__</code> 第46行；<code>Vision.detect</code> 第56行；<code>Vision.feature</code> 第61行；<code>Vision.verify</code> 第68行；<code>Vision.edit_attributes</code> 第74行；<code>Vision.process</code> 第112行；<code>render_effect</code> 第125行；<code>render_effect.p</code> 第141行；<code>Handler</code> 第183行；<code>Handler.setup</code> 第186行；<code>Handler.log_message</code> 第190行；<code>Handler.reply</code> 第193行；<code>Handler.json_reply</code> 第202行；<code>Handler.allowed</code> 第205行；<code>Handler.do_GET</code> 第211行；<code>Handler.do_POST</code> 第236行；<code>main</code> 第274行。</p>
 <pre><code class="language-python">&quot;&quot;&quot;Local face detection, explicit pair verification, and effects. Run: python app.py.&quot;&quot;&quot;
 from __future__ import annotations
 
@@ -839,7 +867,7 @@ if __name__ == &quot;__main__&quot;:
 <p><strong>使用位置：</strong> 最终原生桌面前端；start.ps1默认启动。Tkinter窗口直接经OpenCV读取摄像头，调用app.Vision；原生三维窗口调用vision3d.reconstruct。</p>
 <p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/desktop.py">GitHub中的文件</a></p>
 <p>SHA256：<code>2141aedcb87373f22d5e081a48d2aceb3c249fd53f6e5cb8d57980e60328a005</code></p>
-<p><strong>代码定位：</strong> <code>read_image</code> 第26行；<code>Worker</code> 第38行；<code>Desktop</code> 第140行；<code>main</code> 第442行。</p>
+<p><strong>代码定位：</strong> <code>read_image</code> 第26行；<code>Worker</code> 第38行；<code>Worker.__init__</code> 第40行；<code>Worker.stop_camera</code> 第52行；<code>Worker.emit_frame</code> 第58行；<code>Worker.run</code> 第68行；<code>Desktop</code> 第140行；<code>Desktop.__init__</code> 第141行；<code>Desktop.send</code> 第220行；<code>Desktop.apply_settings</code> 第229行；<code>Desktop.start_camera</code> 第232行；<code>Desktop.stop_camera</code> 第238行；<code>Desktop.set_image</code> 第245行；<code>Desktop.open_image</code> 第251行；<code>Desktop.verify_images</code> 第259行；<code>Desktop.process_current</code> 第274行；<code>Desktop.show</code> 第288行；<code>Desktop.start_benchmark</code> 第296行；<code>Desktop.finish_benchmark</code> 第303行；<code>Desktop.poll</code> 第326行；<code>Desktop.close_mesh</code> 第416行；<code>Desktop.close</code> 第433行；<code>main</code> 第442行。</p>
 <pre><code class="language-python">&quot;&quot;&quot;Native Tk desktop application. Camera frames stay in memory; no HTTP server.
 
 Run: python desktop.py. Run actual GUI/camera checks: python desktop.py --self-test
@@ -1324,6 +1352,12 @@ RUN python scripts/fetch_models.py
 CMD [&quot;python&quot;, &quot;app.py&quot;, &quot;--host&quot;, &quot;0.0.0.0&quot;]
 
 </code></pre>
+<h2 id="hellopyuntitled-1md">hello.py/Untitled-1.md</h2>
+<p><strong>使用位置：</strong> 用户原仓库保留的最初Hello World文件；当前Docker实际运行根目录hello_world.py，不执行此Markdown文件。</p>
+<p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/hello.py/Untitled-1.md">GitHub中的文件</a></p>
+<p>SHA256：<code>866b5033009e3e3f3e40bef180e6924d937996a57fc8b5ce85090b5d14459f1f</code></p>
+<pre><code class="language-text">print(&quot;Hello World!&quot;)
+</code></pre>
 <h2 id="hello_worldpy">hello_world.py</h2>
 <p><strong>使用位置：</strong> Docker hello镜像启动命令；PDF任务1.2/1.3。保留了旧仓库hello.py目录。</p>
 <p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/hello_world.py">GitHub中的文件</a></p>
@@ -1405,7 +1439,7 @@ print(f&quot;Hello, Face Vision Lab! Python {platform.python_version()}&quot;)
 <p><strong>使用位置：</strong> Jupyter中的循序实验；PDF任务1.4、2.1、2.4和OpenCV入门。</p>
 <p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/notebooks/01-first-vision-lab.ipynb">GitHub中的文件</a></p>
 <p>SHA256：<code>2e73d9e36f8d39dc5e5bab908e0da42d930aa7cf530b723e8a5a3b2645ffaf60</code></p>
-<h3 id="2">第 2 个单元</h3>
+<h3 id="第-2-个单元">第 2 个单元</h3>
 <pre><code class="language-python">from pathlib import Path
 import sys
 import cv2
@@ -1417,7 +1451,7 @@ sys.path.insert(0, str(ROOT))
 from app import Vision
 print('Python:', sys.version.split()[0], 'OpenCV:', cv2.__version__)
 </code></pre>
-<h3 id="4">第 4 个单元</h3>
+<h3 id="第-4-个单元">第 4 个单元</h3>
 <pre><code class="language-python">image = cv2.imread(str(ROOT / 'assets/sample.jpg'))
 assert image is not None
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -1427,7 +1461,7 @@ ax[0].imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB)); ax[1].imshow(gray, cmap='g
 for a in ax: a.axis('off')
 plt.show()
 </code></pre>
-<h3 id="6">第 6 个单元</h3>
+<h3 id="第-6-个单元">第 6 个单元</h3>
 <pre><code class="language-python">vision = Vision(ROOT / 'models')
 faces = vision.detect(image)
 print('检测到的人脸:', len(faces))
@@ -1436,13 +1470,395 @@ result, metrics = vision.process(image, 'all', .6, True)
 plt.figure(figsize=(5,5)); plt.imshow(cv2.cvtColor(result, cv2.COLOR_BGR2RGB)); plt.axis('off'); plt.show()
 print(metrics)
 </code></pre>
-<h3 id="8">第 8 个单元</h3>
+<h3 id="第-8-个单元">第 8 个单元</h3>
 <pre><code class="language-python">def cosine(a,b):
     a,b=np.asarray(a,float),np.asarray(b,float)
     return float(a@b/(np.linalg.norm(a)*np.linalg.norm(b)))
 print(cosine([1,0],[1,0]), cosine([1,0],[0,1]), cosine([1,0],[-1,0]))
 assert cosine([1,0],[0,1]) == 0
 print(vision.verify(image,image,.363))
+</code></pre>
+<h2 id="reportswider-mmdet-effective-configpy">reports/wider-mmdet-effective-config.py</h2>
+<p><strong>使用位置：</strong> 本次真实运行保存的MMDetection完整有效配置；与checkpoint内嵌配置逐字一致。它保留旧版末轮重复验证行为，与后续修正入口分开记录。</p>
+<p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/reports/wider-mmdet-effective-config.py">GitHub中的文件</a></p>
+<p>SHA256：<code>fac440328f4f4438703070a1f9d9fc79c51b4e90502bf16dc1a933f37feddbb7</code></p>
+<pre><code class="language-python">auto_scale_lr = dict(base_batch_size=2, enable=False)
+backend_args = None
+custom_hooks = [
+    dict(type='WiderProgressAndPredictions'),
+]
+data_root = 'data/coco/'
+dataset_type = 'CocoDataset'
+default_hooks = dict(
+    checkpoint=dict(
+        by_epoch=False,
+        interval=100,
+        max_keep_ckpts=2,
+        save_last=True,
+        type='CheckpointHook'),
+    logger=dict(_scope_='mmdet', interval=25, type='LoggerHook'),
+    param_scheduler=dict(_scope_='mmdet', type='ParamSchedulerHook'),
+    sampler_seed=dict(_scope_='mmdet', type='DistSamplerSeedHook'),
+    timer=dict(_scope_='mmdet', type='IterTimerHook'),
+    visualization=dict(_scope_='mmdet', type='DetVisualizationHook'))
+default_scope = 'mmdet'
+env_cfg = dict(
+    cudnn_benchmark=False,
+    dist_cfg=dict(backend='gloo'),
+    mp_cfg=dict(mp_start_method='fork', opencv_num_threads=0))
+img_scales = [
+    (
+        1333,
+        800,
+    ),
+    (
+        666,
+        400,
+    ),
+    (
+        2000,
+        1200,
+    ),
+]
+load_from = 'runs/wider-mmdet-full-stable/coco-transfer-initialization.pth'
+log_level = 'INFO'
+log_processor = dict(
+    _scope_='mmdet', by_epoch=True, type='LogProcessor', window_size=50)
+metainfo = dict(
+    classes=('face', ), palette=[
+        (
+            255,
+            100,
+            100,
+        ),
+    ])
+model = dict(
+    _scope_='mmdet',
+    backbone=dict(
+        depth=50,
+        frozen_stages=4,
+        init_cfg=None,
+        norm_cfg=dict(requires_grad=True, type='BN'),
+        norm_eval=True,
+        num_stages=4,
+        out_indices=(
+            0,
+            1,
+            2,
+            3,
+        ),
+        style='pytorch',
+        type='ResNet'),
+    bbox_head=dict(
+        anchor_generator=dict(
+            octave_base_scale=4,
+            ratios=[
+                0.5,
+                1.0,
+                2.0,
+            ],
+            scales_per_octave=3,
+            strides=[
+                8,
+                16,
+                32,
+                64,
+                128,
+            ],
+            type='AnchorGenerator'),
+        bbox_coder=dict(
+            target_means=[
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+            ],
+            target_stds=[
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+            ],
+            type='DeltaXYWHBBoxCoder'),
+        feat_channels=256,
+        in_channels=256,
+        loss_bbox=dict(loss_weight=1.0, type='L1Loss'),
+        loss_cls=dict(
+            alpha=0.25,
+            gamma=2.0,
+            loss_weight=1.0,
+            type='FocalLoss',
+            use_sigmoid=True),
+        num_classes=1,
+        stacked_convs=4,
+        type='RetinaHead'),
+    data_preprocessor=dict(
+        bgr_to_rgb=True,
+        mean=[
+            123.675,
+            116.28,
+            103.53,
+        ],
+        pad_size_divisor=32,
+        std=[
+            58.395,
+            57.12,
+            57.375,
+        ],
+        type='DetDataPreprocessor'),
+    neck=dict(
+        add_extra_convs='on_input',
+        in_channels=[
+            256,
+            512,
+            1024,
+            2048,
+        ],
+        num_outs=5,
+        out_channels=256,
+        start_level=1,
+        type='FPN'),
+    test_cfg=dict(
+        max_per_img=1000,
+        min_bbox_size=0,
+        nms=dict(iou_threshold=0.5, type='nms'),
+        nms_pre=1000,
+        score_thr=0.001),
+    train_cfg=dict(
+        allowed_border=-1,
+        assigner=dict(
+            ignore_iof_thr=-1,
+            min_pos_iou=0,
+            neg_iou_thr=0.4,
+            pos_iou_thr=0.5,
+            type='MaxIoUAssigner'),
+        debug=False,
+        pos_weight=-1,
+        sampler=dict(type='PseudoSampler')),
+    type='RetinaNet')
+optim_wrapper = dict(
+    _scope_='mmdet',
+    clip_grad=dict(error_if_nonfinite=True, max_norm=10.0, norm_type=2),
+    optimizer=dict(lr=0.0005, momentum=0.9, type='SGD', weight_decay=0.0001),
+    type='OptimWrapper')
+param_scheduler = [
+    dict(begin=0, by_epoch=False, end=250, start_factor=0.01, type='LinearLR'),
+]
+randomness = dict(deterministic=False, seed=42)
+resume = False
+test_cfg = dict(_scope_='mmdet', type='TestLoop')
+test_dataloader = dict(
+    batch_size=1,
+    dataset=dict(
+        _scope_='mmdet',
+        ann_file='wider/full_val.json',
+        backend_args=None,
+        data_prefix=dict(img='WIDER_val/images/'),
+        data_root='data/',
+        metainfo=dict(classes=('face', ), palette=[
+            (
+                255,
+                100,
+                100,
+            ),
+        ]),
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(keep_ratio=True, scale=(
+                320,
+                320,
+            ), type='Resize'),
+            dict(type='LoadAnnotations', with_bbox=True),
+            dict(
+                meta_keys=(
+                    'img_id',
+                    'img_path',
+                    'ori_shape',
+                    'img_shape',
+                    'scale_factor',
+                ),
+                type='PackDetInputs'),
+        ],
+        test_mode=True,
+        type='CocoDataset'),
+    drop_last=False,
+    num_workers=0,
+    persistent_workers=False,
+    sampler=dict(_scope_='mmdet', shuffle=False, type='DefaultSampler'))
+test_evaluator = dict(
+    _scope_='mmdet',
+    ann_file='data/wider/full_val.json',
+    backend_args=None,
+    classwise=True,
+    format_only=False,
+    metric='bbox',
+    type='CocoMetric')
+test_pipeline = [
+    dict(_scope_='mmdet', backend_args=None, type='LoadImageFromFile'),
+    dict(_scope_='mmdet', keep_ratio=True, scale=(
+        1333,
+        800,
+    ), type='Resize'),
+    dict(_scope_='mmdet', type='LoadAnnotations', with_bbox=True),
+    dict(
+        _scope_='mmdet',
+        meta_keys=(
+            'img_id',
+            'img_path',
+            'ori_shape',
+            'img_shape',
+            'scale_factor',
+        ),
+        type='PackDetInputs'),
+]
+train_cfg = dict(
+    _scope_='mmdet', max_epochs=1, type='EpochBasedTrainLoop', val_interval=2)
+train_dataloader = dict(
+    batch_sampler=dict(_scope_='mmdet', type='AspectRatioBatchSampler'),
+    batch_size=2,
+    dataset=dict(
+        _scope_='mmdet',
+        ann_file='wider/full_train.json',
+        backend_args=None,
+        data_prefix=dict(img='WIDER_train/images/'),
+        data_root='data/',
+        filter_cfg=dict(filter_empty_gt=False, min_size=1),
+        metainfo=dict(classes=('face', ), palette=[
+            (
+                255,
+                100,
+                100,
+            ),
+        ]),
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(type='LoadAnnotations', with_bbox=True),
+            dict(keep_ratio=True, scale=(
+                320,
+                320,
+            ), type='Resize'),
+            dict(prob=0.5, type='RandomFlip'),
+            dict(type='PackDetInputs'),
+        ],
+        type='CocoDataset'),
+    num_workers=0,
+    persistent_workers=False,
+    sampler=dict(_scope_='mmdet', shuffle=True, type='DefaultSampler'))
+train_pipeline = [
+    dict(_scope_='mmdet', backend_args=None, type='LoadImageFromFile'),
+    dict(_scope_='mmdet', type='LoadAnnotations', with_bbox=True),
+    dict(_scope_='mmdet', keep_ratio=True, scale=(
+        1333,
+        800,
+    ), type='Resize'),
+    dict(_scope_='mmdet', prob=0.5, type='RandomFlip'),
+    dict(_scope_='mmdet', type='PackDetInputs'),
+]
+tta_model = dict(
+    _scope_='mmdet',
+    tta_cfg=dict(max_per_img=100, nms=dict(iou_threshold=0.5, type='nms')),
+    type='DetTTAModel')
+tta_pipeline = [
+    dict(_scope_='mmdet', backend_args=None, type='LoadImageFromFile'),
+    dict(
+        _scope_='mmdet',
+        transforms=[
+            [
+                dict(keep_ratio=True, scale=(
+                    1333,
+                    800,
+                ), type='Resize'),
+                dict(keep_ratio=True, scale=(
+                    666,
+                    400,
+                ), type='Resize'),
+                dict(keep_ratio=True, scale=(
+                    2000,
+                    1200,
+                ), type='Resize'),
+            ],
+            [
+                dict(prob=1.0, type='RandomFlip'),
+                dict(prob=0.0, type='RandomFlip'),
+            ],
+            [
+                dict(type='LoadAnnotations', with_bbox=True),
+            ],
+            [
+                dict(
+                    meta_keys=(
+                        'img_id',
+                        'img_path',
+                        'ori_shape',
+                        'img_shape',
+                        'scale_factor',
+                        'flip',
+                        'flip_direction',
+                    ),
+                    type='PackDetInputs'),
+            ],
+        ],
+        type='TestTimeAug'),
+]
+val_cfg = dict(_scope_='mmdet', type='ValLoop')
+val_dataloader = dict(
+    batch_size=1,
+    dataset=dict(
+        _scope_='mmdet',
+        ann_file='wider/full_val.json',
+        backend_args=None,
+        data_prefix=dict(img='WIDER_val/images/'),
+        data_root='data/',
+        metainfo=dict(classes=('face', ), palette=[
+            (
+                255,
+                100,
+                100,
+            ),
+        ]),
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(keep_ratio=True, scale=(
+                320,
+                320,
+            ), type='Resize'),
+            dict(type='LoadAnnotations', with_bbox=True),
+            dict(
+                meta_keys=(
+                    'img_id',
+                    'img_path',
+                    'ori_shape',
+                    'img_shape',
+                    'scale_factor',
+                ),
+                type='PackDetInputs'),
+        ],
+        test_mode=True,
+        type='CocoDataset'),
+    drop_last=False,
+    num_workers=0,
+    persistent_workers=False,
+    sampler=dict(_scope_='mmdet', shuffle=False, type='DefaultSampler'))
+val_evaluator = dict(
+    _scope_='mmdet',
+    ann_file='data/wider/full_val.json',
+    backend_args=None,
+    classwise=True,
+    format_only=False,
+    metric='bbox',
+    type='CocoMetric')
+vis_backends = [
+    dict(_scope_='mmdet', type='LocalVisBackend'),
+]
+visualizer = dict(
+    _scope_='mmdet',
+    name='visualizer',
+    type='DetLocalVisualizer',
+    vis_backends=[
+        dict(type='LocalVisBackend'),
+    ])
+work_dir = 'runs/wider-mmdet-full-stable'
+
 </code></pre>
 <h2 id="requirements-docstxt">requirements-docs.txt</h2>
 <p><strong>使用位置：</strong> 依赖固定、打包或版本控制配置；由 pip、Docker 或 Git 读取。</p>
@@ -1753,7 +2169,7 @@ if __name__ == '__main__':
 <p><strong>使用位置：</strong> 研究训练与评估命令使用；详见 research/README.md 和 docs/code-map.md。对应PDF任务3.2–7.3。</p>
 <p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/research/fetch_official_data.py">GitHub中的文件</a></p>
 <p>SHA256：<code>bd46dd63c32d31a92e2d43a9eef607d51efff17eb376b2807c8537cda4994691</code></p>
-<p><strong>代码定位：</strong> <code>DownloadForm</code> 第25行；<code>response_for</code> 第33行；<code>download</code> 第52行；<code>extract</code> 第85行；<code>run</code> 第99行。</p>
+<p><strong>代码定位：</strong> <code>DownloadForm</code> 第25行；<code>DownloadForm.__init__</code> 第26行；<code>DownloadForm.handle_starttag</code> 第27行；<code>response_for</code> 第33行；<code>download</code> 第52行；<code>extract</code> 第85行；<code>run</code> 第99行。</p>
 <pre><code class="language-python">&quot;&quot;&quot;Fetch original-owner CelebA/COFW files with published MD5 verification.
 
 No authentication, quota bypass, mirror substitution, or identity form filling.
@@ -1890,7 +2306,7 @@ if __name__=='__main__':
 <p><strong>使用位置：</strong> 研究训练与评估命令使用；详见 research/README.md 和 docs/code-map.md。对应PDF任务3.2–7.3。</p>
 <p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/research/fetch_wider_subset.py">GitHub中的文件</a></p>
 <p>SHA256：<code>4ec59a6008640b6d2467ec8e651369f60e36659e2e9802a33fc61617648d01e4</code></p>
-<p><strong>代码定位：</strong> <code>fetch</code> 第22行；<code>RemoteZipFile</code> 第35行；<code>annotation_blocks</code> 第65行；<code>run</code> 第80行。</p>
+<p><strong>代码定位：</strong> <code>fetch</code> 第22行；<code>RemoteZipFile</code> 第35行；<code>RemoteZipFile.__init__</code> 第37行；<code>RemoteZipFile.seekable</code> 第41行；<code>RemoteZipFile.readable</code> 第42行；<code>RemoteZipFile.tell</code> 第43行；<code>RemoteZipFile.seek</code> 第45行；<code>RemoteZipFile.read</code> 第50行；<code>annotation_blocks</code> 第65行；<code>run</code> 第80行。</p>
 <pre><code class="language-python">&quot;&quot;&quot;Download a reproducible real WIDER FACE pilot subset via HTTP ZIP ranges.
 
 python -m research.fetch_wider_subset --train 32 --val 16 --seed 42
@@ -2029,7 +2445,7 @@ if __name__=='__main__':
 <p><strong>使用位置：</strong> 研究训练与评估命令使用；详见 research/README.md 和 docs/code-map.md。对应PDF任务3.2–7.3。</p>
 <p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/research/landmarks.py">GitHub中的文件</a></p>
 <p>SHA256：<code>5a2718bf1a6cfa1917c5269ab07034984368ce539446d0f206818657c6a21161</code></p>
-<p><strong>代码定位：</strong> <code>nme</code> 第13行；<code>prepare</code> 第25行；<code>dataset</code> 第54行；<code>make_model</code> 第96行；<code>train</code> 第104行；<code>align</code> 第146行；<code>infer</code> 第161行。</p>
+<p><strong>代码定位：</strong> <code>nme</code> 第13行；<code>prepare</code> 第25行；<code>dataset</code> 第54行；<code>dataset.FacePoints</code> 第74行；<code>dataset.FacePoints.__len__</code> 第75行；<code>dataset.FacePoints.__getitem__</code> 第78行；<code>make_model</code> 第96行；<code>train</code> 第104行；<code>align</code> 第146行；<code>infer</code> 第161行。</p>
 <pre><code class="language-python">&quot;&quot;&quot;300W 68-point coordinate-regression baseline, NME and affine alignment.
 
 prepare: convert original .pts files to JSON manifest; manually provide disjoint
@@ -2640,7 +3056,7 @@ if __name__=='__main__':
 <p><strong>使用位置：</strong> 研究训练与评估命令使用；详见 research/README.md 和 docs/code-map.md。对应PDF任务3.2–7.3。</p>
 <p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/research/recognition.py">GitHub中的文件</a></p>
 <p>SHA256：<code>be2044741b7a0ed7ce59eac473a88ab586ad2d2c529e6d924c237007c06c2893</code></p>
-<p><strong>代码定位：</strong> <code>seed_all</code> 第23行；<code>face_transform</code> 第33行；<code>EmbeddingNet</code> 第40行；<code>ArcFace</code> 第50行；<code>PKSampler</code> 第70行；<code>batch_hard_triplet</code> 第93行；<code>load_embedding</code> 第107行；<code>save_curves</code> 第116行；<code>train</code> 第143行。</p>
+<p><strong>代码定位：</strong> <code>seed_all</code> 第23行；<code>face_transform</code> 第33行；<code>EmbeddingNet</code> 第40行；<code>EmbeddingNet.__init__</code> 第41行；<code>EmbeddingNet.forward</code> 第46行；<code>ArcFace</code> 第50行；<code>ArcFace.__init__</code> 第52行；<code>ArcFace.forward</code> 第60行；<code>PKSampler</code> 第70行；<code>PKSampler.__init__</code> 第72行；<code>PKSampler.__iter__</code> 第83行；<code>PKSampler.__len__</code> 第89行；<code>batch_hard_triplet</code> 第93行；<code>load_embedding</code> 第107行；<code>save_curves</code> 第116行；<code>train</code> 第143行。</p>
 <pre><code class="language-python">&quot;&quot;&quot;ResNet50 + ArcFace; train on locally licensed, aligned identity folders.
 
 python -m research.recognition --data data/identities --output runs/arcface
@@ -2948,7 +3364,7 @@ if __name__=='__main__':
 <p><strong>使用位置：</strong> 研究训练与评估命令使用；详见 research/README.md 和 docs/code-map.md。对应PDF任务3.2–7.3。</p>
 <p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/research/stargan.py">GitHub中的文件</a></p>
 <p>SHA256：<code>7413ecd8c7ce2d0fdb77cb78cee1d3024f44f5a5640c094e4af459ed3fddeefd</code></p>
-<p><strong>代码定位：</strong> <code>Residual</code> 第22行；<code>Generator</code> 第31行；<code>Discriminator</code> 第47行；<code>load_author_weights</code> 第66行；<code>load_generator</code> 第81行；<code>CelebA</code> 第101行；<code>gradient_penalty</code> 第137行；<code>classification_loss</code> 第146行；<code>train</code> 第151行；<code>generate</code> 第249行；<code>metrics</code> 第264行。</p>
+<p><strong>代码定位：</strong> <code>Residual</code> 第22行；<code>Residual.__init__</code> 第23行；<code>Residual.forward</code> 第28行；<code>Generator</code> 第31行；<code>Generator.__init__</code> 第32行；<code>Generator.forward</code> 第42行；<code>Discriminator</code> 第47行；<code>Discriminator.__init__</code> 第48行；<code>Discriminator.forward</code> 第58行；<code>load_author_weights</code> 第66行；<code>load_generator</code> 第81行；<code>CelebA</code> 第101行；<code>CelebA.__init__</code> 第102行；<code>CelebA.__len__</code> 第129行；<code>CelebA.__getitem__</code> 第131行；<code>gradient_penalty</code> 第137行；<code>classification_loss</code> 第146行；<code>train</code> 第151行；<code>generate</code> 第249行；<code>metrics</code> 第264行。</p>
 <pre><code class="language-python">&quot;&quot;&quot;Small, actual StarGAN-style WGAN-GP training/translation/FID+IS entry points.
 
 Supports either random initialization or explicitly attributed author checkpoints.
@@ -3332,7 +3748,7 @@ if __name__=='__main__':
 <h2 id="researchstargan_pilotpy">research/stargan_pilot.py</h2>
 <p><strong>使用位置：</strong> 研究训练与评估命令使用；详见 research/README.md 和 docs/code-map.md。对应PDF任务3.2–7.3。</p>
 <p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/research/stargan_pilot.py">GitHub中的文件</a></p>
-<p>SHA256：<code>8e065937e8674650fd6ad6c8fbbee5c9955b896497b62b514cf7a21ef6d44fae</code></p>
+<p>SHA256：<code>799872e04e619dd8c61584d132f76670ef97090f3764d6a99f860590e4fc7d72</code></p>
 <p><strong>代码定位：</strong> <code>prepare</code> 第22行；<code>evaluate</code> 第73行；<code>summarize</code> 第132行。</p>
 <pre><code class="language-python">&quot;&quot;&quot;Reproduce the StarGAN authors' split, then prepare/train/evaluate a local pilot.
 
@@ -3502,7 +3918,10 @@ def summarize(args):
     axes[1].set_ylabel('Reconstruction mean absolute error')
     axes[1].set_xlabel('D updates retained in the final checkpoint')
     fig.suptitle('Real CelebA fine-tuning from author pretrained weights; discarded updates omitted from curves')
-    fig.tight_layout();fig.savefig(output/'training-curves.svg');plt.close(fig)
+    fig.tight_layout()
+    fig.savefig(output/'training-curves.svg')
+    fig.savefig(output/'training-curves.png',dpi=180)
+    plt.close(fig)
     before=json.loads(Path('reports/stargan-before.json').read_text(encoding='utf-8'))
     after=json.loads(Path('reports/stargan-after.json').read_text(encoding='utf-8'))
     training=json.loads(Path('runs/stargan-resumed/training-report.json').read_text(encoding='utf-8'))
@@ -3552,8 +3971,159 @@ if __name__=='__main__':
     args=parser.parse_args(); {'prepare':prepare,'evaluate':evaluate,'summarize':summarize}[args.command](args)
 
 </code></pre>
+<h2 id="researchwider_auditpy">research/wider_audit.py</h2>
+<p><strong>使用位置：</strong> 完整训练与两份评估完成后汇总配置、环境、checkpoint哈希及计时；要求临时电源请求已经释放。</p>
+<p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/research/wider_audit.py">GitHub中的文件</a></p>
+<p>SHA256：<code>a44f83fadc6cd21e0becfff905512934f9b7aace4c3b40b4ff25a3ba04f25df4</code></p>
+<p><strong>代码定位：</strong> <code>read</code> 第15行；<code>sha256</code> 第19行；<code>instant</code> 第27行；<code>main</code> 第31行。</p>
+<pre><code class="language-python">&quot;&quot;&quot;Build a provenance and elapsed-time audit from this completed WIDER run.
+
+Uses the saved effective configuration of the running process, not the current
+launcher source (which was improved while that process continued). The event
+intervals are observations; they do not prove zero CPU work throughout standby.
+&quot;&quot;&quot;
+import datetime as dt
+import hashlib
+import json
+from pathlib import Path
+import re
+import shutil
+
+
+def read(path):
+    return json.loads(Path(path).read_text(encoding='utf-8-sig'))
+
+
+def sha256(path):
+    digest = hashlib.sha256()
+    with Path(path).open('rb') as stream:
+        while chunk := stream.read(1024 * 1024):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def instant(text):
+    return dt.datetime.fromisoformat(text.replace('Z', '+00:00'))
+
+
+def main():
+    reports = Path('reports')
+    training = read(reports / 'wider-mmdet-full.json')
+    monitor = read(reports / 'wider-monitor.json')
+    awake = read(reports / 'wider-awake.json')
+    curves = read(reports / 'wider-mmdet-training-curves.json')
+    checkpoint_metadata = read(reports / 'wider-checkpoint-metadata.json')
+    container = read(reports / 'wider-mmdet-container.json')
+    if training['status'] != 'completed' or monitor['status'] != 'completed':
+        raise ValueError('The complete training and independent validation must finish first')
+    if awake['status'] != 'released' or not awake['release_return_value']:
+        raise ValueError('Temporary Windows power request has not been verified released')
+    if curves['status'] != 'completed':
+        raise ValueError('Generate the completed training curves first')
+    work = Path(training['training']['output'])
+    active_config = work / 'effective-config.py'
+    if (checkpoint_metadata['iter'] != 6440
+            or not checkpoint_metadata['checkpoint_config_equals_saved_config']
+            or checkpoint_metadata['checkpoint_config_sha256'] != sha256(active_config)):
+        raise ValueError('Final checkpoint iteration and saved configuration must match')
+    config_snapshot = reports / 'wider-mmdet-effective-config.py'
+    shutil.copyfile(active_config, config_snapshot)
+    event_sources = [
+        'wider-power-transitions.json',
+        'wider-power-transitions-second.json',
+        'wider-power-transitions-third.json',
+    ]
+    intervals = []
+    for source in event_sources:
+        events = sorted(read(reports / source), key=lambda e: e['time_utc'])
+        # This capture contains one explicitly observed entered -&gt; exited pair.
+        # Additional isolated events are retained in the source, not inferred.
+        pairs = [(left, right) for left, right in zip(events, events[1:])
+                 if left['Id'] == 506 and right['Id'] == 507]
+        if len(pairs) != 1:
+            raise ValueError(f'Expected one observed entered/exited pair in {source}')
+        entered, exited = pairs[0]
+        intervals.append({
+            'source': str(reports / source),
+            'entered_utc': entered['time_utc'],
+            'exited_utc': exited['time_utc'],
+            'entered_message': entered['Message'],
+            'exited_message': exited['Message'],
+            'observed_interval_seconds': (instant(exited['time_utc']) - instant(entered['time_utc'])).total_seconds(),
+        })
+    pauses = [read(reports / name)['main_process_paused_seconds'] for name in [
+        'wider-thread-benchmark-attempt1-supervisor.json',
+        'wider-thread-benchmark-supervisor.json',
+    ]]
+    environment = reports / 'mmdet-environment-freeze.txt'
+    log = (reports / 'mmdet-full-log.txt').read_text(encoding='utf-8-sig')
+    python_match = re.search(r'^\s*Python:\s*(.+)$', log, re.MULTILINE)
+    coco_summary_lines = [line.strip() for line in log.splitlines()
+                          if re.match(r'\s*Average (Precision|Recall)\s', line)]
+    packages = [line for line in environment.read_text().splitlines()
+                if line.lower().startswith(('torch', 'mmcv', 'mmdet', 'mmengine', 'numpy', 'pycocotools'))]
+    result = {
+        'status': 'completed',
+        'created_utc': dt.datetime.now(dt.timezone.utc).isoformat(),
+        'container': container,
+        'effective_config': {
+            'source': str(active_config),
+            'published_snapshot': str(config_snapshot),
+            'sha256': sha256(active_config),
+            'bytes': active_config.stat().st_size,
+            'runtime_loop': 'EpochBasedTrainLoop, max_epochs=1, val_interval=2; no val_begin override',
+            'scope': 'Exact config saved before this stable training started. Later launcher fixes (resume loop and one-validation scheduling) were not executed by this process.',
+        },
+        'environment': {'source': str(environment), 'sha256': sha256(environment),
+                        'python_from_actual_log': python_match.group(1).strip() if python_match else None,
+                        'selected_packages': packages},
+        'checkpoint': {key: curves[key] for key in ['final_checkpoint', 'final_checkpoint_sha256', 'final_checkpoint_bytes']},
+        'checkpoint_metadata': checkpoint_metadata,
+        'training_iterations_completed': 6440,
+        'last_loss_logged_iteration': curves['last_iteration'],
+        'calendar': {
+            'started_at': container['started_at'],
+            'independent_evaluation_finished_at': monitor['updated_utc'],
+            'elapsed_seconds': (instant(monitor['updated_utc']) - instant(container['started_at'])).total_seconds(),
+            'scope': 'Actual UTC interval from Docker process start through both final independent AP evaluations. Includes observed standby and diagnostic pauses; excludes earlier acquisition and failed attempt.',
+        },
+        'internal_timing': {
+            'runner_train_seconds': training['training_seconds'],
+            'explicit_second_validation_seconds': training['validation_seconds'],
+            'controlled_diagnostic_pause_seconds': sum(pauses),
+            'scope': 'runner.train() includes one automatic full validation and diagnostic pauses; explicit validation is the duplicate second pass. Observed WSL perf_counter did not accumulate the long host standby intervals. Neither field is pure training time or user elapsed waiting time.',
+        },
+        'observed_modern_standby_intervals': intervals,
+        'observed_intervals_total_seconds': sum(e['observed_interval_seconds'] for e in intervals),
+        'power_event_limitations': 'Only captured adjacent entered/exited pairs are summed. No claim of an exhaustive power history or zero computation at every instant. Numeric reason 16777220 is retained without interpretation.',
+        'monitor_attempt1': read(reports / 'wider-monitor-attempt1.json'),
+        'power_helper_attempt1': read(reports / 'wider-awake-attempt1.json'),
+        'monitor_final': {'status': monitor['status'], 'updated_utc': monitor['updated_utc']},
+        'power_helper_final': awake,
+        'coco_evaluator': {
+            'implementation': 'MMDetection 3.3.0 CocoMetric with pycocotools 2.0.11',
+            'proposal_nums_maxDets': [100, 300, 1000],
+            'reported_metric_maxDets': {'bbox_mAP': 100, 'bbox_mAP_50': 1000, 'bbox_mAP_75': 1000,
+                                       'bbox_mAP_s': 1000, 'bbox_mAP_m': 1000, 'bbox_mAP_l': 1000,
+                                       'classwise_face_precision_ap': 1000},
+            'use_mp_eval': False,
+            'verification': 'Inspected the installed CocoMetric signature in the actual running container; the saved effective config does not override these defaults.',
+            'classwise_name_caution': 'coco/face_precision is the classwise face AP in this evaluator, not precision at one confidence operating point.',
+            'actual_logged_summaries': coco_summary_lines,
+        },
+        'evaluation_scope': 'WIDER difficulty AP uses IoU 0.5, official ignore masks and 1000 score thresholds. COCO bbox_mAP averages IoUs 0.50:0.05:0.95 on converted valid boxes, a distinct metric. One epoch at maximum edge 320 does not establish convergence.',
+    }
+    destination = reports / 'wider-mmdet-audit.json'
+    destination.write_text(json.dumps(result, indent=2, ensure_ascii=False), encoding='utf-8')
+    print(json.dumps(result, indent=2, ensure_ascii=False))
+
+
+if __name__ == '__main__':
+    main()
+
+</code></pre>
 <h2 id="researchwider_awakepy">research/wider_awake.py</h2>
-<p><strong>使用位置：</strong> 研究训练与评估命令使用；详见 research/README.md 和 docs/code-map.md。对应PDF任务3.2–7.3。</p>
+<p><strong>使用位置：</strong> 在本轮监护运行期间发出Windows防闲置休眠请求，完成、失败或超时后释放；不改电源计划且尊重用户手动睡眠。</p>
 <p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/research/wider_awake.py">GitHub中的文件</a></p>
 <p>SHA256：<code>24e4519c00c7bcca899310bcef505f3b21e9edb7983850e66fd4e440f86d033c</code></p>
 <p><strong>代码定位：</strong> <code>run</code> 第18行。</p>
@@ -3639,6 +4209,63 @@ def run():
 
 if __name__ == '__main__':
     run()
+
+</code></pre>
+<h2 id="researchwider_checkpointpy">research/wider_checkpoint.py</h2>
+<p><strong>使用位置：</strong> 在对应MMDetection容器内读取本机最终checkpoint元数据，核对6440次更新及保存配置，不加载未知来源权重。</p>
+<p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/research/wider_checkpoint.py">GitHub中的文件</a></p>
+<p>SHA256：<code>b980f4548749e786cf1129ee10ac111f9b70f5ce866bfb4262299a2aebb8586c</code></p>
+<p><strong>代码定位：</strong> <code>main</code> 第14行。</p>
+<pre><code class="language-python">&quot;&quot;&quot;Inspect a locally produced WIDER checkpoint in its MMDetection environment.
+
+PyTorch checkpoint deserialization can execute Python. Run this only on the
+checkpoint produced by this local experiment, never an untrusted supplied file.
+The main application venv intentionally does not contain MMEngine; this tool
+runs in the existing MMDetection container and performs no training or inference.
+&quot;&quot;&quot;
+import argparse
+import hashlib
+import json
+from pathlib import Path
+
+
+def main(args):
+    import torch
+    import mmengine
+    import mmdet
+
+    torch.set_num_threads(1)
+    path = Path(args.checkpoint)
+    checkpoint = torch.load(path, map_location='cpu', weights_only=False)
+    meta = checkpoint['meta']
+    config = meta.get('cfg') or meta.get('config')
+    if not config:
+        raise ValueError('Checkpoint does not contain its effective configuration')
+    saved = Path(args.config)
+    result = {
+        'checkpoint': str(path),
+        'epoch': meta.get('epoch'),
+        'iter': meta.get('iter'),
+        'meta_keys': sorted(meta),
+        'checkpoint_config_sha256': hashlib.sha256(config.encode()).hexdigest(),
+        'saved_config_sha256': hashlib.sha256(saved.read_bytes()).hexdigest(),
+        'checkpoint_config_equals_saved_config': config == saved.read_text(),
+        'inspection_runtime': {'torch': torch.__version__, 'mmengine': mmengine.__version__, 'mmdet': mmdet.__version__},
+    }
+    if result['iter'] != 6440 or not result['checkpoint_config_equals_saved_config']:
+        raise ValueError('The full-run final checkpoint does not match its expected iteration/configuration')
+    output = Path(args.output)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(result, indent=2), encoding='utf-8')
+    print(json.dumps(result, indent=2))
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--checkpoint', default='runs/wider-mmdet-full-stable/iter_6440.pth')
+    parser.add_argument('--config', default='runs/wider-mmdet-full-stable/effective-config.py')
+    parser.add_argument('--output', default='reports/wider-checkpoint-metadata.json')
+    main(parser.parse_args())
 
 </code></pre>
 <h2 id="researchwider_downloadpy">research/wider_download.py</h2>
@@ -3804,7 +4431,7 @@ if __name__ == '__main__':
 <h2 id="researchwider_evalpy">research/wider_eval.py</h2>
 <p><strong>使用位置：</strong> 全部3226张WIDER验证图推理，以及官方难度mask/IoU/AP协议的Python计算；支持给定自训预测目录。</p>
 <p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/research/wider_eval.py">GitHub中的文件</a></p>
-<p>SHA256：<code>09dd6fda9b4f9284d4a12f81f38d6db33452b14a8c45b259fec6fd033fad63a2</code></p>
+<p>SHA256：<code>2057ce64e2e083500ec583b68c191a2eabf8cc109d37d5cccb67e312b127946f</code></p>
 <p><strong>代码定位：</strong> <code>load_ground_truth</code> 第24行；<code>write_prediction</code> 第45行；<code>read_prediction</code> 第53行；<code>predict_yunet</code> 第65行；<code>box_iou_inclusive</code> 第103行；<code>image_counts</code> 第117行；<code>average_precision</code> 第146行；<code>evaluate</code> 第154行；<code>selfcheck</code> 第182行；<code>plot_curves</code> 第191行。</p>
 <pre><code class="language-python">&quot;&quot;&quot;Run a complete WIDER validation baseline and its official difficulty protocol.
 
@@ -4014,6 +4641,7 @@ def plot_curves(report_path):
     axis.legend(loc='lower left')
     axis.grid(alpha=.2)
     fig.savefig(report_path.with_name(report_path.stem+'-pr.svg'))
+    fig.savefig(report_path.with_name(report_path.stem+'-pr.png'), dpi=180)
     plt.close(fig)
 
 
@@ -4123,7 +4751,7 @@ if __name__ == '__main__':
 <h2 id="researchwider_training_reportpy">research/wider_training_report.py</h2>
 <p><strong>使用位置：</strong> 读取MMEngine真实逐步日志，输出CSV和损失曲线；区分进行中快照与最终完成。</p>
 <p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/research/wider_training_report.py">GitHub中的文件</a></p>
-<p>SHA256：<code>2a5bc52c4606c125d42c4f38f8a20a6b9b3bd16b5571646be65193620669a411</code></p>
+<p>SHA256：<code>3e154f17f4944ee0251a02cb65a2d2b4312c793d54d3090bbbe5854b824b13a7</code></p>
 <p><strong>代码定位：</strong> <code>run</code> 第15行。</p>
 <pre><code class="language-python">&quot;&quot;&quot;Export actual MMEngine training scalars to CSV and a scientific curve.
 
@@ -4190,6 +4818,7 @@ def run(args):
     axes[1].set(xlabel='Completed training iteration', ylabel='Learning rate')
     axes[1].grid(alpha=.2)
     fig.savefig(prefix.with_suffix('.svg'))
+    fig.savefig(prefix.with_suffix('.png'), dpi=180)
     plt.close(fig)
     report = {'status': 'completed' if complete else 'in_progress_snapshot',
               'logged_points': len(ordered), 'first_iteration': steps[0], 'last_iteration': steps[-1],
@@ -4545,8 +5174,8 @@ if __name__ == '__main__':
 <h2 id="scriptsbuild_deliverablespy">scripts/build_deliverables.py</h2>
 <p><strong>使用位置：</strong> 模型下载、环境检查、数据准备或交付物生成；本文件开头docstring和下方函数索引提供具体入口。</p>
 <p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/scripts/build_deliverables.py">GitHub中的文件</a></p>
-<p>SHA256：<code>e65d0c018459f42aa61d4bcf02e7a9736b6f93f1560fd657aa49e9c8dcfdf028</code></p>
-<p><strong>代码定位：</strong> <code>rendered</code> 第36行；<code>make_html</code> 第41行；<code>source_files</code> 第48行；<code>use_of</code> 第57行；<code>make_compendium</code> 第100行；<code>pdf_from_markdown</code> 第135行；<code>slides</code> 第208行；<code>main</code> 第277行。</p>
+<p>SHA256：<code>8aaa75df91fb943e8a40fbca1a935cacc9e41a50f9108f3b6525214860537d50</code></p>
+<p><strong>代码定位：</strong> <code>rendered</code> 第37行；<code>make_html</code> 第42行；<code>source_files</code> 第49行；<code>use_of</code> 第61行；<code>make_compendium</code> 第109行；<code>make_compendium.locate</code> 第127行；<code>pdf_from_markdown</code> 第153行；<code>pdf_from_markdown.inline</code> 第167行；<code>pdf_from_markdown.inline.child_markup</code> 第168行；<code>pdf_from_markdown.footer</code> 第223行；<code>slides</code> 第231行；<code>slides.textbox</code> 第271行；<code>main</code> 第305行。</p>
 <pre><code class="language-python">&quot;&quot;&quot;Generate professional tutorial PDFs, slides, and a complete code/use-site compendium.
 
 Run with the project research/document environment. Reads source, never edits it.
@@ -4561,6 +5190,7 @@ import textwrap
 from pathlib import Path
 
 import markdown
+from markdown.extensions.toc import slugify_unicode
 from bs4 import BeautifulSoup, NavigableString
 from pptx import Presentation
 from pptx.dml.color import RGBColor
@@ -4584,7 +5214,7 @@ CSS = '''body{font:17px/1.85 &quot;Segoe UI&quot;,&quot;Microsoft YaHei&quot;,sa
 
 def rendered(source: str) -&gt; str:
     source = re.sub(r'```mermaid\n.*?```', '\n**处理路径：** 图像或视频帧 → 检测与关键点 → 对齐 → 特征向量 → 余弦比较。检测与关键点也用于定位贴纸、美颜与三维重建。\n', source, flags=re.S)
-    return markdown.markdown(source, extensions=['tables', 'fenced_code', 'toc', 'sane_lists'])
+    return markdown.markdown(source, extensions=['tables', 'fenced_code', 'toc', 'sane_lists'], extension_configs={'toc': {'slugify': slugify_unicode}})
 
 
 def make_html(source: Path, destination: Path, title: str):
@@ -4600,6 +5230,9 @@ def source_files():
         result.extend(p for p in (ROOT/folder).rglob('*') if p.is_file() and (p.suffix in {'.py','.html','.ipynb','.sh','.ps1','.yml','.yaml','.Dockerfile'} or p.name=='Dockerfile' or ('licenses' in p.parts and p.suffix=='.txt')) and '__pycache__' not in p.parts)
     result.extend(p for p in ROOT.iterdir() if p.is_file() and (p.suffix in {'.py','.txt','.ps1','.cmd','.toml','.yml'} or p.name in {'Dockerfile','.dockerignore','.gitignore','.gitattributes'}))
     result.append(ROOT/'models/registry.json')
+    result.append(ROOT/'hello.py/Untitled-1.md')
+    effective_config=REPORTS/'wider-mmdet-effective-config.py'
+    if effective_config.exists(): result.append(effective_config)
     return sorted(set(result))
 
 
@@ -4617,6 +5250,10 @@ def use_of(path: Path) -&gt; str:
         'vision3d/licenses/pyglet-2.1.16-LICENSE.txt': '原生OpenGL窗口依赖pyglet的原始BSD许可证，随源码交付；不由本项目MIT许可覆盖。',
         'research/wider_training_report.py': '读取MMEngine真实逐步日志，输出CSV和损失曲线；区分进行中快照与最终完成。',
         'research/wider_watch.py': '监护已运行的完整WIDER训练，全部预测存在后执行官方协议与独立参考评估，不重启训练。',
+        'research/wider_awake.py': '在本轮监护运行期间发出Windows防闲置休眠请求，完成、失败或超时后释放；不改电源计划且尊重用户手动睡眠。',
+        'research/wider_checkpoint.py': '在对应MMDetection容器内读取本机最终checkpoint元数据，核对6440次更新及保存配置，不加载未知来源权重。',
+        'research/wider_audit.py': '完整训练与两份评估完成后汇总配置、环境、checkpoint哈希及计时；要求临时电源请求已经释放。',
+        'reports/wider-mmdet-effective-config.py': '本次真实运行保存的MMDetection完整有效配置；与checkpoint内嵌配置逐字一致。它保留旧版末轮重复验证行为，与后续修正入口分开记录。',
         'scripts/mmdet_thread_benchmark.py': '容器内用相同checkpoint和真实批次测试4/6/8线程训练步；微测不包含整条数据管线。',
         'scripts/mmdet_thread_benchmark_host.py': '临时暂停既有训练容器后执行线程微测，finally恢复同一个容器，保存调度证据。',
         'scripts/setup_anaconda.ps1': '下载校验官方Anaconda；显式接受条款参数后安装、创建独立conda环境并调用verify_anaconda.py。',
@@ -4641,6 +5278,7 @@ def use_of(path: Path) -&gt; str:
     if rel.startswith('scripts/'): return '模型下载、环境检查、数据准备或交付物生成；本文件开头docstring和下方函数索引提供具体入口。'
     if rel=='Dockerfile': return 'docker build --target hello 或 --target lab；PDF任务1.3。'
     if rel=='hello_world.py': return 'Docker hello镜像启动命令；PDF任务1.2/1.3。保留了旧仓库hello.py目录。'
+    if rel=='hello.py/Untitled-1.md': return '用户原仓库保留的最初Hello World文件；当前Docker实际运行根目录hello_world.py，不执行此Markdown文件。'
     if rel=='start.ps1': return 'Windows环境准备及原生桌面启动入口；加-Web才打开辅助网页，-Port只用于网页模式。'
     if rel=='models/registry.json': return 'scripts/fetch_models.py 和 vision3d/reconstruct.py 读取；固定第三方模型来源、版本与校验值。'
     return '依赖固定、打包或版本控制配置；由 pip、Docker 或 Git 读取。'
@@ -4663,7 +5301,16 @@ def make_compendium():
         if p.suffix=='.py':
             try:
                 tree=ast.parse(raw)
-                symbols=[f'`{node.name}` 第{node.lineno}行' for node in tree.body if isinstance(node,(ast.FunctionDef,ast.AsyncFunctionDef,ast.ClassDef))]
+                symbols=[]
+                def locate(parent, prefix=''):
+                    for node in ast.iter_child_nodes(parent):
+                        if isinstance(node,(ast.FunctionDef,ast.AsyncFunctionDef,ast.ClassDef)):
+                            qualified=prefix+node.name
+                            symbols.append(f'`{qualified}` 第{node.lineno}行')
+                            locate(node,qualified+'.')
+                        else:
+                            locate(node,prefix)
+                locate(tree)
                 if symbols: chunks.append('**代码定位：** '+'；'.join(symbols)+'。\n')
             except SyntaxError: pass
         if p.suffix=='.ipynb':
@@ -4689,7 +5336,7 @@ def pdf_from_markdown(source: Path, destination: Path):
         pdfmetrics.registerFontFamily('Chinese',normal='Chinese',bold='Chinese',italic='Chinese',boldItalic='Chinese')
     styles=getSampleStyleSheet()
     for style in styles.byName.values(): style.fontName='Chinese'
-    body=ParagraphStyle('BodyCJK',fontName='Chinese',fontSize=10.2,leading=17,spaceAfter=8,wordWrap='CJK')
+    body=ParagraphStyle('BodyCJK',fontName='Chinese',fontSize=10.2,leading=17,spaceAfter=8,wordWrap='CJK',allowOrphans=0,allowWidows=0)
     code=ParagraphStyle('CodeCJK',fontName='Chinese',fontSize=8.2,leading=12,spaceAfter=10,backColor=colors.HexColor('#eef3ee'),borderPadding=7)
     heading=ParagraphStyle('HeadingCJK',parent=body,fontSize=16,leading=23,spaceBefore=20,spaceAfter=12,keepWithNext=True,textColor=colors.HexColor('#214b39'))
     small=ParagraphStyle('SmallCJK',parent=body,fontSize=8,leading=12)
@@ -4714,6 +5361,11 @@ def pdf_from_markdown(source: Path, destination: Path):
         if name in {'h1','h2','h3','h4'}:
             if name=='h2' and node.get_text().startswith('第') and story: story.append(PageBreak())
             style=heading if name!='h1' else ParagraphStyle('TitleCJK',parent=heading,fontSize=24,leading=34,spaceAfter=20)
+            following=node.find_next_sibling()
+            if following is not None and following.name=='table':
+                # Let a long table split on this page instead of keeping the
+                # heading together with the entire multi-page table.
+                style=ParagraphStyle('HeadingBeforeTable',parent=style,keepWithNext=False)
             story.append(Paragraph(inline(node),style))
         elif name=='pre':
             lines=[]
@@ -4759,6 +5411,9 @@ def slides():
     lfw_path=REPORTS/'lfw-sface-largest.json'
     lfw=json.loads(lfw_path.read_text(encoding='utf-8')) if lfw_path.exists() else json.loads((REPORTS/'lfw-sface.json').read_text(encoding='utf-8'))
     opt=json.loads((REPORTS/'arcface-pilot/comparison.json').read_text(encoding='utf-8'))
+    wider=json.loads((REPORTS/'wider-mmdet-full-official.json').read_text(encoding='utf-8'))
+    assert wider['full_validation'] and wider['counts']['images']==3226
+    wider_ap=' / '.join(f&quot;{wider['metrics'][name]['ap']:.5f}&quot; for name in ['easy','medium','hard'])
     prs=Presentation();prs.slide_width=Inches(13.333);prs.slide_height=Inches(7.5)
     entries=[
       ('人脸视觉 从原理到可运行系统',['本地 CPU 应用 · 训练与评估管线 · 3D 重建','面向高三学生的可复现学习项目','独立教育项目，与字节跳动无隶属关系'],None),
@@ -4780,6 +5435,8 @@ def slides():
       ('真实训练模型的部署对比',[f'批量 8 / 2 线程：FP32 {opt[&quot;fp32&quot;][&quot;median_ms&quot;]:.2f} ms；int8 {opt[&quot;dynamic_linear_int8&quot;][&quot;median_ms&quot;]:.2f} ms',f'ONNX {opt[&quot;onnx&quot;][&quot;median_ms&quot;]:.2f} ms；该设置下两者均未加速',f'int8 完整 LFW：{opt[&quot;accuracy&quot;][&quot;dynamic_linear_int8&quot;][&quot;accuracy_mean&quot;]*100:.4f}%；微小变化不能证明更准确'],None),
       ('研究训练的完整路径',['WIDER → COCO 标注 → MMDetection；300-W → 关键点 → NME','身份文件夹 → ArcFace；CelebA 属性 → StarGAN → FID/IS','受数据授权、版本依赖与算力约束；逐项状态见验收矩阵'],None),
       ('WIDER 完整验证与交叉检查',['全部 3,226 张验证图；31 张零检测保留为空','YuNet AP：easy 0.88442 / medium 0.86568 / hard 0.75040','与 OpenCV Zoo 参考评估三项差为 0；预训练基线不归属自训模型'],None),
+      ('完整 WIDER 迁移训练的实测结果',['12,880 张训练图；6,440 次更新；全部 3,226 张验证图',f'easy / medium / hard AP：{wider_ap}','COCO 预训练迁移、冻结主干、最大边 320；不代表论文收敛结果'],'reports/wider-mmdet-full-official-pr.png'),
+      ('训练曲线与失败记录怎样读',['学习率 0.0005，250 步 warmup，梯度范数裁剪 10','曲线是实际日志窗口均值；下降不等于验证成绩达标','首次 NaN、待机时间、参考评估交叉检查均保留证据'],'reports/wider-mmdet-training-curves.png'),
       ('Intel Arc 的实际 XPU 路径',['独立 PyTorch 2.14 XPU 环境；不改主 CPU 环境或驱动','张量、NMS、GAN 二阶梯度及优化器更新实际通过','完整生成器微测中位 23.66 ms；形状/负载有限定，不外推全训练'],None),
       ('BytePS 与 ByteNN 概念实验',['两个真实工作进程按 3/8 与 5/8 聚合梯度；与参考误差 4.47e−8','ORT 图优化：batch1 本次中位 34.37 → 25.27 ms','两项都标为模拟；没有冒充内部 SDK 或移动端部署'],None),
       ('火山引擎官方样例体验',['官方人像融合页内置方案交互：两张示例输入与融合输出','未上传用户照片；截图只用于记录官方样例体验','展示可能是预计算，不能据此宣称完成鉴权云 API 部署'], 'reports/volcengine-experience.png'),
@@ -5189,7 +5846,7 @@ CMD [&quot;python&quot;, &quot;scripts/mmdet_pilot.py&quot;]
 <p><strong>使用位置：</strong> 独立兼容Docker内的完整WIDER RetinaNet迁移训练、有限性检查、恢复、COCO验证和官方格式预测导出。</p>
 <p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/scripts/mmdet_full.py">GitHub中的文件</a></p>
 <p>SHA256：<code>51c72af60e781354e84d6457faf7ce95e82d04aa1f30085493f3c0c2270e33c9</code></p>
-<p><strong>代码定位：</strong> <code>WiderResumeBatchSampler</code> 第33行；<code>WiderResumeEpochLoop</code> 第47行；<code>check_resume</code> 第74行；<code>WiderProgressAndPredictions</code> 第118行；<code>main</code> 第154行。</p>
+<p><strong>代码定位：</strong> <code>WiderResumeBatchSampler</code> 第33行；<code>WiderResumeBatchSampler.__iter__</code> 第41行；<code>WiderResumeEpochLoop</code> 第47行；<code>WiderResumeEpochLoop.run_epoch</code> 第54行；<code>check_resume</code> 第74行；<code>check_resume.TinyDataset</code> 第80行；<code>check_resume.TinyDataset.__len__</code> 第82行；<code>check_resume.TinyDataset.get_data_info</code> 第84行；<code>check_resume.TinyDataset.__getitem__</code> 第86行；<code>check_resume.record_iteration</code> 第99行；<code>WiderProgressAndPredictions</code> 第118行；<code>WiderProgressAndPredictions.before_train</code> 第119行；<code>WiderProgressAndPredictions.after_train_iter</code> 第125行；<code>WiderProgressAndPredictions.after_val_iter</code> 第140行；<code>main</code> 第154行。</p>
 <pre><code class="language-python">&quot;&quot;&quot;Transfer COCO RetinaNet to the full WIDER train split in the MMDet container.
 
 Default: one full epoch, a frozen COCO-pretrained ResNet50 backbone, trainable
@@ -5842,7 +6499,7 @@ if __name__ == '__main__':
 <p><strong>使用位置：</strong> 只用公开NASA样图操作真实Tk控件与原生GL，录制桌面功能视频；5FPS编码不是算法速度。</p>
 <p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/scripts/record_desktop_demo.py">GitHub中的文件</a></p>
 <p>SHA256：<code>52781b79fa6d62340889c0c6baadbb66c308df4b3f78263d99940a2afa832c57</code></p>
-<p><strong>代码定位：</strong> <code>main</code> 第21行。</p>
+<p><strong>代码定位：</strong> <code>main</code> 第21行；<code>main.effect</code> 第37行；<code>main.generate</code> 第41行；<code>main.completed</code> 第47行；<code>main.finish</code> 第72行；<code>main.tick</code> 第102行；<code>main.close_recording</code> 第163行。</p>
 <pre><code class="language-python">&quot;&quot;&quot;Record actual native-window operations using only the public sample image.
 
 No camera is opened. Video is a fixed-5-FPS UI walkthrough, not a speed benchmark.
@@ -6215,7 +6872,7 @@ if ($LASTEXITCODE -ne 0) { throw 'Anaconda environment functional verification f
 <h2 id="scriptssetup_xpups1">scripts/setup_xpu.ps1</h2>
 <p><strong>使用位置：</strong> 建立独立Intel XPU环境并安装官方PyTorch XPU构建；不改主venv或驱动。</p>
 <p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/scripts/setup_xpu.ps1">GitHub中的文件</a></p>
-<p>SHA256：<code>8b951e12ce11e29882898a694bc27c7aa29581111187177ca711655628d0276a</code></p>
+<p>SHA256：<code>f142268bfb6f17dd43258895ddc7af33337acfe010834096abd67ddc9132004e</code></p>
 <pre><code class="language-powershell">param([string]$Python = 'python')
 # Uses only official PyTorch XPU wheels; never installs or updates a GPU driver.
 $ErrorActionPreference = 'Stop'
@@ -6233,6 +6890,10 @@ if (-not (Test-Path -LiteralPath $EnvironmentPython)) {
 }
 &amp; $EnvironmentPython -m pip install torch==2.14.0+xpu torchvision==0.29.0+xpu --index-url https://download.pytorch.org/whl/xpu
 if ($LASTEXITCODE -ne 0) { throw 'Official XPU wheel installation failed.' }
+# Install metric tooling from PyPI only after the pinned XPU builds are present.
+# Existing torch/torchvision satisfy torch-fidelity; do not replace them with CPU wheels.
+&amp; $EnvironmentPython -m pip install torch-fidelity==0.4.0 --index-url https://pypi.org/simple
+if ($LASTEXITCODE -ne 0) { throw 'XPU evaluation dependency installation failed.' }
 &amp; $EnvironmentPython -m pip check
 if ($LASTEXITCODE -ne 0) { throw 'XPU dependency check failed.' }
 &amp; $EnvironmentPython (Join-Path $PSScriptRoot 'verify_xpu.py')
@@ -6332,7 +6993,7 @@ if __name__ == '__main__':
 <p><strong>使用位置：</strong> desktop.py --self-test调用；实际Tk控件、摄像头采集/停止/重开/退出释放，以及本地三维和可选GAN检查。</p>
 <p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/scripts/verify_desktop.py">GitHub中的文件</a></p>
 <p>SHA256：<code>008f55b8183fea13ddf719c0d235ced8c87c9fd2fa995a23a89be2f93a52b6de</code></p>
-<p><strong>代码定位：</strong> <code>run_checks</code> 第14行。</p>
+<p><strong>代码定位：</strong> <code>run_checks</code> 第14行；<code>run_checks.record</code> 第23行；<code>run_checks.later</code> 第27行；<code>run_checks.set_effect</code> 第33行；<code>run_checks.gan_checked</code> 第42行；<code>run_checks.event</code> 第53行；<code>run_checks.mesh_checked</code> 第55行；<code>run_checks.mesh_rotated</code> 第63行；<code>run_checks.mesh_capture</code> 第70行；<code>run_checks.finish</code> 第92行；<code>run_checks.advance</code> 第114行。</p>
 <pre><code class="language-python">&quot;&quot;&quot;Exercise real Tk callbacks, camera lifecycle and optional local models.
 
 Invoked by desktop.py --self-test. Captures only the public sample app window;
@@ -6540,7 +7201,7 @@ if __name__=='__main__':
 <p><strong>使用位置：</strong> 实际XPU张量、NMS、GAN二阶反向传播和同步计时检查；真实训练前运行。</p>
 <p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/scripts/verify_xpu.py">GitHub中的文件</a></p>
 <p>SHA256：<code>bce49d87b3370945788ce0cf3f3831229142f6998c5f60c03c27e2aa6060e34f</code></p>
-<p><strong>代码定位：</strong> <code>timed</code> 第22行；<code>generator_benchmark</code> 第39行；<code>train_smoke</code> 第52行；<code>main</code> 第90行。</p>
+<p><strong>代码定位：</strong> <code>timed</code> 第22行；<code>timed.sync</code> 第23行；<code>generator_benchmark</code> 第39行；<code>train_smoke</code> 第52行；<code>train_smoke.step</code> 第62行；<code>main</code> 第90行。</p>
 <pre><code class="language-python">&quot;&quot;&quot;Validate real Intel XPU autograd and the project's StarGAN training operations.
 
 Run using the isolated work/xpu-env interpreter. Uses synthetic inputs, never
@@ -6706,7 +7367,7 @@ if ($Web) {
 <p><strong>使用位置：</strong> 回归检查；在项目根目录运行 python -m unittest discover -s tests。</p>
 <p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/tests/test_app.py">GitHub中的文件</a></p>
 <p>SHA256：<code>4a62317f13c7112b8dc9dcb0cf8b9937e1e28b086a3f76bbdc87900151fc5484</code></p>
-<p><strong>代码定位：</strong> <code>AppCheck</code> 第13行。</p>
+<p><strong>代码定位：</strong> <code>AppCheck</code> 第13行；<code>AppCheck.test_pipeline_and_boundaries</code> 第14行。</p>
 <pre><code class="language-python">&quot;&quot;&quot;One compact check of the real image pipeline and validation boundaries.&quot;&quot;&quot;
 import sys
 from pathlib import Path
@@ -6758,7 +7419,7 @@ if __name__ == '__main__':
 <p><strong>使用位置：</strong> 回归检查；在项目根目录运行 python -m unittest discover -s tests。</p>
 <p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/tests/test_desktop.py">GitHub中的文件</a></p>
 <p>SHA256：<code>9acb7dc67baccbf6afb0ee553eba53fe41d010a0dc481480e62727fc373de028</code></p>
-<p><strong>代码定位：</strong> <code>DesktopFailureCheck</code> 第15行。</p>
+<p><strong>代码定位：</strong> <code>DesktopFailureCheck</code> 第15行；<code>DesktopFailureCheck.test_bad_verification_image_does_not_desynchronize_live_camera</code> 第16行；<code>DesktopFailureCheck.test_frame_processing_failure_keeps_worker_available_for_next_image</code> 第31行；<code>DesktopFailureCheck.test_frame_processing_failure_keeps_worker_available_for_next_image.wait_event</code> 第41行；<code>DesktopFailureCheck.test_camera_failure_finishes_as_interrupted_even_after_twenty_seconds</code> 第66行。</p>
 <pre><code class="language-python">&quot;&quot;&quot;Check that a camera failure ends an active benchmark and restores its button.&quot;&quot;&quot;
 import json
 import queue
@@ -6867,7 +7528,7 @@ if __name__ == '__main__':
 <p><strong>使用位置：</strong> 回归检查；在项目根目录运行 python -m unittest discover -s tests。</p>
 <p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/tests/test_research.py">GitHub中的文件</a></p>
 <p>SHA256：<code>b652e3e797e806c23512b1b181c9bed53aa32d76d744f0c9e7b4752c50150abb</code></p>
-<p><strong>代码定位：</strong> <code>ResearchChecks</code> 第15行。</p>
+<p><strong>代码定位：</strong> <code>ResearchChecks</code> 第15行；<code>ResearchChecks.test_stargan_loss_normalization</code> 第16行；<code>ResearchChecks.test_stargan_loss_normalization.PatchCritic</code> 第19行；<code>ResearchChecks.test_stargan_loss_normalization.PatchCritic.forward</code> 第20行；<code>ResearchChecks.test_stargan_inference_uses_per_image_statistics</code> 第26行；<code>ResearchChecks.test_protocol_and_geometry</code> 第39行。</p>
 <pre><code class="language-python">&quot;&quot;&quot;Small regression check for parsers, held-out thresholds and NME mathematics.&quot;&quot;&quot;
 import json
 import tempfile
@@ -7025,7 +7686,7 @@ POSSIBILITY OF SUCH DAMAGE.
 <p><strong>使用位置：</strong> 由 python -m vision3d.reconstruct 及其导出脚本调用；PDF任务8.2、8.3。</p>
 <p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/vision3d/mobilenet_v1.py">GitHub中的文件</a></p>
 <p>SHA256：<code>0beb9c7d0b178f64058d09092b13d22c7d82f3862d84dcbcbb6929d2d83ac0a7</code></p>
-<p><strong>代码定位：</strong> <code>DepthWiseBlock</code> 第22行；<code>MobileNet</code> 第48行；<code>mobilenet</code> 第122行；<code>mobilenet_2</code> 第141行；<code>mobilenet_1</code> 第146行；<code>mobilenet_075</code> 第151行；<code>mobilenet_05</code> 第156行；<code>mobilenet_025</code> 第161行。</p>
+<p><strong>代码定位：</strong> <code>DepthWiseBlock</code> 第22行；<code>DepthWiseBlock.__init__</code> 第23行；<code>DepthWiseBlock.forward</code> 第36行；<code>MobileNet</code> 第48行；<code>MobileNet.__init__</code> 第49行；<code>MobileNet.forward</code> 第96行；<code>mobilenet</code> 第122行；<code>mobilenet_2</code> 第141行；<code>mobilenet_1</code> 第146行；<code>mobilenet_075</code> 第151行；<code>mobilenet_05</code> 第156行；<code>mobilenet_025</code> 第161行。</p>
 <pre><code class="language-python"># coding: utf-8
 
 from __future__ import division
@@ -7195,7 +7856,7 @@ def mobilenet_025(num_classes=62, input_channel=3):
 <p><strong>使用位置：</strong> desktop.py重建按钮调用start_viewer；独立spawn进程创建原生OpenGL窗口，完整网格、旋转与显式截图；--self-test验证三视角与退出。</p>
 <p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/vision3d/native_viewer.py">GitHub中的文件</a></p>
 <p>SHA256：<code>3fd84631dbb8af230e729a917221931961f0d9c101fbee1804d5288bf0a298e7</code></p>
-<p><strong>代码定位：</strong> <code>prepare_mesh</code> 第60行；<code>start_viewer</code> 第91行；<code>_run</code> 第117行；<code>_receive</code> 第293行；<code>self_test</code> 第305行。</p>
+<p><strong>代码定位：</strong> <code>prepare_mesh</code> 第60行；<code>start_viewer</code> 第91行；<code>_run</code> 第117行；<code>_run.emit</code> 第121行；<code>_run.render</code> 第153行；<code>_run.pose</code> 第179行；<code>_run.close_viewer</code> 第184行；<code>_run.set_yaw</code> 第191行；<code>_run.on_draw</code> 第200行；<code>_run.on_close</code> 第204行；<code>_run.on_mouse_drag</code> 第209行；<code>_run.on_key_press</code> 第214行；<code>_run.commands</code> 第225行；<code>_receive</code> 第293行；<code>self_test</code> 第305行。</p>
 <pre><code class="language-python">&quot;&quot;&quot;Native OpenGL 3.3+ full-mesh viewer, isolated from Tk by multiprocessing spawn.
 
 Dependency: pyglet 2.1.16, BSD-3-Clause; see licenses/pyglet-2.1.16-LICENSE.txt.
@@ -7603,7 +8264,7 @@ if __name__ == '__main__':
 <p><strong>使用位置：</strong> 由 python -m vision3d.reconstruct 及其导出脚本调用；PDF任务8.2、8.3。</p>
 <p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/vision3d/reconstruct.py">GitHub中的文件</a></p>
 <p>SHA256：<code>1276c26c98e90a5345ae3790ec6c14ba86823361de44341cca3f2ad5300ece86</code></p>
-<p><strong>代码定位：</strong> <code>NumpyOnlyUnpickler</code> 第21行；<code>checked_asset</code> 第35行；<code>load_array_pickle</code> 第46行；<code>export_onnx</code> 第51行；<code>reconstruct</code> 第67行；<code>save_result</code> 第111行；<code>main</code> 第164行。</p>
+<p><strong>代码定位：</strong> <code>NumpyOnlyUnpickler</code> 第21行；<code>NumpyOnlyUnpickler.find_class</code> 第23行；<code>checked_asset</code> 第35行；<code>load_array_pickle</code> 第46行；<code>export_onnx</code> 第51行；<code>reconstruct</code> 第67行；<code>save_result</code> 第111行；<code>main</code> 第164行。</p>
 <pre><code class="language-python">&quot;&quot;&quot;Real 3DDFA_V2 reconstruction: image -&gt; 62 parameters -&gt; 38,365 vertices.
 
 Numerical pipeline adapted from cleardusk/3DDFA_V2 (MIT), revision recorded
@@ -7882,7 +8543,7 @@ window.addEventListener('pagehide',stop);sample();
 &lt;/script&gt;&lt;/html&gt;
 
 </code></pre>
-<h2 id="cmd">启动桌面程序.cmd</h2>
+<h2 id="启动桌面程序cmd">启动桌面程序.cmd</h2>
 <p><strong>使用位置：</strong> Windows双击入口，调用同目录start.ps1并在失败时保留控制台。</p>
 <p><a href="https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/启动桌面程序.cmd">GitHub中的文件</a></p>
 <p>SHA256：<code>4243c58a857d7e3428e73a901afb0159daa46763e17bf5296dc229ba9f68ed46</code></p>

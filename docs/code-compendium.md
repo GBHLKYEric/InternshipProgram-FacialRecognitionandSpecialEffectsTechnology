@@ -11,13 +11,15 @@
 |---|---:|---|
 | `.dockerignore` | 14 | 依赖固定、打包或版本控制配置；由 pip、Docker 或 Git 读取。 |
 | `.gitattributes` | 4 | 依赖固定、打包或版本控制配置；由 pip、Docker 或 Git 读取。 |
-| `.gitignore` | 48 | 依赖固定、打包或版本控制配置；由 pip、Docker 或 Git 读取。 |
+| `.gitignore` | 52 | 依赖固定、打包或版本控制配置；由 pip、Docker 或 Git 读取。 |
 | `app.py` | 294 | 核心Vision检测/五点/验证/特效/属性编辑，被desktop.py直接调用；独立启动时也提供辅助网页HTTP服务。PDF任务2.4、4.3、7.2、9.2、9.3及系统集成。 |
 | `desktop.py` | 459 | 最终原生桌面前端；start.ps1默认启动。Tkinter窗口直接经OpenCV读取摄像头，调用app.Vision；原生三维窗口调用vision3d.reconstruct。 |
 | `Dockerfile` | 17 | docker build --target hello 或 --target lab；PDF任务1.3。 |
+| `hello.py/Untitled-1.md` | 1 | 用户原仓库保留的最初Hello World文件；当前Docker实际运行根目录hello_world.py，不执行此Markdown文件。 |
 | `hello_world.py` | 4 | Docker hello镜像启动命令；PDF任务1.2/1.3。保留了旧仓库hello.py目录。 |
 | `models/registry.json` | 62 | scripts/fetch_models.py 和 vision3d/reconstruct.py 读取；固定第三方模型来源、版本与校验值。 |
 | `notebooks/01-first-vision-lab.ipynb` | 240 | Jupyter中的循序实验；PDF任务1.4、2.1、2.4和OpenCV入门。 |
+| `reports/wider-mmdet-effective-config.py` | 376 | 本次真实运行保存的MMDetection完整有效配置；与checkpoint内嵌配置逐字一致。它保留旧版末轮重复验证行为，与后续修正入口分开记录。 |
 | `requirements-docs.txt` | 9 | 依赖固定、打包或版本控制配置；由 pip、Docker 或 Git 读取。 |
 | `requirements-research.txt` | 9 | 依赖固定、打包或版本控制配置；由 pip、Docker 或 Git 读取。 |
 | `requirements.txt` | 4 | 依赖固定、打包或版本控制配置；由 pip、Docker 或 Git 读取。 |
@@ -35,17 +37,19 @@
 | `research/smoke.py` | 91 | 研究训练与评估命令使用；详见 research/README.md 和 docs/code-map.md。对应PDF任务3.2–7.3。 |
 | `research/stargan.py` | 302 | 研究训练与评估命令使用；详见 research/README.md 和 docs/code-map.md。对应PDF任务3.2–7.3。 |
 | `research/stargan_deploy.py` | 69 | 将实际StarGAN checkpoint导出到runs/stargan-deploy/generator.onnx，比较ORT数值；原生桌面和辅助网页共同使用该模型。 |
-| `research/stargan_pilot.py` | 216 | 研究训练与评估命令使用；详见 research/README.md 和 docs/code-map.md。对应PDF任务3.2–7.3。 |
-| `research/wider_awake.py` | 82 | 研究训练与评估命令使用；详见 research/README.md 和 docs/code-map.md。对应PDF任务3.2–7.3。 |
+| `research/stargan_pilot.py` | 219 | 研究训练与评估命令使用；详见 research/README.md 和 docs/code-map.md。对应PDF任务3.2–7.3。 |
+| `research/wider_audit.py` | 144 | 完整训练与两份评估完成后汇总配置、环境、checkpoint哈希及计时；要求临时电源请求已经释放。 |
+| `research/wider_awake.py` | 82 | 在本轮监护运行期间发出Windows防闲置休眠请求，完成、失败或超时后释放；不改电源计划且尊重用户手动睡眠。 |
+| `research/wider_checkpoint.py` | 50 | 在对应MMDetection容器内读取本机最终checkpoint元数据，核对6440次更新及保存配置，不加载未知来源权重。 |
 | `research/wider_download.py` | 153 | 完整WIDER数据下载、断点续传、SHA256与ZIP安全校验、完整COCO标注生成。 |
-| `research/wider_eval.py` | 240 | 全部3226张WIDER验证图推理，以及官方难度mask/IoU/AP协议的Python计算；支持给定自训预测目录。 |
+| `research/wider_eval.py` | 241 | 全部3226张WIDER验证图推理，以及官方难度mask/IoU/AP协议的Python计算；支持给定自训预测目录。 |
 | `research/wider_reference.py` | 65 | 对同一WIDER预测调用固定哈希的OpenCV Zoo参考评估器，交叉检查AP。 |
-| `research/wider_training_report.py` | 91 | 读取MMEngine真实逐步日志，输出CSV和损失曲线；区分进行中快照与最终完成。 |
+| `research/wider_training_report.py` | 92 | 读取MMEngine真实逐步日志，输出CSV和损失曲线；区分进行中快照与最终完成。 |
 | `research/wider_watch.py` | 104 | 监护已运行的完整WIDER训练，全部预测存在后执行官方协议与独立参考评估，不重启训练。 |
 | `scripts/analyze_celeba.py` | 47 | 读取真实202599张CelebA属性计数，生成全部40标签的频数图与5个目标属性摘要；由教程数据分析部分引用。 |
 | `scripts/analyze_lfw.py` | 52 | 模型下载、环境检查、数据准备或交付物生成；本文件开头docstring和下方函数索引提供具体入口。 |
 | `scripts/analyze_webcam.py` | 93 | 识别网页/原生摄像头报告结构，独立复算帧数、FPS、分位数并绘制图表；原生报告额外分层说明检出人脸与未检出人脸的耗时。 |
-| `scripts/build_deliverables.py` | 290 | 模型下载、环境检查、数据准备或交付物生成；本文件开头docstring和下方函数索引提供具体入口。 |
+| `scripts/build_deliverables.py` | 318 | 模型下载、环境检查、数据准备或交付物生成；本文件开头docstring和下方函数索引提供具体入口。 |
 | `scripts/copy_source_delivery.py` | 57 | 复制Git可见源文件到桌面目录，逐文件比对SHA256并生成交付清单；不删除目标现有文件。 |
 | `scripts/demo.py` | 68 | 模型下载、环境检查、数据准备或交付物生成；本文件开头docstring和下方函数索引提供具体入口。 |
 | `scripts/doctor.py` | 60 | 模型下载、环境检查、数据准备或交付物生成；本文件开头docstring和下方函数索引提供具体入口。 |
@@ -61,7 +65,7 @@
 | `scripts/record_desktop_demo.py` | 172 | 只用公开NASA样图操作真实Tk控件与原生GL，录制桌面功能视频；5FPS编码不是算法速度。 |
 | `scripts/render_documents.py` | 51 | 模型下载、环境检查、数据准备或交付物生成；本文件开头docstring和下方函数索引提供具体入口。 |
 | `scripts/setup_anaconda.ps1` | 131 | 下载校验官方Anaconda；显式接受条款参数后安装、创建独立conda环境并调用verify_anaconda.py。 |
-| `scripts/setup_xpu.ps1` | 21 | 建立独立Intel XPU环境并安装官方PyTorch XPU构建；不改主venv或驱动。 |
+| `scripts/setup_xpu.ps1` | 25 | 建立独立Intel XPU环境并安装官方PyTorch XPU构建；不改主venv或驱动。 |
 | `scripts/verify_anaconda.py` | 82 | 检查实际conda解释器、PyTorch反向传播、YuNet推理、Jupyter内核执行和依赖一致性。 |
 | `scripts/verify_desktop.py` | 132 | desktop.py --self-test调用；实际Tk控件、摄像头采集/停止/重开/退出释放，以及本地三维和可选GAN检查。 |
 | `scripts/verify_local.py` | 62 | 模型下载、环境检查、数据准备或交付物生成；本文件开头docstring和下方函数索引提供具体入口。 |
@@ -80,7 +84,7 @@
 | `web/index.html` | 61 | 由 app.py 的 GET / 返回；浏览器处理图像输入、效果控制、摄像头帧和双图验证。 |
 | `启动桌面程序.cmd` | 4 | Windows双击入口，调用同目录start.ps1并在失败时保留控制台。 |
 
-共 70 个源文件，7178 行文本（Notebook按JSON行统计）。
+共 74 个源文件，7790 行文本（Notebook按JSON行统计）。
 
 
 ## .dockerignore
@@ -133,7 +137,7 @@ reports/*log.txt -whitespace
 
 [GitHub中的文件](https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/.gitignore)
 
-SHA256：`4bca3f20690b20431c2e8ee365999dae1ea22cfb70a6e8d1ac71e4735feaa525`
+SHA256：`68dc01da3058deb817834ffa6b17bbd38ceb37c38924f8b0f9bd602fc107a600`
 
 ````text
 .venv/
@@ -184,6 +188,10 @@ assets/*.png
 !reports/3d-native/yaw-035.png
 !reports/3d-native/yaw-minus035.png
 !reports/celeba-distribution.png
+!reports/stargan-experiment/training-curves.png
+!reports/wider-yunet-full-pr.png
+!reports/wider-mmdet-full-official-pr.png
+!reports/wider-mmdet-training-curves.png
 
 ````
 
@@ -196,7 +204,7 @@ assets/*.png
 
 SHA256：`22458ee3fc5935e939d4727834074813436477484f4e7a21898d77cb1efc3e30`
 
-**代码定位：** `decode_image` 第20行；`encode_image` 第38行；`Vision` 第45行；`render_effect` 第125行；`Handler` 第183行；`main` 第274行。
+**代码定位：** `decode_image` 第20行；`encode_image` 第38行；`Vision` 第45行；`Vision.__init__` 第46行；`Vision.detect` 第56行；`Vision.feature` 第61行；`Vision.verify` 第68行；`Vision.edit_attributes` 第74行；`Vision.process` 第112行；`render_effect` 第125行；`render_effect.p` 第141行；`Handler` 第183行；`Handler.setup` 第186行；`Handler.log_message` 第190行；`Handler.reply` 第193行；`Handler.json_reply` 第202行；`Handler.allowed` 第205行；`Handler.do_GET` 第211行；`Handler.do_POST` 第236行；`main` 第274行。
 
 ````python
 """Local face detection, explicit pair verification, and effects. Run: python app.py."""
@@ -505,7 +513,7 @@ if __name__ == "__main__":
 
 SHA256：`2141aedcb87373f22d5e081a48d2aceb3c249fd53f6e5cb8d57980e60328a005`
 
-**代码定位：** `read_image` 第26行；`Worker` 第38行；`Desktop` 第140行；`main` 第442行。
+**代码定位：** `read_image` 第26行；`Worker` 第38行；`Worker.__init__` 第40行；`Worker.stop_camera` 第52行；`Worker.emit_frame` 第58行；`Worker.run` 第68行；`Desktop` 第140行；`Desktop.__init__` 第141行；`Desktop.send` 第220行；`Desktop.apply_settings` 第229行；`Desktop.start_camera` 第232行；`Desktop.stop_camera` 第238行；`Desktop.set_image` 第245行；`Desktop.open_image` 第251行；`Desktop.verify_images` 第259行；`Desktop.process_current` 第274行；`Desktop.show` 第288行；`Desktop.start_benchmark` 第296行；`Desktop.finish_benchmark` 第303行；`Desktop.poll` 第326行；`Desktop.close_mesh` 第416行；`Desktop.close` 第433行；`main` 第442行。
 
 ````python
 """Native Tk desktop application. Camera frames stay in memory; no HTTP server.
@@ -1001,6 +1009,19 @@ CMD ["python", "app.py", "--host", "0.0.0.0"]
 ````
 
 
+## hello.py/Untitled-1.md
+
+**使用位置：** 用户原仓库保留的最初Hello World文件；当前Docker实际运行根目录hello_world.py，不执行此Markdown文件。
+
+[GitHub中的文件](https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/hello.py/Untitled-1.md)
+
+SHA256：`866b5033009e3e3f3e40bef180e6924d937996a57fc8b5ce85090b5d14459f1f`
+
+````text
+print("Hello World!")
+````
+
+
 ## hello_world.py
 
 **使用位置：** Docker hello镜像启动命令；PDF任务1.2/1.3。保留了旧仓库hello.py目录。
@@ -1150,6 +1171,395 @@ print(cosine([1,0],[1,0]), cosine([1,0],[0,1]), cosine([1,0],[-1,0]))
 assert cosine([1,0],[0,1]) == 0
 print(vision.verify(image,image,.363))
 ```
+
+
+## reports/wider-mmdet-effective-config.py
+
+**使用位置：** 本次真实运行保存的MMDetection完整有效配置；与checkpoint内嵌配置逐字一致。它保留旧版末轮重复验证行为，与后续修正入口分开记录。
+
+[GitHub中的文件](https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/reports/wider-mmdet-effective-config.py)
+
+SHA256：`fac440328f4f4438703070a1f9d9fc79c51b4e90502bf16dc1a933f37feddbb7`
+
+````python
+auto_scale_lr = dict(base_batch_size=2, enable=False)
+backend_args = None
+custom_hooks = [
+    dict(type='WiderProgressAndPredictions'),
+]
+data_root = 'data/coco/'
+dataset_type = 'CocoDataset'
+default_hooks = dict(
+    checkpoint=dict(
+        by_epoch=False,
+        interval=100,
+        max_keep_ckpts=2,
+        save_last=True,
+        type='CheckpointHook'),
+    logger=dict(_scope_='mmdet', interval=25, type='LoggerHook'),
+    param_scheduler=dict(_scope_='mmdet', type='ParamSchedulerHook'),
+    sampler_seed=dict(_scope_='mmdet', type='DistSamplerSeedHook'),
+    timer=dict(_scope_='mmdet', type='IterTimerHook'),
+    visualization=dict(_scope_='mmdet', type='DetVisualizationHook'))
+default_scope = 'mmdet'
+env_cfg = dict(
+    cudnn_benchmark=False,
+    dist_cfg=dict(backend='gloo'),
+    mp_cfg=dict(mp_start_method='fork', opencv_num_threads=0))
+img_scales = [
+    (
+        1333,
+        800,
+    ),
+    (
+        666,
+        400,
+    ),
+    (
+        2000,
+        1200,
+    ),
+]
+load_from = 'runs/wider-mmdet-full-stable/coco-transfer-initialization.pth'
+log_level = 'INFO'
+log_processor = dict(
+    _scope_='mmdet', by_epoch=True, type='LogProcessor', window_size=50)
+metainfo = dict(
+    classes=('face', ), palette=[
+        (
+            255,
+            100,
+            100,
+        ),
+    ])
+model = dict(
+    _scope_='mmdet',
+    backbone=dict(
+        depth=50,
+        frozen_stages=4,
+        init_cfg=None,
+        norm_cfg=dict(requires_grad=True, type='BN'),
+        norm_eval=True,
+        num_stages=4,
+        out_indices=(
+            0,
+            1,
+            2,
+            3,
+        ),
+        style='pytorch',
+        type='ResNet'),
+    bbox_head=dict(
+        anchor_generator=dict(
+            octave_base_scale=4,
+            ratios=[
+                0.5,
+                1.0,
+                2.0,
+            ],
+            scales_per_octave=3,
+            strides=[
+                8,
+                16,
+                32,
+                64,
+                128,
+            ],
+            type='AnchorGenerator'),
+        bbox_coder=dict(
+            target_means=[
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+            ],
+            target_stds=[
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+            ],
+            type='DeltaXYWHBBoxCoder'),
+        feat_channels=256,
+        in_channels=256,
+        loss_bbox=dict(loss_weight=1.0, type='L1Loss'),
+        loss_cls=dict(
+            alpha=0.25,
+            gamma=2.0,
+            loss_weight=1.0,
+            type='FocalLoss',
+            use_sigmoid=True),
+        num_classes=1,
+        stacked_convs=4,
+        type='RetinaHead'),
+    data_preprocessor=dict(
+        bgr_to_rgb=True,
+        mean=[
+            123.675,
+            116.28,
+            103.53,
+        ],
+        pad_size_divisor=32,
+        std=[
+            58.395,
+            57.12,
+            57.375,
+        ],
+        type='DetDataPreprocessor'),
+    neck=dict(
+        add_extra_convs='on_input',
+        in_channels=[
+            256,
+            512,
+            1024,
+            2048,
+        ],
+        num_outs=5,
+        out_channels=256,
+        start_level=1,
+        type='FPN'),
+    test_cfg=dict(
+        max_per_img=1000,
+        min_bbox_size=0,
+        nms=dict(iou_threshold=0.5, type='nms'),
+        nms_pre=1000,
+        score_thr=0.001),
+    train_cfg=dict(
+        allowed_border=-1,
+        assigner=dict(
+            ignore_iof_thr=-1,
+            min_pos_iou=0,
+            neg_iou_thr=0.4,
+            pos_iou_thr=0.5,
+            type='MaxIoUAssigner'),
+        debug=False,
+        pos_weight=-1,
+        sampler=dict(type='PseudoSampler')),
+    type='RetinaNet')
+optim_wrapper = dict(
+    _scope_='mmdet',
+    clip_grad=dict(error_if_nonfinite=True, max_norm=10.0, norm_type=2),
+    optimizer=dict(lr=0.0005, momentum=0.9, type='SGD', weight_decay=0.0001),
+    type='OptimWrapper')
+param_scheduler = [
+    dict(begin=0, by_epoch=False, end=250, start_factor=0.01, type='LinearLR'),
+]
+randomness = dict(deterministic=False, seed=42)
+resume = False
+test_cfg = dict(_scope_='mmdet', type='TestLoop')
+test_dataloader = dict(
+    batch_size=1,
+    dataset=dict(
+        _scope_='mmdet',
+        ann_file='wider/full_val.json',
+        backend_args=None,
+        data_prefix=dict(img='WIDER_val/images/'),
+        data_root='data/',
+        metainfo=dict(classes=('face', ), palette=[
+            (
+                255,
+                100,
+                100,
+            ),
+        ]),
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(keep_ratio=True, scale=(
+                320,
+                320,
+            ), type='Resize'),
+            dict(type='LoadAnnotations', with_bbox=True),
+            dict(
+                meta_keys=(
+                    'img_id',
+                    'img_path',
+                    'ori_shape',
+                    'img_shape',
+                    'scale_factor',
+                ),
+                type='PackDetInputs'),
+        ],
+        test_mode=True,
+        type='CocoDataset'),
+    drop_last=False,
+    num_workers=0,
+    persistent_workers=False,
+    sampler=dict(_scope_='mmdet', shuffle=False, type='DefaultSampler'))
+test_evaluator = dict(
+    _scope_='mmdet',
+    ann_file='data/wider/full_val.json',
+    backend_args=None,
+    classwise=True,
+    format_only=False,
+    metric='bbox',
+    type='CocoMetric')
+test_pipeline = [
+    dict(_scope_='mmdet', backend_args=None, type='LoadImageFromFile'),
+    dict(_scope_='mmdet', keep_ratio=True, scale=(
+        1333,
+        800,
+    ), type='Resize'),
+    dict(_scope_='mmdet', type='LoadAnnotations', with_bbox=True),
+    dict(
+        _scope_='mmdet',
+        meta_keys=(
+            'img_id',
+            'img_path',
+            'ori_shape',
+            'img_shape',
+            'scale_factor',
+        ),
+        type='PackDetInputs'),
+]
+train_cfg = dict(
+    _scope_='mmdet', max_epochs=1, type='EpochBasedTrainLoop', val_interval=2)
+train_dataloader = dict(
+    batch_sampler=dict(_scope_='mmdet', type='AspectRatioBatchSampler'),
+    batch_size=2,
+    dataset=dict(
+        _scope_='mmdet',
+        ann_file='wider/full_train.json',
+        backend_args=None,
+        data_prefix=dict(img='WIDER_train/images/'),
+        data_root='data/',
+        filter_cfg=dict(filter_empty_gt=False, min_size=1),
+        metainfo=dict(classes=('face', ), palette=[
+            (
+                255,
+                100,
+                100,
+            ),
+        ]),
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(type='LoadAnnotations', with_bbox=True),
+            dict(keep_ratio=True, scale=(
+                320,
+                320,
+            ), type='Resize'),
+            dict(prob=0.5, type='RandomFlip'),
+            dict(type='PackDetInputs'),
+        ],
+        type='CocoDataset'),
+    num_workers=0,
+    persistent_workers=False,
+    sampler=dict(_scope_='mmdet', shuffle=True, type='DefaultSampler'))
+train_pipeline = [
+    dict(_scope_='mmdet', backend_args=None, type='LoadImageFromFile'),
+    dict(_scope_='mmdet', type='LoadAnnotations', with_bbox=True),
+    dict(_scope_='mmdet', keep_ratio=True, scale=(
+        1333,
+        800,
+    ), type='Resize'),
+    dict(_scope_='mmdet', prob=0.5, type='RandomFlip'),
+    dict(_scope_='mmdet', type='PackDetInputs'),
+]
+tta_model = dict(
+    _scope_='mmdet',
+    tta_cfg=dict(max_per_img=100, nms=dict(iou_threshold=0.5, type='nms')),
+    type='DetTTAModel')
+tta_pipeline = [
+    dict(_scope_='mmdet', backend_args=None, type='LoadImageFromFile'),
+    dict(
+        _scope_='mmdet',
+        transforms=[
+            [
+                dict(keep_ratio=True, scale=(
+                    1333,
+                    800,
+                ), type='Resize'),
+                dict(keep_ratio=True, scale=(
+                    666,
+                    400,
+                ), type='Resize'),
+                dict(keep_ratio=True, scale=(
+                    2000,
+                    1200,
+                ), type='Resize'),
+            ],
+            [
+                dict(prob=1.0, type='RandomFlip'),
+                dict(prob=0.0, type='RandomFlip'),
+            ],
+            [
+                dict(type='LoadAnnotations', with_bbox=True),
+            ],
+            [
+                dict(
+                    meta_keys=(
+                        'img_id',
+                        'img_path',
+                        'ori_shape',
+                        'img_shape',
+                        'scale_factor',
+                        'flip',
+                        'flip_direction',
+                    ),
+                    type='PackDetInputs'),
+            ],
+        ],
+        type='TestTimeAug'),
+]
+val_cfg = dict(_scope_='mmdet', type='ValLoop')
+val_dataloader = dict(
+    batch_size=1,
+    dataset=dict(
+        _scope_='mmdet',
+        ann_file='wider/full_val.json',
+        backend_args=None,
+        data_prefix=dict(img='WIDER_val/images/'),
+        data_root='data/',
+        metainfo=dict(classes=('face', ), palette=[
+            (
+                255,
+                100,
+                100,
+            ),
+        ]),
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(keep_ratio=True, scale=(
+                320,
+                320,
+            ), type='Resize'),
+            dict(type='LoadAnnotations', with_bbox=True),
+            dict(
+                meta_keys=(
+                    'img_id',
+                    'img_path',
+                    'ori_shape',
+                    'img_shape',
+                    'scale_factor',
+                ),
+                type='PackDetInputs'),
+        ],
+        test_mode=True,
+        type='CocoDataset'),
+    drop_last=False,
+    num_workers=0,
+    persistent_workers=False,
+    sampler=dict(_scope_='mmdet', shuffle=False, type='DefaultSampler'))
+val_evaluator = dict(
+    _scope_='mmdet',
+    ann_file='data/wider/full_val.json',
+    backend_args=None,
+    classwise=True,
+    format_only=False,
+    metric='bbox',
+    type='CocoMetric')
+vis_backends = [
+    dict(_scope_='mmdet', type='LocalVisBackend'),
+]
+visualizer = dict(
+    _scope_='mmdet',
+    name='visualizer',
+    type='DetLocalVisualizer',
+    vis_backends=[
+        dict(type='LocalVisBackend'),
+    ])
+work_dir = 'runs/wider-mmdet-full-stable'
+
+````
 
 
 ## requirements-docs.txt
@@ -1516,7 +1926,7 @@ if __name__ == '__main__':
 
 SHA256：`bd46dd63c32d31a92e2d43a9eef607d51efff17eb376b2807c8537cda4994691`
 
-**代码定位：** `DownloadForm` 第25行；`response_for` 第33行；`download` 第52行；`extract` 第85行；`run` 第99行。
+**代码定位：** `DownloadForm` 第25行；`DownloadForm.__init__` 第26行；`DownloadForm.handle_starttag` 第27行；`response_for` 第33行；`download` 第52行；`extract` 第85行；`run` 第99行。
 
 ````python
 """Fetch original-owner CelebA/COFW files with published MD5 verification.
@@ -1661,7 +2071,7 @@ if __name__=='__main__':
 
 SHA256：`4ec59a6008640b6d2467ec8e651369f60e36659e2e9802a33fc61617648d01e4`
 
-**代码定位：** `fetch` 第22行；`RemoteZipFile` 第35行；`annotation_blocks` 第65行；`run` 第80行。
+**代码定位：** `fetch` 第22行；`RemoteZipFile` 第35行；`RemoteZipFile.__init__` 第37行；`RemoteZipFile.seekable` 第41行；`RemoteZipFile.readable` 第42行；`RemoteZipFile.tell` 第43行；`RemoteZipFile.seek` 第45行；`RemoteZipFile.read` 第50行；`annotation_blocks` 第65行；`run` 第80行。
 
 ````python
 """Download a reproducible real WIDER FACE pilot subset via HTTP ZIP ranges.
@@ -1808,7 +2218,7 @@ if __name__=='__main__':
 
 SHA256：`5a2718bf1a6cfa1917c5269ab07034984368ce539446d0f206818657c6a21161`
 
-**代码定位：** `nme` 第13行；`prepare` 第25行；`dataset` 第54行；`make_model` 第96行；`train` 第104行；`align` 第146行；`infer` 第161行。
+**代码定位：** `nme` 第13行；`prepare` 第25行；`dataset` 第54行；`dataset.FacePoints` 第74行；`dataset.FacePoints.__len__` 第75行；`dataset.FacePoints.__getitem__` 第78行；`make_model` 第96行；`train` 第104行；`align` 第146行；`infer` 第161行。
 
 ````python
 """300W 68-point coordinate-regression baseline, NME and affine alignment.
@@ -2451,7 +2861,7 @@ if __name__=='__main__':
 
 SHA256：`be2044741b7a0ed7ce59eac473a88ab586ad2d2c529e6d924c237007c06c2893`
 
-**代码定位：** `seed_all` 第23行；`face_transform` 第33行；`EmbeddingNet` 第40行；`ArcFace` 第50行；`PKSampler` 第70行；`batch_hard_triplet` 第93行；`load_embedding` 第107行；`save_curves` 第116行；`train` 第143行。
+**代码定位：** `seed_all` 第23行；`face_transform` 第33行；`EmbeddingNet` 第40行；`EmbeddingNet.__init__` 第41行；`EmbeddingNet.forward` 第46行；`ArcFace` 第50行；`ArcFace.__init__` 第52行；`ArcFace.forward` 第60行；`PKSampler` 第70行；`PKSampler.__init__` 第72行；`PKSampler.__iter__` 第83行；`PKSampler.__len__` 第89行；`batch_hard_triplet` 第93行；`load_embedding` 第107行；`save_curves` 第116行；`train` 第143行。
 
 ````python
 """ResNet50 + ArcFace; train on locally licensed, aligned identity folders.
@@ -2775,7 +3185,7 @@ if __name__=='__main__':
 
 SHA256：`7413ecd8c7ce2d0fdb77cb78cee1d3024f44f5a5640c094e4af459ed3fddeefd`
 
-**代码定位：** `Residual` 第22行；`Generator` 第31行；`Discriminator` 第47行；`load_author_weights` 第66行；`load_generator` 第81行；`CelebA` 第101行；`gradient_penalty` 第137行；`classification_loss` 第146行；`train` 第151行；`generate` 第249行；`metrics` 第264行。
+**代码定位：** `Residual` 第22行；`Residual.__init__` 第23行；`Residual.forward` 第28行；`Generator` 第31行；`Generator.__init__` 第32行；`Generator.forward` 第42行；`Discriminator` 第47行；`Discriminator.__init__` 第48行；`Discriminator.forward` 第58行；`load_author_weights` 第66行；`load_generator` 第81行；`CelebA` 第101行；`CelebA.__init__` 第102行；`CelebA.__len__` 第129行；`CelebA.__getitem__` 第131行；`gradient_penalty` 第137行；`classification_loss` 第146行；`train` 第151行；`generate` 第249行；`metrics` 第264行。
 
 ````python
 """Small, actual StarGAN-style WGAN-GP training/translation/FID+IS entry points.
@@ -3174,7 +3584,7 @@ if __name__=='__main__':
 
 [GitHub中的文件](https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/research/stargan_pilot.py)
 
-SHA256：`8e065937e8674650fd6ad6c8fbbee5c9955b896497b62b514cf7a21ef6d44fae`
+SHA256：`799872e04e619dd8c61584d132f76670ef97090f3764d6a99f860590e4fc7d72`
 
 **代码定位：** `prepare` 第22行；`evaluate` 第73行；`summarize` 第132行。
 
@@ -3347,7 +3757,10 @@ def summarize(args):
     axes[1].set_ylabel('Reconstruction mean absolute error')
     axes[1].set_xlabel('D updates retained in the final checkpoint')
     fig.suptitle('Real CelebA fine-tuning from author pretrained weights; discarded updates omitted from curves')
-    fig.tight_layout();fig.savefig(output/'training-curves.svg');plt.close(fig)
+    fig.tight_layout()
+    fig.savefig(output/'training-curves.svg')
+    fig.savefig(output/'training-curves.png',dpi=180)
+    plt.close(fig)
     before=json.loads(Path('reports/stargan-before.json').read_text(encoding='utf-8'))
     after=json.loads(Path('reports/stargan-after.json').read_text(encoding='utf-8'))
     training=json.loads(Path('runs/stargan-resumed/training-report.json').read_text(encoding='utf-8'))
@@ -3399,9 +3812,168 @@ if __name__=='__main__':
 ````
 
 
+## research/wider_audit.py
+
+**使用位置：** 完整训练与两份评估完成后汇总配置、环境、checkpoint哈希及计时；要求临时电源请求已经释放。
+
+[GitHub中的文件](https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/research/wider_audit.py)
+
+SHA256：`a44f83fadc6cd21e0becfff905512934f9b7aace4c3b40b4ff25a3ba04f25df4`
+
+**代码定位：** `read` 第15行；`sha256` 第19行；`instant` 第27行；`main` 第31行。
+
+````python
+"""Build a provenance and elapsed-time audit from this completed WIDER run.
+
+Uses the saved effective configuration of the running process, not the current
+launcher source (which was improved while that process continued). The event
+intervals are observations; they do not prove zero CPU work throughout standby.
+"""
+import datetime as dt
+import hashlib
+import json
+from pathlib import Path
+import re
+import shutil
+
+
+def read(path):
+    return json.loads(Path(path).read_text(encoding='utf-8-sig'))
+
+
+def sha256(path):
+    digest = hashlib.sha256()
+    with Path(path).open('rb') as stream:
+        while chunk := stream.read(1024 * 1024):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def instant(text):
+    return dt.datetime.fromisoformat(text.replace('Z', '+00:00'))
+
+
+def main():
+    reports = Path('reports')
+    training = read(reports / 'wider-mmdet-full.json')
+    monitor = read(reports / 'wider-monitor.json')
+    awake = read(reports / 'wider-awake.json')
+    curves = read(reports / 'wider-mmdet-training-curves.json')
+    checkpoint_metadata = read(reports / 'wider-checkpoint-metadata.json')
+    container = read(reports / 'wider-mmdet-container.json')
+    if training['status'] != 'completed' or monitor['status'] != 'completed':
+        raise ValueError('The complete training and independent validation must finish first')
+    if awake['status'] != 'released' or not awake['release_return_value']:
+        raise ValueError('Temporary Windows power request has not been verified released')
+    if curves['status'] != 'completed':
+        raise ValueError('Generate the completed training curves first')
+    work = Path(training['training']['output'])
+    active_config = work / 'effective-config.py'
+    if (checkpoint_metadata['iter'] != 6440
+            or not checkpoint_metadata['checkpoint_config_equals_saved_config']
+            or checkpoint_metadata['checkpoint_config_sha256'] != sha256(active_config)):
+        raise ValueError('Final checkpoint iteration and saved configuration must match')
+    config_snapshot = reports / 'wider-mmdet-effective-config.py'
+    shutil.copyfile(active_config, config_snapshot)
+    event_sources = [
+        'wider-power-transitions.json',
+        'wider-power-transitions-second.json',
+        'wider-power-transitions-third.json',
+    ]
+    intervals = []
+    for source in event_sources:
+        events = sorted(read(reports / source), key=lambda e: e['time_utc'])
+        # This capture contains one explicitly observed entered -> exited pair.
+        # Additional isolated events are retained in the source, not inferred.
+        pairs = [(left, right) for left, right in zip(events, events[1:])
+                 if left['Id'] == 506 and right['Id'] == 507]
+        if len(pairs) != 1:
+            raise ValueError(f'Expected one observed entered/exited pair in {source}')
+        entered, exited = pairs[0]
+        intervals.append({
+            'source': str(reports / source),
+            'entered_utc': entered['time_utc'],
+            'exited_utc': exited['time_utc'],
+            'entered_message': entered['Message'],
+            'exited_message': exited['Message'],
+            'observed_interval_seconds': (instant(exited['time_utc']) - instant(entered['time_utc'])).total_seconds(),
+        })
+    pauses = [read(reports / name)['main_process_paused_seconds'] for name in [
+        'wider-thread-benchmark-attempt1-supervisor.json',
+        'wider-thread-benchmark-supervisor.json',
+    ]]
+    environment = reports / 'mmdet-environment-freeze.txt'
+    log = (reports / 'mmdet-full-log.txt').read_text(encoding='utf-8-sig')
+    python_match = re.search(r'^\s*Python:\s*(.+)$', log, re.MULTILINE)
+    coco_summary_lines = [line.strip() for line in log.splitlines()
+                          if re.match(r'\s*Average (Precision|Recall)\s', line)]
+    packages = [line for line in environment.read_text().splitlines()
+                if line.lower().startswith(('torch', 'mmcv', 'mmdet', 'mmengine', 'numpy', 'pycocotools'))]
+    result = {
+        'status': 'completed',
+        'created_utc': dt.datetime.now(dt.timezone.utc).isoformat(),
+        'container': container,
+        'effective_config': {
+            'source': str(active_config),
+            'published_snapshot': str(config_snapshot),
+            'sha256': sha256(active_config),
+            'bytes': active_config.stat().st_size,
+            'runtime_loop': 'EpochBasedTrainLoop, max_epochs=1, val_interval=2; no val_begin override',
+            'scope': 'Exact config saved before this stable training started. Later launcher fixes (resume loop and one-validation scheduling) were not executed by this process.',
+        },
+        'environment': {'source': str(environment), 'sha256': sha256(environment),
+                        'python_from_actual_log': python_match.group(1).strip() if python_match else None,
+                        'selected_packages': packages},
+        'checkpoint': {key: curves[key] for key in ['final_checkpoint', 'final_checkpoint_sha256', 'final_checkpoint_bytes']},
+        'checkpoint_metadata': checkpoint_metadata,
+        'training_iterations_completed': 6440,
+        'last_loss_logged_iteration': curves['last_iteration'],
+        'calendar': {
+            'started_at': container['started_at'],
+            'independent_evaluation_finished_at': monitor['updated_utc'],
+            'elapsed_seconds': (instant(monitor['updated_utc']) - instant(container['started_at'])).total_seconds(),
+            'scope': 'Actual UTC interval from Docker process start through both final independent AP evaluations. Includes observed standby and diagnostic pauses; excludes earlier acquisition and failed attempt.',
+        },
+        'internal_timing': {
+            'runner_train_seconds': training['training_seconds'],
+            'explicit_second_validation_seconds': training['validation_seconds'],
+            'controlled_diagnostic_pause_seconds': sum(pauses),
+            'scope': 'runner.train() includes one automatic full validation and diagnostic pauses; explicit validation is the duplicate second pass. Observed WSL perf_counter did not accumulate the long host standby intervals. Neither field is pure training time or user elapsed waiting time.',
+        },
+        'observed_modern_standby_intervals': intervals,
+        'observed_intervals_total_seconds': sum(e['observed_interval_seconds'] for e in intervals),
+        'power_event_limitations': 'Only captured adjacent entered/exited pairs are summed. No claim of an exhaustive power history or zero computation at every instant. Numeric reason 16777220 is retained without interpretation.',
+        'monitor_attempt1': read(reports / 'wider-monitor-attempt1.json'),
+        'power_helper_attempt1': read(reports / 'wider-awake-attempt1.json'),
+        'monitor_final': {'status': monitor['status'], 'updated_utc': monitor['updated_utc']},
+        'power_helper_final': awake,
+        'coco_evaluator': {
+            'implementation': 'MMDetection 3.3.0 CocoMetric with pycocotools 2.0.11',
+            'proposal_nums_maxDets': [100, 300, 1000],
+            'reported_metric_maxDets': {'bbox_mAP': 100, 'bbox_mAP_50': 1000, 'bbox_mAP_75': 1000,
+                                       'bbox_mAP_s': 1000, 'bbox_mAP_m': 1000, 'bbox_mAP_l': 1000,
+                                       'classwise_face_precision_ap': 1000},
+            'use_mp_eval': False,
+            'verification': 'Inspected the installed CocoMetric signature in the actual running container; the saved effective config does not override these defaults.',
+            'classwise_name_caution': 'coco/face_precision is the classwise face AP in this evaluator, not precision at one confidence operating point.',
+            'actual_logged_summaries': coco_summary_lines,
+        },
+        'evaluation_scope': 'WIDER difficulty AP uses IoU 0.5, official ignore masks and 1000 score thresholds. COCO bbox_mAP averages IoUs 0.50:0.05:0.95 on converted valid boxes, a distinct metric. One epoch at maximum edge 320 does not establish convergence.',
+    }
+    destination = reports / 'wider-mmdet-audit.json'
+    destination.write_text(json.dumps(result, indent=2, ensure_ascii=False), encoding='utf-8')
+    print(json.dumps(result, indent=2, ensure_ascii=False))
+
+
+if __name__ == '__main__':
+    main()
+
+````
+
+
 ## research/wider_awake.py
 
-**使用位置：** 研究训练与评估命令使用；详见 research/README.md 和 docs/code-map.md。对应PDF任务3.2–7.3。
+**使用位置：** 在本轮监护运行期间发出Windows防闲置休眠请求，完成、失败或超时后释放；不改电源计划且尊重用户手动睡眠。
 
 [GitHub中的文件](https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/research/wider_awake.py)
 
@@ -3492,6 +4064,71 @@ def run():
 
 if __name__ == '__main__':
     run()
+
+````
+
+
+## research/wider_checkpoint.py
+
+**使用位置：** 在对应MMDetection容器内读取本机最终checkpoint元数据，核对6440次更新及保存配置，不加载未知来源权重。
+
+[GitHub中的文件](https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/research/wider_checkpoint.py)
+
+SHA256：`b980f4548749e786cf1129ee10ac111f9b70f5ce866bfb4262299a2aebb8586c`
+
+**代码定位：** `main` 第14行。
+
+````python
+"""Inspect a locally produced WIDER checkpoint in its MMDetection environment.
+
+PyTorch checkpoint deserialization can execute Python. Run this only on the
+checkpoint produced by this local experiment, never an untrusted supplied file.
+The main application venv intentionally does not contain MMEngine; this tool
+runs in the existing MMDetection container and performs no training or inference.
+"""
+import argparse
+import hashlib
+import json
+from pathlib import Path
+
+
+def main(args):
+    import torch
+    import mmengine
+    import mmdet
+
+    torch.set_num_threads(1)
+    path = Path(args.checkpoint)
+    checkpoint = torch.load(path, map_location='cpu', weights_only=False)
+    meta = checkpoint['meta']
+    config = meta.get('cfg') or meta.get('config')
+    if not config:
+        raise ValueError('Checkpoint does not contain its effective configuration')
+    saved = Path(args.config)
+    result = {
+        'checkpoint': str(path),
+        'epoch': meta.get('epoch'),
+        'iter': meta.get('iter'),
+        'meta_keys': sorted(meta),
+        'checkpoint_config_sha256': hashlib.sha256(config.encode()).hexdigest(),
+        'saved_config_sha256': hashlib.sha256(saved.read_bytes()).hexdigest(),
+        'checkpoint_config_equals_saved_config': config == saved.read_text(),
+        'inspection_runtime': {'torch': torch.__version__, 'mmengine': mmengine.__version__, 'mmdet': mmdet.__version__},
+    }
+    if result['iter'] != 6440 or not result['checkpoint_config_equals_saved_config']:
+        raise ValueError('The full-run final checkpoint does not match its expected iteration/configuration')
+    output = Path(args.output)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(result, indent=2), encoding='utf-8')
+    print(json.dumps(result, indent=2))
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--checkpoint', default='runs/wider-mmdet-full-stable/iter_6440.pth')
+    parser.add_argument('--config', default='runs/wider-mmdet-full-stable/effective-config.py')
+    parser.add_argument('--output', default='reports/wider-checkpoint-metadata.json')
+    main(parser.parse_args())
 
 ````
 
@@ -3670,7 +4307,7 @@ if __name__ == '__main__':
 
 [GitHub中的文件](https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/research/wider_eval.py)
 
-SHA256：`09dd6fda9b4f9284d4a12f81f38d6db33452b14a8c45b259fec6fd033fad63a2`
+SHA256：`2057ce64e2e083500ec583b68c191a2eabf8cc109d37d5cccb67e312b127946f`
 
 **代码定位：** `load_ground_truth` 第24行；`write_prediction` 第45行；`read_prediction` 第53行；`predict_yunet` 第65行；`box_iou_inclusive` 第103行；`image_counts` 第117行；`average_precision` 第146行；`evaluate` 第154行；`selfcheck` 第182行；`plot_curves` 第191行。
 
@@ -3883,6 +4520,7 @@ def plot_curves(report_path):
     axis.legend(loc='lower left')
     axis.grid(alpha=.2)
     fig.savefig(report_path.with_name(report_path.stem+'-pr.svg'))
+    fig.savefig(report_path.with_name(report_path.stem+'-pr.png'), dpi=180)
     plt.close(fig)
 
 
@@ -4005,7 +4643,7 @@ if __name__ == '__main__':
 
 [GitHub中的文件](https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/research/wider_training_report.py)
 
-SHA256：`2a5bc52c4606c125d42c4f38f8a20a6b9b3bd16b5571646be65193620669a411`
+SHA256：`3e154f17f4944ee0251a02cb65a2d2b4312c793d54d3090bbbe5854b824b13a7`
 
 **代码定位：** `run` 第15行。
 
@@ -4075,6 +4713,7 @@ def run(args):
     axes[1].set(xlabel='Completed training iteration', ylabel='Learning rate')
     axes[1].grid(alpha=.2)
     fig.savefig(prefix.with_suffix('.svg'))
+    fig.savefig(prefix.with_suffix('.png'), dpi=180)
     plt.close(fig)
     report = {'status': 'completed' if complete else 'in_progress_snapshot',
               'logged_points': len(ordered), 'first_iteration': steps[0], 'last_iteration': steps[-1],
@@ -4467,9 +5106,9 @@ if __name__ == '__main__':
 
 [GitHub中的文件](https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/scripts/build_deliverables.py)
 
-SHA256：`e65d0c018459f42aa61d4bcf02e7a9736b6f93f1560fd657aa49e9c8dcfdf028`
+SHA256：`8aaa75df91fb943e8a40fbca1a935cacc9e41a50f9108f3b6525214860537d50`
 
-**代码定位：** `rendered` 第36行；`make_html` 第41行；`source_files` 第48行；`use_of` 第57行；`make_compendium` 第100行；`pdf_from_markdown` 第135行；`slides` 第208行；`main` 第277行。
+**代码定位：** `rendered` 第37行；`make_html` 第42行；`source_files` 第49行；`use_of` 第61行；`make_compendium` 第109行；`make_compendium.locate` 第127行；`pdf_from_markdown` 第153行；`pdf_from_markdown.inline` 第167行；`pdf_from_markdown.inline.child_markup` 第168行；`pdf_from_markdown.footer` 第223行；`slides` 第231行；`slides.textbox` 第271行；`main` 第305行。
 
 ````python
 """Generate professional tutorial PDFs, slides, and a complete code/use-site compendium.
@@ -4486,6 +5125,7 @@ import textwrap
 from pathlib import Path
 
 import markdown
+from markdown.extensions.toc import slugify_unicode
 from bs4 import BeautifulSoup, NavigableString
 from pptx import Presentation
 from pptx.dml.color import RGBColor
@@ -4509,7 +5149,7 @@ CSS = '''body{font:17px/1.85 "Segoe UI","Microsoft YaHei",sans-serif;color:#1b29
 
 def rendered(source: str) -> str:
     source = re.sub(r'```mermaid\n.*?```', '\n**处理路径：** 图像或视频帧 → 检测与关键点 → 对齐 → 特征向量 → 余弦比较。检测与关键点也用于定位贴纸、美颜与三维重建。\n', source, flags=re.S)
-    return markdown.markdown(source, extensions=['tables', 'fenced_code', 'toc', 'sane_lists'])
+    return markdown.markdown(source, extensions=['tables', 'fenced_code', 'toc', 'sane_lists'], extension_configs={'toc': {'slugify': slugify_unicode}})
 
 
 def make_html(source: Path, destination: Path, title: str):
@@ -4525,6 +5165,9 @@ def source_files():
         result.extend(p for p in (ROOT/folder).rglob('*') if p.is_file() and (p.suffix in {'.py','.html','.ipynb','.sh','.ps1','.yml','.yaml','.Dockerfile'} or p.name=='Dockerfile' or ('licenses' in p.parts and p.suffix=='.txt')) and '__pycache__' not in p.parts)
     result.extend(p for p in ROOT.iterdir() if p.is_file() and (p.suffix in {'.py','.txt','.ps1','.cmd','.toml','.yml'} or p.name in {'Dockerfile','.dockerignore','.gitignore','.gitattributes'}))
     result.append(ROOT/'models/registry.json')
+    result.append(ROOT/'hello.py/Untitled-1.md')
+    effective_config=REPORTS/'wider-mmdet-effective-config.py'
+    if effective_config.exists(): result.append(effective_config)
     return sorted(set(result))
 
 
@@ -4542,6 +5185,10 @@ def use_of(path: Path) -> str:
         'vision3d/licenses/pyglet-2.1.16-LICENSE.txt': '原生OpenGL窗口依赖pyglet的原始BSD许可证，随源码交付；不由本项目MIT许可覆盖。',
         'research/wider_training_report.py': '读取MMEngine真实逐步日志，输出CSV和损失曲线；区分进行中快照与最终完成。',
         'research/wider_watch.py': '监护已运行的完整WIDER训练，全部预测存在后执行官方协议与独立参考评估，不重启训练。',
+        'research/wider_awake.py': '在本轮监护运行期间发出Windows防闲置休眠请求，完成、失败或超时后释放；不改电源计划且尊重用户手动睡眠。',
+        'research/wider_checkpoint.py': '在对应MMDetection容器内读取本机最终checkpoint元数据，核对6440次更新及保存配置，不加载未知来源权重。',
+        'research/wider_audit.py': '完整训练与两份评估完成后汇总配置、环境、checkpoint哈希及计时；要求临时电源请求已经释放。',
+        'reports/wider-mmdet-effective-config.py': '本次真实运行保存的MMDetection完整有效配置；与checkpoint内嵌配置逐字一致。它保留旧版末轮重复验证行为，与后续修正入口分开记录。',
         'scripts/mmdet_thread_benchmark.py': '容器内用相同checkpoint和真实批次测试4/6/8线程训练步；微测不包含整条数据管线。',
         'scripts/mmdet_thread_benchmark_host.py': '临时暂停既有训练容器后执行线程微测，finally恢复同一个容器，保存调度证据。',
         'scripts/setup_anaconda.ps1': '下载校验官方Anaconda；显式接受条款参数后安装、创建独立conda环境并调用verify_anaconda.py。',
@@ -4566,6 +5213,7 @@ def use_of(path: Path) -> str:
     if rel.startswith('scripts/'): return '模型下载、环境检查、数据准备或交付物生成；本文件开头docstring和下方函数索引提供具体入口。'
     if rel=='Dockerfile': return 'docker build --target hello 或 --target lab；PDF任务1.3。'
     if rel=='hello_world.py': return 'Docker hello镜像启动命令；PDF任务1.2/1.3。保留了旧仓库hello.py目录。'
+    if rel=='hello.py/Untitled-1.md': return '用户原仓库保留的最初Hello World文件；当前Docker实际运行根目录hello_world.py，不执行此Markdown文件。'
     if rel=='start.ps1': return 'Windows环境准备及原生桌面启动入口；加-Web才打开辅助网页，-Port只用于网页模式。'
     if rel=='models/registry.json': return 'scripts/fetch_models.py 和 vision3d/reconstruct.py 读取；固定第三方模型来源、版本与校验值。'
     return '依赖固定、打包或版本控制配置；由 pip、Docker 或 Git 读取。'
@@ -4588,7 +5236,16 @@ def make_compendium():
         if p.suffix=='.py':
             try:
                 tree=ast.parse(raw)
-                symbols=[f'`{node.name}` 第{node.lineno}行' for node in tree.body if isinstance(node,(ast.FunctionDef,ast.AsyncFunctionDef,ast.ClassDef))]
+                symbols=[]
+                def locate(parent, prefix=''):
+                    for node in ast.iter_child_nodes(parent):
+                        if isinstance(node,(ast.FunctionDef,ast.AsyncFunctionDef,ast.ClassDef)):
+                            qualified=prefix+node.name
+                            symbols.append(f'`{qualified}` 第{node.lineno}行')
+                            locate(node,qualified+'.')
+                        else:
+                            locate(node,prefix)
+                locate(tree)
                 if symbols: chunks.append('**代码定位：** '+'；'.join(symbols)+'。\n')
             except SyntaxError: pass
         if p.suffix=='.ipynb':
@@ -4614,7 +5271,7 @@ def pdf_from_markdown(source: Path, destination: Path):
         pdfmetrics.registerFontFamily('Chinese',normal='Chinese',bold='Chinese',italic='Chinese',boldItalic='Chinese')
     styles=getSampleStyleSheet()
     for style in styles.byName.values(): style.fontName='Chinese'
-    body=ParagraphStyle('BodyCJK',fontName='Chinese',fontSize=10.2,leading=17,spaceAfter=8,wordWrap='CJK')
+    body=ParagraphStyle('BodyCJK',fontName='Chinese',fontSize=10.2,leading=17,spaceAfter=8,wordWrap='CJK',allowOrphans=0,allowWidows=0)
     code=ParagraphStyle('CodeCJK',fontName='Chinese',fontSize=8.2,leading=12,spaceAfter=10,backColor=colors.HexColor('#eef3ee'),borderPadding=7)
     heading=ParagraphStyle('HeadingCJK',parent=body,fontSize=16,leading=23,spaceBefore=20,spaceAfter=12,keepWithNext=True,textColor=colors.HexColor('#214b39'))
     small=ParagraphStyle('SmallCJK',parent=body,fontSize=8,leading=12)
@@ -4639,6 +5296,11 @@ def pdf_from_markdown(source: Path, destination: Path):
         if name in {'h1','h2','h3','h4'}:
             if name=='h2' and node.get_text().startswith('第') and story: story.append(PageBreak())
             style=heading if name!='h1' else ParagraphStyle('TitleCJK',parent=heading,fontSize=24,leading=34,spaceAfter=20)
+            following=node.find_next_sibling()
+            if following is not None and following.name=='table':
+                # Let a long table split on this page instead of keeping the
+                # heading together with the entire multi-page table.
+                style=ParagraphStyle('HeadingBeforeTable',parent=style,keepWithNext=False)
             story.append(Paragraph(inline(node),style))
         elif name=='pre':
             lines=[]
@@ -4684,6 +5346,9 @@ def slides():
     lfw_path=REPORTS/'lfw-sface-largest.json'
     lfw=json.loads(lfw_path.read_text(encoding='utf-8')) if lfw_path.exists() else json.loads((REPORTS/'lfw-sface.json').read_text(encoding='utf-8'))
     opt=json.loads((REPORTS/'arcface-pilot/comparison.json').read_text(encoding='utf-8'))
+    wider=json.loads((REPORTS/'wider-mmdet-full-official.json').read_text(encoding='utf-8'))
+    assert wider['full_validation'] and wider['counts']['images']==3226
+    wider_ap=' / '.join(f"{wider['metrics'][name]['ap']:.5f}" for name in ['easy','medium','hard'])
     prs=Presentation();prs.slide_width=Inches(13.333);prs.slide_height=Inches(7.5)
     entries=[
       ('人脸视觉 从原理到可运行系统',['本地 CPU 应用 · 训练与评估管线 · 3D 重建','面向高三学生的可复现学习项目','独立教育项目，与字节跳动无隶属关系'],None),
@@ -4705,6 +5370,8 @@ def slides():
       ('真实训练模型的部署对比',[f'批量 8 / 2 线程：FP32 {opt["fp32"]["median_ms"]:.2f} ms；int8 {opt["dynamic_linear_int8"]["median_ms"]:.2f} ms',f'ONNX {opt["onnx"]["median_ms"]:.2f} ms；该设置下两者均未加速',f'int8 完整 LFW：{opt["accuracy"]["dynamic_linear_int8"]["accuracy_mean"]*100:.4f}%；微小变化不能证明更准确'],None),
       ('研究训练的完整路径',['WIDER → COCO 标注 → MMDetection；300-W → 关键点 → NME','身份文件夹 → ArcFace；CelebA 属性 → StarGAN → FID/IS','受数据授权、版本依赖与算力约束；逐项状态见验收矩阵'],None),
       ('WIDER 完整验证与交叉检查',['全部 3,226 张验证图；31 张零检测保留为空','YuNet AP：easy 0.88442 / medium 0.86568 / hard 0.75040','与 OpenCV Zoo 参考评估三项差为 0；预训练基线不归属自训模型'],None),
+      ('完整 WIDER 迁移训练的实测结果',['12,880 张训练图；6,440 次更新；全部 3,226 张验证图',f'easy / medium / hard AP：{wider_ap}','COCO 预训练迁移、冻结主干、最大边 320；不代表论文收敛结果'],'reports/wider-mmdet-full-official-pr.png'),
+      ('训练曲线与失败记录怎样读',['学习率 0.0005，250 步 warmup，梯度范数裁剪 10','曲线是实际日志窗口均值；下降不等于验证成绩达标','首次 NaN、待机时间、参考评估交叉检查均保留证据'],'reports/wider-mmdet-training-curves.png'),
       ('Intel Arc 的实际 XPU 路径',['独立 PyTorch 2.14 XPU 环境；不改主 CPU 环境或驱动','张量、NMS、GAN 二阶梯度及优化器更新实际通过','完整生成器微测中位 23.66 ms；形状/负载有限定，不外推全训练'],None),
       ('BytePS 与 ByteNN 概念实验',['两个真实工作进程按 3/8 与 5/8 聚合梯度；与参考误差 4.47e−8','ORT 图优化：batch1 本次中位 34.37 → 25.27 ms','两项都标为模拟；没有冒充内部 SDK 或移动端部署'],None),
       ('火山引擎官方样例体验',['官方人像融合页内置方案交互：两张示例输入与融合输出','未上传用户照片；截图只用于记录官方样例体验','展示可能是预计算，不能据此宣称完成鉴权云 API 部署'], 'reports/volcengine-experience.png'),
@@ -5174,7 +5841,7 @@ CMD ["python", "scripts/mmdet_pilot.py"]
 
 SHA256：`51c72af60e781354e84d6457faf7ce95e82d04aa1f30085493f3c0c2270e33c9`
 
-**代码定位：** `WiderResumeBatchSampler` 第33行；`WiderResumeEpochLoop` 第47行；`check_resume` 第74行；`WiderProgressAndPredictions` 第118行；`main` 第154行。
+**代码定位：** `WiderResumeBatchSampler` 第33行；`WiderResumeBatchSampler.__iter__` 第41行；`WiderResumeEpochLoop` 第47行；`WiderResumeEpochLoop.run_epoch` 第54行；`check_resume` 第74行；`check_resume.TinyDataset` 第80行；`check_resume.TinyDataset.__len__` 第82行；`check_resume.TinyDataset.get_data_info` 第84行；`check_resume.TinyDataset.__getitem__` 第86行；`check_resume.record_iteration` 第99行；`WiderProgressAndPredictions` 第118行；`WiderProgressAndPredictions.before_train` 第119行；`WiderProgressAndPredictions.after_train_iter` 第125行；`WiderProgressAndPredictions.after_val_iter` 第140行；`main` 第154行。
 
 ````python
 """Transfer COCO RetinaNet to the full WIDER train split in the MMDet container.
@@ -5867,7 +6534,7 @@ if __name__ == '__main__':
 
 SHA256：`52781b79fa6d62340889c0c6baadbb66c308df4b3f78263d99940a2afa832c57`
 
-**代码定位：** `main` 第21行。
+**代码定位：** `main` 第21行；`main.effect` 第37行；`main.generate` 第41行；`main.completed` 第47行；`main.finish` 第72行；`main.tick` 第102行；`main.close_recording` 第163行。
 
 ````python
 """Record actual native-window operations using only the public sample image.
@@ -6262,7 +6929,7 @@ if ($LASTEXITCODE -ne 0) { throw 'Anaconda environment functional verification f
 
 [GitHub中的文件](https://github.com/GBHLKYEric/InternshipProgram-FacialRecognitionandSpecialEffectsTechnology/blob/main/scripts/setup_xpu.ps1)
 
-SHA256：`8b951e12ce11e29882898a694bc27c7aa29581111187177ca711655628d0276a`
+SHA256：`f142268bfb6f17dd43258895ddc7af33337acfe010834096abd67ddc9132004e`
 
 ````powershell
 param([string]$Python = 'python')
@@ -6282,6 +6949,10 @@ if (-not (Test-Path -LiteralPath $EnvironmentPython)) {
 }
 & $EnvironmentPython -m pip install torch==2.14.0+xpu torchvision==0.29.0+xpu --index-url https://download.pytorch.org/whl/xpu
 if ($LASTEXITCODE -ne 0) { throw 'Official XPU wheel installation failed.' }
+# Install metric tooling from PyPI only after the pinned XPU builds are present.
+# Existing torch/torchvision satisfy torch-fidelity; do not replace them with CPU wheels.
+& $EnvironmentPython -m pip install torch-fidelity==0.4.0 --index-url https://pypi.org/simple
+if ($LASTEXITCODE -ne 0) { throw 'XPU evaluation dependency installation failed.' }
 & $EnvironmentPython -m pip check
 if ($LASTEXITCODE -ne 0) { throw 'XPU dependency check failed.' }
 & $EnvironmentPython (Join-Path $PSScriptRoot 'verify_xpu.py')
@@ -6395,7 +7066,7 @@ if __name__ == '__main__':
 
 SHA256：`008f55b8183fea13ddf719c0d235ced8c87c9fd2fa995a23a89be2f93a52b6de`
 
-**代码定位：** `run_checks` 第14行。
+**代码定位：** `run_checks` 第14行；`run_checks.record` 第23行；`run_checks.later` 第27行；`run_checks.set_effect` 第33行；`run_checks.gan_checked` 第42行；`run_checks.event` 第53行；`run_checks.mesh_checked` 第55行；`run_checks.mesh_rotated` 第63行；`run_checks.mesh_capture` 第70行；`run_checks.finish` 第92行；`run_checks.advance` 第114行。
 
 ````python
 """Exercise real Tk callbacks, camera lifecycle and optional local models.
@@ -6619,7 +7290,7 @@ if __name__=='__main__':
 
 SHA256：`bce49d87b3370945788ce0cf3f3831229142f6998c5f60c03c27e2aa6060e34f`
 
-**代码定位：** `timed` 第22行；`generator_benchmark` 第39行；`train_smoke` 第52行；`main` 第90行。
+**代码定位：** `timed` 第22行；`timed.sync` 第23行；`generator_benchmark` 第39行；`train_smoke` 第52行；`train_smoke.step` 第62行；`main` 第90行。
 
 ````python
 """Validate real Intel XPU autograd and the project's StarGAN training operations.
@@ -6800,7 +7471,7 @@ if ($Web) {
 
 SHA256：`4a62317f13c7112b8dc9dcb0cf8b9937e1e28b086a3f76bbdc87900151fc5484`
 
-**代码定位：** `AppCheck` 第13行。
+**代码定位：** `AppCheck` 第13行；`AppCheck.test_pipeline_and_boundaries` 第14行。
 
 ````python
 """One compact check of the real image pipeline and validation boundaries."""
@@ -6860,7 +7531,7 @@ if __name__ == '__main__':
 
 SHA256：`9acb7dc67baccbf6afb0ee553eba53fe41d010a0dc481480e62727fc373de028`
 
-**代码定位：** `DesktopFailureCheck` 第15行。
+**代码定位：** `DesktopFailureCheck` 第15行；`DesktopFailureCheck.test_bad_verification_image_does_not_desynchronize_live_camera` 第16行；`DesktopFailureCheck.test_frame_processing_failure_keeps_worker_available_for_next_image` 第31行；`DesktopFailureCheck.test_frame_processing_failure_keeps_worker_available_for_next_image.wait_event` 第41行；`DesktopFailureCheck.test_camera_failure_finishes_as_interrupted_even_after_twenty_seconds` 第66行。
 
 ````python
 """Check that a camera failure ends an active benchmark and restores its button."""
@@ -6977,7 +7648,7 @@ if __name__ == '__main__':
 
 SHA256：`b652e3e797e806c23512b1b181c9bed53aa32d76d744f0c9e7b4752c50150abb`
 
-**代码定位：** `ResearchChecks` 第15行。
+**代码定位：** `ResearchChecks` 第15行；`ResearchChecks.test_stargan_loss_normalization` 第16行；`ResearchChecks.test_stargan_loss_normalization.PatchCritic` 第19行；`ResearchChecks.test_stargan_loss_normalization.PatchCritic.forward` 第20行；`ResearchChecks.test_stargan_inference_uses_per_image_statistics` 第26行；`ResearchChecks.test_protocol_and_geometry` 第39行。
 
 ````python
 """Small regression check for parsers, held-out thresholds and NME mathematics."""
@@ -7165,7 +7836,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 SHA256：`0beb9c7d0b178f64058d09092b13d22c7d82f3862d84dcbcbb6929d2d83ac0a7`
 
-**代码定位：** `DepthWiseBlock` 第22行；`MobileNet` 第48行；`mobilenet` 第122行；`mobilenet_2` 第141行；`mobilenet_1` 第146行；`mobilenet_075` 第151行；`mobilenet_05` 第156行；`mobilenet_025` 第161行。
+**代码定位：** `DepthWiseBlock` 第22行；`DepthWiseBlock.__init__` 第23行；`DepthWiseBlock.forward` 第36行；`MobileNet` 第48行；`MobileNet.__init__` 第49行；`MobileNet.forward` 第96行；`mobilenet` 第122行；`mobilenet_2` 第141行；`mobilenet_1` 第146行；`mobilenet_075` 第151行；`mobilenet_05` 第156行；`mobilenet_025` 第161行。
 
 ````python
 # coding: utf-8
@@ -7343,7 +8014,7 @@ def mobilenet_025(num_classes=62, input_channel=3):
 
 SHA256：`3fd84631dbb8af230e729a917221931961f0d9c101fbee1804d5288bf0a298e7`
 
-**代码定位：** `prepare_mesh` 第60行；`start_viewer` 第91行；`_run` 第117行；`_receive` 第293行；`self_test` 第305行。
+**代码定位：** `prepare_mesh` 第60行；`start_viewer` 第91行；`_run` 第117行；`_run.emit` 第121行；`_run.render` 第153行；`_run.pose` 第179行；`_run.close_viewer` 第184行；`_run.set_yaw` 第191行；`_run.on_draw` 第200行；`_run.on_close` 第204行；`_run.on_mouse_drag` 第209行；`_run.on_key_press` 第214行；`_run.commands` 第225行；`_receive` 第293行；`self_test` 第305行。
 
 ````python
 """Native OpenGL 3.3+ full-mesh viewer, isolated from Tk by multiprocessing spawn.
@@ -7759,7 +8430,7 @@ if __name__ == '__main__':
 
 SHA256：`1276c26c98e90a5345ae3790ec6c14ba86823361de44341cca3f2ad5300ece86`
 
-**代码定位：** `NumpyOnlyUnpickler` 第21行；`checked_asset` 第35行；`load_array_pickle` 第46行；`export_onnx` 第51行；`reconstruct` 第67行；`save_result` 第111行；`main` 第164行。
+**代码定位：** `NumpyOnlyUnpickler` 第21行；`NumpyOnlyUnpickler.find_class` 第23行；`checked_asset` 第35行；`load_array_pickle` 第46行；`export_onnx` 第51行；`reconstruct` 第67行；`save_result` 第111行；`main` 第164行。
 
 ````python
 """Real 3DDFA_V2 reconstruction: image -> 62 parameters -> 38,365 vertices.

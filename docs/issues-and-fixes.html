@@ -1,22 +1,23 @@
 <!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>issues-and-fixes</title><style>body{font:17px/1.85 "Segoe UI","Microsoft YaHei",sans-serif;color:#1b2925;background:#f7f8f4;max-width:1040px;margin:auto;padding:44px 28px}h1{font-size:36px;line-height:1.4;color:#1c4939}h2{font-size:25px;margin-top:2.5em;border-bottom:1px solid #cdd7cf;padding-bottom:12px}h3{font-size:20px;margin-top:1.8em}a{color:#1f6550}p{margin:1em 0}code{font:14px/1.65 Consolas,"Microsoft YaHei",monospace;background:#eaf0ea;padding:2px 4px}pre{background:#142c25;color:#e4efdf;padding:22px;overflow:auto;border-radius:8px;line-height:1.7}pre code{background:transparent;color:inherit;white-space:pre}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:12px;border:1px solid #d4ded6;vertical-align:top;overflow-wrap:anywhere}th{background:#e7eee8;text-align:left}.toc{font-size:14px;columns:2;column-gap:36px}.toc ul{padding-left:18px}blockquote{margin-left:0;padding-left:18px;border-left:3px solid #789c85;color:#40594b}img{max-width:100%}.meta{font-size:13px;color:#63756a}@media(max-width:600px){.toc{columns:1}body{padding:20px 16px}h1{font-size:28px}table{display:block;overflow:auto}}@media print{body{background:white;max-width:none;font-size:10pt;padding:0}.toc{columns:2}h2{break-before:page}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f3f5f2;color:#111;font-size:8pt}pre code{white-space:pre-wrap}a{color:inherit}table{font-size:8pt}tr{break-inside:avoid}}</style><body><div class="toc">
 <ul>
-<li><a href="#_1">执行问题、根因、处理与复核</a><ul>
-<li><a href="#_2">已有项目的审计与本次工程关系</a></li>
-<li><a href="#_3">尚待解除的外部条件</a></li>
-<li><a href="#anacondaintel-xpu-opengl">续补：Anaconda、Intel XPU 与原生 OpenGL 的实际兼容问题</a><ul>
-<li><a href="#anaconda-windows">Anaconda 安装与 Windows 路径</a></li>
-<li><a href="#intel-arc">Intel Arc：分别验证计算后端和图形后端</a></li>
-<li><a href="#opengl">原生 OpenGL 全网格与两轮摄像头验收</a></li>
-<li><a href="#_4">后续集成与交付过程中发现的真实问题</a></li>
+<li><a href="#执行问题根因处理与复核">执行问题、根因、处理与复核</a><ul>
+<li><a href="#已有项目的审计与本次工程关系">已有项目的审计与本次工程关系</a></li>
+<li><a href="#尚待解除的外部条件">尚待解除的外部条件</a></li>
+<li><a href="#续补anacondaintel-xpu-与原生-opengl-的实际兼容问题">续补：Anaconda、Intel XPU 与原生 OpenGL 的实际兼容问题</a><ul>
+<li><a href="#anaconda-安装与-windows-路径">Anaconda 安装与 Windows 路径</a></li>
+<li><a href="#intel-arc分别验证计算后端和图形后端">Intel Arc：分别验证计算后端和图形后端</a></li>
+<li><a href="#原生-opengl-全网格与两轮摄像头验收">原生 OpenGL 全网格与两轮摄像头验收</a></li>
+<li><a href="#后续集成与交付过程中发现的真实问题">后续集成与交付过程中发现的真实问题</a></li>
 </ul>
 </li>
-<li><a href="#_5">续补：真实训练、评估协议与交付过程</a></li>
-<li><a href="#_6">最终定向审查中的四项修复</a></li>
+<li><a href="#续补真实训练评估协议与交付过程">续补：真实训练、评估协议与交付过程</a></li>
+<li><a href="#最终定向审查中的四项修复">最终定向审查中的四项修复</a></li>
+<li><a href="#完整wider最终计时与评估补充">完整WIDER最终计时与评估补充</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<h1 id="_1">执行问题、根因、处理与复核</h1>
+<h1 id="执行问题根因处理与复核">执行问题、根因、处理与复核</h1>
 <p>记录日期：2026-09-26—27。下表区分“已修复并运行”“识别到但未完成”“设计限制”；不把未出现的问题写成本次发生的故障。报告中CPU结果、预训练模型结果、随机张量测试和真实数据训练分别标识。</p>
 <table>
 <thead>
@@ -246,7 +247,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_2">已有项目的审计与本次工程关系</h2>
+<h2 id="已有项目的审计与本次工程关系">已有项目的审计与本次工程关系</h2>
 <p>最终交付检查还发现Windows生成的CRLF与远端历史文本混用，使Git将行尾CR识别为尾随空白。项目增加 <code>.gitattributes</code> 固定文本LF，并在发布时统一换行；源码汇编在统一后的源码上计算哈希。视频原始输出为OpenCV的MPEG-4 Part 2，为提高常见浏览器/播放器兼容性，另以FFmpeg导出H.264/yuv420p并逐帧解码核对360帧、20 FPS、18秒；这属于交付格式处理，不改变原始模型计时。LibreOffice转换PPT时出现Python prefix提示及终端中文乱码，实际PDF文件存在、16页可渲染；以文件读取和逐页视觉检查为准。</p>
 <p>用户现有公开仓库 <a href="https://github.com/GBHLKYEric/ByteDance_stage_1">GBHLKYEric/ByteDance_stage_1</a> 已只读检查，未修改。它包含教学演示、配置和CelebA标注CSV。本次沿用另一个公开仓库，原名 <code>face_ai_project</code>，用户后来重命名为 <code>InternshipProgram-FacialRecognitionandSpecialEffectsTechnology</code>；没有覆盖 <code>ByteDance_stage_1</code>。旧脚本可以帮助理解张量/API，但下述结果不能作为原PDF科研要求已完成的证据。</p>
 <table>
@@ -296,11 +297,11 @@
 </tbody>
 </table>
 <p>审计是在说明证据范围，不否认演示代码的学习价值。科研报告可保留“早期原型”，但必须明确随机数据、手填数值和真实基准的差别。</p>
-<h2 id="_3">尚待解除的外部条件</h2>
-<p>当前仍缺300-W/COFW可完整验证的训练测试数据、可核验MS-Celeb-1M授权训练包、真实移动设备及鉴权云服务资源。自训ArcFace的98.5%数值目标未通过。后续已经取得完整CelebA并完成有限微调、已经安装Anaconda并运行XPU实验、已经完成两轮真实原生摄像头和完整OpenGL验收；这些不再列为资源缺失。完整WIDER训练按单独进度和最终报告验收。缺少外部条件时，不填补虚构数据、不购买未知服务、不伪造项目通过。</p>
-<h2 id="anacondaintel-xpu-opengl">续补：Anaconda、Intel XPU 与原生 OpenGL 的实际兼容问题</h2>
+<h2 id="尚待解除的外部条件">尚待解除的外部条件</h2>
+<p>当前仍缺300-W/COFW可完整验证的训练测试数据、可核验MS-Celeb-1M授权训练包、真实移动设备及鉴权云服务资源。自训ArcFace的98.5%数值目标未通过。后续已经取得完整CelebA并完成有限微调、已经安装Anaconda并运行XPU实验、已经完成两轮真实原生摄像头和完整OpenGL验收；这些不再列为资源缺失。完整WIDER一轮训练及全部验证已完成，COCO AP=0.055、small AP=0.001；低成绩如实保留，不以训练完成代替模型达标。缺少外部条件时，不填补虚构数据、不购买未知服务、不伪造项目通过。</p>
+<h2 id="续补anacondaintel-xpu-与原生-opengl-的实际兼容问题">续补：Anaconda、Intel XPU 与原生 OpenGL 的实际兼容问题</h2>
 <p>以下是继续执行后的结果。前面的表格与“尚待解除的外部条件”保留为早期过程记录；涉及本节项目时，以这里列出的实际验证和对应报告为准。例如，Anaconda 后来已安装，真人摄像头已完成两轮，完整网格也已经在原生 OpenGL 上显示，不能继续把这些项目写成未执行。其他数据训练是否完成，应分别核对相应实验报告。</p>
-<h3 id="anaconda-windows">Anaconda 安装与 Windows 路径</h3>
+<h3 id="anaconda-安装与-windows-路径">Anaconda 安装与 Windows 路径</h3>
 <p>Anaconda Distribution 2026.07-1 的安装器来自官方归档，SHA256 与官方记录一致，Authenticode 为 <code>Valid</code>。用户明确接受安装器与官方 <code>main</code> 包仓库的条款后才进入安装分支。安装后，基础环境是 conda 26.5.3 / Python 3.14.6，另建项目环境 Python 3.12.14。主 <code>.venv</code> 保留；它在此前已经可用，但其存在本身不能作为“安装过 Anaconda”的证据。</p>
 <table>
 <thead>
@@ -365,7 +366,7 @@
 </table>
 <p>最终物理安装目录为 <code>C:\Users\0\Documents\Codex\work\fv-ana-260926</code>，项目 conda 环境物理目录为 <code>C:\Users\0\Documents\Codex\work\fv-env-260926</code>。本线程的 <code>work/anaconda</code>、<code>work/conda-face-vision</code> 是指向它们的目录联接，不能声称软件仍物理存储在最初的长目录。</p>
 <p><a href="../reports/anaconda-environment.json">Anaconda 报告</a>记录了 conda 元数据、解释器路径、CPU autograd、YuNet 样图检测、真实 Jupyter 内核执行、Tk 隐藏窗口及 ImageTk 绑定。临时内核已关闭；验证没有打开摄像头。安装产生的本地 Jupyter TCP transport 提示保留在日志，不能替代检查实际内核是否执行成功。运行环境关系与完整命令见<a href="continued-experiments.html#7-把四类运行环境真正弄明白anaconda-安装启动与排错">继续实验教程第 7 节</a>。</p>
-<h3 id="intel-arc">Intel Arc：分别验证计算后端和图形后端</h3>
+<h3 id="intel-arc分别验证计算后端和图形后端">Intel Arc：分别验证计算后端和图形后端</h3>
 <table>
 <thead>
 <tr>
@@ -407,7 +408,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="opengl">原生 OpenGL 全网格与两轮摄像头验收</h3>
+<h3 id="原生-opengl-全网格与两轮摄像头验收">原生 OpenGL 全网格与两轮摄像头验收</h3>
 <p>早期 Tk 三维预览只取约 9,000 个面。完整重建数组虽然保留了 76,073 个三角面，抽样绘制仍会在可见表面留下孔洞。最终已删除该抽样渲染函数，桌面按钮默认调用新增的 <a href="../vision3d/native_viewer.py">native_viewer.py</a>，由 pyglet 2.1.16 创建原生 OpenGL 窗口，索引绘制全部面，以深度缓冲处理遮挡。Tk 与 OpenGL 各有事件循环，采用独立 <code>multiprocessing spawn</code> 进程和 Pipe，避免把 GL 上下文跨 Tk 线程使用。初始化失败会报告错误，不把未验证的回退路径写成已验收功能。</p>
 <table>
 <thead>
@@ -454,7 +455,7 @@
 <p>官方元数据初查脚本还曾把带 <code>dev1</code> 的预发布版本字符串转换为整数排序，产生 <code>ValueError</code>；随后直接读取 <code>2.1.16</code> 的版本特定 PyPI JSON，保留确切稳定版本，不再依赖该排序。完整 BSD 许可证已保存在 <code>vision3d/licenses/pyglet-2.1.16-LICENSE.txt</code>。</p>
 <p>摄像头首轮保存为 <a href="../reports/desktop-camera-first.json">desktop-camera-first.json</a>：20.0601 秒、149 帧、7.4277 FPS，149 帧均检出人脸。第二轮保存为 <a href="../reports/desktop-camera.json">desktop-camera.json</a>：20.0267 秒、316 帧、15.7790 FPS，但只有 49 帧检出人脸，267 帧未检出。第二轮检出脸组的延迟中位数/P95 为 161.4576/198.4104 ms；未检出组为 40.5979/61.0161 ms。这些分层已由独立分析脚本复核，详见<a href="desktop-guide.html">桌面教程</a>。</p>
 <p>两轮背景负载和画面中的检测条件不同，没有受控 A/B 实验；第二轮总体 FPS 较高不能写成算法优化已经带来提速。分层依据是检测器输出，不是逐帧人工标注；“未检出”不等于确认画面无人，检出帧比例也不是检测准确率。</p>
-<h3 id="_4">后续集成与交付过程中发现的真实问题</h3>
+<h3 id="后续集成与交付过程中发现的真实问题">后续集成与交付过程中发现的真实问题</h3>
 <table>
 <thead>
 <tr>
@@ -482,12 +483,12 @@
 <tr>
 <td>输入法在项目内意外生成 <code>%SystemDrive%/ProgramData/SogouInput/...</code> 两个 <code>.bin</code> 文件，早期桌面副本包含了它们</td>
 <td>交付过滤原先没有排除这个异常目录。加入精确 Git/Docker 忽略规则；根据旧复制清单的 SHA256 确认桌面文件确为本轮复制后，将两份桌面副本可逆移到 <code>work/excluded-desktop-copy</code></td>
-<td>原项目中的输入法文件保留未改，两个文件从未推到 GitHub；重新生成桌面交付清单。此项是源码交付过滤问题，不能把输入法缓存算作项目源码，也不因此清理其他应用的数据</td>
+<td>原项目中的输入法文件保留未改，两个文件从未推到 GitHub；重新生成桌面交付清单。随后删除桌面副本中空目录的操作被自动审批以<code>blocked by policy</code>拒绝；保留空目录，未改用另一种方式重试，不影响源码运行。此项是交付过滤问题，不因此清理其他应用的数据</td>
 </tr>
 </tbody>
 </table>
 <p>PNG 并发读写这一故障也说明“文件路径存在”并不等于“文件已经写完”。与其用固定睡眠猜测完成时间，进程之间应交换完成回执，并在复用同一路径前结束本次读取；这与模型是否预测正确是两个层面的问题。</p>
-<h2 id="_5">续补：真实训练、评估协议与交付过程</h2>
+<h2 id="续补真实训练评估协议与交付过程">续补：真实训练、评估协议与交付过程</h2>
 <p>以下条目来自实际日志、源码修复和复跑报告。失败原因尚未被单因素验证时，只报告观察与处理，避免把猜测写成唯一根因。</p>
 <table>
 <thead>
@@ -576,10 +577,18 @@
 </tbody>
 </table>
 <p>最终GitHub提交、源代码压缩包、桌面副本与文档校验以交付清单记录的同一版本为准。所有示例界面截图只含公开NASA样图；摄像头报告只有计时、帧数和状态，不含图像。版本锁定文件记录本机实际组合，而不是建议新电脑同时把所有版本装入一个环境。</p>
-<h2 id="_6">最终定向审查中的四项修复</h2>
+<h2 id="最终定向审查中的四项修复">最终定向审查中的四项修复</h2>
 <ol>
 <li>单帧相机推理异常曾落到线程最外层，使工作线程永久退出。现对每帧读取/推理局部捕获、释放摄像头并发普通error，保持线程接收后续图片与重开命令；真正初始化fatal明确提示关闭重开且拒绝继续排队。假相机触发一次推理异常后，下一张图片实际被处理，回归通过。</li>
 <li>双图验证先改camera_active、后读文件，坏图可让界面说停止而设备仍采集。现先完整读取校验两图，再停止测量与切换任务；坏图回归确认相机状态与队列均不被改变。包含此前旧帧覆盖错误的检查，主测试集共7项通过。</li>
 <li>录像按时间推进可能在模型缺失或处理缓慢时跳过结果。现每场景检查实际已显示效果、验证结果、GAN结果或GL绘制/旋转回执；完成后才计展示时长，45秒未完成则失败。最终视频216帧/43.2秒，11场景都有completed_frame，all_scenes_acknowledged=true，逐帧解码计数一致。</li>
 <li>编码器close抛错可能跳过应用清理。现finish幂等，try/finally保证app.close，用户关闭窗口也走同一收尾；正常录制已验证摄像头未打开、worker与子进程释放，编码失败分支的保证来自明确finally控制流而非虚构故障实测。</li>
-</ol></body></html>
+</ol>
+<p>新增Pillow/pyglet与属性接口后，旧Docker镜像的验证不能自动覆盖当前源码。因此另以两CPU限额重新构建<code>face-vision-lab:desktop-integration</code>，六模式、覆盖层、数值和哈希检查通过；<code>reports/docker-lab-current.json</code>记录新镜像ID与源码匹配。该容器仅含CPU核心，GAN权重缺失时明确拒绝，不宣称包含桌面摄像头或三维功能。</p>
+<p>最终复现审查还发现：<code>setup_xpu.ps1</code>原来只安装XPU版torch与torchvision，本机依靠此前补装的torch-fidelity完成了评估，但新环境照抄原脚本会在FID/IS处缺包。现脚本在固定XPU构建之后从普通PyPI安装<code>torch-fidelity==0.4.0</code>，第8节给出同一XPU解释器的命令；PowerShell语法解析通过，当前环境实际导入三个版本和<code>pip check</code>通过，没有为了验证语法重装环境。两处StarGAN单图命令也从不存在或不适合中心裁剪的图片改为已准备的CelebA对齐图，并注明数据准备前提。</p>
+<h2 id="完整wider最终计时与评估补充">完整WIDER最终计时与评估补充</h2>
+<p>最终打包时，<code>reports/wider-monitor-stderr.txt</code>中的原始终端进度条不是UTF-8，按UTF-8读取触发<code>UnicodeDecodeError</code>。这不是模型评估失败。发布程序改为通过Git的base64 blob原样保存该文件的字节，不猜测编码、不用替换字符破坏日志；源码、教程和结构化JSON仍按UTF-8处理。源文件检查通过，自动生成的SVG及原始进度条含格式空白，未为了消除空白提示而改写原始记录。</p>
+<p>本地HTML的七处中文章节跳转也曾失效：Markdown转换器默认生成ASCII锚点，但链接沿用GitHub的中文章节名。现显式使用<code>slugify_unicode</code>保留中文标识，重建HTML后逐一检查目标锚点；这类故障需检查页面内部的ID，不能只确认文件存在。</p>
+<p>本次容器从 2026-09-26T13:38:35.320027448Z 运行到独立评估完成的 2026-09-27T03:18:09.666022+00:00，记录的UTC时间戳之差为 49174.3 秒。内部 runner.train() 记录 7960.1516 秒，其中包含第一次完整验证；显式第二次验证记录 984.2750 秒。这两个值都不是纯训练时间。日志还观察到墙钟回跳，因此UTC跨度只用于说明日历等待范围，不能代替单调时钟性能测量。</p>
+<p>三组捕获的 Modern Standby 进入→退出区间为：2026-09-26 14:37:21.632Z→16:07:55.544Z、17:05:44.836Z→19:03:55.968Z，以及19:03:55.980Z→2026-09-27 02:46:07.219Z；合计 40256.283 秒，约11小时10分56秒。前两次进入原因是Lid；第三次进入为数字16777220，未擅自解释。这些是观察到的事件区间，不是完整电源历史，也不证明每一毫秒CPU都停止。本机WSL的perf_counter没有累加全部长待机，因此不能拿内部计时冒充用户实际等待时间。首次一次性监护因8小时超时退出，训练容器仍继续；旧状态保留后重新监护已有进程，未重训。最终监护完成，临时SYSTEM_REQUIRED请求已释放；没有改变电源计划，手动睡眠始终优先。</p>
+<p>COCO单进程汇总期间仍有持续CPU累积，未将缓慢误判为卡死，未降低maxDets以改变评估。实际摘要的bbox AP使用maxDets100，AP50/AP75和尺寸AP使用1000；不能统一写成每行都是1000。最终WIDER难度协议与固定参考交叉检查通过。日志字段<code>coco/face_precision</code>在此表示face类AP@maxDets1000，并非某个置信度下的Precision，也不能仅因四舍五入相同就混同bbox AP；工作点Precision/Recall另取官方协议报告。</p></body></html>
